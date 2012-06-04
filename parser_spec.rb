@@ -175,7 +175,8 @@ describe Parser do
                :replace_author, :replace_commandname, :replace_method, :replace_emph,
                :replace_sidebar, :replace_filename, :replace_keyword, :replace_ref,
                :replace_sect1, :replace_sect2, :replace_sect3, :replace_quotes, :replace_class,
-               :replace_ic, :escape_symbols, :replace_selfclosing_code, :replace_figure, :replace_imagedata]
+               :replace_ic, :escape_symbols, :replace_selfclosing_code, :replace_figure, 
+               :replace_imagedata, :replace_thead, :replace_table_headers]
     
     methods.each do |method|
       @parser.should_receive(method)

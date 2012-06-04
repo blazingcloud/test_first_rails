@@ -206,6 +206,8 @@ class Parser
   
   def replace_all
     change_doctype
+    replace_thead
+    replace_table_headers
     replace_constant
     replace_chapter
     replace_title
@@ -236,7 +238,3 @@ class Parser
   end
    
 end
-
-parser = Parser.new
-parser.load("chapter.xml")
-parser.replace_table_headers
