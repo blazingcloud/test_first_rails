@@ -1,0 +1,842 @@
+<?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
+<!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
+<chapter id="ch.ruby-intro">  
+  <title>An Introduction to Ruby</title>
+  
+    <p>In this book, you will learn just enough Ruby to build Rails
+    applications, but we highly recommend diving deeper into the language with Chris Pine’s Learn to Program in Ruby or
+    Programming Ruby by our very own publishers Dave and Andy,
+    along with Chad Fowler<footnote><p>Chad Fowler started the very first U.S. RubyConf in 2001, which he still
+    co-organizes along with RailsConf.</p></footnote>.
+    Chris Pine’s book is written for non-programmers, but many experienced programmers find it a fun way to learn the
+    language. Programming Ruby, also known as “the Pickaxe book” for the its cover art, is the definitive reference to the language. It was the first English-language
+    book about Ruby, and has been enthusiastically kept up to date.
+    </p>
+    <joeasks>
+    <title>What’s an Object?</title>
+<p>
+Objects allow us to associate data with code that acts on that data. Every object is an <firstuse>instance</firstuse>
+of a class.  In other words, one class can provide a structure we use over and over again to make many objects. We make
+objects from a class like we make a house from a blueprint. Each house we make has a color, a neighborhood, lights that
+turn on and dishes to be cleaned.  Some houses that we make might be red, others brown, but we still need only that one
+blueprint to know how to create the structure.  Once the house is built, we can perform actions like turning on the
+lights or doing the dishes. When we define these actions in a class, we call them <firstuse>methods</firstuse>.</p>
+<p>Ruby's built-in classes allow us to do all kinds of great things, but they provide only general-purpose
+functionality.  Most of the time we need to create our own classes so that our applications can do what we need them to
+do. As an object-oriented language, Ruby allows Rails to provide powerful classes that encapsulate common patterns of
+  web application development. We often create our own classes or <firstuse>sublcass</firstuse> core Rails classes,
+  extending them with custom behavior.<ed>THis section feels like it belongs in the "before you start" chapter. It
+  doesn't fit with "who should read this book"</ed><author>Sarah: After trying it everywhere else, I think it belongs
+  back here. Also re-wrote it some, so hoping it works better now.</author></p>
+
+    </joeasks>
+    <sect1 id="ruby.lang.tools.syntax">
+      <title>Using <commandname>irb</commandname> to Explore the Ruby Language</title>
+        <p>
+             Ruby comes equipped with <commandname>irb</commandname>, which stands for &lquot;Interactive RuBy&rquot;. It allows us to see how Ruby will interpret our code and is a valuable tool in our programmer toolbox.  We will be using <commandname>irb</commandname> throughout this chapter to see our code through Ruby's eyes. 
+        </p>
+        <p>  
+            To access <commandname>irb</commandname>, we type <commandname>irb</commandname> into the command line.  This command gives us a prompt with an angle bracket &lquot;>&rquot; where we can type in Ruby code.  Don’t worry if your command prompt looks a little different — it can be modified with configuration.
+             Here’s an example of <commandname>irb</commandname> in action:
+             </p>
+             <code language="session">
+               $ irb
+               > 1 + 1
+             </code>
+             <p>
+               Now when we click enter, Ruby will evaluate 1 + 1 and <commandname>irb</commandname> will show us what it returns:
+             </p>
+             <code language="session">
+               => 2
+             </code>
+             <p>
+           Every time we ask <commandname>irb</commandname> to evaluate an expression, it will tell us the result of the evaluation.  
+          </p>
+          <p>
+            Let's move on to exploring some common Ruby idioms using <commandname>irb</commandname>
+          </p>
+      <sect2 id="ruby.poetry.syntax">
+            <title>Poetry Syntax</title>
+          <p>
+          There are many reasons to love Ruby. One of them is its concise and sometimes poetic syntax. Forget about
+          separating expressions with semi-colons and curly braces – we don’t need to in Ruby.   We won’t always wrap our arguments in parentheses unless we need them to indicate precedence.  Let's open up a terminal and type <commandname>irb</commandname>. Then try this out:
+          </p>
+
+          <code language="ruby">
+            > def combo thing1, thing2
+            ?>   thing1 + " and " + thing2
+            ?>   end
+             => nil
+          </code>
+
+          <code language="irb">
+            > combo "peanut butter", "jelly"
+            => "peanut butter and jelly" 
+            > combo("pork chops", "applesauce")
+            => "pork chops and applesauce"  
+          </code>
+
+          <p>
+          We defined the <method>combo</method> method without parentheses around our parameters and the first time, we called
+          <method>combo</method> we omitted parentheses around the arguments.  This is absolutely legal in Ruby and is
+          called <emph>poetry syntax</emph>. 
+          </p>
+          <sidebar id="side.dsl">
+            <title>Domain Specific Languages</title>
+            <p>
+              The flexibility of Ruby’s syntax makes it a popular language for the creation of <firstuse>domain-specific
+              languages</firstuse> (DSLs).  There are <firstuse>external</firstuse> DSLs like SQL, which are
+              domain-specific languages that are implemented using a different language and
+              <firstuse>internal</firstuse> DSLs which sit on top of another language, extending its syntax to the
+              extent that it feels like a new language.</p>
+              <p>Ruby’s poetry syntax and a few other language tricks allow Rails, RSpec and other Ruby DSLs to do a lot with
+              very little code.  Understanding the difference between Ruby and DSLs written in Ruby gives us the power
+              to quickly understand what code is doing. We will talk more about DSL's in our discussion of RSpec in <ref
+              linkend="ch.rspec-intro"/> and Rake in <ref linkend="ch.rake"/>.
+            </p>
+          </sidebar>
+    </sect2> 
+    
+    <sect2 id="ruby.objects">
+     <title>Everything Is an Object</title>
+  
+
+     <code language="irb">
+     > "too big for my britches".upcase
+      => "TOO BIG FOR MY BRITCHES"
+     </code>
+
+     <p>
+        The quotation marks in &lquot;too big for my britches&rquot; create an instance of the
+        <class>String</class> class where the <method>upcase</method> method is defined.  In some other languages strings and
+        numbers are handled specially, but with Ruby they are objects created from built-in classes like <class>String</class>,
+        <class>FixNum</class> and <class>Float</class>. Ruby also has built-in collections <class>Array</class> and
+        <class>Hash</class> with a wide range of methods that you might have to build yourself in some old-school languages. 
+       </p>
+    </sect2>
+    
+    <sect2 id="ruby.operators">
+      <title>Ruby Operators Are Methods</title>
+      <p>Ah, Ruby...always doing things with a bit of glitz.  Ruby operators are no different.  Most languages have
+      operators built into the language as structures of their own.  Ruby defines methods in the <class>FixNum</class>
+      and <class>Float</class> classes in order to get <method>+</method>, <method>-</method> and other operators...just
+      like how <method>upcase</method> is defined on the <class>String</class> class.  This works because methods are
+      just messaged in Ruby, and operators work the same way.  Let's check it out in <commandname>irb</commandname>.</p>
+      <code language="session">
+      > 1 + 1
+      => 2
+      </code>
+
+             <code language="irb">
+               > 1.+(1)
+               => 2
+             </code>
+
+             <p>We can see that the plus symbol is actually a method called on a number object.  When we use the plus
+             symbol without the dot Ruby is actually calling the <method>+</method> method behind the scenes.  Ruby gives us some syntactic sugar so that we can write code that looks like the math we learned in Kindergarten without dots.</p>
+
+      			 <p>Other Ruby operators like <ic>-</ic>, <ic>*</ic>, and <ic>/</ic> are also methods and work similarly:</p>
+
+<code language="irb">
+> 2.* 4
+=> 8 
+> 9./ 3
+=> 3 
+</code>
+
+    </sect2> 
+  </sect1>
+
+  <sect1 id="sec.ruby.class">
+    <title>Building Our Own Class</title>   
+     <p>
+      The class we are about to build is very simple.  We are going to create a <class>Person</class> class that has a <method>full_name</method> method.  We will use this method later in Rails application that we build.  Let's get started!
+     </p>
+    
+    <sect2 id="giving_people_full_names">
+    <title>Giving People Full Names</title>
+    <p>The <method>full_name</method> method of our <class>Person</class> class will
+    eventually concatenate different parts of our name together. We’ll start in this chapter by building just one method
+    interactively, then we’ll test drive the other methods in the class in the next chapter.  With our <class>Person</class> class, we’ll be able to make objects that respond the same way but have
+       different data.
+    </p> 
+    
+      <p>
+      Before we get started writing code, we’ll need a file. Ruby files end with a &lquot;.rb&rquot;
+      extension.  By convention we’ll name our file <filename>person.rb</filename> after the class we plan to write, but
+      it could be called <filename>super_full_name_maker.rb</filename> and it would still work.
+    </p>
+    </sect2>
+    
+    <sect2 id="person_object">
+    <title>Creating Our Person Object</title>
+    <code language="irb">
+    $ irb
+    > Person
+    NameError: uninitialized constant Object::Person
+      from (irb):1
+    </code>
+
+    <p>
+      In Ruby, classes are constants.  When typing <ic>Person</ic> above, Ruby knows that there isn’t currently a
+      <class>Person</class> class, so it throws a <constant>NameError</constant> telling us that the
+      <class>Person</class> constant doesn’t exist. Ruby is case-sensitive and names that start with a capital
+      letter are interpreted as constants. By convention, class names are camel case and all other constants are all caps.
+    </p>
+    
+    <p>
+      Let’s try again after loading <filename>person.rb</filename>.  Remember we just created the file, but it is
+      still empty. We will see what happens just when we load a file in <commandname>irb</commandname>:
+    </p>
+    <code language="irb">
+    > load 'person.rb'
+     => true 
+    </code>
+
+    <p>
+      Loading <filename>person.rb</filename> reports true since it was able to successfully load the file and evaluate
+      the nonexistant contents of the file as Ruby code. However <class>Person</class> is still not defined:</p>
+    <code language="irb">
+    > Person
+    NameError: uninitialized constant Person
+      from (irb):2
+    </code>
+    <code file="code/full_name/person.rb" part="class"/>   
+    <p>
+       Our code can now create <class>Person</class> objects.  We need to load the file again every time we make
+       a change, and we can see that the class <class>Person</class> is defined:  
+    </p>
+<code language="irb">
+> load 'person.rb'
+=> true 
+> Person
+=> Person
+</code>
+<p>Let's
+       create an object from our class with the <method>new</method> method:</p>
+    <code language="irb">      
+      p = Person.new
+       => #<Person:0x10044c6a8>
+    </code>
+    
+     <p>
+       Our new Person object’s is returned and stored in the variable <ic>p</ic>. The whole expression evaluates to the
+       value of the varable <ic>p</ic>, so <commandname>irb</commandname> displays a text representation of the object,
+       which includes its class, <class>Person</class>, and an encoded version of the object’s id (0x10044c6a8).  If we make more objects of the <class>Person</class> class, each one will have a unique object id.  We haven’t defined any methods in our <class>Person</class> class, yet look at our output when we ask our <class>Person</class> object for its methods:
+     </p>
+<code language="irb">
+> p.methods
+ => [:nil?, :===, :=~, :!~, :eql?, :hash, :<=>, :class, :singleton_class,
+ :clone, :dup, :initialize_dup, :initialize_clone, :taint, :tainted?, 
+ :untaint, :untrust, :untrusted?, :trust, :freeze, :frozen?, :to_s, :inspect,
+ :methods, :singleton_methods, :protected_methods, :private_methods, … 
+ :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__] 
+</code>
+     </sect2>
+     
+     <sect2>
+     <title>Defining the <method>full_name</method> Method</title>
+
+     <code language="irb">
+     > p.full_name
+     NoMethodError: undefined method `full_name` for #<Person:0x10045f0a0>
+       from (irb):19
+     </code>
+
+     <p>
+       This time our error message is a <constant>NoMethodError</constant>.  It tells us that currently the
+       <method>full_name</method> method is not defined.  Now we can edit
+       <filename>person.rb</filename> so that it has a <method>full_name</method> method. For starters, we
+       won’t make the method do anything, we’ll just define an empty method to understand how it behaves:
+     </p>
+    <code file="code/full_name/person.rb" part="define_method"/>   
+     <p>
+       When we reload <filename>person.rb</filename> and call the <method>full_name</method> method, nil is returned.
+     </p>
+     
+     <code language="irb">
+     > p.full_name
+      => nil
+     </code>
+     
+     <p>Earlier we learned that everything in Ruby returns something.  Our <method>full_name</method> method
+     returns nil because all empty methods return nil. <ic>Nil</ic> isn’t some special case literal, it is an
+     <class>Object</class>
+     just like everything in Ruby. We can see in <commandname>irb</commandname> that <ic>nil</ic> is an instance of <class>NilClass</class>
+     and we can even call methods on it:</p>
+<code language="irb">
+>> nil
+=> nil
+>> nil.class
+=> NilClass
+>> nil.nil?
+=> true
+</code>     
+     <p>If we want it to return a value other than nil, say the string &lquot;Jane Smith&rquot;, we can put our string inside of our method and Ruby will return the string when we call <method>full_name</method>.</p>
+
+     <code file="code/full_name/person.rb"/>
+     <p>Ruby methods return the last expression evaluated automatically so we don't need to use the
+     <keyword>return</keyword> keyword (though we can if we want to).  Now our <method>full_name</method> method
+     should return the string &lquot;Jane Smith&rquot; instead of <ic>nil</ic>.  Let's try it out: </p>
+
+     <code language="irb">
+      > load 'person.rb'
+      => true
+      > p = Person.new
+      => #<Person:0xb77e5fd8>
+      > p.full_name
+       => "Jane Smith"
+     </code>
+     
+     <p>We reloaded the file again so that <commandname>irb</commandname> knows about our changes.  We can see that our
+     <method>full_name</method> method now returns our string as we had hoped.</p>
+     </sect2>
+<sect2>
+<title>Object Construction</title>
+<p>Our code would be working great if all of our users were named &lquot;Jane Smith&rquot;. Of course our users will have a variety of names, so we need a more intelligent solution.  We know that each person we create must have a name.  Given this knowledge, let's give each person a name when their <class>Person</class> object is first created.</p>
+<p>Ruby has a special <method>initialize</method> method that allows us to execute code whenever a new object is instantiated.  Often the <method>initialize</method> method is used to set up attributes for an object.  In our case we want to put data into attributes for a person's name. Let’s add an <method>initialize</method> method to our <method>Person</method> class:</p>
+     <code file="code/full_name/person_initialize.rb" part="one"/>
+<p>Then let’s see it in action:</p>
+<code language="irb">
+> load 'person.rb'
+=> true
+> p = Person.new
+> p = Person.new
+Hello! I am being created at 2011-04-02 14:54:20 -0700.
+=> #<Person:0x00000100ac1e48> 
+</code>
+     <code file="code/full_name/person_initialize.rb" part="two"/>
+<p>and Ruby will then require an argument for new:</p>
+<code language="irb">
+> load 'person.rb'
+=> true
+>> p = Person.new
+ArgumentError: wrong number of arguments (0 for 1)
+	from (irb):5:in `initialize'
+	from (irb):5:in `new'
+	from (irb):5
+</code>
+<p>which we can provide just like any other method argument:</p>
+<code language="irb">
+>> p1 = Person.new("Sacajawea")
+Sacajawea is being created.
+=> #<Person:0x1011d6e18>
+>> p2 = Person.new("Teller")
+Teller is being created.
+=> #<Person:0x1011c34f8>
+</code>
+<p>We've made good progress, but our <method>full_name</method> will still report “Jane Smith” for every object. What we really want to do is to save that data inside each object to reference later.  Let's do that next.</p>
+</sect2>
+<sect2>
+<title>Storing Data with Objects</title>
+<p>A core concept of object-oriented programming is data encapsulation. We hide the details of the implementation of our
+objects inside classes. We make some data available externally and some data remains private. We store data inside of our
+objects in <firstuse>instance variables</firstuse>.  We tell Ruby that a variable is an instance variable by putting a
+<emph>@</emph> before the variable.  A variable without the <emph>@</emph> will only be available within the scope of
+the method that uses it. </p>
+<p>For example, if we try to just use the <ic>name</ic> variable that we have in <method>initialize</method> in
+another method:</p>
+     <code file="code/full_name/person_instance_variable1.rb" part="one"/>
+
+<sect1> 
+      <code language="ruby">
+         class Person < ActiveRecord::Base
+         end
+      </code>
+	
+      <p>We now know that this Rails model is really just a Ruby class.  The <class>Person</class> class inherits from the <class>ActiveRecord::Base</class> class. </p>
+      
+      <p>When we see code like:</p>
+	
+      <code language="ruby">
+      belongs_to :user
+      </code>
+    <p>We might be able to guess that <method>belongs_to</method> is a Ruby method making use of Ruby’s allowance of
+    omitted parentheses. The symbol <ic>:user</ic> is an argument to the method. </p>
+
+
+
+<p>Since Ruby is an interpreted language, we have had an opportunity to play with code in the Interactive Ruby
+environment, <commandname>irb</commandname>. Our <commandname>irb</commandname> exploration has given us a taste of what
+testing our code will be like. We’ve learned to read and understand the error
+    messages <ic>NameError: uninitialized Constant</ic> when a class doe not exists and <ic>NoMethodError</ic> if we
+    call a method that doesn’t exist. We will see these errors frequently as we use RSpec to test drive Rails, and being familiar with them will help to us in our development. 
+
+
+We have learned the basics of Ruby that we will need to understand RSpec in the next chapter and Rails in later chapters.  With our new understanding of the fundamentals, it’s time to move on and learn how to write Ruby code <emph>test first</emph>. </p>
+    
+</sect1>
+</chapter>
+
+<chapter id="ch.controllers">
+  <title>Exploring Routes and Controllers</title>
+  <p>In <ref linkend="ch.firstapp"/>, we learned
+  about views, how Embedded Ruby templates let us declare the visual part of our web user interface. Then we learned about the model, in  <ref linkend="ch.activerecord"/> and <ref
+  linkend="ch.activerecord-rspec"/>.  Now we’ll learn about how routes and
+  controllers string our views together, letting us specify the
+  interactive part of our user interface.</p><p> As we did with ActiveRecord, we’ll start by exploring interactively,
+  but now we can use the browser to see how our code responds. Let’s take another look at the pages
+  that scaffold made for our <class>Person</class> model. Making sure we’re in our
+  <dir>class_app</dir> directory, we
+  type <commandname>rails s</commandname> to run the server. The index page shows a list of people:</p>
+  <p><url>http://localhost:3000/people</url></p>
+  <p>From there, we can click the “New Person” link to go to a web form to fill in data for a
+  new person to add to our database:</p>
+  <p><url>http://localhost:3000/people/new</url></p>
+  <p>Then when we fill in the name fields and click “Create” to submit the form, which sends an HTTP POST to:
+  <ic>http://localhost:3000/people</ic> and then redirects to:</p>  
+  <p><url>http://localhost:3000/people/4</url></p>
+
+    <p>In Rails, a <emph>route</emph> specifies how an incoming URL calls our code. Routes are like street signs that point to destinations.  When someone accesses a URL of a Rails web
+    application, Rails uses the routes specified in <filename>config/routes.rb</filename>.  This file
+    contains a mapping of each URL to our Ruby code which decides what to do. </p>
+<p>When we created our app with <commandname>rails new</commandname> the <filename>routes.rb</filename> file was created with no
+routes defined. The routes file looks almost like a configuration file — it is even kept in the config directory;
+however, it is
+executable Ruby code. At first glance the file seems lengthy because Rails includes some in-line documentation in the
+form of comments that show different example routes, but there is really just a single method call with a
+configuration block. When we ran the scaffold generator, it modified this file to add
+just one <ic>resources</ic> declaration: </p>
+<code file="code/class_app_new/00_controllers/config/routes.rb"/>
+<p>From that one line, we defined 7 routes which we explored interactively in <ref
+linkend="sec.scaffold-rest-mvc"/>.
+The <ic>resources</ic> method provides a nice shortcut for defining all of the standard REST routes; however, to use Rails effectively we need to understand what’s really going on. We’ll build a similar set of routes and corresponding controller behavior for our
+<class>Course</class> model one step at a time.</p>
+<sect1>
+<title>Responding to a URL Request</title> 
+ 
+  <p>When we go to <url>http://localhost:3000/people</url>, the browser sends the HTTP
+  request <ic>GET /people</ic> to the server running at <ic>localhost</ic> (listening on port 3000). If the server were a plain old web server, it
+  would just respond with the contents of the default file in the
+  <dir>people</dir> directory, usually
+  <filename>index.html</filename>. Our Rails app dynamically
+  determines what page to send back to the browser.</p>
+<p>We’ll follow an HTTP request from typing an URL into the browser
+through a route to learn about the code we need to write to make it work, starting with a page to display a single
+<class>Course</class> model. Let’s start by browsing to the URL we haven’t
+built yet and see what happens. Let’s point our browser to a new, arbitrary url:
+<url>http://localhost:3000/my_course</url>. We see the routing
+error shown in <ref linkend="fig.routing-error" />. Go ahead and try it. </p>
+<figure id="fig.routing-error">
+  <title>We Have Not Yet Specified Where the URL Goes</title>
+  <imagedata fileref="images/controllers/routing-error.png"  />
+</figure>
+<p>This error tells us that the URL <ic>/my_course</ic> is not hooked up to anything. There is no <emph>route</emph> into the app
+that matches that string.</p>
+<sect2>
+<title>Let’s Create a Route</title>
+<p>A route maps an external URL to internal code, so the route has two parts. The first is the path section of the URL, the part after the hostname and port, in our example
+it’ll just be <ic>my_course</ic>. The second part references what code it calls, which is usually a method of a controller class.
+We’ll hook up <url>http://localhost:3000/my_course</url> to the <method>show</method> method of our not yet written
+<class>CoursesController</class> class. We’re using the standard Rails naming convention for the controller action that
+displays a single record. Later we’ll learn how to implement the standard URL name with a parameter, but we’ll focus first on how a very simple
+route works.
+Let’s comment out the <ic>resources</ic> line so we can focus on our new
+route:</p>
+<code file="code/class_app_new/01_controllers/config/routes.rb"/>
+<joeasks>
+<title>How does the Match Method Work?</title>
+<p>Let’s learn a little more Ruby to understand how the match method works.</p>
+<code language="irb">
+$ rails c
+> result = "courses#show".split('#')                        
+ => ["courses", "show"] 
+> controller_name = result[0].camelize + "Controller"
+ => "CoursesController" 
+</code>
+<p>First we call <method>split</method>, which is a Ruby <class>String</class> method, to get the two components. Then
+we took the first component and call <method>camelize</method> which is a <emph>Rails</emph> <class>String</class> method. Rails
+adds a lot of useful methods to the core Ruby classes. </p>
+</joeasks>
+
+<p>The routes syntax is chock full of shortcuts, so it looks more like a config file than source code. Remembering our Ruby syntax, we can see that it is actually calling the <ic>match</ic> method
+and passing it a <ic>Hash</ic> parameter that has a single key-value pair with <ic>"my_course"</ic> as the key and
+<ic>"courses#show"</ic> as the value.</p>
+<p>Rails applies a
+naming convention that many programmers already know — the Rails routing
+syntax of “class#method” is also used in Ruby’s RDoc and ri documentation tools, as well as
+Javadocs and documentation tools for other languages.  So, <ic>courses#show</ic> means
+that we’ll be creating a <class>CoursesController</class> with a <method>show</method> method to be called when someone browses to
+<ic>/my_course</ic>.</p>
+<sect3>
+<url>http://blog.hasmanythrough.com/2007/7/3/check-out-your-routes</url>. If you find yourself wanting a debugging tool,
+you might consider experimenting in Ruby, making something useful and adding it to Rails yourself.</p></footnote> originally shows some of the built-in features along with the controller and
+action names that we specified explicitly. As part of the URL, we can see the <ic>:format</ic> option.
+By default, a request will be assumed to be of <ic>html</ic> format, but this request will respond to <ic>/my_course.html</ic>
+explicity or an alternate format like <ic>/my_course.xml</ic> or <ic>/my_course.txt</ic>. Our controller action can provide alternate behavior,
+based on the format of the request.</p>
+<p>At the beginning of the line is an internal method name that has been defined for us — actually it’s just part
+of a method name. The command <commandname>rake routes</commandname> prints <ic>my_course</ic>,
+but there are actually two methods <ic>my_course_path</ic> and <ic>my_course_url</ic>. Let’s hop into <commandname>rails
+console</commandname>
+and check that out:</p>
+<code language="irb">
+$ rails c
+Loading development environment (Rails 3.0.1)
+>> app.my_course_path
+ => "/my_course" 
+>> app.my_course_url
+ => "http://www.example.com/my_course" 
+</code>
+<p> In <commandname>rails console</commandname> we use the <ic>app</ic> object to call these helper methods
+interactively, but we can call them directly in our views and controllers.</p>
+</sect3>
+<p>We can change the name of the method by annotating the route. In our case, we’re using a non-standard name for the
+route to our show page, so let’s annotate it with the standard path “course” which is just the model name:</p>
+<code file="code/class_app_new/02_controllers/config/routes.rb"/>
+<p>We can see the change when we call <commandname>rake routes</commandname>:</p>
+<code language="session">
+$ rake routes
+course  /my_course(.:format) {:action=>"show", :controller=>"courses"}
+</code>
+<p>By using a standard name, we can now use another Rails URL helper that is built to help us
+manage a <emph>resource</emph>, which just means that we can think about and interact with a model rather than
+remembering the specific URLs that we’ve set up for it.  Check this out:</p>
+<code language="irb">
+$ rails c
+Loading development environment (Rails 3.0.3)
+>> c = Course.first
+ => #<Course id: 1, title: "Creative Writing", description: "Learn to write…
+>> app.url_for(c)
+ => "http://www.example.com/my_course.1" 
+</code>
+<p>We can call <ic>app.url_for</ic> with a model and it automatically plucks the id from the model and creates a path
+from the route that maps to the name of the model. We haven’t yet told it how we want to accept the id as a parameter,
+so it just tacks it on the end. When we learn more about where routes lead to and to work with parameters,
+we’ll come back and fix up our route.</p>
+
+<figure id="fig.missing-courses-controller">
+  <title>We Have a Route but no Controller</title>
+  <imagedata fileref="images/controllers/missing-courses-controller.png" />
+</figure>
+
+<p>When we refresh our browser, we see the error shown
+in <ref linkend="fig.missing-courses-controller"/>: <ic>uninitialized constant CoursesController</ic>. We know that
+classes are constants in Ruby, so when the <class>CoursesController</class> can’t be found, we
+get a general error that the <emph>constant</emph> is not initialized. Ruby is actually telling us that we have not yet defined
+a <class>CoursesController</class> class.</p>
+</sect2>
+</sect1>
+<sect1>
+
+<figure id="fig.unknown-action">
+  <title>We need to define a Controller action</title>
+  <imagedata fileref="images/controllers/unknown-action.png" />
+</figure>
+
+</sect1>
+
+<figure id="fig.here-i-am">
+  <title>A simple view</title>
+  <imagedata fileref="images/controllers/here-i-am.png"  />
+</figure>
+<p>Let’s take another look at the Rails log, which is output in the terminal window where we are running <ic>rails
+server</ic>. We can now understand what is happening in the text that is spewed out for every request:</p>
+<code language="session">
+Started GET "/my_course" for 127.0.0.1 at 2011-05-01 15:12:40 -0700
+  Processing by CoursesController#show as HTML
+Rendered courses/show.html.erb within layouts/application (59.7ms)
+Completed 200 OK in 100ms (Views: 99.3ms | ActiveRecord: 0.0ms)
+</code>
+
+
+<p>The log only shows the parameters that come from the browser. Any query argument we add to the URL will be added to
+the <ic>params Hash</ic> along with the internal parameters of controller and action name. Try
+it. <ref linkend="fig.params-query" /> shows an example with the query arguments <ic>foo=bar&amp;num=1</ic> but they
+could, of course, be anything.</p>
+<figure id="fig.params">
+  <title>Default parameters</title>
+  <imagedata fileref="images/controllers/params.png"  />
+</figure>
+<figure id="fig.params-query">
+  <title>Query arguments foo=bar&amp;num=1</title>
+  <imagedata fileref="images/controllers/params-query.png"  />
+</figure>
+
+</sect2>
+<sect2>
+<title>Parsing View Parameters from the URL String</title>
+<p>These days it is common to use part of the URL to parameterize the view, largely because search engines will ignore
+everything after the <ic>?</ic> in a URL and only index a single page, but also because plain URLs are easier to read
+when people bookmark them. Rails gives us tremendous flexibility with how we define URLs and map them to our code. This is easy to do in Rails. We just specify
+a symbol as part of the URL pattern in our routes and that is automatically parsed and assigned a value in the <ic>params
+Hash</ic>. In fact we’ve already seen this with the format extension, as shown in <ref linkend="fig.params-with-format" /></p>
+<figure id="fig.params-with-format">
+  <title>Default parameters with format in URL</title>
+  <imagedata fileref="images/controllers/params-with-format.png"  />
+</figure>
+<p>Now that we understand how URL parameters work, as well as custom routes, let’s change our route to use the standard
+naming convention for a show page. The URL would be <ic>/courses/4</ic> to display the detailed data of a <class>Course</class>
+with id 4. We can just make up any name we want, preface it with a colon (:), put it in the route and it will be added
+to the <ic>params Hash</ic>. We’ll just use the name “id” because that’s what it is, and unsurprisingly, it matches the
+Rails the naming convention.</p>
+<code language="irb">
+$ rails c
+Loading development environment (Rails 3.0.3)
+>> c = Course.first
+ => #<Course id: 1, title: "Creative Writing", description: "Learn to write…
+>> app.url_for(c)
+ => "http://www.example.com/courses/1" 
+</code>
+</sect2>
+<sect2>
+<title>How do Controller Methods fit in?</title>
+<p>Now that we understand routes fairly well, let’s take a look at our controller in <filename>app/controllers/messages_controller.rb</filename>:</p>
+<code file="code/class_app_new/03_controllers/app/controllers/courses_controller.rb"/>
+<p>We can see there is no code in our subclass of ApplicationController.  So far we’ve been relying on the built-in
+Rails behavior where the controller will render the html template with the same name as our action. To see how it works,
+let’s use the Rails logger to make an instance method of the same name that just prints out
+something we can easily see:</p>
+<code file="code/class_app_new/05_controllers/app/controllers/courses_controller.rb"/>
+<p>and also add some output when the view is rendered, and we can remove the displaying of params now:</p>
+<code file="code/class_app_new/05_controllers/app/views/courses/show.html.erb"/>
+<p>Then when we browse to <url>http://localhost:3000/courses/4</url>, we can see the output of <ic>Rails.logger</ic> in
+our terminal window. <ic>Rails.logger</ic> does not affect the HTML that is rendered in the view.</p>
+<sidebar>
+<title>Why use Rails.logger instead of puts?</title>
+<p>When we first experimented with Ruby code, we sometimes used <method>puts</method> to see what was going on outside
+our program. Let’s see what happens to the output if we use <method>puts</method> instead of <ic>Rails.logger</ic>:</p>
+<p>The server log looks out of sequence here.  The output of the show method happens before the view, but it
+appears that the <ic>GET</ic> request started <emph>after</emph> the method and view were called. How could this be? This happens because the Rails
+logger saves up its data and writes it once when it completes the HTTP response. Both the <method>puts</method>
+method and the Rails logger are printing to the terminal window.</p>
+<p>The controller method is called first and then the view is rendered and our statements are
+interspersed in the sequence we expect with the built-in logger info. There are various logger methods which correspond
+to level <emph>levels</emph>. The output
+methods in order of level are: <ic>debug</ic>, <ic>info</ic>, <ic>warn</ic>, <ic>error</ic>, and <ic>fatal</ic>.</p>
+<p> By default, Rails will log all levels in every environment except production, where
+<ic>info</ic> and higher is logged.  We can set the log level in the environment-specific config files.  Usually we’ll
+just leave the log levels as the defaults. In
+<dir>app/environments/production.rb</dir>, Rails provides a handy comment <ic>config.log_level = :debug</ic>
+which we occasionally turn on in the rare case that we need to debug an issue in production.</p>
+</sidebar>
+<p>The controller <method>show</method> happens before the view is rendered:</p>
+<p>Our controller method gets called before our view is rendered, letting us handle the interaction logic of
+what to show to the person using our web app.</p>
+</sect2>
+</sect1>
+<sect1>
+<code language="irb">
+$ rails c
+Loading development environment (Rails 3.0.1)
+>> Course.find(1)
+ => #<Course id: 1, title: "Creative Writing", description: "Learn to write…
+</code>
+<p>The id arrives inside our controller as <ic>params</ic>. We saw before that <ic>params</ic> is a <class>Hash</class>.
+Is is actually a special subclass of <class>Hash</class>, called <class>HashWithIndifferentAccess</class> that allows us
+to treat hash keys the same whether they are a string or a symbol. This is helpful since they key-value pairs of HTTP
+query arguments are always strings, yet it is more efficient in Ruby to use symbols. In <ic>rails console</ic>, we can
+see this in action:</p>
+<code language="irb">
+$ rails c
+Loading development environment (Rails 3.0.1)
+>> params = {}
+ => {} 
+>> params["id"] = "4"
+ => "4" 
+>> params[:id]
+ => nil 
+>> params = HashWithIndifferentAccess.new
+ => {} 
+>> params["id"] = "4"
+ => "4"  
+>> params[:id]
+ => "4" 
+</code>
+<p>Now we know that we’ll be able to find the data we want using the <class>ActiveRecord</class> method
+<method>find</method> and pass it the id from the query args:</p>
+<code language="irb">
+>> Course.find(params[:id])
+ => #<Course id: 1, title: "Creative Writing", description: "Learn to write…
+</code>
+<p>To allow us to pass data to the view, Rails sets up another shortcut: whatever instance variables we set in the
+controller are then available to us in the view.</p>
+<code file="code/class_app_new/06_controllers/app/controllers/courses_controller.rb"/>
+<p>The return value of the method is ignored. We’re not seeing exactly how views are created because Rails does that
+internally. Part of the strength of the MVC pattern is to keep separate parts of our implementation in separate classes.
+When the view is rendered we’re in a completely different context, so we need to specify which data we want sent to the
+view and Rails implements this data passing with instance variables that we define in our controller method and can
+later access in our view.</p>
+<code file="code/class_app_new/06_controllers/app/views/courses/show.html.erb"/>
+<p>After our <method>show</method> controller method executes, the
+<class>ActionController</class> superclass looks through its own instance variables to see which ones have been added. It then
+copies them into a <class>Hash</class> which the view uses to set its own instance variables.  This temporary
+storage is called <ic>assigns</ic>, which we’ll use when we’re testing.</p>
+
+</sect1>
+
+</chapter>
+
+<chapter id="ch.start">
+  <title>Before You Start</title>
+  
+  <p>Before we start coding we want to be sure we have our development set up with all of the tools that we need.  This
+  chapter explains what we need on our system to build applications in Ruby on Rails. If
+  you have Ruby and Rails installed and want to dive right in, that’s cool. But before skipping this chapter,
+  let’s first check that we have the right version of Rails and it is working, by typing <ic>rails -v</ic> on the command line.
+  We should see the version printed afterwards.  Throughout this book, we’ll show you command-line output where the
+  <ic>$</ic> is our command prompt with what we’re typing after a space on the same line. Then we’ll show you the output
+  of the command, like this: <ed>I think you can kind of skip the "we" stuff here - it's ok to talk to the reader direectly - you did that a little bit in this paragraph. If you want them to check the version, that's fine, just tell them how to do it. We want to use "we" when we are actually working through things with our reader, like excercises. So it's not a hard and fast rule that you should always use "we". Clear as mud?</ed></p>
+<code language="session">
+$ rails -v
+Rails 3.0.3
+</code>
+<p><ed>here too, you've got a mix of we and you. It's probably ok to stick with "you" here. </ed>To get the most out of this book, we should all be using the same version of Rails. Any version that starts with 3.0
+is fine (like 3.0.1 or 3.0.3). If you don’t have the right
+version or got an error when you tried to run the <commandname>rails</commandname> command, keep reading and we’ll help you
+figure it out. Or if you just want to know a bit more about about what Rails sits on top of and nearby, read on! </p>
+<sect1>
+<title>Rails Dependencies</title> 
+<p>In order to understand the various components and sub-systems that work and play with Rails, we’ve split them into a few
+categories. First Rails has a few core dependencies -- if you don’t have these installed, Rails just won’t work at all: </p>
+<ul>
+<li><p>Ruby</p></li>
+<li><p>Ruby gems</p></li>
+<li><p>Rails</p></li>
+</ul>
+<p>Also there are a number of other tools and libraries that your application will
+likely use and will be part of the book. These aren’t technically required for your Rails app to work, but are important
+elements of our toolbox as Rails engineers:<ed>is it really worth talking about these now? How about "Along the way, we'll install other libraries as we work through the book" or something? </ed></p>
+<ul>
+<li><p>Database</p></li>
+<li><p>Terminal or Command Prompt</p></li>
+<li><p>Test Framework</p></li>
+<li><p>Editor / IDE</p></li>
+</ul>
+<p>We’ll talk about each of the core dependencies and other components which we’ll need in our toolbox to begin, what
+version of each we need to build the app in the book and a bit about what its for.</p>
+</sect1>
+<sect1>
+<title>Core Dependencies</title>
+<p>To be able to run the <commandname>rails</commandname> command and build the most minimal application, you will need Ruby and the Ruby Gems packaging manager, and, of course Rails. On Mac and
+Linux, we highly recommend installing Ruby and Ruby Gems with
+rvm<footnote><p><url>http://rvm.beginrescueend.com/</url></p></footnote>. <ed>windows installer talks about Git. What about git for mac?</ed> On Windows, we can install Ruby, Rails, and Git all at
+once with RailsInstaller<footnote><p><url>http://railsinstaller.org/</url></p></footnote>.</p>
+<sect2>
+<title>Ruby</title>
+<p>Great Rails developers are great Ruby developers. Rails is a framework written in the Ruby language.
+  <ed>what's missing here? Why are we doing version checking? Is this sentence really needed? Have you said this previously?</ed></p>
+<code language="session">
+$ ruby -v
+ruby 1.9.2p0 (2010-08-18 revision 29036) [x86_64-darwin10.4.0]
+</code>
+<p>Ruby 1.8.7 or higher is required for Rails 3.  Ruby 1.9.2 or higher is recommended.</p>
+</sect2>
+</sect1>
+<sect1>
+<sect2>
+<title>Bundler</title>
+<p>Bundler manages gem dependencies. During the development of Rails 3, Rails core team members, Yehuda Katz and Carl
+Lerche created Bundler to solve challenges that many Rails development teams faced with previous systems for managing
+gem dependencies.  Carl and Yehuda develop all of their code by pair programming, which
+explains why we can find the Bundler source under a blend of their two names: <emph>carlhuda</emph> on
+github<footnote><p><url>https://github.com/carlhuda/bundler</url></p></footnote>. With prior systems for managing dependencies that Bundler is required for Rails 3, but may be optionally used
+by Rails 2 (or any Ruby project).</p>
+<p>The <commandname>bundle</commandname> command will install all dependent gems specified in the
+<filename>Gemfile</filename> which is kept the root of your app.</p> 
+<p>To see a list of the bundler commands:</p>
+<code language="session">
+$ bundle --help
+</code>
+<p>Since bundler is a gem, <ed>can you go through and fix all these improper capitalization things like Gem, Ruby, etc? and is it Ruby Gems or RubyGems? I'm not going to mark any more of them up, so please just do a quick sweep of your book.</ed> we can see its version with:</p>
+
+</sect2>
+<sect2>
+<title>Rake</title>
+<p>Rake lets us run Ruby scripts with dependencies and manage sets of utility scripts. Created by the prolific Jim
+Weirich, Rake is like the unix tool
+<commandname>make</commandname> for Ruby. A <emph>rake task</emph> is some Ruby code with some additional annotations
+that name the task and, optionally, specify dependencies.</p>
+<p>Just like with all gems, we can see its version with:</p>
+<code language="session">
+$ gem list rake
+
+*** LOCAL GEMS ***
+
+rake (0.8.7)
+</code>
+
+<p> We
+use many rake tasks routinely in our Rails development and often write our own. Where we might have used a <ic>bash</ic>
+script in a Java environment for build automation or data import, with Rails we will typically write a Rake task. We’ll
+learn how to write a Rake task in  <ref linkend="ch.rake"/>.<ed>are you going to be using bundle exec in this book?</ed></p>
+
+</sect2>
+</sect1>
+<sect1>
+
+<sect3 id="sec.sql">
+<title>Understanding SQL</title>
+<p>We rarely write SQL directly in our Rails code, but to understand what our app is really doing in the
+database, we’ll want to occasionally look at the SQL called by our app. If you don’t already know SQL, refer to <ref
+linkend="fig.database-commands" /> for a quick cheat sheet of the basic commands.</p>
+<figure id="fig.database-commands">
+  <title>Database Commands</title>
+  <imagedata fileref="images/database-commands.png" />
+</figure>
+</sect3>
+<sect3 id="sec.dbconsole">
+<title>The <commandname>dbconsole</commandname> command</title>
+<p>One of the Rails commands <ic>rails dbconsole</ic> invokes our database console. Every database comes with a command
+line tool which has a unique command to invoke it and sometimes different names for command line options to specify the user, password and database name. The dbconsole command simply calls the appropriate database console app. So for SQLite, rails dbconsole is the same as:</p>
+<code language="session">
+$ SQLite3 <my_development_database>
+</code>
+<p>and for MySql, it is the same as:</p>
+<code language="session">
+$mysql –u<name> –p<password> <my_development_database> 
+</code>
+<p>The <commandname>dbconsole</commandname> is a very useful tool for inspecting the contents of the database when we
+are debugging or want to take a quick look at what tables and schema exist for our app.</p>
+</sect3>
+<sect3>
+<title>Using a Different Database</title>
+<p>If you want to use Rails with a different database, there are shortcuts for creating different configuration files for the most commonly used databases. For example, to generate a Rails application with a default configuration for MySql, you would use the following command:</p>
+<code language="session">
+$ rails new –d mysql app_name
+</code>
+<p>The contents of the <filename>database.yml</filename> file is the only difference in the generated app when calling “rails new” with the –d option. </p>
+<p><ed>probably better if you use a definition list for this especially if it’s a sidebar.</ed></p>
+<p>The following databases are supported:</p>
+<table style="outerlines">
+  <thead>
+    <col><p>Database</p></col>
+    <col><p>Configuration Option</p></col>
+  </thead>
+  <row> <col><p>SQLite</p></col><col><p>default</p></col> </row>
+  <row> <col><p>MySQL</p></col><col><p>-d mysql</p></col> </row>
+  <row> <col><p>PostgreSQL</p></col><col><p>-d postgresql</p></col> </row>
+  <row> <col><p>Oracle</p></col><col><p>-d oracle</p></col> </row>
+  <row> <col><p>DB2</p></col><col><p>-d ibm_db</p></col> </row>
+  <row> <col><p>Frontbase</p></col><col><p>-d frontbase</p></col> </row>
+  <row> <col><p>SQL Server</p></col><col><p>manual configuration required</p></col> </row>
+  <row> <col><p>Sybase</p></col><col><p>manual configuration required</p></col> </row>
+</table>
+
+<p>When we use a different database, we need to install the database-specific driver so that our Ruby code can talk to
+the database. Each of the supported databases requires a separate gem to connect to that database from Ruby.</p>
+</sect3>
+</sect2>
+<sect2>
+<title>Terminal or Command Prompt</title>
+<p><ed>These tooling conventions don't feel right. This is really important stuff that might be better off in the preface. If I see I can skip this chapter, and then get confused cos I don't know what you're talking about with some of these unix commands, I might be lost. I'd move this, and maybe the section on text editors too. What do you think?</ed> Rails development relies heavily on command-line tools. On Mac or Linux, we run these in the <emph>terminal</emph>,
+and on Windows, in the <emph>command prompt</emph>. We like running <emph>gitbash</emph> aka
+<emph>msysgit</emph><footnote><p><url>http://code.google.com/p/msysgit/</url></p></footnote> on Windows, which is
+distributed with git by the helpful folks who create git for Windows. Gitbash allows us to use the same Unix commands for
+moving and copying files as we use on Mac and Linux.</p>
+<p>Here’s a list of the Unix commands we find that we need to know while we we’re developing web apps: </p>
+<dl>
+<dt><commandname>cd</commandname></dt>
+<dd><p>change directory</p></dd>
+<dt><commandname>pwd</commandname></dt>
+<dd><p>print working directory, displays the path of the current directory</p></dd>
+<dt><commandname>cp</commandname></dt>
+<dd><p>copy a file, use it like <ic>cp myfile newfile</ic></p></dd>
+<dt><commandname>cp -r</commandname></dt>
+<dd><p>copy a directory and all of its contents, use it like <ic>cp -r mydir newdir</ic></p></dd>
+<dt><commandname>mv</commandname></dt>
+<dd><p>move or rename a file or directory, use it like <ic>mv myfile newfile</ic></p></dd>
+</dl>
+</sect2>
+</sect1>
+</chapter>

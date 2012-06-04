@@ -176,7 +176,7 @@ describe Parser do
                :replace_sidebar, :replace_filename, :replace_keyword, :replace_ref,
                :replace_sect1, :replace_sect2, :replace_sect3, :replace_quotes, :replace_class,
                :replace_ic, :escape_symbols, :replace_selfclosing_code, :replace_figure, 
-               :replace_imagedata, :replace_thead, :replace_table_headers]
+               :replace_imagedata, :replace_table]
     
     methods.each do |method|
       @parser.should_receive(method)
@@ -193,6 +193,24 @@ describe Parser do
     @parser.replace_table_headers.should include("<th>")
     @parser.replace_table_headers.should include("</th>")
   end
+  
+  it 'replaces <row> with <tr>' do
+    @parser.replace_table_row.should include("<tr class='row'>")
+    @parser.replace_table_row.should include("</tr>")
+  end
+  
+  it 'replaces <col> with <td>' do
+    @parser.replace_table_col.should include("<td class='col'>")
+    @parser.replace_table_col.should include("</td>")
+  end
+  
+  it 'replaces a whole table structure' do
+    @parser.replace_table.should include("<tr class='thead'>")
+    @parser.replace_table.should include("<th>")
+    @parser.replace_table.should include("<tr class='row'>")
+    @parser.replace_table.should include("<td class='col'>")
+  end
+  
 end 
 
 

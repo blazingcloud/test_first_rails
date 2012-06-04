@@ -204,11 +204,25 @@ class Parser
     @string_document
   end
   
+  def replace_table_row
+    replace_tag('row', 'tr', 'row')
+  end
+  
+  def replace_table_col
+    replace_tag('col', 'td', 'col')
+  end
+  
+  def replace_table
+    replace_table_headers
+    replace_thead
+    replace_table_row
+    replace_table_col
+  end
+  
   def replace_all
     change_doctype
-    replace_thead
-    replace_table_headers
     replace_constant
+    replace_table
     replace_chapter
     replace_title
     replace_footnote
