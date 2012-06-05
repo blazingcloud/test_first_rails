@@ -150,20 +150,15 @@ describe Parser do
   	@parser.replace_imagedata.should include("<img class='imagedata' src='images/controllers/missing-courses-controller.png'>")
   	@parser.replace_imagedata.should include("</img>")
   end
-  
-  it 'replaces the selfclosing code tag with <a>' do
-    @parser.replace_selfclosing_code.should include("<a class='code' href='code/full_name/person.rb' part='define_method'>")
-    @parser.replace_selfclosing_code.should include("<a class='code' href=")
-  end
-  
+    
   it 'replaces <url> with <a href="url">url</a>' do
     @parser.replace_url.should include("<a class='url' href='http://localhost:3000/my_course'>")
     @parser.replace_url.should include("</a>")
   end
   
-  # it 'should add referenced external code' do
-  #   @parser.add_external_code.should include("")
-  # end
+  it 'should add referenced external code' do
+    @parser.add_external_code.should include("3 class Person")
+  end
   
   it 'should return a string after parsing everything' do
     @parser.replace_all.class.should == String
@@ -175,8 +170,8 @@ describe Parser do
                :replace_author, :replace_commandname, :replace_method, :replace_emph,
                :replace_sidebar, :replace_filename, :replace_keyword, :replace_ref,
                :replace_sect1, :replace_sect2, :replace_sect3, :replace_quotes, :replace_class,
-               :replace_ic, :escape_symbols, :replace_selfclosing_code, :replace_figure, 
-               :replace_imagedata, :replace_table]
+               :replace_ic, :escape_symbols, :replace_figure, :replace_imagedata, :replace_table,
+               :add_external_code]
     
     methods.each do |method|
       @parser.should_receive(method)
@@ -210,7 +205,6 @@ describe Parser do
     @parser.replace_table.should include("<tr class='row'>")
     @parser.replace_table.should include("<td class='col'>")
   end
-  
 end 
 
 

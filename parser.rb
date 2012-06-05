@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'nokogiri'
 
+require "#{DIR}/ruby_stringifier.rb"
+
 class Parser
   def load(filepath)
     file = File.open(filepath)
@@ -8,6 +10,7 @@ class Parser
     file.close
     
     @string_document = File.read(filepath).to_s
+    @stringifier = RubyStringifier.new
   end
   
   def document
@@ -60,23 +63,34 @@ class Parser
     @string_document
   end
   
+  def add_external_code
+    @document.css('code').each do |tag|
+      attribute_1 = tag.attributes['file']
+      attribute_2 = tag.attributes['part'] 
+      if attribute_1 && attribute_2
+        @string_code = @stringifier.stringify("#{attribute_1}")        
+        @string_document.gsub!(/<code\sfile="(#{attribute_1})"\s+part="(#{attribute_2})"\s*\/>/, "<code class='external'>#{@string_code}</code>")
+      elsif attribute_1 != nil
+        @string_code = @stringifier.stringify("#{attribute_1}")
+        @string_document.gsub!(/<code\sfile="(#{attribute_1})"\s*\/>/, "<code class='external'>#{@string_code}</code>")
+      end
+    end
+    @string_document
+    
+  end
+  
   def change_doctype
     @string_document.slice!(/<\?xml.*>/)
     @string_document.gsub!(/<!DOCTYPE\s.*>/, '<!DOCTYPE html>')
     @string_document
   end
-  
-  def replace_selfclosing_code
-    replace_selfclosing_tag_with_attributes('code', 'file', 'part', 'a', 'code', 'href', 'part')
-    replace_selfclosing_tag_with_attribute('code', 'file', 'a', 'code', 'href')
-  end
-  
+    
   def replace_chapter
     replace_tag_with_attribute('chapter', 'id', 'div', 'chapter', 'id')
   end
   
   def replace_title
-    @string_document.sub!(/<chapter.*>.*\n*\s*<title>/, "<h2 class='chapter_title'>")
+    @string_document.sub!(/<title>/, "<h2 class='chapter_title'>")
     @string_document.sub!(/<\/title>/, "<\/h2>")
     replace_tag('title', 'h3', 'title')
   end
@@ -244,10 +258,10 @@ class Parser
     replace_class
     replace_ic
     escape_symbols
-    replace_selfclosing_code
     replace_figure
     replace_imagedata
     replace_url
+    add_external_code
     @string_document
   end
    
