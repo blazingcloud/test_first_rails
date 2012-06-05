@@ -35,12 +35,11 @@ describe Parser do
     @parser.replace_title.should include("</h3>")
   end
   
-  it 'replaces <footnote> with <span class="footnote">' do
-    @parser.replace_footnote.should include("<span class='footnote'>")
-    @parser.replace_footnote.should include("</span>")
-    
+  it 'replaces <footnote> with <div class="footnote">' do
+    @parser.replace_footnote.should include("<div class='footnote'>")
+    @parser.replace_footnote.should include("</div>")
   end
-  # 
+  
   it 'replaces <joeasks> with <div class="ask_sidebar">' do
     @parser.replace_joeasks.should include("<div class='ask_sidebar'>")
     @parser.replace_joeasks.should include("</div>")
@@ -157,7 +156,7 @@ describe Parser do
   end
   
   it 'should add referenced external code' do
-    @parser.add_external_code.should include("3 class Person")
+    @parser.add_external_code.should include("1   class Person")
   end
   
   it 'should return a string after parsing everything' do
@@ -171,7 +170,7 @@ describe Parser do
                :replace_sidebar, :replace_filename, :replace_keyword, :replace_ref,
                :replace_sect1, :replace_sect2, :replace_sect3, :replace_quotes, :replace_class,
                :replace_ic, :escape_symbols, :replace_figure, :replace_imagedata, :replace_table,
-               :add_external_code,:replace_code_tag]
+               :add_external_code, :replace_code_tag, :replace_dir]
     
     methods.each do |method|
       @parser.should_receive(method)
@@ -211,6 +210,10 @@ describe Parser do
     @parser.replace_code_tag.should include("</pre>")
   end
   
+  it 'replaces <dir> with <span class="dir">' do
+    @parser.replace_dir.should include("<span class='dir'>")
+    @parser.replace_dir.should include("</span>")
+  end
 end 
 
 

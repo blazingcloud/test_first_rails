@@ -49,7 +49,7 @@ class Parser
     @document.css(xml_tag).each do |tag|
       attribute = tag.attributes[xml_attribute]
       @string_document.gsub!(
-        /<#{xml_tag}\s#{xml_attribute}="(#{attribute})"\s*\/>/, 
+        /<#{xml_tag}\s#{xml_attribute}="(#{attribute})"\s*\S*\s*\/>/, 
         "<#{html_tag} class='#{html_class}' #{html_attribute}='#{attribute}'></#{html_tag}>")
     end
     @string_document
@@ -61,7 +61,7 @@ class Parser
       attribute_2 = tag.attributes[xml_attribute_2]    
       if attribute_1 && attribute_2
         @string_document.gsub!(
-          /<#{xml_tag}\s#{xml_attribute_1}="(#{attribute_1})"\s+#{xml_attribute_2}="(#{attribute_2})"\s*\/>/, 
+          /<#{xml_tag}\s#{xml_attribute_1}="(#{attribute_1})"\s+#{xml_attribute_2}="(#{attribute_2})"\s*\S*\s*\/>/, 
           "<#{html_tag} class='#{html_class}' #{html_attribute_1}='#{attribute_1}' #{html_attribute_2}='#{attribute_2}'></#{html_tag}>")
       end
     end
@@ -73,11 +73,11 @@ class Parser
       attribute_1 = tag.attributes['file']
       attribute_2 = tag.attributes['part'] 
       if attribute_1 && attribute_2
-        @string_code = @stringifier.stringify("#{attribute_1}")        
-        @string_document.gsub!(/<code\sfile="(#{attribute_1})"\s+part="(#{attribute_2})"\s*\/>/, "<code class='external'>#{@string_code}</code>")
+        @string_code = @stringifier.stringify("#{attribute_1}", "#{attribute_2}")        
+        @string_document.gsub!(/<code\sfile="(#{attribute_1})"\s+part="(#{attribute_2})"\s*\/>/, "<pre class='external'>#{@string_code}\n</pre>")
       elsif attribute_1 != nil
         @string_code = @stringifier.stringify("#{attribute_1}")
-        @string_document.gsub!(/<code\sfile="(#{attribute_1})"\s*\/>/, "<code class='external'>#{@string_code}</code>")
+        @string_document.gsub!(/<code\sfile="(#{attribute_1})"\s*\/>/, "<pre class='external'>#{@string_code}\n</pre>")
       end
       @stringifier.dump
     end
@@ -102,11 +102,12 @@ class Parser
   end
   
   def replace_footnote
-    replace_tag('footnote', 'span', 'footnote')
+    replace_tag('footnote', 'div', 'footnote')
   end
   
   def replace_joeasks
     replace_tag('joeasks', 'div', 'ask_sidebar')
+    replace_tag_with_attribute('joeasks', 'id', 'div', 'ask_sidebar', 'id')
   end
   
   def replace_firstuse
@@ -140,9 +141,9 @@ class Parser
   def replace_ref
     @document.css('ref').each do |tag|
       attribute = tag.attributes['linkend']
-      if @string_document.slice(/<ref\n(.*)linkend="(#{attribute})"\/>/)
-        @string_document.gsub!(/<ref\n(.*)linkend="(#{attribute})"\/>/, "<a class='ref' href='#{attribute}'>#{attribute}</a>")
-      elsif @string_document.slice(/<ref\slinkend="(#{attribute})"\/>/)
+      if @string_document.slice(/<ref\n(.*)linkend="(#{attribute})"\s*\/>/)
+        @string_document.gsub!(/<ref\n(.*)linkend="(#{attribute})"\s*\/>/, "<a class='ref' href='#{attribute}'>#{attribute}</a>")
+      elsif @string_document.slice(/<ref\slinkend="(#{attribute})"\s*\/>/)
         @string_document.gsub!(/<ref\slinkend="(#{attribute})"\/>/, "<a class='ref' href='#{attribute}'>#{attribute}</a>")
       end
     end
@@ -177,9 +178,9 @@ class Parser
   
   def escape_symbols
     while @string_document.slice(/\#<[A-Z]/) != nil
-      if @string_document.slice(/\#<\S+\s?\S+>/)
-        object = @string_document.slice(/\#<\S+\s?\S+>/).slice(/\w\S+\s?\S+\w/)
-        @string_document.gsub!(/\#<\S+\s?\S+>/,"#&#060;#{object}&#062;")
+      if @string_document.slice(/\#<\S+\s?/)
+        object = @string_document.slice(/\#<\S+\s?/).slice(/\w\S+\s?\S+\w/)
+        @string_document.gsub!(/\#<\S+\s?/,"#&#060;#{object}&#062;")
       elsif @string_document.slice(/\#<\S+\s?\S+\s+/)
         object = @string_document.slice(/\#<\S+\s?\S+\s+/).slice(/\w\S+\s?\S+\w/)
         @string_document.gsub!(/\#<\S+\s?\S+\s+/, "#&#060;#{object}")
@@ -241,6 +242,9 @@ class Parser
   
   def replace_code_tag
   	replace_tag_with_attribute('code', 'language', 'pre', 'code', 'language')
+
+  def replace_dir
+    replace_tag('dir', 'span', 'dir')
   end
   
   def replace_all
@@ -260,7 +264,9 @@ class Parser
     replace_url
     add_external_code
     replace_code_tag
+    replace_joeasks
     @document = ''
+    replace_dir
     replace_class
     replace_ic
     replace_constant
@@ -270,16 +276,10 @@ class Parser
     replace_commandname
     replace_ed
     replace_method
-    replace_joeasks
     replace_firstuse
     replace_author
     replace_footnote
     @string_document
   end
-  
- 
-parser = Parser.new
-parser.load("chapter.xml")
-parser.replace_code_tag
-   
+     
 end
