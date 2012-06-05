@@ -271,5 +271,9 @@ class Parser
     replace_footnote
     @string_document
   end
+  
+  def replace_code_tag
+  	replace_tag_with_attribute('code', 'language', 'pre', 'code', 'language')
+  end
    
 end

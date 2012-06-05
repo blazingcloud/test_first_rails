@@ -205,6 +205,12 @@ describe Parser do
     @parser.replace_table.should include("<tr class='row'>")
     @parser.replace_table.should include("<td class='col'>")
   end
+  
+  it 'replaces <code language="irb"> tag with <pre class="code" language="irb"> tag' do
+  	@parser.replace_code_tag.should include("<pre class='code' language='irb'>")
+    @parser.replace_code_tag.should include("</pre>")
+  end
+  
 end 
 
 
