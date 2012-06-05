@@ -4,7 +4,7 @@ class RubyStringifier
     @string_code = ''
     File.read(file).each_line do |line|
       line_number += 1
-      @string_code += line_number.to_s + ' ' + line
+      @string_code += line_number.to_s + ' ' + line + "\n"
     end
     @string_code
   end

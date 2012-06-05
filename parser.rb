@@ -102,11 +102,12 @@ class Parser
   end
   
   def replace_footnote
-    replace_tag('footnote', 'span', 'footnote')
+    replace_tag('footnote', 'div', 'footnote')
   end
   
   def replace_joeasks
     replace_tag('joeasks', 'div', 'ask_sidebar')
+    replace_tag_with_attribute('joeasks', 'id', 'div', 'ask_sidebar', 'id')
   end
   
   def replace_firstuse
@@ -239,6 +240,10 @@ class Parser
     replace_table_col
   end
   
+  def replace_dir
+    replace_tag('dir', 'span', 'dir')
+  end
+  
   def replace_all
     change_doctype
     replace_table
@@ -255,7 +260,9 @@ class Parser
     replace_imagedata
     replace_url
     add_external_code
+    replace_joeasks
     @document = ''
+    replace_dir
     replace_class
     replace_ic
     replace_constant
@@ -265,7 +272,6 @@ class Parser
     replace_commandname
     replace_ed
     replace_method
-    replace_joeasks
     replace_firstuse
     replace_author
     replace_footnote
