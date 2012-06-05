@@ -156,7 +156,7 @@ describe Parser do
   end
   
   it 'should add referenced external code' do
-    @parser.add_external_code.should include("3 class Person")
+    @parser.add_external_code.should include("1   class Person")
   end
   
   it 'should return a string after parsing everything' do
