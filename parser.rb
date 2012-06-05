@@ -17,6 +17,11 @@ class Parser
     @string_document
   end
   
+  def dump
+    @document = ''
+    @string_document = ''
+  end  
+  
   def replace_tag(xml_tag, html_tag, html_class)
     @string_document.gsub!(/<#{xml_tag}>/, "<#{html_tag} class='#{html_class}'>")
     @string_document.gsub!(/<\/#{xml_tag}>/, "<\/#{html_tag}>")
@@ -74,6 +79,7 @@ class Parser
         @string_code = @stringifier.stringify("#{attribute_1}")
         @string_document.gsub!(/<code\sfile="(#{attribute_1})"\s*\/>/, "<code class='external'>#{@string_code}</code>")
       end
+      @stringifier.dump
     end
     @string_document
     
@@ -171,12 +177,12 @@ class Parser
   
   def escape_symbols
     while @string_document.slice(/\#<[A-Z]/) != nil
-      if @string_document.slice(/\#<[A-Z]+\S+>/)
-        object = @string_document.slice(/\#<[A-Z]+\S+>/).slice(/[A-Z]+\S+/)
-        @string_document.gsub!(/\#<[A-Z]+\S+>/,"#&#060;#{object}&#062;")
-      elsif @string_document.slice(/#<[A-Z]+[a-z]+\s+/)
-        object = @string_document.slice(/#<[A-Z]+[a-z]+\s+/).slice(/[A-Z]+\S+/)
-        @string_document.gsub!(/#<[A-Z]+[a-z]+\s+/,"#&#060;#{object}")
+      if @string_document.slice(/\#<\S+\s?\S+>/)
+        object = @string_document.slice(/\#<\S+\s?\S+>/).slice(/\w\S+\s?\S+\w/)
+        @string_document.gsub!(/\#<\S+\s?\S+>/,"#&#060;#{object}&#062;")
+      elsif @string_document.slice(/\#<\S+\s?\S+\s+/)
+        object = @string_document.slice(/\#<\S+\s?\S+\s+/).slice(/\w\S+\s?\S+\w/)
+        @string_document.gsub!(/\#<\S+\s?\S+\s+/, "#&#060;#{object}")
       end
     end
     @string_document
@@ -235,33 +241,34 @@ class Parser
   
   def replace_all
     change_doctype
-    replace_constant
     replace_table
     replace_chapter
     replace_title
-    replace_footnote
-    replace_joeasks
-    replace_firstuse
-    replace_ed
-    replace_author
-    replace_commandname
-    replace_method
-    replace_emph
     replace_sidebar
-    replace_filename
-    replace_keyword
     replace_ref
     replace_sect1
     replace_sect2
     replace_sect3
     replace_quotes
-    replace_class
-    replace_ic
     escape_symbols
     replace_figure
     replace_imagedata
     replace_url
     add_external_code
+    @document = ''
+    replace_class
+    replace_ic
+    replace_constant
+    replace_filename
+    replace_keyword
+    replace_emph
+    replace_commandname
+    replace_ed
+    replace_method
+    replace_joeasks
+    replace_firstuse
+    replace_author
+    replace_footnote
     @string_document
   end
    
