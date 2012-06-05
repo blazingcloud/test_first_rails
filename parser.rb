@@ -239,6 +239,10 @@ class Parser
     replace_table_col
   end
   
+  def replace_code_tag
+  	replace_tag_with_attribute('code', 'language', 'pre', 'code', 'language')
+  end
+  
   def replace_all
     change_doctype
     replace_table
@@ -255,6 +259,7 @@ class Parser
     replace_imagedata
     replace_url
     add_external_code
+    replace_code_tag
     @document = ''
     replace_class
     replace_ic
@@ -272,8 +277,9 @@ class Parser
     @string_document
   end
   
-  def replace_code_tag
-  	replace_tag_with_attribute('code', 'language', 'pre', 'code', 'language')
-  end
+ 
+parser = Parser.new
+parser.load("chapter.xml")
+parser.replace_code_tag
    
 end

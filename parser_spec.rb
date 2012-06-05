@@ -171,7 +171,7 @@ describe Parser do
                :replace_sidebar, :replace_filename, :replace_keyword, :replace_ref,
                :replace_sect1, :replace_sect2, :replace_sect3, :replace_quotes, :replace_class,
                :replace_ic, :escape_symbols, :replace_figure, :replace_imagedata, :replace_table,
-               :add_external_code]
+               :add_external_code,:replace_code_tag]
     
     methods.each do |method|
       @parser.should_receive(method)
