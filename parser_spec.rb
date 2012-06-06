@@ -157,6 +157,7 @@ describe Parser do
   
   it 'should add referenced external code' do
     @parser.add_external_code.should include("1   class Person")
+    @parser.add_external_code.should include("<a class='cref' href='#code.course_describe'>")
   end
   
   it 'should return a string after parsing everything' do
@@ -213,10 +214,6 @@ describe Parser do
   it 'replaces <dir> with <span class="dir">' do
     @parser.replace_dir.should include("<span class='dir'>")
     @parser.replace_dir.should include("</span>")
-  end
-  
-  it 'replace <cref linkend="code.spec_helper"/> tag with <a href="#code.some_code">' do
-  	@parser.replace_cref.should include("<a class='cref' href='#code.course_describe'>")
   end
   
 end 

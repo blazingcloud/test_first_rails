@@ -73,10 +73,12 @@ class Parser
       attribute_1 = tag.attributes['file']
       attribute_2 = tag.attributes['part'] 
       if attribute_1 && attribute_2
-        @string_code = @stringifier.stringify("#{attribute_1}", "#{attribute_2}")        
+        @string_code = @stringifier.stringify("#{attribute_1}", "#{attribute_2}")
+    	replace_cref(@stringifier.get_labels) if @stringifier.get_labels != nil
         @string_document.gsub!(/<code\sfile="(#{attribute_1})"\s+part="(#{attribute_2})"\s*\/>/, "<pre class='external'>#{@string_code}\n</pre>")
       elsif attribute_1 != nil
         @string_code = @stringifier.stringify("#{attribute_1}")
+		replace_cref(@stringifier.get_labels) if @stringifier.get_labels != nil
         @string_document.gsub!(/<code\sfile="(#{attribute_1})"\s*\/>/, "<pre class='external'>#{@string_code}\n</pre>")
       end
       @stringifier.dump
@@ -157,13 +159,20 @@ class Parser
     @string_document
   end 
   
-  def replace_cref
+  def replace_cref(labels)
+  	line_number = ''
   	@document.css('cref').each do |tag|
       attribute = tag.attributes['linkend']
       if @string_document.slice(/<cref\n(.*)linkend="(#{attribute})"\s*\/>/)
-        @string_document.gsub!(/<cref\n(.*)linkend="(#{attribute})"\s*\/>/, "<a class='cref' href='##{attribute}'>#{attribute}</a>")
+      	labels.each do |label|
+      		line_number = label['line_number'] if label['id'] == "#{attribute}"
+      	end
+        @string_document.gsub!(/<cref\n(.*)linkend="(#{attribute})"\s*\/>/, "<a class='cref' href='##{attribute}'>#{line_number}</a>")
       elsif @string_document.slice(/<cref\slinkend="(#{attribute})"\s*\/>/)
-        @string_document.gsub!(/<cref\slinkend="(#{attribute})"\/>/, "<a class='cref' href='##{attribute}'>#{attribute}</a>")
+		labels.each do |label|
+      		line_number = label['line_number'] if label['id'] == "#{attribute}"
+      	end
+        @string_document.gsub!(/<cref\slinkend="(#{attribute})"\/>/, "<a class='cref' href='##{attribute}'>#{line_number}</a>")
       end
     end
     @string_document
