@@ -84,7 +84,7 @@ class Parser
     @string_document
     
   end
-  
+    
   def remove_tag(xml_tag)
   	while @string_document.slice(/<#{xml_tag}>.*\n*.*<\/#{xml_tag}>/) != nil
   		@string_document.slice!(/<#{xml_tag}>.*\n*.*<\/#{xml_tag}>/)
@@ -156,6 +156,19 @@ class Parser
     end
     @string_document
   end 
+  
+  def replace_cref
+  	@document.css('cref').each do |tag|
+      attribute = tag.attributes['linkend']
+      if @string_document.slice(/<cref\n(.*)linkend="(#{attribute})"\s*\/>/)
+        @string_document.gsub!(/<cref\n(.*)linkend="(#{attribute})"\s*\/>/, "<a class='cref' href='##{attribute}'>#{attribute}</a>")
+      elsif @string_document.slice(/<cref\slinkend="(#{attribute})"\s*\/>/)
+        @string_document.gsub!(/<cref\slinkend="(#{attribute})"\/>/, "<a class='cref' href='##{attribute}'>#{attribute}</a>")
+      end
+    end
+    @string_document
+
+  end
 
   def replace_sect1
     replace_tag_with_attribute('sect1', 'id', 'div', 'sect1', 'id')
@@ -292,3 +305,5 @@ class Parser
     
 end
 
+parser = Parser.new
+parser

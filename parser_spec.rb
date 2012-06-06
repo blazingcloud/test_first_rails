@@ -214,6 +214,11 @@ describe Parser do
     @parser.replace_dir.should include("<span class='dir'>")
     @parser.replace_dir.should include("</span>")
   end
+  
+  it 'replace <cref linkend="code.spec_helper"/> tag with <a href="#code.some_code">' do
+  	@parser.replace_cref.should include("<a class='cref' href='#code.course_describe'>")
+  end
+  
 end 
 
 
