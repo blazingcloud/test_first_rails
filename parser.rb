@@ -85,6 +85,13 @@ class Parser
     
   end
   
+  def remove_tag(xml_tag)
+  	while @string_document.slice(/<#{xml_tag}>.*\n*.*<\/#{xml_tag}>/) != nil
+  		@string_document.slice!(/<#{xml_tag}>.*\n*.*<\/#{xml_tag}>/)
+  	end
+  	@string_document
+  end
+  
   def change_doctype
     @string_document.slice!(/<\?xml.*>/)
     @string_document.gsub!(/<!DOCTYPE\s.*>/, '<!DOCTYPE html>')
@@ -114,12 +121,12 @@ class Parser
     replace_tag('firstuse', 'span', 'firstuse')
   end
   
-  def replace_ed
-    replace_tag('ed', 'span', 'ed')
+  def remove_ed
+    remove_tag('ed')
   end
   
-  def replace_author
-    replace_tag('author', 'span', 'author')
+  def remove_author
+    remove_tag('author')
   end
   
   def replace_commandname
@@ -242,7 +249,8 @@ class Parser
   
   def replace_code_tag
   	replace_tag_with_attribute('code', 'language', 'pre', 'code', 'language')
-
+  end
+ 
   def replace_dir
     replace_tag('dir', 'span', 'dir')
   end
@@ -274,12 +282,13 @@ class Parser
     replace_keyword
     replace_emph
     replace_commandname
-    replace_ed
     replace_method
     replace_firstuse
-    replace_author
     replace_footnote
+    remove_author
+    remove_ed
     @string_document
   end
-     
+    
 end
+

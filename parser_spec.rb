@@ -50,9 +50,9 @@ describe Parser do
     @parser.replace_firstuse.should include("</span>")
   end
   
-  it 'replaces <author> with <span class="author">' do
-    @parser.replace_author.should include("<span class='author'>")
-    @parser.replace_author.should include("</span>")
+  it 'remove <author> and its content' do
+    @parser.remove_author.should_not include("<author>")
+    @parser.remove_author.should_not include("</author>")
   end
   
   it 'replaces <commandname> with <span class="commandname">' do
@@ -135,9 +135,9 @@ describe Parser do
     @parser.replace_keyword.should include("</span>")
   end
   
-  it 'replaces <ed> with <span class="ed">' do
-    @parser.replace_ed.should include("<span class='ed'>")
-    @parser.replace_ed.should include("</span>")
+  it 'removes <ed> tags and its content' do
+    @parser.remove_ed.should_not include("<ed>")
+    @parser.remove_ed.should_not include("</ed>")
   end
   
   it 'replaces <figure> with <div class="figure" id="some_id">' do
@@ -165,8 +165,8 @@ describe Parser do
   
   it 'should parse everything' do
     methods = [:change_doctype, :replace_constant, :replace_chapter, :replace_title,
-               :replace_footnote, :replace_joeasks, :replace_firstuse, :replace_ed, 
-               :replace_author, :replace_commandname, :replace_method, :replace_emph,
+               :replace_footnote, :replace_joeasks, :replace_firstuse, :remove_ed, 
+               :remove_author, :replace_commandname, :replace_method, :replace_emph,
                :replace_sidebar, :replace_filename, :replace_keyword, :replace_ref,
                :replace_sect1, :replace_sect2, :replace_sect3, :replace_quotes, :replace_class,
                :replace_ic, :escape_symbols, :replace_figure, :replace_imagedata, :replace_table,
