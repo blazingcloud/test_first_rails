@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
-<chapter id="ch.activerecord-rspec">
+<chapter id="ch.activerecord-rspec" number="6">
 <title>Test Driving Model Development</title>
 <p>With a basic understanding of ActiveRecord and validations, let’s use a test-driven approach to
 creating model behavior.  In test-driven development, we write the test first, detailing our requirements by example

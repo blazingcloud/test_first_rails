@@ -1,5 +1,5 @@
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
-<chapter id="ch.rspec-intro">
+<chapter id="ch.rspec-intro" number="3">
   <title>Test First Ruby</title>
 <p>We've explored enough Ruby that we are ready to learn RSpec, our key to unlocking the power of testing our code. Of course, there is always more Ruby to learn and we will also learn some more advanced Ruby concepts including attr_accessor methods, hashes, and string interpolation.</p>
 <p>By the end of <ref linkend="ch.ruby-intro"/> we had a simple <class>Person</class> class that could store a name.  We’ll continue to work on the <class>Person</class> class, but now we’ll be building it test first with RSpec.  We will use RSpec <firstuse>specs</firstuse> (RSpec lingo for tests) to suss out what our API should look like, and how we want to use our code. Each spec will verify one example of how we expect our code to work. We will end up with a suite of specs that describe a well thought out and detailed technical design of our <class>Person</class> objects.</p>

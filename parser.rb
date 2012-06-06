@@ -37,6 +37,19 @@ class Parser
     @string_document
   end
   
+  def replace_tag_with_attributes(xml_tag, xml_attribute_1, xml_attribute_2, html_tag, html_class, html_attribute_1, html_attribute_2)
+    @document.css(xml_tag).each do |tag|
+      attribute_1 = tag.attributes[xml_attribute_1]
+      attribute_2 = tag.attributes[xml_attribute_2]    
+      if attribute_1 && attribute_2
+      	@string_document.gsub!(/<#{xml_tag}\s#{xml_attribute_1}="(#{attribute_1})"\s+#{xml_attribute_2}="(#{attribute_2})"\s*\S*\s*>/, 
+          "<#{html_tag} class='#{html_class}' #{html_attribute_1}='#{attribute_1}' #{html_attribute_2}='#{attribute_2}'>")
+      	@string_document.gsub!(/<\/#{xml_tag}>/, "<\/#{html_tag}>")
+      end
+    end
+    @string_document
+  end
+  
   def replace_tag_with_content(xml_tag, html_tag, html_class, html_attribute)
     @document.css(xml_tag).each do |tag|
       content = tag.content
@@ -101,7 +114,7 @@ class Parser
   end
     
   def replace_chapter
-    replace_tag_with_attribute('chapter', 'id', 'div', 'chapter', 'id')
+    replace_tag_with_attributes('chapter', 'id', 'number', 'div', 'chapter', 'id', 'number')
   end
   
   def replace_title

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
-<chapter id="ch.firstapp">
+<chapter id="ch.firstapp" number="4">
   <title>Diving Into Rails</title>
    
 <p>Rails engineers are some of the speediest coders around, in part, because of the effective Rails code generators.

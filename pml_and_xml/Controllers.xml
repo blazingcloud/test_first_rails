@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
-<chapter id="ch.controllers">
+<chapter id="ch.controllers" number="9">
   <title>Exploring Routes and Controllers</title>
 
      <p>When we create a web application, we craft a unified experience from a series of web pages. 

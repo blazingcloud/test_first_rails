@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
-<chapter id="ch.ruby-intro">  
+<chapter id="ch.ruby-intro" number="1">  
   <title>An Introduction to Ruby</title>
   
     <p>In this book, you will learn just enough Ruby to build Rails

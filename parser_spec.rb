@@ -20,8 +20,8 @@ describe Parser do
     @parser.change_doctype.should_not include("<?xml")
   end
   
-  it 'replaces <chapter> with <div class="chapter" id="some_id">' do
-    @parser.replace_chapter.should include("<div class='chapter' id='ch.ruby-intro'>")
+  it 'replaces <chapter> with <div class="chapter" id="some_id" number="1">' do
+    @parser.replace_chapter.should include("<div class='chapter' id='ch.ruby-intro' number='1'>")
     @parser.replace_chapter.should include("</div>")
   end
   

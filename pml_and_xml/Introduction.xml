@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
-<chapter id="ch.intro">
+<chapter id="ch.intro" number="1">
 <title>Why Test? And How We Test First</title>
  
   <p>Ever wanted to rip out an old feature and replace it with the next big thing? Well-tested code gives us the power
