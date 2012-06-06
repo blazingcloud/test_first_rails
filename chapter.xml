@@ -670,6 +670,12 @@ storage is called <ic>assigns</ic>, which we’ll use when we’re testing.</p>
 <chapter id="ch.start">
   <title>Before You Start</title>
   
+  <p>On line <cref linkend="code.spec_helper"/>, the spec requires <filename>spec_helper</filename> which was created with
+the <commandname>rspec:install</commandname> generator and provides Rails-specific configuration for RSpec and our Rails
+testing. We can see, on line <cref linkend="code.course_describe"/>, that this spec will test our
+<class>Course</class> class, using the same syntax we are familiar with from testing our
+<class>Person</class> class in Ruby.</p>
+  
   <p>Before we start coding we want to be sure we have our development set up with all of the tools that we need.  This
   chapter explains what we need on our system to build applications in Ruby on Rails. If
   you have Ruby and Rails installed and want to dive right in, that’s cool. But before skipping this chapter,
@@ -839,4 +845,10 @@ moving and copying files as we use on Mac and Linux.</p>
 </dl>
 </sect2>
 </sect1>
+
+<p>On line <cref linkend="code.spec_helper"/>, the spec requires <filename>spec_helper</filename> which was created with
+the <commandname>rspec:install</commandname> generator and provides Rails-specific configuration for RSpec and our Rails
+testing. We can see, on line <cref linkend="code.course_describe"/>, that this spec will test our
+<class>Course</class> class, using the same syntax we are familiar with from testing our
+<class>Person</class> class in Ruby.</p>
 </chapter>

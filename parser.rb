@@ -73,16 +73,25 @@ class Parser
       attribute_1 = tag.attributes['file']
       attribute_2 = tag.attributes['part'] 
       if attribute_1 && attribute_2
-        @string_code = @stringifier.stringify("#{attribute_1}", "#{attribute_2}")        
+        @string_code = @stringifier.stringify("#{attribute_1}", "#{attribute_2}")
+    	replace_cref(@stringifier.get_labels) if @stringifier.get_labels != nil
         @string_document.gsub!(/<code\sfile="(#{attribute_1})"\s+part="(#{attribute_2})"\s*\/>/, "<pre class='external'>#{@string_code}\n</pre>")
       elsif attribute_1 != nil
         @string_code = @stringifier.stringify("#{attribute_1}")
+		replace_cref(@stringifier.get_labels) if @stringifier.get_labels != nil
         @string_document.gsub!(/<code\sfile="(#{attribute_1})"\s*\/>/, "<pre class='external'>#{@string_code}\n</pre>")
       end
       @stringifier.dump
     end
     @string_document
     
+  end
+    
+  def remove_tag(xml_tag)
+  	while @string_document.slice(/<#{xml_tag}>.*\n*.*<\/#{xml_tag}>/) != nil
+  		@string_document.slice!(/<#{xml_tag}>.*\n*.*<\/#{xml_tag}>/)
+  	end
+  	@string_document
   end
   
   def change_doctype
@@ -114,12 +123,12 @@ class Parser
     replace_tag('firstuse', 'span', 'firstuse')
   end
   
-  def replace_ed
-    replace_tag('ed', 'span', 'ed')
+  def remove_ed
+    remove_tag('ed')
   end
   
-  def replace_author
-    replace_tag('author', 'span', 'author')
+  def remove_author
+    remove_tag('author')
   end
   
   def replace_commandname
@@ -149,6 +158,26 @@ class Parser
     end
     @string_document
   end 
+  
+  def replace_cref(labels)
+  	line_number = ''
+  	@document.css('cref').each do |tag|
+      attribute = tag.attributes['linkend']
+      if @string_document.slice(/<cref\n(.*)linkend="(#{attribute})"\s*\/>/)
+      	labels.each do |label|
+      		line_number = label['line_number'] if label['id'] == "#{attribute}"
+      	end
+        @string_document.gsub!(/<cref\n(.*)linkend="(#{attribute})"\s*\/>/, "<a class='cref' href='##{attribute}'>#{line_number}</a>")
+      elsif @string_document.slice(/<cref\slinkend="(#{attribute})"\s*\/>/)
+		    labels.each do |label|
+      		line_number = label['line_number'] if label['id'] == "#{attribute}"
+      	end
+        @string_document.gsub!(/<cref\slinkend="(#{attribute})"\/>/, "<a class='cref' href='##{attribute}'>#{line_number}</a>")
+      end
+    end
+    @string_document
+
+  end
 
   def replace_sect1
     replace_tag_with_attribute('sect1', 'id', 'div', 'sect1', 'id')
@@ -244,7 +273,7 @@ class Parser
     replace_tag('code', 'pre', 'code')
   	replace_tag_with_attribute('code', 'language', 'pre', 'code', 'language')
   end
-  
+
   def replace_dir
     replace_tag('dir', 'span', 'dir')
   end
@@ -276,12 +305,15 @@ class Parser
     replace_keyword
     replace_emph
     replace_commandname
-    replace_ed
     replace_method
     replace_firstuse
-    replace_author
     replace_footnote
+    remove_author
+    remove_ed
     @string_document
   end
-     
+    
 end
+
+parser = Parser.new
+parser

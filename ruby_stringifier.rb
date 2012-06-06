@@ -5,13 +5,14 @@ class RubyStringifier
     @start = false
     @end = false
     @extract = false
+    @labels = []
 
     if part != nil
       line_number = 1
       File.read(file).each_line do |line|
         check(line, part)
         if @extract && !comment?(line)
-          add_line_numbers(line, line_number)
+          @string_code += escape_symbols(find_labels(add_line_numbers(line, line_number), line_number))
           line_number += 1
         end
       end
@@ -19,12 +20,11 @@ class RubyStringifier
       line_number = 1
       File.read(file).each_line do |line|
         if !comment?(line)
-          add_line_numbers(line, line_number)
+          @string_code += escape_symbols(find_labels(add_line_numbers(line, line_number), line_number))
           line_number += 1
         end
       end
     end
-    escape_symbols
     @string_code
   end
   
@@ -43,20 +43,39 @@ class RubyStringifier
   end
   
   def add_line_numbers(line, number)
-    @string_code += number.to_s +  ' ' + line
+    line += number.to_s +  '   ' + line
   end
    
   def comment?(line)
     line.include?("# ") || line.include?("#START") || line.include?("#END") || line.include?("<!--")
   end  
     
-  def escape_symbols
-    @string_code.gsub!(/</, '&#60;')
-    @string_code.gsub!(/>/, '&#62;')
-    @string_code.gsub!(/\//, '&#47;')    
+  def escape_symbols(line)
+  	if !line.include?("<a class='label'")
+	    line.gsub!(/</, '&#60;')
+    	line.gsub!(/>/, '&#62;')
+    	line.gsub!(/\//, '&#47;')
+    end
+    line
   end
     
   def dump
     @string_code = ''
   end
+  
+  def find_labels(line, number)
+  	id = ''
+  	if line.include?("#<label id")
+  		id = line.slice!(/#<label\sid=".*"\s?\/>/).slice(/".*"/).slice(/[^"]+/)
+  		line = "<a class='label' id='#{id}'>" + line + "</a>"
+  		@labels << {'id' => id, 'line_number' => number}
+  	end
+  	line
+  end
+  	
+  def get_labels
+  	@labels
+  end
 end
+
+
