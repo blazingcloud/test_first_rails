@@ -1,9 +1,14 @@
 require 'rubygems'
 require 'nokogiri'
 
+DIR = File.dirname(__FILE__)
 require "#{DIR}/ruby_stringifier.rb"
 
 class Parser
+  def initialize
+    @titles = {}
+  end
+  
   def load(filepath)
     file = File.open(filepath)
     @document = Nokogiri::XML(file)
@@ -20,7 +25,13 @@ class Parser
   def dump
     @document = ''
     @string_document = ''
-  end  
+  end
+  
+  def gather_titles_from_ids
+    @document.css("[id]").each do |node|
+      @titles["#{node['id']}"] = "#{node.css('title')[0].text}"
+    end
+  end
   
   def replace_tag(xml_tag, html_tag, html_class)
     @string_document.gsub!(/<#{xml_tag}>/, "<#{html_tag} class='#{html_class}'>")
@@ -31,7 +42,7 @@ class Parser
   def replace_tag_with_attribute(xml_tag, xml_attribute, html_tag, html_class, html_attribute)
     @document.css(xml_tag).each do |tag|
       attribute = tag.attributes[xml_attribute]
-      @string_document.gsub!(/<#{xml_tag}\s#{xml_attribute}="(#{attribute})">/, "<#{html_tag} class='#{html_class}' #{html_attribute}='#{attribute}'>")
+      @string_document.gsub!(/<#{xml_tag}\s#{xml_attribute}=\'?\"?#{attribute}\'?\"?>/, "<#{html_tag} class='#{html_class}' #{html_attribute}='#{attribute}'>")
       @string_document.gsub!(/<\/#{xml_tag}>/, "<\/#{html_tag}>")
     end
     @string_document
@@ -62,7 +73,7 @@ class Parser
     @document.css(xml_tag).each do |tag|
       attribute = tag.attributes[xml_attribute]
       @string_document.gsub!(
-        /<#{xml_tag}\s#{xml_attribute}="(#{attribute})"\s*\S*\s*\/>/, 
+        /<#{xml_tag}\s#{xml_attribute}=\'?\"?#{attribute}\'?\"?\s*\S*\s*\/>/, 
         "<#{html_tag} class='#{html_class}' #{html_attribute}='#{attribute}'></#{html_tag}>")
     end
     @string_document
@@ -80,7 +91,7 @@ class Parser
     end
     @string_document
   end
-  
+    
   def add_external_code
     @document.css('code').each do |tag|
       attribute_1 = tag.attributes['file']
@@ -162,11 +173,11 @@ class Parser
   
   def replace_ref
     @document.css('ref').each do |tag|
-      attribute = tag.attributes['linkend']
+      attribute = "#{tag.attributes['linkend']}"
       if @string_document.slice(/<ref\n(.*)linkend="(#{attribute})"\s*\/>/)
-        @string_document.gsub!(/<ref\n(.*)linkend="(#{attribute})"\s*\/>/, "<a class='ref' href='#{attribute}'>#{attribute}</a>")
+        @string_document.gsub!(/<ref\n(.*)linkend="(#{attribute})"\s*\/>/, "<a class='ref' href='##{attribute}'>#{@titles[attribute]}</a>")
       elsif @string_document.slice(/<ref\slinkend="(#{attribute})"\s*\/>/)
-        @string_document.gsub!(/<ref\slinkend="(#{attribute})"\/>/, "<a class='ref' href='#{attribute}'>#{attribute}</a>")
+        @string_document.gsub!(/<ref\slinkend="(#{attribute})"\/>/, "<a class='ref' href='##{attribute}'>#{@titles[attribute]}</a>")
       end
     end
     @string_document
@@ -182,7 +193,7 @@ class Parser
       	end
         @string_document.gsub!(/<cref\n(.*)linkend="(#{attribute})"\s*\/>/, "<a class='cref' href='##{attribute}'>#{line_number}</a>")
       elsif @string_document.slice(/<cref\slinkend="(#{attribute})"\s*\/>/)
-		labels.each do |label|
+		    labels.each do |label|
       		line_number = label['line_number'] if label['id'] == "#{attribute}"
       	end
         @string_document.gsub!(/<cref\slinkend="(#{attribute})"\/>/, "<a class='cref' href='##{attribute}'>#{line_number}</a>")
@@ -281,11 +292,12 @@ class Parser
     replace_table_row
     replace_table_col
   end
-  
+
   def replace_code_tag
+    replace_tag('code', 'pre', 'code')
   	replace_tag_with_attribute('code', 'language', 'pre', 'code', 'language')
   end
- 
+
   def replace_dir
     replace_tag('dir', 'span', 'dir')
   end
@@ -326,6 +338,3 @@ class Parser
   end
     
 end
-
-parser = Parser.new
-parser

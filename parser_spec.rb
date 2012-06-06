@@ -76,8 +76,9 @@ describe Parser do
     @parser.replace_sidebar.should include("</div>")
   end
     
-  it 'inserts the href as content of an <a> tag' do
-    @parser.replace_ref.should include("<a class='ref' href='ch.rspec-intro'>ch.rspec-intro</a>")
+  it 'inserts the title as content of an <a> tag' do
+    @parser.gather_titles_from_ids
+    @parser.replace_ref.should include("<a class='ref' href='#ch.ruby-intro'>An Introduction to Ruby</a>")
   end
   
   it 'replaces <sect1> with <div class="sect1" id="some_id">' do

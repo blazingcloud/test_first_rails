@@ -43,7 +43,7 @@ class RubyStringifier
   end
   
   def add_line_numbers(line, number)
-    line += number.to_s +  '   ' + line
+    line = number.to_s +  '   ' + line
   end
    
   def comment?(line)
@@ -66,10 +66,10 @@ class RubyStringifier
   def find_labels(line, number)
   	id = ''
   	if line.include?("#<label id")
-  		id = line.slice!(/#<label\sid=".*"\s?\/>/).slice(/".*"/).slice(/[^"]+/)
+      id = line.slice!(/#<label\sid=".*"\s?\/>/).slice(/".*"/).slice(/[^"]+/)
   		line = "<a class='label' id='#{id}'>" + line + "</a>"
-  		@labels << {'id' => id, 'line_number' => number}
-  	end
+      @labels << {'id' => id, 'line_number' => number}
+    end
   	line
   end
   	
@@ -77,5 +77,10 @@ class RubyStringifier
   	@labels
   end
 end
+
+
+
+
+
 
 
