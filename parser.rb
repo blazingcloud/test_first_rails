@@ -239,7 +239,7 @@ class Parser
     replace_table_row
     replace_table_col
   end
-  
+
   def replace_code_tag
     replace_tag('code', 'pre', 'code')
   	replace_tag_with_attribute('code', 'language', 'pre', 'code', 'language')

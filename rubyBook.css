@@ -110,8 +110,9 @@ table{
 	margin:1%;
 }
 
-.code{
+pre{
 	font-weight:bold;
+  background-color:#F5F5F5;
 }
 
 
