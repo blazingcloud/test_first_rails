@@ -28,6 +28,7 @@ do. As an object-oriented language, Ruby allows Rails to provide powerful classe
   extending them with custom behavior.<ed>THis section feels like it belongs in the "before you start" chapter. It
   doesn't fit with "who should read this book"</ed><author>Sarah: After trying it everywhere else, I think it belongs
   back here. Also re-wrote it some, so hoping it works better now.</author></p>
+  <ref linkend="ch.ruby-intro"/>
 
     </joeasks>
     <sect1 id="ruby.lang.tools.syntax">

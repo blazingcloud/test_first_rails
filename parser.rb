@@ -1,9 +1,14 @@
 require 'rubygems'
 require 'nokogiri'
 
+DIR = File.dirname(__FILE__)
 require "#{DIR}/ruby_stringifier.rb"
 
 class Parser
+  def initialize
+    @titles = {}
+  end
+  
   def load(filepath)
     file = File.open(filepath)
     @document = Nokogiri::XML(file)
@@ -20,7 +25,13 @@ class Parser
   def dump
     @document = ''
     @string_document = ''
-  end  
+  end
+  
+  def gather_titles_from_ids
+    @document.css("[id]").each do |node|
+      @titles["#{node['id']}"] = "#{node.css('title')[0].text}"
+    end
+  end
   
   def replace_tag(xml_tag, html_tag, html_class)
     @string_document.gsub!(/<#{xml_tag}>/, "<#{html_tag} class='#{html_class}'>")
@@ -67,7 +78,7 @@ class Parser
     end
     @string_document
   end
-  
+    
   def add_external_code
     @document.css('code').each do |tag|
       attribute_1 = tag.attributes['file']
@@ -149,11 +160,11 @@ class Parser
   
   def replace_ref
     @document.css('ref').each do |tag|
-      attribute = tag.attributes['linkend']
+      attribute = "#{tag.attributes['linkend']}"
       if @string_document.slice(/<ref\n(.*)linkend="(#{attribute})"\s*\/>/)
-        @string_document.gsub!(/<ref\n(.*)linkend="(#{attribute})"\s*\/>/, "<a class='ref' href='#{attribute}'>#{attribute}</a>")
+        @string_document.gsub!(/<ref\n(.*)linkend="(#{attribute})"\s*\/>/, "<a class='ref' href='##{attribute}'>#{@titles[attribute]}</a>")
       elsif @string_document.slice(/<ref\slinkend="(#{attribute})"\s*\/>/)
-        @string_document.gsub!(/<ref\slinkend="(#{attribute})"\/>/, "<a class='ref' href='#{attribute}'>#{attribute}</a>")
+        @string_document.gsub!(/<ref\slinkend="(#{attribute})"\/>/, "<a class='ref' href='##{attribute}'>#{@titles[attribute]}</a>")
       end
     end
     @string_document
@@ -314,6 +325,3 @@ class Parser
   end
     
 end
-
-parser = Parser.new
-parser

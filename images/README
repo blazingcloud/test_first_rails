@@ -1,0 +1,5 @@
+The images used in your book go here.
+
+Put the Encapsulated Postscript (eps) files in the EPS directory. If
+you create the images using a ftool (Visio, OmniGraffle, or somesuch),
+put the original tool-specific files in src/.
