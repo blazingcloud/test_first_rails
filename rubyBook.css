@@ -2,7 +2,7 @@ body{
 	font:12px;
 }
 h2 {
-	text-align:center;
+	text-align:center;/*Chapter Titles*/
 }
 
 .footnote{
@@ -10,71 +10,85 @@ h2 {
 }
 
 .ask_sidebar{
-	
+	background-color:#FFFFE0;
+	width:80%;
+	margin:0 10% 0 10%;
+	border:1px solid black;
+    -moz-border-radius: 15px;
+	border-radius: 15px;
+	padding:2%;
 }
 
 .firstuse{
-
+	font-style:italic;/*Inside joeasks,on page 10*/
 }
 
 .author{
-
+	display:none;
 }
 
 .commandname{
-
+	/*font-family:Arial,Helvetica,sans-serif;In book.pdf its on page 10, Ruby.html*/
+	font-style:oblique;
 }
 
 .method{
-
+	font-family:Arial,Helvetica,sans-serif;/*This replace a method name with a differnet font style Page 11*/
 }
-
+			
 .emph{
-
+	font-style:italic;/*This emphasises the text with a differnet font style Page 11*/
 }
 
 .sidebar{
-
+	background-color:#FFFFE0;
+	width:80%;
+	margin:0 10% 0 10%;
+	border:1px solid black;
+    -moz-border-radius: 15px;
+	border-radius: 15px;
+	padding:2%;
 }
 
 .ref{
-
+/*replaced by anchor tags*/
 }
 
 .sect1{
-
+/*replaced by div*/
 }
 
 .sect2{
-
+/*replaced by div*/
 }
 
 .sect3{
-
+/*replaced by div*/
 }
 
 .ic{
-
+	font-family:Calibri,sans-serif;/*the ic tag to show variablesinruby.pml, page14*/
 }
 
 .rubyclass{
-
+	font-family: Verdana, Geneva, sans-serif;/*This shows the class names of ruby used in code page14*/
 }
 
 .constant{
-
+	font-family: "Arial Narrow", Arial, sans-serif;
 }
 
 .filename{
-
+	font-family:Calibri,sans-serif;
+	font-style:italic;
 }
 
 .keyword{
-
+	font-family:Arial,Helvetica,sans-serif;/*It is a ruby keyword*/
 }
 
 .ed{
-
+	display:none;
 }
 
 .figure{
@@ -86,15 +100,18 @@ h2 {
 }
 
 .url{
-
 }
 
+table,td,th{
+	border: 1px solid black;
+}
+			
 table{
-
+	margin:1%;
 }
 
 .code{
-
+	font-weight:bold;
 }
 
 
