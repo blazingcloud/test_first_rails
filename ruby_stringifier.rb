@@ -43,7 +43,7 @@ class RubyStringifier
   end
   
   def add_line_numbers(line, number)
-    @string_code += "\n" + number.to_s +  '   ' + line
+    @string_code += number.to_s +  ' ' + line
   end
    
   def comment?(line)

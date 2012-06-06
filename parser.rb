@@ -31,7 +31,7 @@ class Parser
   def replace_tag_with_attribute(xml_tag, xml_attribute, html_tag, html_class, html_attribute)
     @document.css(xml_tag).each do |tag|
       attribute = tag.attributes[xml_attribute]
-      @string_document.gsub!(/<#{xml_tag}\s#{xml_attribute}="(#{attribute})">/, "<#{html_tag} class='#{html_class}' #{html_attribute}='#{attribute}'>")
+      @string_document.gsub!(/<#{xml_tag}\s#{xml_attribute}=\'?\"?#{attribute}\'?\"?>/, "<#{html_tag} class='#{html_class}' #{html_attribute}='#{attribute}'>")
       @string_document.gsub!(/<\/#{xml_tag}>/, "<\/#{html_tag}>")
     end
     @string_document
@@ -49,7 +49,7 @@ class Parser
     @document.css(xml_tag).each do |tag|
       attribute = tag.attributes[xml_attribute]
       @string_document.gsub!(
-        /<#{xml_tag}\s#{xml_attribute}="(#{attribute})"\s*\S*\s*\/>/, 
+        /<#{xml_tag}\s#{xml_attribute}=\'?\"?#{attribute}\'?\"?\s*\S*\s*\/>/, 
         "<#{html_tag} class='#{html_class}' #{html_attribute}='#{attribute}'></#{html_tag}>")
     end
     @string_document
@@ -241,8 +241,10 @@ class Parser
   end
   
   def replace_code_tag
+    replace_tag('code', 'pre', 'code')
   	replace_tag_with_attribute('code', 'language', 'pre', 'code', 'language')
-
+  end
+  
   def replace_dir
     replace_tag('dir', 'span', 'dir')
   end
