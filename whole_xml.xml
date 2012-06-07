@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
-<chapter id="ch.activerecord">
+<chapter id="ch.activerecord" number="5">
 <title>Exploring ActiveRecord</title>
 <p>Remember how we created a <ic>person</ic> object with the <ic>generate scaffold</ic> command, in <ref
 linkend="ch.firstapp"/>?  Our scaffold generated a <class>Person</class> class. The <class>Person</class> class and its
@@ -493,7 +493,7 @@ ActiveRecord::RecordInvalid: Validation failed: given name can't be blank
 </chapter>
 <?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
-<chapter id="ch.activerecord-rspec">
+<chapter id="ch.activerecord-rspec" number="6">
 <title>Test Driving Model Development</title>
 <p>With a basic understanding of ActiveRecord and validations, let’s use a test-driven approach to
 creating model behavior.  In test-driven development, we write the test first, detailing our requirements by example
@@ -1110,7 +1110,7 @@ $ gem install capybara
 </chapter>                                                                                                                    
 <?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
-<chapter id="ch.controllers">
+<chapter id="ch.controllers" number="9">
   <title>Exploring Routes and Controllers</title>
 
      <p>When we create a web application, we craft a unified experience from a series of web pages. 
@@ -2413,7 +2413,7 @@ easier and makes it easier to work together on a team and modify each other’s 
 </chapter>
 <?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
-<chapter id="ch.controllers-rspec">
+<chapter id="ch.controllers-rspec" number="10">
 <title>Understanding Controllers through Testing</title>
 <p>In the most common controller tests, we use the <ic>assigns Hash</ic> to verify that a
 controller method has correctly set up data for the view and we check that the correct template is rendered. Let’s write a controller for the <class>Person</class>
@@ -3145,7 +3145,7 @@ the database. Each of the supported databases requires a separate gem to connect
 </chapter>
 <?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
-<chapter id="ch.intro">
+<chapter id="ch.intro" number="1">
 <title>Why Test? And How We Test First</title>
  
   <p>Ever wanted to rip out an old feature and replace it with the next big thing? Well-tested code gives us the power
@@ -3333,7 +3333,7 @@ that are unique to what we want people to be able to do with our application.</p
 </chapter>
 <?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
-<chapter id="ch.migrations">
+<chapter id="ch.migrations" number="8">
   <title>Creating Our Database Schema with Migrations</title>
   <p>We will learn about where the database schema
   in our application came from and how a model is created and modified with a migration.</p>
@@ -3610,7 +3610,7 @@ challenge you to take what you’ve learned and write some of the application on
 </chapter>
 <?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
-<chapter id="ch.firstapp">
+<chapter id="ch.firstapp" number="4">
   <title>Diving Into Rails</title>
    
 <p>Rails engineers are some of the speediest coders around, in part, because of the effective Rails code generators.
@@ -4207,7 +4207,7 @@ models, controllers and views using interactive testing with the Rails console a
 </chapter>
 <?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
-<chapter id="ch.rake">
+<chapter id="ch.rake" number="7">
   <title>Rake Helps us Organize Our Ruby Scripts</title>
   <p>Remember how we created our database back in the ActiveRecord chapter?  It went something like this: <ic>rake db:create</ic> and then <ic>rake db:migrate</ic>. These commands are called rake tasks.  Rake is a build program written in Ruby.  It is also another example of a Domain Specific Language (DSL), meaning that it is a new language that sits on top of Ruby with the sole purpose of building files and running scripts. Rake tasks are great because they make our lives easier.  How would we have created our database without rake?  We could have used a sql console to create the database, add the tables and indexes.  Sounds much more time consuming and error prone than using our two rake commands, right?</p>
   
@@ -4293,7 +4293,7 @@ too(http://stackoverflow.com/questions/4017069/correct-rails-3-replacement-for-e
     
  </chapter>
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
-<chapter id="ch.rspec-intro">
+<chapter id="ch.rspec-intro" number="3">
   <title>Test First Ruby</title>
 <p>We've explored enough Ruby that we are ready to learn RSpec, our key to unlocking the power of testing our code. Of course, there is always more Ruby to learn and we will also learn some more advanced Ruby concepts including attr_accessor methods, hashes, and string interpolation.</p>
 <p>By the end of <ref linkend="ch.ruby-intro"/> we had a simple <class>Person</class> class that could store a name.  We’ll continue to work on the <class>Person</class> class, but now we’ll be building it test first with RSpec.  We will use RSpec <firstuse>specs</firstuse> (RSpec lingo for tests) to suss out what our API should look like, and how we want to use our code. Each spec will verify one example of how we expect our code to work. We will end up with a suite of specs that describe a well thought out and detailed technical design of our <class>Person</class> objects.</p>
@@ -4871,7 +4871,7 @@ string. In addition to string interpolation, the “\” character is used to in
 
 <?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
-<chapter id="ch.ruby-intro">  
+<chapter id="ch.ruby-intro" number="2">  
   <title>An Introduction to Ruby</title>
   
     <p>

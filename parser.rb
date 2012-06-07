@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'nokogiri'
 
-DIR = File.dirname(__FILE__)
 require "#{DIR}/ruby_stringifier.rb"
 
 class Parser
@@ -20,6 +19,16 @@ class Parser
   
   def document
     @string_document
+  end
+  
+  def load_html(filepath)
+    file = File.open(filepath)
+    @html_document = Nokogiri::HTML(file)
+    file.close
+  end
+  
+  def chapter_number?(number)
+    !@html_document.css("[number='#{number}']").empty?
   end
   
   def dump
@@ -121,6 +130,11 @@ class Parser
   def change_doctype
     @string_document.slice!(/<\?xml.*>/)
     @string_document.gsub!(/<!DOCTYPE\s.*>/, '<!DOCTYPE html>')
+    @string_document
+  end
+  
+  def add_css
+    @string_document.gsub!(/<!DOCTYPE\s+html>/, "<!DOCTYPE html>\n<head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>")
     @string_document
   end
     
@@ -334,6 +348,7 @@ class Parser
     replace_footnote
     remove_author
     remove_ed
+    add_css
     @string_document
   end
     

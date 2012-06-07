@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
-<chapter id="ch.controllers-rspec">
+<chapter id="ch.controllers-rspec" number="10">
 <title>Understanding Controllers through Testing</title>
 <p>In the most common controller tests, we use the <ic>assigns Hash</ic> to verify that a
 controller method has correctly set up data for the view and we check that the correct template is rendered. Let’s write a controller for the <class>Person</class>

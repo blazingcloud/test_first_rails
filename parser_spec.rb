@@ -20,6 +20,11 @@ describe Parser do
     @parser.change_doctype.should_not include("<?xml")
   end
   
+  it 'should add the link to the css file after the doctype' do
+    @parser.change_doctype
+    @parser.add_css.should include("<head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>")
+  end
+  
   it 'replaces <chapter> with <div class="chapter" id="some_id" number="1">' do
     @parser.replace_chapter.should include("<div class='chapter' id='ch.ruby-intro' number='1'>")
     @parser.replace_chapter.should include("</div>")
@@ -166,7 +171,7 @@ describe Parser do
   end
   
   it 'should parse everything' do
-    methods = [:change_doctype, :replace_constant, :replace_chapter, :replace_title,
+    methods = [:change_doctype, :add_css, :replace_constant, :replace_chapter, :replace_title,
                :replace_footnote, :replace_joeasks, :replace_firstuse, :remove_ed, 
                :remove_author, :replace_commandname, :replace_method, :replace_emph,
                :replace_sidebar, :replace_filename, :replace_keyword, :replace_ref,

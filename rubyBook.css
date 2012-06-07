@@ -14,7 +14,7 @@ h2 {
 	width:80%;
 	margin:0 10% 0 10%;
 	border:1px solid black;
-    -moz-border-radius: 15px;
+  -moz-border-radius: 15px;
 	border-radius: 15px;
 	padding:2%;
 }
@@ -45,7 +45,7 @@ h2 {
 	width:80%;
 	margin:0 10% 0 10%;
 	border:1px solid black;
-    -moz-border-radius: 15px;
+  -moz-border-radius: 15px;
 	border-radius: 15px;
 	padding:2%;
 }
@@ -111,8 +111,13 @@ table{
 }
 
 pre{
-	font-weight:bold;
-  background-color:#F5F5F5;
+  padding: 10px;
+  background-color:#EEE;
+}
+
+pre.external{
+  padding: 15px;
+  padding-left: 14px;
 }
 
 
