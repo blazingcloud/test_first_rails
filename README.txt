@@ -11,9 +11,10 @@
 4 - The converted files will be in the 'html' directory inside the 'pml_to_html' directory.
 
 5 - These files will also get joined into a single html file if the number of chapters is provided. The file is inside the 'pml_to_html' directory and they get joined in order as long as they have a number attribute inside their chapter's div tag. Example: <div class='chapter' number='2'>
+A PDF File will also be created in the same directory.
 
-6 - To convert to other formats (.epub, .mobi, .pdf), use Calibre and convert from HTML to EPUB, then from EPUB to any other format desired.
-
-7 - When converting to pdf, is necessary to add tags to the main html file to use them as a reference for page breaks in Calibre. These elements are not necessary when converting to other formats.
+6 - To convert to other formats (.epub, .mobi), use Calibre and convert from HTML to EPUB, then from EPUB to any other format desired.
 
 8 - Calibre has many options to customize the page structure and table of contents.
+
+To customize the style, use the rubyBook.css file and run the pml_to_html.rb file again.

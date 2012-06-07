@@ -1,6 +1,8 @@
 DIR = File.dirname(__FILE__)
 
 require "#{DIR}/parser.rb"
+require 'pdfkit'
+
 @parser = Parser.new
 pml_files = Dir[DIR+'/pml_and_xml/*.pml']
 xml_files = Dir[DIR+'/pml_and_xml/*.xml']
@@ -56,7 +58,14 @@ else
       end
     end
   end
+  kit = PDFKit.new(whole_html, :page_size => 'Letter')
+  kit.to_file("./Test_First_With_Rails.pdf")
   puts " Done! "
-  puts "Find your file in pml_to_html"
+  puts "Find your HTML and PDF file in pml_to_html"
+  
 end
+
 whole_html.close
+
+
+

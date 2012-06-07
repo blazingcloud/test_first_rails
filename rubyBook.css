@@ -3,6 +3,7 @@ body{
 }
 h2 {
 	text-align:center;/*Chapter Titles*/
+	page-break-before: always;
 }
 
 .footnote{
@@ -59,7 +60,7 @@ h2 {
 }
 
 .sect2{
-/*replaced by div*/
+  page-break-before: auto;
 }
 
 .sect3{
