@@ -1,6 +1,8 @@
 DIR = File.dirname(__FILE__)
 
 require "#{DIR}/parser.rb"
+require 'pdfkit'
+
 @parser = Parser.new
 pml_files = Dir[DIR+'/pml_and_xml/*.pml']
 xml_files = Dir[DIR+'/pml_and_xml/*.xml']
@@ -35,25 +37,35 @@ end
 
 html_files = Dir[DIR+'/html/*.html']
 whole_html = File.new("Test_First_With_Rails.html", "w+")
-
-files_added = []
-turn_number = 1
-while (turn_number <= 10)
-  html_files.each do |file|
-    @parser.load_html(file)
-    if @parser.chapter_number?(turn_number)
-      print '='
-      whole_html.write(File.read(file))
-      files_added << file
-      html_files.delete(file)
-      turn_number += 1
+puts "  Number of chapters to join? ('n' to skip joining files)"
+input = gets.chomp
+if input == 'n'
+  puts 'joining skipped!'
+  puts "Find your files in pml_to_html/html"
+else
+  num_of_chapters = input.to_i
+  files_added = []
+  turn_number = 1
+  while (turn_number <= num_of_chapters)
+    html_files.each do |file|
+      @parser.load_html(file)
+      if @parser.chapter_number?(turn_number)
+        print '='
+        whole_html.write(File.read(file))
+        files_added << file
+        html_files.delete(file)
+        turn_number += 1
+      end
     end
   end
+  kit = PDFKit.new(whole_html, :page_size => 'Letter')
+  kit.to_file("./Test_First_With_Rails.pdf")
+  puts " Done! "
+  puts "Find your HTML and PDF file in pml_to_html"
+  
 end
 
 whole_html.close
 
 
 
-
-puts " Done! "
