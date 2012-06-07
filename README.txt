@@ -10,7 +10,8 @@
 
 4 - The converted files will be in the 'html' directory inside the 'pml_to_html' directory.
 
-5 - These files will also get joined into a single html file if the number of chapters is provided. The file is inside the 'pml_to_html' directory and they get joined in order as long as they have a number attribute inside their chapter's div tag. Example: <div class='chapter' number='2'>
+5 - These files will also get joined into a single html file if the number of chapters is provided. The file will be in the 'pml_to_html' directory. 
+The html files get joined in the right order as long as they have a number attribute inside their chapter's div tag. Example: <div class='chapter' number='2'>
 A PDF File will also be created in the same directory.
 
 6 - To convert to other formats (.epub, .mobi), use Calibre and convert from HTML to EPUB, then from EPUB to any other format desired.
