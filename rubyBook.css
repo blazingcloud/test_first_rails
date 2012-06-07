@@ -12,9 +12,9 @@ h2 {
 .ask_sidebar{
 	background-color:#FFFFE0;
 	width:80%;
-	margin:0 10% 0 10%;
+	margin:0 5% 0 5%;
 	border:1px solid black;
-  -moz-border-radius: 15px;
+  	-moz-border-radius: 15px;
 	border-radius: 15px;
 	padding:2%;
 }
@@ -120,4 +120,10 @@ pre.external{
   padding-left: 14px;
 }
 
+a.cref,a.ref{
+	text-decoration:none;
+}
 
+hr{
+	display:none;
+}
