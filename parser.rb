@@ -1,8 +1,6 @@
 # encoding: ISO-8859-1
 require 'rubygems'
 require 'nokogiri'
-
-# DIR = File.dirname(__FILE__)
 require "#{DIR}/ruby_stringifier.rb"
 
 class Parser
@@ -192,10 +190,19 @@ class Parser
   def replace_ref
     @document.css('ref').each do |tag|
       attribute = "#{tag.attributes['linkend']}"
-      if @string_document.slice(/<ref\n(.*)linkend="(#{attribute})"\s*\/>/)
-        @string_document.gsub!(/<ref\n(.*)linkend="(#{attribute})"\s*\/>/, "<a class='ref' href='##{attribute}'>#{@titles[attribute]}</a>")
-      elsif @string_document.slice(/<ref\slinkend="(#{attribute})"\s*\/>/)
-        @string_document.gsub!(/<ref\slinkend="(#{attribute})"\s*\/>/, "<a class='ref' href='##{attribute}'>#{@titles[attribute]}</a>")
+      if attribute.include?('fig.')
+        title = @titles[attribute].slice(/Figure\s\d+\.\d+/)
+        if @string_document.slice(/<ref\n(.*)linkend="(#{attribute})"\s*\/>/)
+          @string_document.gsub!(/<ref\n(.*)linkend="(#{attribute})"\s*\/>/, "<a class='ref' href='##{attribute}'>#{title}</a>")
+        elsif @string_document.slice(/<ref\slinkend="(#{attribute})"\s*\/>/)
+          @string_document.gsub!(/<ref\slinkend="(#{attribute})"\s*\/>/, "<a class='ref' href='##{attribute}'>#{title}</a>")
+        end
+      else
+        if @string_document.slice(/<ref\n(.*)linkend="(#{attribute})"\s*\/>/)
+          @string_document.gsub!(/<ref\n(.*)linkend="(#{attribute})"\s*\/>/, "<a class='ref' href='##{attribute}'>#{@titles[attribute]}</a>")
+        elsif @string_document.slice(/<ref\slinkend="(#{attribute})"\s*\/>/)
+          @string_document.gsub!(/<ref\slinkend="(#{attribute})"\s*\/>/, "<a class='ref' href='##{attribute}'>#{@titles[attribute]}</a>")
+        end
       end
     end
     @string_document
@@ -357,26 +364,13 @@ class Parser
         chapter_number = chapter["number"]
         fig_number = 1
         chapter.css("figure").each do |figure|
-          figure.css('title').first.content = "Figure #{chapter_number}.#{fig_number}: #{figure.css('title')[0].text}" if  !"#{figure.css('title')[0].text}".include?("Figure #{chapter_number}.#{fig_number}:")
-          @titles["#{figure['id']}"] = "Figure #{chapter_number}.#{fig_number}"
+          @titles["#{figure['id']}"] = "Figure #{chapter_number}.#{fig_number}: #{figure.css('title')[0].text}"
           fig_number += 1
         end
-      end
-      File.open(file, "w+") do |file|
-        file.write('')
-        file.write(@document.to_xml)
       end
     end  
   end    
 end
-
-
-# parser = Parser.new
-# parser.load('whole_xml.xml')
-# parser.gather_titles_from_ids
-# parser.dump
-# parser.add_number_to_images
-
 
 
 

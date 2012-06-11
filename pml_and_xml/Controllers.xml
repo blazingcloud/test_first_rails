@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- -*- xml -*- -->
+<?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
 <chapter id="ch.controllers" number="10">
   <title>Exploring Routes and Controllers</title>
@@ -7,7 +6,8 @@
      <p>When we create a web application, we craft a unified experience from a series of web pages. 
   Sometimes a single interaction takes place across multiple HTTP requests. The Model-View-Controller pattern helps us wrangling these disjoint pages into manageable code.</p>
   <p>In <ref linkend="ch.firstapp"/>, we learned
-  about views, how Embedded Ruby templates let us declare the visual part of our web user interface. Then we learned about the model, in  <ref linkend="ch.activerecord"/> and <ref linkend="ch.activerecord-rspec"/>.  Now we’ll learn about how routes and
+  about views, how Embedded Ruby templates let us declare the visual part of our web user interface. Then we learned about the model, in  <ref linkend="ch.activerecord"/> and <ref
+  linkend="ch.activerecord-rspec"/>.  Now we’ll learn about how routes and
   controllers string our views together, letting us specify the
   interactive part of our user interface.</p><p> As we did with ActiveRecord, we’ll start by exploring interactively,
   but now we can use the browser to see how our code responds. Let’s take another look at the pages
@@ -36,7 +36,8 @@ form of comments that show different example routes, but there is really just a 
 configuration block. When we ran the scaffold generator, it modified this file to add
 just one <ic>resources</ic> declaration: </p>
 <code file="code/class_app_new/00_controllers/config/routes.rb"/>
-<p>From that one line, we defined 7 routes which we explored interactively in <ref linkend="sec.scaffold-rest-mvc"/>.
+<p>From that one line, we defined 7 routes which we explored interactively in <ref
+linkend="sec.scaffold-rest-mvc"/>.
 The <ic>resources</ic> method provides a nice shortcut for defining all of the standard REST routes; however, to use Rails effectively we need to understand what’s really going on. We’ll build a similar set of routes and corresponding controller behavior for our
 <class>Course</class> model one step at a time.</p>
 <sect1>
@@ -53,10 +54,10 @@ through a route to learn about the code we need to write to make it work, starti
 <class>Course</class> model. Let’s start by browsing to the URL we haven’t
 built yet and see what happens. Let’s point our browser to a new, arbitrary url:
 <url>http://localhost:3000/my_course</url>. We see the routing
-error shown in <ref linkend="fig.routing-error"/>. Go ahead and try it. </p>
+error shown in <ref linkend="fig.routing-error" />. Go ahead and try it. </p>
 <figure id="fig.routing-error">
-  <title>Figure 10.1: We Have Not Yet Specified Where the URL Goes</title>
-  <imagedata fileref="images/controllers/routing-error.png"/>
+  <title>We Have Not Yet Specified Where the URL Goes</title>
+  <imagedata fileref="images/controllers/routing-error.png"  />
 </figure>
 <p>This error tells us that the URL <ic>/my_course</ic> is not hooked up to anything. There is no <emph>route</emph> into the app
 that matches that string.</p>
@@ -76,10 +77,10 @@ route:</p>
 <p>Let’s learn a little more Ruby to understand how the match method works.</p>
 <code language="irb">
 $ rails c
-&gt; result = "courses#show".split('#')                        
- =&gt; ["courses", "show"] 
-&gt; controller_name = result[0].camelize + "Controller"
- =&gt; "CoursesController" 
+> result = "courses#show".split('#')                        
+ => ["courses", "show"] 
+> controller_name = result[0].camelize + "Controller"
+ => "CoursesController" 
 </code>
 <p>First we call <method>split</method>, which is a Ruby <class>String</class> method, to get the two components. Then
 we took the first component and call <method>camelize</method> which is a <emph>Rails</emph> <class>String</class> method. Rails
@@ -101,7 +102,7 @@ that we’ll be creating a <class>CoursesController</class> with a <method>show<
 controller or views based on the names in the path. Let’s run <commandname>rake routes</commandname> to interactively inspect how our route is set up:</p>
 <code language="session">
 $ rake routes
-my_course  /my_course(.:format) {:action=&gt;"show", :controller=&gt;"courses"}
+my_course  /my_course(.:format) {:action=>"show", :controller=>"courses"}
 </code>
 <p>This little diagnostic script<footnote><p><commandname>rake routes</commandname> was added to Rails in 2007 by Josh Susser, inspired by Rick
 Olson’s routing navigator plugin which was turned in a rake task by Chris Wanstrath, founder of github.com.
@@ -119,10 +120,10 @@ and check that out:</p>
 <code language="irb">
 $ rails c
 Loading development environment (Rails 3.0.1)
-&gt;&gt; app.my_course_path
- =&gt; "/my_course" 
-&gt;&gt; app.my_course_url
- =&gt; "http://www.example.com/my_course" 
+>> app.my_course_path
+ => "/my_course" 
+>> app.my_course_url
+ => "http://www.example.com/my_course" 
 </code>
 <p> In <commandname>rails console</commandname> we use the <ic>app</ic> object to call these helper methods
 interactively, but we can call them directly in our views and controllers.</p>
@@ -133,7 +134,7 @@ route to our show page, so let’s annotate it with the standard path “course�
 <p>We can see the change when we call <commandname>rake routes</commandname>:</p>
 <code language="session">
 $ rake routes
-course  /my_course(.:format) {:action=&gt;"show", :controller=&gt;"courses"}
+course  /my_course(.:format) {:action=>"show", :controller=>"courses"}
 </code>
 <p>By using a standard name, we can now use another Rails URL helper that is built to help us
 manage a <emph>resource</emph>, which just means that we can think about and interact with a model rather than
@@ -141,10 +142,10 @@ remembering the specific URLs that we’ve set up for it.  Check this out:</p>
 <code language="irb">
 $ rails c
 Loading development environment (Rails 3.0.3)
-&gt;&gt; c = Course.first
- =&gt; #<Course/>1, title: "Creative Writing", description: "Learn to write…
-&gt;&gt; app.url_for(c)
- =&gt; "http://www.example.com/my_course.1" 
+>> c = Course.first
+ => #<Course id: 1, title: "Creative Writing", description: "Learn to write…
+>> app.url_for(c)
+ => "http://www.example.com/my_course.1" 
 </code>
 <p>We can call <ic>app.url_for</ic> with a model and it automatically plucks the id from the model and creates a path
 from the route that maps to the name of the model. We haven’t yet told it how we want to accept the id as a parameter,
@@ -152,8 +153,8 @@ so it just tacks it on the end. When we learn more about where routes lead to an
 we’ll come back and fix up our route.</p>
 
 <figure id="fig.missing-courses-controller">
-  <title>Figure 10.2: We Have a Route but no Controller</title>
-  <imagedata fileref="images/controllers/missing-courses-controller.png"/>
+  <title>We Have a Route but no Controller</title>
+  <imagedata fileref="images/controllers/missing-courses-controller.png" />
 </figure>
 
 <p>When we refresh our browser, we see the error shown
@@ -201,11 +202,11 @@ for our views and a helper module where we keep code shared by our controller an
   defining the controller class in <filename>app/controllers/courses_controller.rb</filename>, we have addressed the
   error.</p>
   <p>When we refresh the browser at
-<url>http://localhost:3000/my_course</url>, we see an “Unknown Action” error shown in <ref linkend="fig.unknown-action"/>.
+<url>http://localhost:3000/my_course</url>, we see an “Unknown Action” error shown in <ref linkend="fig.unknown-action" />.
 The error reports that “the action ‘show’ could not be found.”</p>
 <figure id="fig.unknown-action">
-  <title>Figure 10.3: We need to define a Controller action</title>
-  <imagedata fileref="images/controllers/unknown-action.png"/>
+  <title>We need to define a Controller action</title>
+  <imagedata fileref="images/controllers/unknown-action.png" />
 </figure>
 
 </sect1>
@@ -232,11 +233,11 @@ which will determine the interaction that happens when someone clicks a link or 
 for a file with name of the action and “.html.erb” appended.  For the route <ic>courses#show</ic> we’ll create a file
   <filename>/app/views/courses/show.html.erb</filename> with some basic html, such as:</p>
 <code file="code/class_app_new/01_controllers/app/views/courses/show.html.erb"/>
-<p>Now when we point our browser to: <url>http://localhost:3000/my_course</url> we see &lquot;Here I am!&rquot; in large text as shown in <ref linkend="fig.here-i-am"/>. 
+<p>Now when we point our browser to: <url>http://localhost:3000/my_course</url> we see &lquot;Here I am!&rquot; in large text as shown in <ref linkend="fig.here-i-am" />. 
 </p>
 <figure id="fig.here-i-am">
-  <title>Figure 10.4: A simple view</title>
-  <imagedata fileref="images/controllers/here-i-am.png"/>
+  <title>A simple view</title>
+  <imagedata fileref="images/controllers/here-i-am.png"  />
 </figure>
 <p>Let’s take another look at the Rails log, which is output in the terminal window where we are running <ic>rails
 server</ic>. We can now understand what is happening in the text that is spewed out for every request:</p>
@@ -265,28 +266,28 @@ accessible from our view or our controller. We usually don’t access parameters
 so is handy for debugging. For now, let’s explore by displaying them in html. We’ll use Ruby in our view to iterate over
 the <ic>params Hash</ic> and display each key-value pair:</p>
 <code file="code/class_app_new/02_controllers/app/views/courses/show.html.erb"/>
-<p>We can see in <ref linkend="fig.params"/> that the controller and action names are passed as parameters. URL query
+<p>We can see in <ref linkend="fig.params" /> that the controller and action names are passed as parameters. URL query
 arguments are passed the same way. In HTTP we can pass name-value pairs as part of the URL like
 <url>http://localhost:3000/my_course.html?id=4</url>. These are parsed by Rails and turned into a
 <class>Hash</class>, which we can see in the log:</p>
 <code language="session">
 Started GET "/my_course.html?id=4" for 127.0.0.1 at 2011-05-01 17:52:43 -0700
   Processing by CoursesController#show as HTML
-  Parameters: {"id"=&gt;"4"}
+  Parameters: {"id"=>"4"}
 Rendered courses/show.html.erb within layouts/application (1.7ms)
 Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.0ms)
 </code>
 <p>The log only shows the parameters that come from the browser. Any query argument we add to the URL will be added to
 the <ic>params Hash</ic> along with the internal parameters of controller and action name. Try
-it. <ref linkend="fig.params-query"/> shows an example with the query arguments <ic>foo=barnum=1</ic> but they
+it. <ref linkend="fig.params-query" /> shows an example with the query arguments <ic>foo=bar&amp;num=1</ic> but they
 could, of course, be anything.</p>
 <figure id="fig.params">
-  <title>Figure 10.5: Default parameters</title>
-  <imagedata fileref="images/controllers/params.png"/>
+  <title>Default parameters</title>
+  <imagedata fileref="images/controllers/params.png"  />
 </figure>
 <figure id="fig.params-query">
-  <title>Figure 10.6: Query arguments foo=barnum=1</title>
-  <imagedata fileref="images/controllers/params-query.png"/>
+  <title>Query arguments foo=bar&amp;num=1</title>
+  <imagedata fileref="images/controllers/params-query.png"  />
 </figure>
 
 </sect2>
@@ -296,10 +297,10 @@ could, of course, be anything.</p>
 everything after the <ic>?</ic> in a URL and only index a single page, but also because plain URLs are easier to read
 when people bookmark them. Rails gives us tremendous flexibility with how we define URLs and map them to our code. This is easy to do in Rails. We just specify
 a symbol as part of the URL pattern in our routes and that is automatically parsed and assigned a value in the <ic>params
-Hash</ic>. In fact we’ve already seen this with the format extension, as shown in <ref linkend="fig.params-with-format"/></p>
+Hash</ic>. In fact we’ve already seen this with the format extension, as shown in <ref linkend="fig.params-with-format" /></p>
 <figure id="fig.params-with-format">
-  <title>Figure 10.7: Default parameters with format in URL</title>
-  <imagedata fileref="images/controllers/params-with-format.png"/>
+  <title>Default parameters with format in URL</title>
+  <imagedata fileref="images/controllers/params-with-format.png"  />
 </figure>
 <p>Now that we understand how URL parameters work, as well as custom routes, let’s change our route to use the standard
 naming convention for a show page. The URL would be <ic>/courses/4</ic> to display the detailed data of a <class>Course</class>
@@ -311,16 +312,16 @@ Rails the naming convention.</p>
 we specify other params in the URL:</p>
 <code language="session">
 $ rake routes
-course  /courses/:id(.:format) {:controller=&gt;"courses", :action=&gt;"show"}
+course  /courses/:id(.:format) {:controller=>"courses", :action=>"show"}
 </code>
 <p>We can look in <commandname>rails console</commandname> to see that <ic>url_for</ic> will now return a standard URL:</p>
 <code language="irb">
 $ rails c
 Loading development environment (Rails 3.0.3)
-&gt;&gt; c = Course.first
- =&gt; #<Course/>1, title: "Creative Writing", description: "Learn to write…
-&gt;&gt; app.url_for(c)
- =&gt; "http://www.example.com/courses/1" 
+>> c = Course.first
+ => #<Course id: 1, title: "Creative Writing", description: "Learn to write…
+>> app.url_for(c)
+ => "http://www.example.com/courses/1" 
 </code>
 <p>Later we’ll use <ic>url_for</ic> in our views to link to pages without embedding literal strings which makes our code
 harder to maintain.</p>
@@ -349,13 +350,13 @@ our terminal window. <ic>Rails.logger</ic> does not affect the HTML that is rend
 <p>When we first experimented with Ruby code, we sometimes used <method>puts</method> to see what was going on outside
 our program. Let’s see what happens to the output if we use <method>puts</method> instead of <ic>Rails.logger</ic>:</p>
 <code language="session">
-==================&gt; show method
-------------------------&gt; show view
+==================> show method
+------------------------> show view
 
 
 Started GET "/courses/4" for 127.0.0.1 at 2011-05-01 19:15:42 -0700
   Processing by CoursesController#show as HTML
-  Parameters: {"id"=&gt;"4"}
+  Parameters: {"id"=>"4"}
 Rendered courses/show.html.erb within layouts/application (1.8ms)
 Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.0ms)
 </code>
@@ -377,9 +378,9 @@ which we occasionally turn on in the rare case that we need to debug an issue in
 <code language="session">
 Started GET "/courses/4" for 127.0.0.1 at 2011-05-01 19:20:56 -0700
   Processing by CoursesController#show as HTML
-  Parameters: {"id"=&gt;"4"}
-==================&gt; show method!
-------------------------&gt; show view!
+  Parameters: {"id"=>"4"}
+==================> show method!
+------------------------> show view!
 Rendered courses/show.html.erb within layouts/application (1.6ms)
 Completed 200 OK in 5ms (Views: 5.1ms | ActiveRecord: 0.0ms)
 </code>
@@ -401,8 +402,8 @@ with id 1:</p>
 <code language="irb">
 $ rails c
 Loading development environment (Rails 3.0.1)
-&gt;&gt; Course.find(1)
- =&gt; #<Course/>1, title: "Creative Writing", description: "Learn to write…
+>> Course.find(1)
+ => #<Course id: 1, title: "Creative Writing", description: "Learn to write…
 </code>
 <p>The id arrives inside our controller as <ic>params</ic>. We saw before that <ic>params</ic> is a <class>Hash</class>.
 Is is actually a special subclass of <class>Hash</class>, called <class>HashWithIndifferentAccess</class> that allows us
@@ -412,24 +413,24 @@ see this in action:</p>
 <code language="irb">
 $ rails c
 Loading development environment (Rails 3.0.1)
-&gt;&gt; params = {}
- =&gt; {} 
-&gt;&gt; params["id"] = "4"
- =&gt; "4" 
-&gt;&gt; params[:id]
- =&gt; nil 
-&gt;&gt; params = HashWithIndifferentAccess.new
- =&gt; {} 
-&gt;&gt; params["id"] = "4"
- =&gt; "4"  
-&gt;&gt; params[:id]
- =&gt; "4" 
+>> params = {}
+ => {} 
+>> params["id"] = "4"
+ => "4" 
+>> params[:id]
+ => nil 
+>> params = HashWithIndifferentAccess.new
+ => {} 
+>> params["id"] = "4"
+ => "4"  
+>> params[:id]
+ => "4" 
 </code>
 <p>Now we know that we’ll be able to find the data we want using the <class>ActiveRecord</class> method
 <method>find</method> and pass it the id from the query args:</p>
 <code language="irb">
-&gt;&gt; Course.find(params[:id])
- =&gt; #<Course/>1, title: "Creative Writing", description: "Learn to write…
+>> Course.find(params[:id])
+ => #<Course id: 1, title: "Creative Writing", description: "Learn to write…
 </code>
 <p>To allow us to pass data to the view, Rails sets up another shortcut: whatever instance variables we set in the
 controller are then available to us in the view.</p>
@@ -456,18 +457,18 @@ instance variables. Whew, isn’t that a relief?  </p>
 However, in Ruby we can get a list of our instance variables and see what they are. Check this out inside of irb:</p>
 <code language="irb">
 $ irb
-&gt;&gt; instance_variables
- =&gt; [:@prompt] 
-&gt;&gt; old = instance_variables
- =&gt; [:@prompt] 
-&gt;&gt; @foo = 1
- =&gt; 1 
-&gt;&gt; @bar = "something"
- =&gt; "something" 
-&gt;&gt; instance_variables
- =&gt; [:@prompt, :@foo, :@bar] 
-&gt;&gt; new = instance_variables - old
- =&gt; [:@foo, :@bar] 
+>> instance_variables
+ => [:@prompt] 
+>> old = instance_variables
+ => [:@prompt] 
+>> @foo = 1
+ => 1 
+>> @bar = "something"
+ => "something" 
+>> instance_variables
+ => [:@prompt, :@foo, :@bar] 
+>> new = instance_variables - old
+ => [:@foo, :@bar] 
 </code>
 <p>With the model and view, Rails appears to mix together two separate
 concern, but it is merely an unusual message passing convention.</p>

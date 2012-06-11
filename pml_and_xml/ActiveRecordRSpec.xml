@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- -*- xml -*- -->
+<?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
 <chapter id="ch.activerecord-rspec" number="7">
 <title>Test Driving Model Development</title>
@@ -84,7 +83,7 @@ $ rake spec
 /rspec/core/backward_compatibility.rb:20:in `const_missing': uninitialized 
 constant Course (NameError)
 	from /Users/sarah/src/tfr/svn/Book/code/class_app_new_source/spec/models
-/course_spec.rb:3:in `<top/>(required)&gt;'
+/course_spec.rb:3:in `<top (required)>'
 	from /Users/sarah/.rvm/gems/ruby-1.9.2-p0@book/gems/rspec-core-2.5.1/lib
 /rspec/core/configuration.rb:386:in `load'
 	from /Users/sarah/.rvm/gems/ruby-1.9.2-p0@book/gems/rspec-core-2.5.1/lib
@@ -180,7 +179,7 @@ $ rake db:migrate
 (in …/code/class_app_new_source)
 ==  CreateCourses: migrating ==================================================
 -- create_table(:courses)
-   -&gt; 0.0010s
+   -> 0.0010s
 ==  CreateCourses: migrated (0.0011s) =========================================
 
 $ rake spec
@@ -198,9 +197,9 @@ look interactively and double-check:</p>
 <code language="session">
 $ rails c
 Loading development environment (Rails 3.0.3)
-&gt; c = Course.create!(:title =&gt; "Creative Writing",
-&gt;     :description =&gt; "Learn to write fiction!")
- =&gt; #<Course/>1, title: "Creative Writing", description: "Learn to write..."
+> c = Course.create!(:title => "Creative Writing",
+>     :description => "Learn to write fiction!")
+ => #<Course id: 1, title: "Creative Writing", description: "Learn to write..."
 </code>
 
 <p>Sometimes, when doing something particularly tricky or using an unfamiliar Ruby class or method, we still test
@@ -237,7 +236,7 @@ Failures:
   1) Course should not be valid if it has no title
      Failure/Error: c.should_not be_valid
        expected valid? to return false, got true
-     # ./spec/models/course_spec.rb:11:in `block (2 levels) in <top/>(required)&gt;'
+     # ./spec/models/course_spec.rb:11:in `block (2 levels) in <top (required)>'
 
 Finished in 0.41685 seconds
 28 examples, 1 failure
@@ -289,7 +288,7 @@ Failures:
   1) Person should not save a record without a name
      Failure/Error: p.should_not be_valid
        expected valid? to return false, got true
-     # ./spec/models/person_spec.rb:13:in `block (2 levels) in <top/>(required)&gt;'
+     # ./spec/models/person_spec.rb:13:in `block (2 levels) in <top (required)>'
 
 Finished in 0.04394 seconds
 2 examples, 1 failure
@@ -325,7 +324,7 @@ NoMethodError in 'Person should construct a full name'
 undefined method `full_name' for #<Person:0x1036ff5f0>
 .../lib/active_record/attribute_methods.rb:264:in `method_missing'
 ./spec/models/person_spec.rb:12:
-</Person:0x1036ff5f0>
+</code>
 <p>You can see that Ruby reports a <ic>NoMethodError</ic>, since we are sending a full_name message to
 the person object “p” where there is no method definition (or corresponding table column for ActiveRecord to dynamically evaluate).  To make this example pass, we can simply define a method:</p>
 <code file="code/class_app_new/01f_active_record/app/models/person.rb" part="method"/>
@@ -339,6 +338,5 @@ spec, we focus on what is special in our own app. As much as we can, we want to 
 easiest to isolate the model’s behavior and test it effectively, rather than testing that behavior as it ripple out to
 various parts of the application. Understanding
 the basics of models, the <emph>M</emph> in the MVC pattern, gives us a firm foundation as we continue to explore Rails.</p>
-</code>
 </sect1>
 </chapter>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- -*- xml -*- -->
+<?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
 <chapter id="ch.firstapp" number="5">
   <title>Diving Into Rails</title>
@@ -84,20 +83,20 @@ $ cd class_app
 <p>We have a complete boilerplate web application that has everything it needs to run.  Let’s start up our server:</p>
 <code language="session">
 $ rails server
-=&gt; Booting WEBrick
-=&gt; Rails 3.0.1 application starting in development on http://0.0.0.0:3000
-=&gt; Call with -d to detach
-=&gt; Ctrl-C to shutdown server
+=> Booting WEBrick
+=> Rails 3.0.1 application starting in development on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
 [2010-11-28 09:52:39] INFO  WEBrick 1.3.1
 [2010-11-28 09:52:39] INFO  Ruby 1.8.7 (2010-08-16) [i686-darwin10.4.0]
 [2010-11-28 09:52:39] INFO  WEBrick::HTTPServer#start: pid=27080 port=3000
 </code>
 
 <p> We'll need to point our browser at <url>http://localhost:3000</url> to see our running webapp. We can admire our first Rails app in action!  The default home page of the generated Rails web
-app, as shown in <ref linkend="fig.welcome-aboard"/>, contains information about the app’s configuration and links to documentation.</p>
+app, as shown in <ref linkend="fig.welcome-aboard" />, contains information about the app’s configuration and links to documentation.</p>
 <figure id="fig.welcome-aboard">
-  <title>Figure 5.1: Default Home Page</title>
-  <imagedata fileref="images/welcome-aboard.png"/>
+  <title>Default Home Page</title>
+  <imagedata fileref="images/welcome-aboard.png" />
 </figure>
 <p>Our app is all set up with required boilerplate and default configuration.  Let’s make it our own by modifying the home page of the app.</p>
 </sect1>
@@ -117,8 +116,8 @@ editor to modify the web page title or some text.</p><p>For example, let’s cha
 <code file="code/class_app_new/00a_rails_new/public/index.html" part="title"/>
 <p>to:</p>
 <figure id="fig.home-page-change">
-  <title>Figure 5.2: Home Page with Modified Title</title>
-  <imagedata fileref="images/home-page-change.png"/>
+  <title>Home Page with Modified Title</title>
+  <imagedata fileref="images/home-page-change.png" />
 </figure>
 <code file="code/class_app_new/00b_change_home_page/public/index.html" part="title"/>
 <p>Now we can just refresh the page at <url>http://localhost:3000</url> to see that its title now reads “My Cool Web App.” <ref linkend="fig.home-page-change"/> shows a screen shot of the app in the Chrome browser, so the web page title appears as the name of the tab, but it might appear in your browser in the window title bar.
@@ -246,8 +245,8 @@ called a <emph>controller</emph>. The controller will typically use a <emph>mode
 using a <emph>view</emph>. Rendering the view creates HTML which is sent to the browser and displayed. Then the visitor
 may click a link, which generates a request, and the cycle begins again. </p>
 <figure id="fig.rails-mvc">
-  <title>Figure 5.3: The MVC Request-Response Cycle</title>
-  <imagedata fileref="images/rails-mvc.png"/>
+  <title>The MVC Request-Response Cycle</title>
+  <imagedata fileref="images/rails-mvc.pdf" />
 </figure>
 <p>The easiest way to understand this is by example.  Before we create a web application of our own design, let’s use
 the Rails scaffold generator to get a feel for the Rails patterns that are easy to build in our own applications. The
@@ -297,7 +296,7 @@ $ rake db:migrate
 (in .../class_app)
 ==  CreatePeople: migrating ===================================================
 -- create_table(:people)
-   -&gt; 0.0012s
+   -> 0.0012s
 ==  CreatePeople: migrated (0.0013s) ==========================================
 </code>
 <p>We can see by the output that we just created a <emph>people</emph> table in the database.  </p>
@@ -305,8 +304,8 @@ $ rake db:migrate
 <sect2>
 <title>What’s up with these plural nouns?</title>
 <figure id="fig.pluralization">
-  <title>Figure 5.4: MVC Pattern with Pluralized Names</title>
-  <imagedata fileref="images/pluralization.png"/>
+  <title>MVC Pattern with Pluralized Names</title>
+  <imagedata fileref="images/pluralization.pdf" />
 </figure>
 <p>How did we get a list of <emph>people</emph> when we specified that
 we wanted a <emph>person</emph> object? Rails prides itself in letting
@@ -323,17 +322,17 @@ and how they work in a bit, but first let’s look at how they are named.</p>
 <p>Pluralization rules are controlled by the ActiveSupport::Inflector class in Rails. The <commandname>rails new</commandname> command generates a placeholder configuration file with comments that indicate exactly how to configure this.</p>
 <p>Using <ic>rails console</ic> we can see that the irregular noun "foot" is not correctly pluralized in Rails.</p>
 <code language="session">
-&gt; "foot".pluralize
- =&gt; "foots" 
+> "foot".pluralize
+ => "foots" 
 </code>
 <p>To fix this, let’s edit the file <filename>config/initializers/inflections.rb</filename> changing the commented out person/people line to
 foot/feet:</p>
-<code file="code/class_app_new/00c_add_rspec/config/initializers/inflections.rb"/>
+<code file="code/class_app_new/00c_add_rspec/config/initializers/inflections.rb" />
 <p>Now when we go back to the console (after exiting and  starting again, <commandname>reload!</commandname> is not sufficient in this
 case) we’ll  see the correct pluralization:</p>
 <code language="session">
-&gt; "foot".pluralize
- =&gt; "feet" 
+> "foot".pluralize
+ => "feet" 
 </code>
 <p>Looking at <filename>inflections.rb</filename>, we can see that Rails supports flexible rules for pluralization,
 which are well documented in the API
@@ -366,7 +365,7 @@ the code for the <class>Person</class> class in <filename>app/models/person.rb</
 noun.  We keep data in a <ic>people</ic> table.</p>
 <code language="session">
 rails dbconsole
-&gt;&gt; select * from people;
+>> select * from people;
 </code>
 <p>We'll learn more about interacting with the database console in <ref linkend="ch.activerecord"/>.</p>
 </sect3>
@@ -376,7 +375,7 @@ rails dbconsole
 <filename>app/controllers/people_controller.rb</filename>, we can see that <class>PeopleController</class> is a
 subclass of <class>ApplicationController</class>. We have just one <emph>application</emph> that provides access
 to a list of <emph>people</emph>.</p>
-<code file="code/class_app_new/00d_person_scaffold/app/controllers/people_controller.rb" part="class"/>
+<code file="code/class_app_new/00d_person_scaffold/app/controllers/people_controller.rb"  part="class"/>
 <p>This code is explained in <ref linkend="ch.controllers"/></p>
 </sect3>
 </sect2>
@@ -397,7 +396,8 @@ scaffold</commandname> command. We will focus on the core files that implement t
 </ul>
 <p>The <emph>views</emph> generated by scaffold are the four pages required for create, update, delete and viewing all
 of the data in a table and a the details of a single record. plus a fifth file (_form.html.erb) which
-contains snippet of code which is shared by two of the other views. We’ll learn a little about views in <ref linkend="sec.intro-views"/> and more
+contains snippet of code which is shared by two of the other views. We’ll learn a little about views in <ref
+linkend="sec.intro-views"/> and more
 in <ref linkend="ch.integration"/>.</p>
 <ul>
  <li><p>app/views/people/index.html.erb</p></li>
@@ -413,13 +413,13 @@ in <ref linkend="ch.integration"/>.</p>
 <url>http://localhost:3000/people</url>.  Here we see a the listing of the <emph>people</emph> in the database --
 a plural noun for the default URL because the page displays a collection.</p>
 
-<p>We have an empty list right now, as shown in <ref linkend="fig.people-listing-empty"/>, but we can see that with
+<p>We have an empty list right now, as shown in <ref linkend="fig.people-listing-empty" />, but we can see that with
 just one command we have a complete web interface for adding, editing and deleting records from our database. We'll
 explore it a bit to understand how different parts of Rails work together to create a compelling default implementation
 of REST using the MVC pattern.</p>
 <figure id="fig.people-listing-empty">
-  <title>Figure 5.5: Index Page with No Data</title>
-  <imagedata fileref="images/people-listing-empty.png"/>
+  <title>Index Page with No Data</title>
+  <imagedata fileref="images/people-listing-empty.png"  />
 </figure>
 <sect3 id="sec.scaffold-rest-mvc">
 <title>How Does Scaffold Implement REST and MVC?</title>
@@ -433,20 +433,21 @@ interactions.</p>
 the command-line using a useful rake task:</p>
 <code language="session">
 $ rake routes     
-people GET	/people(.:format)     	{:action=&gt;"index", :controller=&gt;"people"}
-people POST	/people(.:format)      	{:action=&gt;"create", :controller=&gt;"people"}
-new_person GET	/people/new(.:format)	{:action=&gt;"new", :controller=&gt;"people"}
-edit_person GET	/people/:id/edit(.:format) {:action=&gt;"edit", :controller=&gt;"people"}
-person GET	/people/:id(.:format)  	{:action=&gt;"show", :controller=&gt;"people"}
-person PUT	/people/:id(.:format)  	{:action=&gt;"update", :controller=&gt;"people"}
-person DELETE	/people/:id(.:format)  	{:action=&gt;"destroy", :controller=&gt;"people"}
+people GET	/people(.:format)     	{:action=>"index", :controller=>"people"}
+people POST	/people(.:format)      	{:action=>"create", :controller=>"people"}
+new_person GET	/people/new(.:format)	{:action=>"new", :controller=>"people"}
+edit_person GET	/people/:id/edit(.:format) {:action=>"edit", :controller=>"people"}
+person GET	/people/:id(.:format)  	{:action=>"show", :controller=>"people"}
+person PUT	/people/:id(.:format)  	{:action=>"update", :controller=>"people"}
+person DELETE	/people/:id(.:format)  	{:action=>"destroy", :controller=>"people"}
 </code>
 <p>Looking at the first line, we can see that the <ic>/people</ic> URL maps to the <ic>index</ic> action when we type
 the URL into the browser or follow a link, which results in an HTTP GET request. However, when the same URL is sent an HTTP POST request, the <method>create</method> action is triggered.</p>
-<p> Let’s go back to our browser to see how this works.  When we click the <emph>New Person</emph> link, we move to a page with a form where we can input data for a new Person record.  The <emph>new</emph> page, as shown in <ref linkend="fig.new-person"/>, corresponds to the URL <ic>/people/new</ic>.  </p>
+<p> Let’s go back to our browser to see how this works.  When we click the <emph>New Person</emph> link, we move to a page with a form where we can input data for a new Person record.  The <emph>new</emph> page, as shown in <ref
+linkend="fig.new-person" />, corresponds to the URL <ic>/people/new</ic>.  </p>
 <figure id="fig.new-person">
-  <title>Figure 5.6: The  “New” Page</title>
-  <imagedata fileref="images/new-person.png"/>
+  <title>The  “New” Page</title>
+  <imagedata fileref="images/new-person.png"  />
 </figure>
 
 <p>When we fill in the fields with a name, like “Fred” for the first name and “Flintstone” for the last name and click
@@ -454,10 +455,11 @@ the URL into the browser or follow a link, which results in an HTTP GET request.
 action inserts a new record in the database and redirects to the <emph>show</emph> page, which is <ic>/people/1</ic> for
 our first record.</p>
 
-<p>We can then click the “Back” link and to see the the list of people which includes our new record, as shown in <ref linkend="fig.people-listing-fred"/>.</p>
+<p>We can then click the “Back” link and to see the the list of people which includes our new record, as shown in <ref
+linkend="fig.people-listing-fred" />.</p>
 <figure id="fig.people-listing-fred">
-  <title>Figure 5.7: Index Page with One Record</title>
-  <imagedata fileref="images/people-listing-fred.png"/>
+  <title>Index Page with One Record</title>
+  <imagedata fileref="images/people-listing-fred.png" />
 </figure>
 
 <p>From the people index page we now have the option to show the detail page, edit the record or destroy the record. Go ahead and create a few people for your list. Experiment with editing and deleting a record.</p>
@@ -469,8 +471,8 @@ our first record.</p>
 <sect1 id="sec.intro-views">
 <title>Editing Views</title>
 <p>View files, also known as <emph>templates</emph>, ending in .erb are <emph>Embedded Ruby</emph> files.  Similar to JSP, ASP and PHP, these are dynamic web pages that mix HTML and Ruby code.</p>
-<p><ic>&lt;%  ... %&gt;</ic>	executes Ruby code	(e.g., setting up conditionals) </p>
-<p><ic>&lt;%= ... %&gt;</ic>	evaluates Ruby code, inserting the result in HTML	
+<p><ic>&lt;%  ... %></ic>	executes Ruby code	(e.g., setting up conditionals) </p>
+<p><ic>&lt;%= ... %></ic>	evaluates Ruby code, inserting the result in HTML	
 (e.g., displaying value returned from a method) 
 </p>
 <p>Let’s look at part of the code in <filename>app/views/people/index.html.erb</filename>:</p>
@@ -518,12 +520,12 @@ HTML. We can see “Listing people” in an <ic>&lt;h1&gt;</ic> tag at the top a
 List”. For the second challenge, we need to
 remove a visual column <ic>&lt;th&gt;Last Name&lt;/th&gt;</ic> and combine the two table cells (<ic>&lt;td&gt;</ic> tags) into one Ruby
 expression that concatenates the first letter of the first name with the last name. Below we use string interpolation to
-accomplish this the results can be seen in <ref linkend="fig.people-listing"/>.</p>
+accomplish this the results can be seen in <ref linkend="fig.people-listing" />.</p>
 <code file="code/class_app_new/00e_view_edits/app/views/people/index.html.erb" part="example"/>
 </sect2>
 
 <figure id="fig.people-listing">
-  <title>Figure 5.8: Modified People Index Page</title>
+  <title>Modified People Index Page</title>
   <imagedata fileref="images/people-listing.png"/>
 </figure>
 <p>We have created our first database-driven Rails application using the <commandname>rails new</commandname> and
@@ -549,10 +551,10 @@ Pending:
 Failures:
 
   1) people/index.html.erb renders a list of people
-     Failure/Error: assert_select "tr&gt;td", :text =&gt; "Given Name".to_s,…
+     Failure/Error: assert_select "tr>td", :text => "Given Name".to_s,…
      MiniTest::Assertion:
-       "Given Name"&gt; expected but was
-       "G Surname"&gt;.
+       <"Given Name"> expected but was
+       <"G Surname">.
      # (eval):2:in `assert'
      # ./spec/views/people/index.html.erb_spec.rb:20:in `block (2 lev…
 
