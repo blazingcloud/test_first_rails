@@ -417,7 +417,7 @@ $ rails server
 <p>When we browse to <url>http://localhost:3000/people</url> we see a page like <ref linkend="fig.people_index_with_3_records" /></p>
 
 <figure id="fig.people_index_with_3_records">
-  <title>People Index Page</title>
+  <title>Figure 6.1: People Index Page</title>
   <imagedata fileref="images/class_app/people_index_with_3_records.png" />
 </figure>
 
@@ -445,7 +445,7 @@ be.</p>
 <p>With this change, if we attempt to save a blank record, it fails to save and the error will be reported in the web
 interface, with a page like <ref linkend="fig.given_name_cant_be_blank" />.</p>
 <figure id="fig.given_name_cant_be_blank">
-  <title>Validation Error</title>
+  <title>Figure 6.2: Validation Error</title>
   <imagedata fileref="images/class_app/given_name_cant_be_blank.png"  />
 </figure>
 

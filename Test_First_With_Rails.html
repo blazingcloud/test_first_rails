@@ -1,4 +1,21 @@
-
+<html>
+		<h2>Table Of Contents</h2>
+		<div>
+		<ol class="toc">
+			<li><a href="#ch.preface">Preface</a></li>
+			<li><a href="#ch.intro">Why Test? And How We Test First</a></li>
+			<li><a href="#ch.ruby-intro">An Introduction To Ruby</a></li>
+			<li><a href="#ch.rspec-intro">Test First Ruby</a></li>
+			<li><a href="#ch.firstapp">Diving Into Rails</a></li>
+			<li><a href="#ch.activerecord">Exploring Active Record</a></li>
+			<li><a href="#ch.activerecord-rspec">Test Driving Model Development</a></li>
+			<li><a href="#ch.rake">Rake Helps Us Organize Our Ruby Scripts</a></li>
+			<li><a href="#ch.migrations">Creating Our Database Schema wit Migrations</a></li>
+			<li><a href="#ch.controllers">Exploring Routes and Controllers</a></li>
+			<li><a href="#ch.controllers-rspec">Understanding Controllers through Testing</a></li>
+		</ol>
+		</div>
+</html>
 <!DOCTYPE html>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
@@ -273,7 +290,7 @@ challenge you to take what you’ve learned and write some of the application on
 can enjoy the flexibility of a language like Ruby with a safety net.
   </p>
   <div class='figure' id='fig.tdd-productivity'>
-  <h3 class='title'>Test Driven Development vs. Traditional Velocity by Alex Chaffee</h3>
+  <h3 class='title'>Figure 2.1: Test Driven Development vs. Traditional Velocity by Alex Chaffee</h3>
   <img class='imagedata' src='images/TDD-productivity-graph.png'></img>
 </div>
 <p>We can visualize how test-driven development increases our productivity by thinking about how much time it takes to develop
@@ -358,7 +375,7 @@ our code solid.</p>
 <sect1>
 <h3 class='title'>Red, Green, Refactor</h3>
 <div class='figure' id='fig.tdd'>
-  <h3 class='title'>Test Driven Development Cycle</h3>
+  <h3 class='title'>Figure 2.2: Test Driven Development Cycle</h3>
   <img class='imagedata' src='images/tdd.svg'></img>
 </div>
 <p>Test first development is more than just writing the test first. The test first development cycle include series of
@@ -379,7 +396,7 @@ necessary for the current product requirements. </p>
 <sect1>
 <h3 class='title'>Defining Our Application</h3>
 <div class='figure' id='fig.mock_home_page'>
-  <h3 class='title'>Mock Home Page</h3>
+  <h3 class='title'>Figure 2.3: Mock Home Page</h3>
   <img class='imagedata' src='images/intro/mock_home_page.png'></img>
 </div>
 <p>Test first development dramatically changes how we define our application. Creating a specification using
@@ -404,7 +421,7 @@ else’s work to support class discussions and peer critiques. In <a class='ref'
 it might look for each student to have a page, where students can see which assignments are
 completed, can review old assignments or complete a new one.</p>
 <div class='figure' id='fig.mock_student_page'>
-  <h3 class='title'>Mock Student Page</h3>
+  <h3 class='title'>Figure 2.4: Mock Student Page</h3>
   <img class='imagedata' src='images/intro/mock_student_page.png'></img>
 </div>
 <p>The application we’re building will have key elements which are part of almost every web application, so that you can take
@@ -1879,7 +1896,7 @@ $ rails server
 <p> We'll need to point our browser at <a class='url' href='http://localhost:3000'>http://localhost:3000</a> to see our running webapp. We can admire our first Rails app in action!  The default home page of the generated Rails web
 app, as shown in <a class='ref' href='#fig.welcome-aboard'>Figure 5.1</a>, contains information about the app’s configuration and links to documentation.</p>
 <div class='figure' id='fig.welcome-aboard'>
-  <h3 class='title'>Default Home Page</h3>
+  <h3 class='title'>Figure 5.1: Default Home Page</h3>
   <img class='imagedata' src='images/welcome-aboard.png'></img>
 </div>
 <p>Our app is all set up with required boilerplate and default configuration.  Let’s make it our own by modifying the home page of the app.</p>
@@ -1904,7 +1921,7 @@ editor to modify the web page title or some text.</p><p>For example, let’s cha
 </pre>
 <p>to:</p>
 <div class='figure' id='fig.home-page-change'>
-  <h3 class='title'>Home Page with Modified Title</h3>
+  <h3 class='title'>Figure 5.2: Home Page with Modified Title</h3>
   <img class='imagedata' src='images/home-page-change.png'></img>
 </div>
 <pre class='external'>1   &#60;html&#62;
@@ -2057,8 +2074,8 @@ called a <em class='emph'>controller</em>. The controller will typically use a <
 using a <em class='emph'>view</em>. Rendering the view creates HTML which is sent to the browser and displayed. Then the visitor
 may click a link, which generates a request, and the cycle begins again. </p>
 <div class='figure' id='fig.rails-mvc'>
-  <h3 class='title'>The MVC Request-Response Cycle</h3>
-  <img class='imagedata' src='images/rails-mvc.pdf'></img>
+  <h3 class='title'>Figure 5.3: The MVC Request-Response Cycle</h3>
+  <img class='imagedata' src='images/rails-mvc.png'></img>
 </div>
 <p>The easiest way to understand this is by example.  Before we create a web application of our own design, let’s use
 the Rails scaffold generator to get a feel for the Rails patterns that are easy to build in our own applications. The
@@ -2116,8 +2133,8 @@ $ rake db:migrate
 <sect2>
 <h3 class='title'>What’s up with these plural nouns?</h3>
 <div class='figure' id='fig.pluralization'>
-  <h3 class='title'>MVC Pattern with Pluralized Names</h3>
-  <img class='imagedata' src='images/pluralization.pdf'></img>
+  <h3 class='title'>Figure 5.4: MVC Pattern with Pluralized Names</h3>
+  <img class='imagedata' src='images/pluralization.png'></img>
 </div>
 <p>How did we get a list of <em class='emph'>people</em> when we specified that
 we wanted a <em class='emph'>person</em> object? Rails prides itself in letting
@@ -2242,7 +2259,7 @@ just one command we have a complete web interface for adding, editing and deleti
 explore it a bit to understand how different parts of Rails work together to create a compelling default implementation
 of REST using the MVC pattern.</p>
 <div class='figure' id='fig.people-listing-empty'>
-  <h3 class='title'>Index Page with No Data</h3>
+  <h3 class='title'>Figure 5.5: Index Page with No Data</h3>
   <img class='imagedata' src='images/people-listing-empty.png'></img>
 </div>
 <div class='sect3' id='sec.scaffold-rest-mvc'>
@@ -2269,7 +2286,7 @@ person DELETE	/people/:id(.:format)  	{:action=>"destroy", :controller=>"people"
 the URL into the browser or follow a link, which results in an HTTP GET request. However, when the same URL is sent an HTTP POST request, the <span class='method'>create</span> action is triggered.</p>
 <p> Let’s go back to our browser to see how this works.  When we click the <em class='emph'>New Person</em> link, we move to a page with a form where we can input data for a new Person record.  The <em class='emph'>new</em> page, as shown in <a class='ref' href='#fig.new-person'>Figure 5.6</a>, corresponds to the URL <span class='ic'>/people/new</span>.  </p>
 <div class='figure' id='fig.new-person'>
-  <h3 class='title'>The  “New” Page</h3>
+  <h3 class='title'>Figure 5.6: The  “New” Page</h3>
   <img class='imagedata' src='images/new-person.png'></img>
 </div>
 
@@ -2280,7 +2297,7 @@ our first record.</p>
 
 <p>We can then click the “Back” link and to see the the list of people which includes our new record, as shown in <a class='ref' href='#fig.people-listing-fred'>Figure 5.7</a>.</p>
 <div class='figure' id='fig.people-listing-fred'>
-  <h3 class='title'>Index Page with One Record</h3>
+  <h3 class='title'>Figure 5.7: Index Page with One Record</h3>
   <img class='imagedata' src='images/people-listing-fred.png'></img>
 </div>
 
@@ -2358,7 +2375,7 @@ accomplish this the results can be seen in <a class='ref' href='#fig.people-list
 </div>
 
 <div class='figure' id='fig.people-listing'>
-  <h3 class='title'>Modified People Index Page</h3>
+  <h3 class='title'>Figure 5.8: Modified People Index Page</h3>
   <img class='imagedata' src='images/people-listing.png'></img>
 </div>
 <p>We have created our first database-driven Rails application using the <span class='commandname'>rails new</span> and
@@ -2850,7 +2867,7 @@ $ rails server
 <p>When we browse to <a class='url' href='http://localhost:3000/people'>http://localhost:3000/people</a> we see a page like <a class='ref' href='#fig.people_index_with_3_records'>Figure 6.1</a></p>
 
 <div class='figure' id='fig.people_index_with_3_records'>
-  <h3 class='title'>People Index Page</h3>
+  <h3 class='title'>Figure 6.1: People Index Page</h3>
   <img class='imagedata' src='images/class_app/people_index_with_3_records.png'></img>
 </div>
 
@@ -2882,7 +2899,7 @@ be.</p>
 <p>With this change, if we attempt to save a blank record, it fails to save and the error will be reported in the web
 interface, with a page like <a class='ref' href='#fig.given_name_cant_be_blank'>Figure 6.2</a>.</p>
 <div class='figure' id='fig.given_name_cant_be_blank'>
-  <h3 class='title'>Validation Error</h3>
+  <h3 class='title'>Figure 6.2: Validation Error</h3>
   <img class='imagedata' src='images/class_app/given_name_cant_be_blank.png'></img>
 </div>
 
@@ -3483,7 +3500,7 @@ built yet and see what happens. Let’s point our browser to a new, arbitrary ur
 <a class='url' href='http://localhost:3000/my_course'>http://localhost:3000/my_course</a>. We see the routing
 error shown in <a class='ref' href='#fig.routing-error'>Figure 10.1</a>. Go ahead and try it. </p>
 <div class='figure' id='fig.routing-error'>
-  <h3 class='title'>We Have Not Yet Specified Where the URL Goes</h3>
+  <h3 class='title'>Figure 10.1: We Have Not Yet Specified Where the URL Goes</h3>
   <img class='imagedata' src='images/controllers/routing-error.png'></img>
 </div>
 <p>This error tells us that the URL <span class='ic'>/my_course</span> is not hooked up to anything. There is no <em class='emph'>route</em> into the app
@@ -3592,7 +3609,7 @@ so it just tacks it on the end. When we learn more about where routes lead to an
 we’ll come back and fix up our route.</p>
 
 <div class='figure' id='fig.missing-courses-controller'>
-  <h3 class='title'>We Have a Route but no Controller</h3>
+  <h3 class='title'>Figure 10.2: We Have a Route but no Controller</h3>
   <img class='imagedata' src='images/controllers/missing-courses-controller.png'></img>
 </div>
 
@@ -3644,7 +3661,7 @@ for our views and a helper module where we keep code shared by our controller an
 <a class='url' href='http://localhost:3000/my_course'>http://localhost:3000/my_course</a>, we see an “Unknown Action” error shown in <a class='ref' href='#fig.unknown-action'>Figure 10.3</a>.
 The error reports that “the action ‘show’ could not be found.”</p>
 <div class='figure' id='fig.unknown-action'>
-  <h3 class='title'>We need to define a Controller action</h3>
+  <h3 class='title'>Figure 10.3: We need to define a Controller action</h3>
   <img class='imagedata' src='images/controllers/unknown-action.png'></img>
 </div>
 
@@ -3677,7 +3694,7 @@ for a file with name of the action and “.html.erb” appended.  For the route 
 <p>Now when we point our browser to: <a class='url' href='http://localhost:3000/my_course'>http://localhost:3000/my_course</a> we see &ldquo;Here I am!&rdquo; in large text as shown in <a class='ref' href='#fig.here-i-am'>Figure 10.4</a>. 
 </p>
 <div class='figure' id='fig.here-i-am'>
-  <h3 class='title'>A simple view</h3>
+  <h3 class='title'>Figure 10.4: A simple view</h3>
   <img class='imagedata' src='images/controllers/here-i-am.png'></img>
 </div>
 <p>Let’s take another look at the Rails log, which is output in the terminal window where we are running <span class='ic'>rails
@@ -3729,11 +3746,11 @@ the <span class='ic'>params Hash</span> along with the internal parameters of co
 it. <a class='ref' href='#fig.params-query'>Figure 10.6</a> shows an example with the query arguments <span class='ic'>foo=bar&amp;num=1</span> but they
 could, of course, be anything.</p>
 <div class='figure' id='fig.params'>
-  <h3 class='title'>Default parameters</h3>
+  <h3 class='title'>Figure 10.5: Default parameters</h3>
   <img class='imagedata' src='images/controllers/params.png'></img>
 </div>
 <div class='figure' id='fig.params-query'>
-  <h3 class='title'>Query arguments foo=bar&amp;num=1</h3>
+  <h3 class='title'>Figure 10.6: Query arguments foo=bar&amp;num=1</h3>
   <img class='imagedata' src='images/controllers/params-query.png'></img>
 </div>
 
@@ -3746,7 +3763,7 @@ when people bookmark them. Rails gives us tremendous flexibility with how we def
 a symbol as part of the URL pattern in our routes and that is automatically parsed and assigned a value in the <span class='ic'>params
 Hash</span>. In fact we’ve already seen this with the format extension, as shown in <a class='ref' href='#fig.params-with-format'>Figure 10.7</a></p>
 <div class='figure' id='fig.params-with-format'>
-  <h3 class='title'>Default parameters with format in URL</h3>
+  <h3 class='title'>Figure 10.7: Default parameters with format in URL</h3>
   <img class='imagedata' src='images/controllers/params-with-format.png'></img>
 </div>
 <p>Now that we understand how URL parameters work, as well as custom routes, let’s change our route to use the standard

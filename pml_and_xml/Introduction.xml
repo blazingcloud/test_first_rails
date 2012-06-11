@@ -25,7 +25,7 @@ of place in this paragraph. It might be better off as it's own and slightly expa
 better?</author>
   </p>
   <figure id="fig.tdd-productivity">
-  <title>Test Driven Development vs. Traditional Velocity by Alex Chaffee</title>
+  <title>Figure 2.1: Test Driven Development vs. Traditional Velocity by Alex Chaffee</title>
   <imagedata fileref="images/TDD-productivity-graph.png" align="center" />
 </figure>
 <p>We can visualize how test-driven development increases our productivity by thinking about how much time it takes to develop
@@ -111,7 +111,7 @@ our code solid.</p>
 <sect1>
 <title>Red, Green, Refactor</title>
 <figure id="fig.tdd">
-  <title>Test Driven Development Cycle</title>
+  <title>Figure 2.2: Test Driven Development Cycle</title>
   <imagedata fileref="images/tdd.svg" align="center" />
 </figure>
 <p>Test first development is more than just writing the test first. The test first development cycle include series of
@@ -133,7 +133,7 @@ necessary for the current product requirements. </p>
 <sect1>
 <title>Defining Our Application</title>
 <figure id="fig.mock_home_page">
-  <title>Mock Home Page</title>
+  <title>Figure 2.3: Mock Home Page</title>
   <imagedata fileref="images/intro/mock_home_page.png" />
 </figure>
 <p>Test first development dramatically changes how we define our application. Creating a specification using
@@ -161,7 +161,7 @@ else’s work to support class discussions and peer critiques. In <ref linkend="
 it might look for each student to have a page, where students can see which assignments are
 completed, can review old assignments or complete a new one.</p>
 <figure id="fig.mock_student_page">
-  <title>Mock Student Page</title>
+  <title>Figure 2.4: Mock Student Page</title>
   <imagedata fileref="images/intro/mock_student_page.png" />
 </figure>
 <p>The application we’re building will have key elements which are part of almost every web application, so that you can take

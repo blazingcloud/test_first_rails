@@ -364,7 +364,7 @@ class Parser
         chapter_number = chapter["number"]
         fig_number = 1
         chapter.css("figure").each do |figure|
-          @titles["#{figure['id']}"] = "Figure #{chapter_number}.#{fig_number}: #{figure.css('title')[0].text}"
+          @titles["#{figure['id']}"] = "Figure #{chapter_number}.#{fig_number}: #{figure.css('title')[0].text}" if !@titles["#{figure['id']}"].include?("Figure #{chapter_number}.#{fig_number}:")
           fig_number += 1
         end
       end

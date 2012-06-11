@@ -95,7 +95,7 @@ $ rails server
 <p> We'll need to point our browser at <url>http://localhost:3000</url> to see our running webapp. We can admire our first Rails app in action!  The default home page of the generated Rails web
 app, as shown in <ref linkend="fig.welcome-aboard" />, contains information about the app’s configuration and links to documentation.</p>
 <figure id="fig.welcome-aboard">
-  <title>Default Home Page</title>
+  <title>Figure 5.1: Default Home Page</title>
   <imagedata fileref="images/welcome-aboard.png" />
 </figure>
 <p>Our app is all set up with required boilerplate and default configuration.  Let’s make it our own by modifying the home page of the app.</p>
@@ -116,7 +116,7 @@ editor to modify the web page title or some text.</p><p>For example, let’s cha
 <code file="code/class_app_new/00a_rails_new/public/index.html" part="title"/>
 <p>to:</p>
 <figure id="fig.home-page-change">
-  <title>Home Page with Modified Title</title>
+  <title>Figure 5.2: Home Page with Modified Title</title>
   <imagedata fileref="images/home-page-change.png" />
 </figure>
 <code file="code/class_app_new/00b_change_home_page/public/index.html" part="title"/>
@@ -245,8 +245,8 @@ called a <emph>controller</emph>. The controller will typically use a <emph>mode
 using a <emph>view</emph>. Rendering the view creates HTML which is sent to the browser and displayed. Then the visitor
 may click a link, which generates a request, and the cycle begins again. </p>
 <figure id="fig.rails-mvc">
-  <title>The MVC Request-Response Cycle</title>
-  <imagedata fileref="images/rails-mvc.pdf" />
+  <title>Figure 5.3: The MVC Request-Response Cycle</title>
+  <imagedata fileref="images/rails-mvc.png" />
 </figure>
 <p>The easiest way to understand this is by example.  Before we create a web application of our own design, let’s use
 the Rails scaffold generator to get a feel for the Rails patterns that are easy to build in our own applications. The
@@ -304,8 +304,8 @@ $ rake db:migrate
 <sect2>
 <title>What’s up with these plural nouns?</title>
 <figure id="fig.pluralization">
-  <title>MVC Pattern with Pluralized Names</title>
-  <imagedata fileref="images/pluralization.pdf" />
+  <title>Figure 5.4: MVC Pattern with Pluralized Names</title>
+  <imagedata fileref="images/pluralization.png" />
 </figure>
 <p>How did we get a list of <emph>people</emph> when we specified that
 we wanted a <emph>person</emph> object? Rails prides itself in letting
@@ -418,7 +418,7 @@ just one command we have a complete web interface for adding, editing and deleti
 explore it a bit to understand how different parts of Rails work together to create a compelling default implementation
 of REST using the MVC pattern.</p>
 <figure id="fig.people-listing-empty">
-  <title>Index Page with No Data</title>
+  <title>Figure 5.5: Index Page with No Data</title>
   <imagedata fileref="images/people-listing-empty.png"  />
 </figure>
 <sect3 id="sec.scaffold-rest-mvc">
@@ -446,7 +446,7 @@ the URL into the browser or follow a link, which results in an HTTP GET request.
 <p> Let’s go back to our browser to see how this works.  When we click the <emph>New Person</emph> link, we move to a page with a form where we can input data for a new Person record.  The <emph>new</emph> page, as shown in <ref
 linkend="fig.new-person" />, corresponds to the URL <ic>/people/new</ic>.  </p>
 <figure id="fig.new-person">
-  <title>The  “New” Page</title>
+  <title>Figure 5.6: The  “New” Page</title>
   <imagedata fileref="images/new-person.png"  />
 </figure>
 
@@ -458,7 +458,7 @@ our first record.</p>
 <p>We can then click the “Back” link and to see the the list of people which includes our new record, as shown in <ref
 linkend="fig.people-listing-fred" />.</p>
 <figure id="fig.people-listing-fred">
-  <title>Index Page with One Record</title>
+  <title>Figure 5.7: Index Page with One Record</title>
   <imagedata fileref="images/people-listing-fred.png" />
 </figure>
 
@@ -525,7 +525,7 @@ accomplish this the results can be seen in <ref linkend="fig.people-listing" />.
 </sect2>
 
 <figure id="fig.people-listing">
-  <title>Modified People Index Page</title>
+  <title>Figure 5.8: Modified People Index Page</title>
   <imagedata fileref="images/people-listing.png"/>
 </figure>
 <p>We have created our first database-driven Rails application using the <commandname>rails new</commandname> and
