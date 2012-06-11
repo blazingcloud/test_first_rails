@@ -170,7 +170,7 @@ applications that provide a user interface on a relational (SQL) database. </p>
 <p>We rarely write SQL directly in our Rails code, but to understand what our app is really doing in the
 database, we’ll want to occasionally look at the SQL called by our app. If you don’t already know SQL, refer to <ref linkend="fig.database-commands"/> for a quick cheat sheet of the basic commands.</p>
 <figure id="fig.database-commands">
-  <title>Figure .1: Figure .1: Database Commands</title>
+  <title>Figure .1: Database Commands</title>
   <imagedata fileref="images/database-commands.png"/>
 </figure>
 </sect3>

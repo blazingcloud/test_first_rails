@@ -60,7 +60,7 @@ how routes work, we’ll just go to some URL we haven’t built yet and see what
 <url>http://localhost:3000/hello</url>, we see the routing
 error shown in <ref linkend="fig.routing-error"/>. Go ahead and try it. </p>
 <figure id="fig.routing-error">
-  <title>Figure .1: Figure .1: We Have Not Yet Specified Where the URL Goes</title>
+  <title>Figure .1: We Have Not Yet Specified Where the URL Goes</title>
   <imagedata fileref="images/controllers/routing-error.png"/>
 </figure>
 <p>This error tells us that the URL /hello is not hooked up to anything. There is no <emph>route</emph> into the app
@@ -93,7 +93,7 @@ a class of that name. In this case, <class>MessagesController</class>.  So, <ic>
 that we’ll be creating a <class>MessagesController</class> with a <method>greeting</method> method to be called when someone browses to
 <ic>/hello</ic>.</p>
 <figure id="fig.missing-messages-controller">
-  <title>Figure .2: Figure .2: We Have a Route but no Controller</title>
+  <title>Figure .2: We Have a Route but no Controller</title>
   <imagedata fileref="images/controllers/missing-messages-controller.png"/>
 </figure>
 
@@ -130,7 +130,7 @@ for our views and a helper module where we keep code shared by our controller an
 <url>http://localhost:3000/hello</url>, we see an “Unknown Action” error shown in <ref linkend="fig.unknown-action"/>.
 The error reports that “the action ‘greeting’ could not be found.”</p>
 <figure id="fig.unknown-action">
-  <title>Figure .3: Figure .3: We need to define a Controller action</title>
+  <title>Figure .3: We need to define a Controller action</title>
   <imagedata fileref="images/controllers/unknown-action.png"/>
 </figure>
 
@@ -160,7 +160,7 @@ for a file with name of the action and “.html.erb” appended.  For the route 
 <p>Now when we point our browser to: <url>http://localhost:3000/hello</url> we see &lquot;Here I am!&rquot; in large text as shown in <ref linkend="fig.here-i-am"/>. 
 </p>
 <figure id="fig.here-i-am">
-  <title>Figure .4: Figure .4: A simple view</title>
+  <title>Figure .4: A simple view</title>
   <imagedata fileref="images/controllers/here-i-am.png"/>
 </figure>
 <p>Let’s take another look at the Rails log, which is output in the terminal window where we are running <ic>rails
@@ -241,7 +241,7 @@ Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms)
 pass <ic>name=emma</ic> as a query arg, we could change the view to include embedded Ruby that accesses the paramter:</p>
 <code file="code/message_app1/app/views/messages/greeting.html.erb" part="one"/>
 <figure id="fig.hello-emma">
-  <title>Figure .5: Figure .5: View with a Parameter from a Query Arg</title>
+  <title>Figure .5: View with a Parameter from a Query Arg</title>
   <imagedata fileref="images/controllers/hello-emma.png"/>
 </figure>
 <p>When we go to <url>http://localhost:3000/hello?name=emma</url>, we can see in <ref linkend="fig.hello-emma"/> that
