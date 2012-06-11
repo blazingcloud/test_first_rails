@@ -1,7 +1,7 @@
 DIR = File.dirname(__FILE__)
 
 require "#{DIR}/parser.rb"
-require 'pdfkit'
+#require 'pdfkit'
 
 @parser = Parser.new
 pml_files = Dir[DIR+'/pml_and_xml/*.pml']
@@ -37,6 +37,11 @@ end
 
 html_files = Dir[DIR+'/html/*.html']
 whole_html = File.new("Test_First_With_Rails.html", "w+")
+puts " Do you want to generate table of contents? ('Y' yes, 'N' no)"
+table_of_contents = gets.chomp
+if table_of_contents == 'Y'
+	whole_html.write(File.read(DIR + "/Table_Of_Contents.html"))
+end
 puts "  Number of chapters to join? ('n' to skip joining files)"
 input = gets.chomp
 if input == 'n'
@@ -58,10 +63,8 @@ else
       end
     end
   end
-  kit = PDFKit.new(whole_html, :page_size => 'Letter')
-  kit.to_file("./Test_First_With_Rails.pdf")
   puts " Done! "
-  puts "Find your HTML and PDF file in pml_to_html"
+  puts "Find your HTML file in pml_to_html"
   
 end
 

@@ -1,7 +1,297 @@
+<html>
+	<head>
+	<style text="type/css">
+	a{
+		text-decoration:none;
+	}
+	</style>
+	</head>
+	
+	<body>
+		<h2>Table Of Contents</h2>
+		<div>
+		<ol class="toc">
+			<li><a href="html/Preface.html">Preface</a></li>
+			<li><a href="html/Introduction.html">Why Test? And How We Test First</a></li>
+			<li><a href="html/Ruby .html">An Introduction To Ruby</a></li>
+			<li><a href="html/RSpec.html">Test First Ruby</a></li>
+			<li><a href="html/RailsIntro.html">Diving Into Rails</a></li>
+			<li><a href="html/ActiveRecordIntro.html">Exploring Active Record</a></li>
+			<li><a href="html/ActiveRecordRSpec.html">Test Driving Model Development</a></li>
+			<li><a href="html/Rake.html">Rake Helps Us Organize Our Ruby Scripts</a></li>
+			<li><a href="html/Migrations.html">Creating Our Database Schema wit Migrations</a></li>
+			<li><a href="html/Controllers.html">Exploring Routes and Controllers</a></li>
+			<li><a href="html/ControllersRSpec.html">Understanding Controllers through Testing</a></li>
+		</ol>
+		</div>
+	</body>
+</html>
+<!DOCTYPE html>
+<head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
+<div class='chapter' id='ch.preface' number='1'>
+<h2 class='chapter_title'>Come On In</h2>
+<p>We’re diving into Ruby on Rails test first. We’ll be using techniques designed to create robust production code that
+can be delivered quickly and adapt nimbly to new business requirements. We’ll experience testing as a software
+development methodology, rather than in its traditional use in isolating and resolving defects. In most of the book,
+we’ll focus on testing as an effective way to learn a new language and framework.</p>
+<p>As kids we explore our world through experimentation. Researchers test hypotheses, learning about our world through
+the scientific method. As programmers, we have test frameworks, originally developed for verifying defects, that can be
+applied to learning.</p>
+<p>Learning programming through testing has been independently discovered by dozens of engineers as a natural way to learn. We use two different kinds of testing in this book.
+First we do exploratory testing: like kids exploring nature, we poke around Ruby using an
+interactive console called <span class='commandname'>irb</span> (Interactive RuBy), Ruby’s own REPL (Read Eval Print Loop). Then, we use test
+frameworks RSpec and Capybara.</p>
+<p>Using test first development techniques, we have the opportunity to see all of the error
+messages we will later see in the wild. We explore APIs in detail. We don’t just learn recipes for building an
+application with Ruby on Rails – we learn the fundamentals of how the different parts of the framework fit together.
+Much of time saving benefit of using a framework is created by the built-in behaviors that happen without our writing
+any code at all,
+and those are the hardest to learn. Using test first techniques, we can see those behaviors more
+clearly and better understand what the framework does for us.
+</p>
+<p>A happy side benefit of a test first approach to learning is that we are learning to code using best practices. At the
+end of the book, we will have written a whole application that includes tests. We will experience how testing helps us
+effectively design our code and develop our software. We will see how testing goes beyond the bug find-fix cycle,
+liberating us to write great code at high velocity.</p>
+<sect1>
+<h3 class='title'>Web Development with Rails</h3>
+<p>Speaking of high velocity, Ruby on Rails is a framework for building web applications that is optimized for
+programmer productivity. David Hansson who created Rails in the early 2000s says that it was <em class='emph'>extracted</em>
+rather than created. He first wrote Basecamp, a popular online collaboration tool, as a web application in Ruby; then he
+pulled out the code which was common to all web applications to create the Rails framework. Rails was created from a real-world use case at a time when web application design patterns were well
+established. Since most web applications share a lot of common patterns and behaviors, the Rails framework speeds our
+development by letting us create a lot of functionality with very little code.
+</p>
+<p>Rails is written in the Ruby language. When we develop Rails applications we are writing Ruby code.
+First developed in the early 1990s by Japanese engineer, Yukihiro “Matz” Matsumoto, Ruby was designed not only for
+programmer productivity, but also to increase programmer happiness. Matz believes that language design must follow the
+same principles as user interface design, emphasizing human, rather than computer needs. Today, when time-to-market is
+more often the gating factor of software development than compute power, this emphasis of Rails and Ruby on productivity
+is particularly valuable.</p>
+</div>
+<sect1>
+<h3 class='title'>Who Should Read This Book?</h3>
+<p>This book is written for programmers.  You’ve been developing in Java, C++, PHP or some other language, or perhaps
+you studied programming in college and are considering diving back in with web development. Total beginners might want
+to consider starting with Chris Pine's <bookname>Learn to Program</bookname> before jumping into this book.</p>
+</div>
+<sect1>
+<h3 class='title'>Software We’ll Need</h3>
+<p>We recommend working through this book with the same versions of software that were used to write it. Almost
+everything will be the same in the next incremental version of anything, but when you are learning, sometimes a small
+difference can be confusing.</p>
+
+  <p>Let’s first check that we have the right version of Rails and it is working, by typing <span class='ic'>rails -v</span> on the command line.
+  We should see the version printed afterwards.  Throughout this book, we’ll show you command-line output where the
+  <span class='ic'>$</span> is our command prompt with what we’re typing after a space on the same line. Then we’ll show you the output
+  of the command, like this:</p>
+<pre class='code' language='session'>
+$ rails -v
+Rails 3.0.3
+</pre>
+
+<p>To get the most out of this book, we should all be using the same version of Rails. Any version that starts with 3.0
+is fine (like 3.0.1 or 3.0.3). If you don’t have the right
+version or got an error when you tried to run the <span class='commandname'>rails</span> command or for any of the commands in
+this section, check out <a class='ref' href='#sec.online-resources'>Online Resources</a> for online references to installation instructions.</p>
+<p>To be able to run the <span class='commandname'>rails</span> command and build the most minimal application, you will need Ruby and the Ruby Gems packaging manager.</p>
+<sect2>
+<h3 class='title'>Ruby</h3>
+<p>Great Rails developers are great Ruby developers. We need Ruby to build and run Rails applications. Check your
+version:
+</p>
+<pre class='code' language='session'>
+$ ruby -v
+ruby 1.9.2p0 (2010-08-18 revision 29036) [x86_64-darwin10.4.0]
+</pre>
+<p>Ruby 1.8.7 or higher is required for Rails 3.  Ruby 1.9.2 or higher is recommended.</p>
+</div>
+
+<sect2>
+<h3 class='title'>Ruby Gems</h3>
+<p>A gem is a ruby library. Rubyists like to make up cute names for their creations. Jim Weirich was no exception when
+he created Ruby Gems.  A gem is a precious bit of Ruby code that some developer has carved out for its usefulness. 
+The name <em class='emph'>gem</em> speaks to the Ruby aesthetic that our code should be beautiful and bring us delight as
+well as having practical uses. Ruby Gems has a fabulous packaging system that supports having different versions installed
+as well as installing native code extensions. We can also easily install libraries from local or remote sources.  To see
+what version of Ruby Gems we have installed:
+</p>
+<pre class='code' language='session'>
+$ gem -v
+1.3.7
+</pre>
+<p>To see the gems we have installed:</p>
+<pre class='code' language='session'>
+$ gem list
+</pre>
+<p> When we’re developing in Rails, we often add gems that offer functionality that is common to many web applications.
+Ruby engineers are exuberant in providing open source implementations of any code that is generally useful, creating an
+ecosystem of tools that adds to our velocity as Rails engineers.</p>
+</div>
+<sect2>
+<h3 class='title'>Database</h3>
+<p> In this book, we’ll use SQLite since it is easy to install and is
+great for experimentation. A database is not strictly required for a web application built with Rails, but most web applications
+provide a user interface on a relational database, so that’s the kind of app we’ll build. The Rails code that we will develop will be database-independent, so we can use any of the
+supported databases for deployment or further development.</p>
+</div>
+<sect2>
+<h3 class='title'>Editor or IDE</h3>
+<p>There are a lot of great IDEs that work well for Rails, such as RubyMine, Aptana’s RadRails, TextMate (for the Mac)
+and Komodo. Every code editor we’ve tried lately has Ruby syntax highlighting, which is essential for spotting errors. Additionally, it is handy to have a project view to see the directory hierarchy, since
+when we develop a Rails application, we often switch between files to follow the flow of control or see the test and the
+tested code. We highly recommend finding a IDE you love and learning its ins and outs.</p>
+</div>
+<sect2>
+<h3 class='title'>Terminal or Command Prompt</h3>
+<p>Rails development relies heavily on command-line tools. On Mac or Linux, we run these in the <em class='emph'>terminal</em>,
+and on Windows, in the <em class='emph'>command prompt</em>. We like running <em class='emph'>gitbash</em> aka
+<em class='emph'>msysgit</em><div class='footnote'><p><a class='url' href='http://code.google.com/p/msysgit/'>http://code.google.com/p/msysgit/</a></p></div> on Windows, which is
+distributed with git by the helpful folks who create git for Windows. Gitbash allows us to use the same Unix commands for
+moving and copying files as we use on and Linux.</p>
+</div>
+<sect2>
+<h3 class='title'>Test Frameworks</h3>
+<p>Throughout this book, we use RSpec, created by David Chelimsky. RSpec grew out of the behavior-driven development movement
+and is focused on the idea that when we write our code test first, we are actually writing a specification of our code.
+The key advantage of RSpec both for learning and for building production code is the clarity of its output. This is the
+primary reason we use RSpec. When we’re learning, clear output will help us learn from the test failures. When part of
+our existing test suite fails during development of new code, being able to clearly see the failure saves time fixing
+it. Also, there are many smaller test framework details that work together in RSpec to make tests easier to read and
+maintain once we understand the syntax. Trust us, it’s a good way to go, but if you find later that you want to switch
+or find yourself in the midst of a project that uses Test::Unit, no worries – the principles and patterns we cover in
+this book apply to all test frameworks.</p> 
+<p>Like all of
+the Ruby test frameworks, RSpec is distributed as a gem. Since we’re building a Rails application, we’ll use the
+<span class='commandname'>rspec-rails</span> gem that includes RSpec and some additional helpers for Rails.</p>
+<p>You don’t need these gems installed right now, but here are are the versions we’ll be using:</p>
+<pre class='code' language='session'>
+$ gem list rspec
+
+*** LOCAL GEMS ***
+
+rspec (2.5.0)
+rspec-core (2.5.2, 2.5.1)
+rspec-expectations (2.5.0)
+rspec-mocks (2.5.0)
+rspec-rails (2.5.0)
+</pre>
+<p>We also use Capybara for integration testing:</p>
+<pre class='code' language='session'>
+$ gem list capybara
+
+*** LOCAL GEMS ***
+
+capybara (0.4.1.2)
+</pre>
+<p>Now you have everything you need to build Ruby on Rails web applications test first.</p>
+
+<p><ed>This is a little strange.... this whole section seemed full of tagents. The "do I have to use a db" part, the
+diversion into the various types of databases and the consoles... one of that seems like it belongs in a "how to get set
+up" section, which is what this started out as. I know you think this info is important, but does your reader need to
+know this stuff right now? Can you get them set up with Rails, SQlite, and then get us on our way? The background info
+on RSpec is good, but seems out of place with the installation instructions, especially since we probably shouldn't be
+installing the gems this way now that we have Bundler. Another thing i didn't really see is enough of a justification
+for using rspec. I could just as easily meet the same requirements with test:unit which is the default. Personally, I
+  favor Rspec, but my reasons are completely arbitrary -- I like it cos I like it.  Why are you using it? Does it belong
+  in the installation section, or should it go in another section in the preface, where you talk about Ruby and Rails? I
+  feel like it belongs there, with the IDE stuff too.</ed><author>Sarah:moved from intro to preface, some stuff in
+  appendix, installation stuff
+  will go online. This is much more concise and I think it works better.</author></p>
+
+</div>
+
+
+</div>
+<sect1>
+<h3 class='title'>What is in This Book?</h3>
+<p>Throughout this book, you will learn both the Ruby language and the Rails framework. We first will explore a concept
+with exploratory testing through <span class='commandname'>irb</span> and sometimes with the command line and the browser. 
+Then in the following chapter, we will continue our development test first using Ruby automated test frameworks.</p>
+<p>In each chapter, we will build one small part of a larger application. The application is for an imaginary
+creative writing class and serves as a resource for the students in the class. The domain of the application that we
+first implement when learning Rails isn’t important, since most Rails applications, like most web applications, are very
+similar to each other. We have some
+data that we want to store in a database and later see it again. Sometimes we want to change it or delete it. We want to
+provide the user interface in HTML so anyone with a web browser connected to the Internet can access it. Whether it is
+the text of a writing assignment, the name and part number of a piece of equipment or items in a product catalog, these
+are all just data that we can keep in a database and display in HTML.</p>
+<p>In <a class='ref' href='#ch.intro'>Why Test? And How We Test First</a>, we’ll  talk about
+how testing is first and foremost about good design, how it helps the software development workflow and collaboration,
+how we can write more maintainable code and how the creation of tests is a nice artifact of the process, not the
+main point. We’ll also introduce how we test first with the Red-Green-Refactor pattern of test first development. We’ll
+also talk more about the app we will build in the book and we’ll work through all of the tools and components we need to develop a Rails application.</p>
+<p>In <a class='ref' href='#ch.ruby-intro'>An Introduction to Ruby</a>, we’ll learn just enough of the Ruby language to get started with Rails. We’ll
+start using <span class='commandname'>irb</span> and write our first class and a method that we’ll use later in our Rails
+application. Then in <a class='ref' href='#ch.rspec-intro'>Test First Ruby</a>, we’ll learn how to use RSpec, the automated test framework that
+we’ll use throughout the book. We’ll test drive the development of some Ruby as well as understanding how to test the
+code that we already wrote.</p>
+<p>In  <a class='ref' href='#ch.firstapp'>Diving Into Rails</a>, we’ll start our Rails application with command line generators that we’ll
+explore in the browser. We’ll gain some experience with our first Rails pattern, most importantly the
+Model-View-Controller (MVC) pattern, which we will learn in more detail throughout the first half of the book. We’ll get
+a feel for how views work with ERB (Embedded RuBy) templates.</p>
+<p>We’ll learn about ActiveRecord, the <em class='emph'>model</em>, in the MVC pattern, interactively in <a class='ref' href='#ch.activerecord'>Exploring ActiveRecord</a> and with RSpec in <a class='ref' href='#ch.activerecord-rspec'>Test Driving Model Development</a>.</p>
+<p> In <a class='ref' href='#ch.rake'>Rake Helps us Organize Our Ruby Scripts</a> we’ll get deeper into Ruby code, which will give us a firm foundation for the rest of the book.
+We’ll also learn about the command line tool <span class='commandname'>rake</span>, which is like the Unix tool
+<span class='commandname'>make</span>, but for Ruby. With Rake, we’ll write a Ruby script that uses our ActiveRecord class
+that we created in the previous chapters.</p>
+<p>In <a class='ref' href='#ch.migrations'>Creating Our Database Schema with Migrations</a>, we’ll understand how our database schema is created and modified. We’ll learn the
+mechanisms of how Rails can be database independent.</p>
+<p>In <a class='ref' href='#ch.controllers'>Routes and Controllers</a>, we’ll build a dynamic web page one step at a time, experimenting with how the browser
+responds with the default Rails behavior and with our code. We’ll get to know how Rails handles HTTP requests. Then
+we’ll continue the development of our controller by test-driving the rest of its behavior in <a class='ref' href='#ch.controllers-rspec'>Understanding Controllers through Testing</a>.</p>
+<p>In <a class='ref' href='#ch.integration'></a>, we’ll solidify our understand of the MVC pattern and how it is implemented in
+Rails core classes by test driving new behavior with the Capybara integration test framework. </p>
+<p>In <a class='ref' href='#ch.stubs'></a>, we’ll learn more about testing Ruby code, coping with uncertainty when the results of our code are
+      non-deterministic and keeping our tests running fast.
+</p>
+<p>As we add more behavior to our application, in <a class='ref' href='#ch.helpers'></a>, we’ll learn some
+techniques to keeping our code manageable and easy to read.</p>
+<p>In <a class='ref' href='#ch.associations'></a>, we’ll take a closer look at ActiveRecord and learn how to leverage the power of
+our relational database. Through <span class='commandname'>rails console</span>, we’ll gain experience with common association
+methods in a “has many” relationship. Then, in <a class='ref' href='#ch.associations-rspec'></a> we’ll learn more about the details
+by understanding how to define associations with RSpec.</p>
+<p>In <a class='ref' href='#ch.has-many-through'></a>, we’ll learn how to create a many-to-many relationship using another kind of association.</p>
+<p>In <a class='ref' href='#ch.auth'></a>, we’ll gain experience using a gem to extend Rails. We’ll also learn about how to lock
+down controller actions, securing the entry points to our app with “before” filters. </p>
+<p>At the end of the book, inn <a class='ref' href='#ch.dunno'></a>, we’ll highlight the parts of Rails that you’ll want to learn
+next.</p> 
+<p> Through testing and experimentation, we’ll have
+developed a thorough understanding of Rails. You will know
+enough to build an intranet application or kick-off the development of a small-scale web app, and you will have enough
+of a foundation to support further learning on your own to create highly-scalable consumer-facing web applications. </p>
+</div>
+<sect1 id="sec.online-resources" >
+<h3 class='title'>Online Resources</h3>
+<p>
+This book has its own web page, <a class='url' href='http://pragprog.com/titles/satfr'>http://pragprog.com/titles/satfr</a>, where you can find more information about the book.
+You can:</p>
+<ul>
+<li><p>Get links to all of the software dependencies, so you can install what you need to work through the examples.</p></li>
+<li><p>Download the full source code for the application that we’ll build in the book, including code for the
+intermediate stages and Ruby scripts.</p></li>
+<li><p>Participate in a discussion forum with Sarah, Liah, and other readers like you.</p></li>
+<li><p>Help improve the book by reporting typos and code that didn’t work the way you expected. We also welcome
+suggestions for improvement.</p></li>
+</ul>
+<p>You are free to use the source code in your own applications in any way that you want. If you’re reading the ebook, you can also click the little gray rectangle before the code listings to download that source file directly.</p>
+<p>Throughout the book, we’ll also point you to online resources where you can learn more about Ruby and Rails.</p>
+</div>
+
+<sect1>
+<h3 class='title'>How to Read This Book</h3>
+<p>Except for  <a class='ref' href='#ch.intro'>Why Test? And How We Test First</a>, this book is not meant to be read on the bus or leaning back on the sofa. You should have hands on the keyboard and try out each experiment. For most of the code, you’ll be able to see the expected result, but now and then we’ll
+challenge you to take what you’ve learned and write some of the application on your own.</p>
+<p>Let’s start by learning a bit more about why and how we write code test first.  </p>
+<p></p>
+
+
+</div>
+</div>
 
 <!DOCTYPE html>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
-<div class='chapter' id='ch.intro' number='1'>
+<div class='chapter' id='ch.intro' number='2'>
 <h2 class='chapter_title'>Why Test? And How We Test First</h2>
  
   <p>Ever wanted to rip out an old feature and replace it with the next big thing? Well-tested code gives us the power
@@ -181,7 +471,7 @@ that are unique to what we want people to be able to do with our application.</p
 
 <!DOCTYPE html>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
-<div class='chapter' id='ch.ruby-intro' number='2'>  
+<div class='chapter' id='ch.ruby-intro' number='3'>  
   <h2 class='chapter_title'>An Introduction to Ruby</h2>
   
     <p>
@@ -782,7 +1072,7 @@ We have learned the basics of Ruby that we will need to understand RSpec in the 
 </div>
 <!DOCTYPE html>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
-<div class='chapter' id='ch.rspec-intro' number='3'>
+<div class='chapter' id='ch.rspec-intro' number='4'>
   <h2 class='chapter_title'>Test First Ruby</h2>
 <p>We've explored enough Ruby that we are ready to learn RSpec, our key to unlocking the power of testing our code. Of course, there is always more Ruby to learn and we will also learn some more advanced Ruby concepts including attr_accessor methods, hashes, and string interpolation.</p>
 <p>By the end of <a class='ref' href='#ch.ruby-intro'>An Introduction to Ruby</a> we had a simple <span class='rubyclass'>Person</span> class that could store a name.  We’ll continue to work on the <span class='rubyclass'>Person</span> class, but now we’ll be building it test first with RSpec.  We will use RSpec <span class='firstuse'>specs</span> (RSpec lingo for tests) to suss out what our API should look like, and how we want to use our code. Each spec will verify one example of how we expect our code to work. We will end up with a suite of specs that describe a well thought out and detailed technical design of our <span class='rubyclass'>Person</span> objects.</p>
@@ -1529,7 +1819,7 @@ string. In addition to string interpolation, the “\” character is used to in
 
 <!DOCTYPE html>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
-<div class='chapter' id='ch.firstapp' number='4'>
+<div class='chapter' id='ch.firstapp' number='5'>
   <h2 class='chapter_title'>Diving Into Rails</h2>
    
 <p>Rails engineers are some of the speediest coders around, in part, because of the effective Rails code generators.
@@ -2173,7 +2463,7 @@ models, controllers and views using interactive testing with the Rails console a
 
 <!DOCTYPE html>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
-<div class='chapter' id='ch.activerecord' number='5'>
+<div class='chapter' id='ch.activerecord' number='6'>
 <h2 class='chapter_title'>Exploring ActiveRecord</h2>
 <p>Remember how we created a <span class='ic'>person</span> object with the <span class='ic'>generate scaffold</span> command, in <a class='ref' href='#ch.firstapp'>Diving Into Rails</a>?  Our scaffold generated a <span class='rubyclass'>Person</span> class. The <span class='rubyclass'>Person</span> class and its
 corresponding <span class='ic'>people</span> table is our model. The model represents a single row in the database table.</p>
@@ -2672,7 +2962,7 @@ ActiveRecord::RecordInvalid: Validation failed: given name can't be blank
 
 <!DOCTYPE html>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
-<div class='chapter' id='ch.activerecord-rspec' number='6'>
+<div class='chapter' id='ch.activerecord-rspec' number='7'>
 <h2 class='chapter_title'>Test Driving Model Development</h2>
 <p>With a basic understanding of ActiveRecord and validations, let’s use a test-driven approach to
 creating model behavior.  In test-driven development, we write the test first, detailing our requirements by example
@@ -3065,7 +3355,7 @@ the basics of models, the <em class='emph'>M</em> in the MVC pattern, gives us a
 
 <!DOCTYPE html>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
-<div class='chapter' id='ch.rake' number='7'>
+<div class='chapter' id='ch.rake' number='8'>
   <h2 class='chapter_title'>Rake Helps us Organize Our Ruby Scripts</h2>
   <p>Remember how we created our database back in the ActiveRecord chapter?  It went something like this: <span class='ic'>rake db:create</span> and then <span class='ic'>rake db:migrate</span>. These commands are called rake tasks.  Rake is a build program written in Ruby.  It is also another example of a Domain Specific Language (DSL), meaning that it is a new language that sits on top of Ruby with the sole purpose of building files and running scripts. Rake tasks are great because they make our lives easier.  How would we have created our database without rake?  We could have used a sql console to create the database, add the tables and indexes.  Sounds much more time consuming and error prone than using our two rake commands, right?</p>
   
@@ -3153,7 +3443,7 @@ too(http://stackoverflow.com/questions/4017069/correct-rails-3-replacement-for-e
 
 <!DOCTYPE html>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
-<div class='chapter' id='ch.migrations' number='8'>
+<div class='chapter' id='ch.migrations' number='9'>
   <h2 class='chapter_title'>Creating Our Database Schema with Migrations</h2>
   <p>We will learn about where the database schema
   in our application came from and how a model is created and modified with a migration.</p>
@@ -3161,7 +3451,7 @@ too(http://stackoverflow.com/questions/4017069/correct-rails-3-replacement-for-e
 
 <!DOCTYPE html>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
-<div class='chapter' id='ch.controllers' number='9'>
+<div class='chapter' id='ch.controllers' number='10'>
   <h2 class='chapter_title'>Exploring Routes and Controllers</h2>
 
      <p>When we create a web application, we craft a unified experience from a series of web pages. 
@@ -3698,7 +3988,7 @@ conventions.</p>
 
 <!DOCTYPE html>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
-<div class='chapter' id='ch.controllers-rspec' number='10'>
+<div class='chapter' id='ch.controllers-rspec' number='11'>
 <h2 class='chapter_title'>Understanding Controllers through Testing</h2>
 <p>In the most common controller tests, we use the <span class='ic'>assigns Hash</span> to verify that a
 controller method has correctly set up data for the view and we check that the correct template is rendered. Let’s write a controller for the <span class='rubyclass'>Person</span>
