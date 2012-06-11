@@ -21,6 +21,8 @@ end
 whole_xml.close
 @parser.gather_titles_from_ids
 @parser.dump
+@parser.add_number_to_images
+@parser.dump
 
 
 xml_files.each do |file|

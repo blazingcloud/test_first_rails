@@ -42,8 +42,9 @@ class Parser
     @document.css("[id]").each do |node|
       @titles["#{node['id']}"] = "#{node.css('title')[0].text}"
     end
+    @titles
   end
-  
+    
   def replace_tag(xml_tag, html_tag, html_class)
     @string_document.gsub!(/<#{xml_tag}>/, "<#{html_tag} class='#{html_class}'>")
     @string_document.gsub!(/<\/#{xml_tag}>/, "<\/#{html_tag}>")
@@ -194,7 +195,7 @@ class Parser
       if @string_document.slice(/<ref\n(.*)linkend="(#{attribute})"\s*\/>/)
         @string_document.gsub!(/<ref\n(.*)linkend="(#{attribute})"\s*\/>/, "<a class='ref' href='##{attribute}'>#{@titles[attribute]}</a>")
       elsif @string_document.slice(/<ref\slinkend="(#{attribute})"\s*\/>/)
-        @string_document.gsub!(/<ref\slinkend="(#{attribute})"\/>/, "<a class='ref' href='##{attribute}'>#{@titles[attribute]}</a>")
+        @string_document.gsub!(/<ref\slinkend="(#{attribute})"\s*\/>/, "<a class='ref' href='##{attribute}'>#{@titles[attribute]}</a>")
       end
     end
     @string_document
@@ -348,10 +349,36 @@ class Parser
     add_css
     @string_document
   end
-    
+
+  def add_number_to_images
+    Dir[DIR+'/pml_and_xml/*.xml'].each do |file|
+      self.load(file)
+      @document.css("chapter").each do |chapter|
+        chapter_number = chapter["number"]
+        fig_number = 1
+        chapter.css("figure").each do |figure|
+          figure.css('title').first.content = "Figure #{chapter_number}.#{fig_number}: #{figure.css('title')[0].text}"
+          @titles["#{figure['id']}"] = "Figure #{chapter_number}.#{fig_number}"
+          fig_number += 1
+        end
+      end
+      File.open(file, "w+") do |file|
+        file.write('')
+        file.write(@document.to_xml)
+      end
+    end  
+  end    
 end
 
-# 
+
 # parser = Parser.new
-# parser.load('chapter.xml')
-# parser.remove_author
+# parser.load('whole_xml.xml')
+# parser.gather_titles_from_ids
+# parser.dump
+# parser.add_number_to_images
+
+
+
+
+
+

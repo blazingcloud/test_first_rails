@@ -156,6 +156,11 @@ describe Parser do
   	@parser.replace_imagedata.should include("<img class='imagedata' src='images/controllers/missing-courses-controller.png'>")
   	@parser.replace_imagedata.should include("</img>")
   end
+  
+  it 'replaces <ref linkend="something" /> with <a class="ref" href="#something">' do
+    @parser.replace_ref.should include("<a class='ref' href='#ch.rake'>")
+    @parser.replace_ref.should_not include("<ref")
+  end
     
   it 'replaces <url> with <a href="url">url</a>' do
     @parser.replace_url.should include("<a class='url' href='http://localhost:3000/my_course'>")

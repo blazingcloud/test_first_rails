@@ -12,6 +12,15 @@
     language. Programming Ruby, also known as “the Pickaxe book” for the its cover art, is the definitive reference to the language. It was the first English-language
     book about Ruby, and has been enthusiastically kept up to date.
     </p>
+    
+    <figure id="fig.tdd-productivity">
+      <title>Test Driven Development vs. Traditional Velocity by Alex Chaffee</title>
+      <imagedata fileref="images/TDD-productivity-graph.png" align="center" />
+    </figure>
+    <p>We can visualize how test-driven development increases our productivity by thinking about how much time it takes to develop
+    each feature, as shown in <ref linkend="fig.tdd-productivity" />. <ed>do you have permission to use this? do you need a
+    signed release to reproduce this? You do unless it's public domain.</ed><author>I will get a signed release.</author>
+    
     <joeasks>
     <title>What’s an Object?</title>
 <p>

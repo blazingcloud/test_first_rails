@@ -1,14 +1,14 @@
+<?xml version="1.0"?>
 <appendix>
 <title>Database Primer</title>
 <p>We rarely write SQL directly in our Rails code, but to understand what our app is really doing in the
-database, we’ll want to occasionally look at the SQL called by our app.</p>
+database, we&#x2019;ll want to occasionally look at the SQL called by our app.</p>
 <sect1 id="sec.sql">
 <title>Understanding SQL</title>
-<p> If you don’t already know SQL, refer to <ref
-linkend="fig.database-commands" /> for a quick cheat sheet of the basic commands.</p>
+<p> If you don&#x2019;t already know SQL, refer to <ref linkend="fig.database-commands"/> for a quick cheat sheet of the basic commands.</p>
 <figure id="fig.database-commands">
   <title>Database Commands</title>
-  <imagedata fileref="images/database-commands.png" />
+  <imagedata fileref="images/database-commands.png"/>
 </figure>
 </sect1>
 <sect1 id="sec.dbconsole">
@@ -17,21 +17,21 @@ linkend="fig.database-commands" /> for a quick cheat sheet of the basic commands
 line tool which has a unique command to invoke it and sometimes different names for command line options to specify the user, password and database name. The dbconsole command simply calls the appropriate database console app. So for SQLite, rails dbconsole is the same as:</p>
 <code language="session">
 $ SQLite3 <my_development_database>
-</code>
+</my_development_database>
 <p>and for MySql, it is the same as:</p>
 <code language="session">
-$mysql –u<name> –p<password> <my_development_database> 
-</code>
+$mysql &#x2013;u<name> &#x2013;p<password> <my_development_database> 
+</my_development_database>
 <p>The <commandname>dbconsole</commandname> is a very useful tool for inspecting the contents of the database when we
 are debugging or want to take a quick look at what tables and schema exist for our app.</p>
-</sect1>
+</password>
 <sect1>
 <title>Using a Different Database</title>
 <p>If you want to use Rails with a different database, there are shortcuts for creating different configuration files for the most commonly used databases. For example, to generate a Rails application with a default configuration for MySql, you would use the following command:</p>
 <code language="session">
-$ rails new –d mysql app_name
+$ rails new &#x2013;d mysql app_name
 </code>
-<p>The contents of the <filename>database.yml</filename> file is the only difference in the generated app when calling “rails new” with the –d option. </p>
+<p>The contents of the <filename>database.yml</filename> file is the only difference in the generated app when calling &#x201C;rails new&#x201D; with the &#x2013;d option. </p>
 
 <p>The following databases are supported:</p>
 <table style="outerlines">
@@ -52,4 +52,5 @@ $ rails new –d mysql app_name
 <p>When we use a different database, we need to install the database-specific driver so that our Ruby code can talk to
 the database. Each of the supported databases requires a separate gem to connect to that database from Ruby.</p>
 </sect1>
-</appendix>
+</name>
+</code></code></sect1></appendix>

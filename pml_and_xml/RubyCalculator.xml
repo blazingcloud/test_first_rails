@@ -21,10 +21,10 @@
       </code>
 
       <code language="irb">
-        > combo "peanut butter", "jelly"
-        => "peanut butter and jelly" 
-        > combo "pork chops", "applesauce"
-        => "pork chops and applesauce"  
+        &gt; combo "peanut butter", "jelly"
+        =&gt; "peanut butter and jelly" 
+        &gt; combo "pork chops", "applesauce"
+        =&gt; "pork chops and applesauce"  
       </code>
 
       <p>
@@ -37,17 +37,17 @@
       <sect2 id="ruby.lang.intro.irb">
          <title>Interactive Ruby (irb)</title>    
          <p>
-         Ruby comes equipped with irb, which stands for &lquot;Interactive RuBy&rquot;. It allows you to see how Ruby will interpret your code and is one of the most valuable tools in your programmer toolbox.  To access irb, simply type &lquot;irb&rquot; into your command line.  You should see a prompt with an angle bracket &lquot;>&rquot; where you can type in Ruby code.  Here’s an example:
+         Ruby comes equipped with irb, which stands for &lquot;Interactive RuBy&rquot;. It allows you to see how Ruby will interpret your code and is one of the most valuable tools in your programmer toolbox.  To access irb, simply type &lquot;irb&rquot; into your command line.  You should see a prompt with an angle bracket &lquot;&gt;&rquot; where you can type in Ruby code.  Here’s an example:
          </p>
          <code language="session">
            $ irb
-           > 1 + 1
+           &gt; 1 + 1
          </code>
          <p>
            Now when you click enter, Ruby will evaluate 1 + 1 and show you what it returns:
          </p>
          <code language="session">
-           => 2
+           =&gt; 2
          </code>
       </sect2>
 
@@ -58,20 +58,20 @@
       <sect2 id="ruby.lang.intro.evaluation">
          <title>Everything Evaluates to Something</title>
       <p>
-       In Ruby every expression evaluates to (returns) something.  That means that every time we ask Ruby to evaluate an expression, it will tell us the result of the evaluation.  Irb will help us get a better handle on return values.  When we asked Ruby to evaluate <ic>1 + 1</ic> above, it returned 2.  The <ic>=> 2</ic> on the line that appears below our expression after we hit the enter key is what Ruby returns from the expression.  We can evaluate addition on integers like 1 + 1 above, or we can evaluate strings:
+       In Ruby every expression evaluates to (returns) something.  That means that every time we ask Ruby to evaluate an expression, it will tell us the result of the evaluation.  Irb will help us get a better handle on return values.  When we asked Ruby to evaluate <ic>1 + 1</ic> above, it returned 2.  The <ic>=&gt; 2</ic> on the line that appears below our expression after we hit the enter key is what Ruby returns from the expression.  We can evaluate addition on integers like 1 + 1 above, or we can evaluate strings:
       </p>
 
       <code language="session">
-        > "like a string of pearls, but with characters"
-         => "like a string of pearls, but with characters"
+        &gt; "like a string of pearls, but with characters"
+         =&gt; "like a string of pearls, but with characters"
       </code>
       <p>
         A string consists of quotation marks with any number of characters in between.  Strings are used for any textual information that a program needs.  Ruby can add strings as well as integers.  When we add strings, we call it &lquot;concatenation&rquot;.  Check out this example of concatenating to strings:
       </p>
       <code language="session">
-        > "knock, knock." + " whose there?" +
-        >   " interrupting cow." + " interrupting cow wh..." + " Moooo"
-         => "knock, knock. whose there? interrupting cow. interrupting cow wh... Moooo"
+        &gt; "knock, knock." + " whose there?" +
+        &gt;   " interrupting cow." + " interrupting cow wh..." + " Moooo"
+         =&gt; "knock, knock. whose there? interrupting cow. interrupting cow wh... Moooo"
       </code>
       
        <p>

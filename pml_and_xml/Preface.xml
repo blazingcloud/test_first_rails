@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
 <chapter id="ch.preface" number="1">
 <title>Come On In</title>
@@ -203,11 +204,8 @@ code that we already wrote.</p>
 explore in the browser. We’ll gain some experience with our first Rails pattern, most importantly the
 Model-View-Controller (MVC) pattern, which we will learn in more detail throughout the first half of the book. We’ll get
 a feel for how views work with ERB (Embedded RuBy) templates.</p>
-<p>We’ll learn about ActiveRecord, the <emph>model</emph>, in the MVC pattern, interactively in <ref
-linkend="ch.activerecord"/> and with RSpec in <ref
-linkend="ch.activerecord-rspec"/>.</p>
-<p> In <ref
-linkend="ch.rake"/> we’ll get deeper into Ruby code, which will give us a firm foundation for the rest of the book.
+<p>We’ll learn about ActiveRecord, the <emph>model</emph>, in the MVC pattern, interactively in <ref linkend="ch.activerecord"/> and with RSpec in <ref linkend="ch.activerecord-rspec"/>.</p>
+<p> In <ref linkend="ch.rake"/> we’ll get deeper into Ruby code, which will give us a firm foundation for the rest of the book.
 We’ll also learn about the command line tool <commandname>rake</commandname>, which is like the Unix tool
 <commandname>make</commandname>, but for Ruby. With Rake, we’ll write a Ruby script that uses our ActiveRecord class
 that we created in the previous chapters.<ed>in the beforeyoustart chapter you have nearly identical content about Rake.
@@ -216,8 +214,7 @@ Do you want to consolidate?</ed><author>Sarah: I think that has been deleted now
 mechanisms of how Rails can be database independent.</p>
 <p>In <ref linkend="ch.controllers"/>, we’ll build a dynamic web page one step at a time, experimenting with how the browser
 responds with the default Rails behavior and with our code. We’ll get to know how Rails handles HTTP requests. Then
-we’ll continue the development of our controller by test-driving the rest of its behavior in <ref
-linkend="ch.controllers-rspec"/>.</p>
+we’ll continue the development of our controller by test-driving the rest of its behavior in <ref linkend="ch.controllers-rspec"/>.</p>
 <p>In <ref linkend="ch.integration"/>, we’ll solidify our understand of the MVC pattern and how it is implemented in
 Rails core classes by test driving new behavior with the Capybara integration test framework. <ed>that "rodent" thing
 doesn't work for me. it's a bit of a stretch.</ed><author>Sarah: removed</author></p>
@@ -241,7 +238,7 @@ developed a thorough understanding of Rails. You will know
 enough to build an intranet application or kick-off the development of a small-scale web app, and you will have enough
 of a foundation to support further learning on your own to create highly-scalable consumer-facing web applications. </p>
 </sect1>
-<sect1 id="sec.online-resources" >
+<sect1 id="sec.online-resources">
 <title>Online Resources</title>
 <p>
 This book has its own web page, <url>http://pragprog.com/titles/satfr</url>, where you can find more information about the book.

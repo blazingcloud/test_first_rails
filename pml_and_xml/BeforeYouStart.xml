@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
 <chapter id="ch.start">
   <title>Before You Start</title>
@@ -75,16 +76,16 @@ $ gem list
 <p>To install a new gem</p>
 <code language="session">
 $ gem install <name>
-</code>
+</name>
 <p>on Mac or Linux (without rvm), we need to preface the command with sudo (which will prompt us to enter our admininstrator password):</p>
 <code language="session">
 $ sudo gem install <name>
-</code>
+</name>
 <p>When we’re developing in Rails, we often add gems that offer functionality that is common to many web applications.
 Ruby engineers are exuberant in providing open source implementations of any code that is generally useful, creating an
 ecosystem of tools that adds to our velocity as Rails engineers.</p>
-</sect2>
-</sect1>
+</code>
+</code>
 <sect1>
 <title>Gems We’ll Use Directly</title>
 <p>Rails depends on a large collection of gems. In fact, Rails itself is split into many gems. Most of these we don’t
@@ -167,11 +168,10 @@ applications that provide a user interface on a relational (SQL) database. </p>
 <sect3 id="sec.sql">
 <title>Understanding SQL</title>
 <p>We rarely write SQL directly in our Rails code, but to understand what our app is really doing in the
-database, we’ll want to occasionally look at the SQL called by our app. If you don’t already know SQL, refer to <ref
-linkend="fig.database-commands" /> for a quick cheat sheet of the basic commands.</p>
+database, we’ll want to occasionally look at the SQL called by our app. If you don’t already know SQL, refer to <ref linkend="fig.database-commands"/> for a quick cheat sheet of the basic commands.</p>
 <figure id="fig.database-commands">
-  <title>Database Commands</title>
-  <imagedata fileref="images/database-commands.png" />
+  <title>Figure .1: Figure .1: Database Commands</title>
+  <imagedata fileref="images/database-commands.png"/>
 </figure>
 </sect3>
 <sect3 id="sec.dbconsole">
@@ -180,14 +180,14 @@ linkend="fig.database-commands" /> for a quick cheat sheet of the basic commands
 line tool which has a unique command to invoke it and sometimes different names for command line options to specify the user, password and database name. The dbconsole command simply calls the appropriate database console app. So for SQLite, rails dbconsole is the same as:</p>
 <code language="session">
 $ SQLite3 <my_development_database>
-</code>
+</my_development_database>
 <p>and for MySql, it is the same as:</p>
 <code language="session">
 $mysql –u<name> –p<password> <my_development_database> 
-</code>
+</my_development_database>
 <p>The <commandname>dbconsole</commandname> is a very useful tool for inspecting the contents of the database when we
 are debugging or want to take a quick look at what tables and schema exist for our app.</p>
-</sect3>
+</password>
 <sect3>
 <title>Using a Different Database</title>
 <p>If you want to use Rails with a different database, there are shortcuts for creating different configuration files for the most commonly used databases. For example, to generate a Rails application with a default configuration for MySql, you would use the following command:</p>
@@ -215,7 +215,7 @@ $ rails new –d mysql app_name
 <p>When we use a different database, we need to install the database-specific driver so that our Ruby code can talk to
 the database. Each of the supported databases requires a separate gem to connect to that database from Ruby.</p>
 </sect3>
-</sect2>
+</name>
 <sect2>
 <title>Terminal or Command Prompt</title>
 <p><ed>These tooling conventions don't feel right. This is really important stuff that might be better off in the preface. If I see I can skip this chapter, and then get confused cos I don't know what you're talking about with some of these unix commands, I might be lost. I'd move this, and maybe the section on text editors too. What do you think?</ed> Rails development relies heavily on command-line tools. On Mac or Linux, we run these in the <emph>terminal</emph>,
@@ -271,5 +271,6 @@ $ gem install capybara
 <p><ed>This needs some sort of transition to the next topic. Also, I know you think a lot of this stuff really needs to be here, but focus on your reader - how much of the content in this chapter do they really need to know about? Are you trying to pre-emptively handle any questions people might have? There are some things in here, like background information, that is actually very useful. But some other parts just don't seem absolutely essential. I'll leave it up to you, but I suggest you give it a read again and see what you think</ed></p>
 
 </sect2>
-</sect1>
-</chapter>                                                                                                                    
+</code>
+</code>                                                                                                                    
+</sect3></sect2></sect1></sect2></sect1></chapter>

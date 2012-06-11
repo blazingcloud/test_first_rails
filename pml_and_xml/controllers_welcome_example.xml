@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
 <chapter id="ch.controllers">
   <title>Routes and Controllers</title>
@@ -26,8 +27,7 @@
   <p> Wrangling these disjoint pages into
   manageable code was challenging in the 1990’s when everyone was first creating web apps, but people recognized a
   Model-View-Controller pattern that made it easier. In <ref linkend="ch.firstapp"/>, we learned about views, how the visual part of our web user interface, are made with
-  Embedded Ruby templates in Rails. Then we learned about the model, in  <ref linkend="ch.activerecord"/> and <ref
-  linkend="ch.activerecord-rspec"/>.  Next we’ll learn about how <firstuse>routes</firstuse> and
+  Embedded Ruby templates in Rails. Then we learned about the model, in  <ref linkend="ch.activerecord"/> and <ref linkend="ch.activerecord-rspec"/>.  Next we’ll learn about how <firstuse>routes</firstuse> and
   <firstuse>controllers</firstuse> glue the views together and let us specify the
   interaction part of our user interface. These core Rails components help us focus on supporting effective human interface design with a small amount of maintainable code.</p>
     <p>In Rails, a <emph>route</emph> specifies how an incoming URL calls our code. Routes are like street signs that point to destinations.  When someone accesses a URL of a Rails web
@@ -38,8 +38,7 @@ routes defined. However, it is a deceptively lengthy file because Rails includes
 many comments that show different example route syntax. When we ran the scaffold generator, it modified this file to add
 just one <ic>resources</ic> declaration: </p>
 <code file="code/class_app_new/00_controllers/config/routes.rb"/>
-<p>From that one line, we defined 7 routes which we explored interactively in <ref
-linkend="sec.scaffold-rest-mvc"/>.
+<p>From that one line, we defined 7 routes which we explored interactively in <ref linkend="sec.scaffold-rest-mvc"/>.
 The <ic>resources</ic> method provides a nice shortcut for defining all of the standard REST routes; however, to use Rails effectively we need to understand what’s really going on. We’ll build a similar set of routes and corresponding controller behavior for our
 <class>Course</class> model one step at a time.</p>
 <sect1>
@@ -59,10 +58,10 @@ through a route to learn about the code we need to write to make it work.</p>
 <p> We’re going to make a page that shows a welcome message like “hello” or “good morning.” <ed>I get where you're going, but this and the previous paragraph kind of say the same thing. Can you shorten it up? Maybe just lose the next sentence?</ed>  But to understand exactly
 how routes work, we’ll just go to some URL we haven’t built yet and see what happens. When we point our browser to
 <url>http://localhost:3000/hello</url>, we see the routing
-error shown in <ref linkend="fig.routing-error" />. Go ahead and try it. </p>
+error shown in <ref linkend="fig.routing-error"/>. Go ahead and try it. </p>
 <figure id="fig.routing-error">
-  <title>We Have Not Yet Specified Where the URL Goes</title>
-  <imagedata fileref="images/controllers/routing-error.png"  />
+  <title>Figure .1: Figure .1: We Have Not Yet Specified Where the URL Goes</title>
+  <imagedata fileref="images/controllers/routing-error.png"/>
 </figure>
 <p>This error tells us that the URL /hello is not hooked up to anything. There is no <emph>route</emph> into the app
 that matches that string.</p>
@@ -94,8 +93,8 @@ a class of that name. In this case, <class>MessagesController</class>.  So, <ic>
 that we’ll be creating a <class>MessagesController</class> with a <method>greeting</method> method to be called when someone browses to
 <ic>/hello</ic>.</p>
 <figure id="fig.missing-messages-controller">
-  <title>We Have a Route but no Controller</title>
-  <imagedata fileref="images/controllers/missing-messages-controller.png" />
+  <title>Figure .2: Figure .2: We Have a Route but no Controller</title>
+  <imagedata fileref="images/controllers/missing-messages-controller.png"/>
 </figure>
 
 <p>We haven’t finished yet, but let’s explore what we have so far by refreshing our browser. This time we see the error
@@ -128,11 +127,11 @@ for our views and a helper module where we keep code shared by our controller an
   defining the controller class in <filename>app/controllers/messages_controller.rb</filename>, we have addressed the
   error.</p>
   <p>Let’s see what happens next. <ed>I don't think you need any of these "let's see what happens next" bits you're adding. They're becoming very repetitive.</ed> When we refresh the browser at
-<url>http://localhost:3000/hello</url>, we see an “Unknown Action” error shown in <ref linkend="fig.unknown-action" />.
+<url>http://localhost:3000/hello</url>, we see an “Unknown Action” error shown in <ref linkend="fig.unknown-action"/>.
 The error reports that “the action ‘greeting’ could not be found.”</p>
 <figure id="fig.unknown-action">
-  <title>We need to define a Controller action</title>
-  <imagedata fileref="images/controllers/unknown-action.png" />
+  <title>Figure .3: Figure .3: We need to define a Controller action</title>
+  <imagedata fileref="images/controllers/unknown-action.png"/>
 </figure>
 
 </sect1>
@@ -158,11 +157,11 @@ which will determine the interaction that happens when someone clicks a link or 
 for a file with name of the action and “.html.erb” appended.  For the route <ic>messages#greeting</ic> we’ll create a file
   <filename>/app/views/messages/greeting.html.erb</filename> with some basic html, such as:</p>
 <code file="code/message_app0/app/views/messages/greeting.html.erb"/>
-<p>Now when we point our browser to: <url>http://localhost:3000/hello</url> we see &lquot;Here I am!&rquot; in large text as shown in <ref linkend="fig.here-i-am" />. 
+<p>Now when we point our browser to: <url>http://localhost:3000/hello</url> we see &lquot;Here I am!&rquot; in large text as shown in <ref linkend="fig.here-i-am"/>. 
 </p>
 <figure id="fig.here-i-am">
-  <title>A simple view</title>
-  <imagedata fileref="images/controllers/here-i-am.png"  />
+  <title>Figure .4: Figure .4: A simple view</title>
+  <imagedata fileref="images/controllers/here-i-am.png"/>
 </figure>
 <p>Let’s take another look at the Rails log, which is output in the terminal window where we are running <ic>rails
 server. We can now understand what is happening in the text that is spewed out for every request:</ic>:</p>
@@ -190,7 +189,7 @@ Ruby</emph> code to create a different presentation depending on circumstance.<a
 <p>Rails comes with a handy rake task <ed>does Rake need to be capitalized?</ed> that lets us look at the routes that are defined in our application.  Try this:</p>
 <code language="session">
 $ rake routes
-hello  /hello(.:format) {:action=>"greeting", :controller=>"messages"}
+hello  /hello(.:format) {:action=&gt;"greeting", :controller=&gt;"messages"}
 </code>
 <p>The first thing that is printed out is an internal method name that has been defined for us — actually it’s just part
 of a method name.
@@ -200,10 +199,10 @@ and check that out:</p>
 <code language="irb">
 $ rails c
 Loading development environment (Rails 3.0.1)
->> app.hello_path
-=> "/hello" 
->> app.hello_url
-=> "http://www.example.com/hello"
+&gt;&gt; app.hello_path
+=&gt; "/hello" 
+&gt;&gt; app.hello_url
+=&gt; "http://www.example.com/hello"
 </code>
 <p><ed>very cool way to show those urls.</ed> When we define a route using <commandname>match</commandname>, we automatically get methods that we can call from our
 controller or views based on the names in the path. It’s awkward to get into the context of our controller and views in
@@ -215,7 +214,7 @@ your routes. These internal names are important because they let us separate wha
 search engines see from what’s going on inside our well ordered code. Let’s see that change in <ic>rake routes</ic>:</p>
 <code language="session">
 $ rake routes
-greeting  /hello(.:format) {:action=>"greeting", :controller=>"messages"}
+greeting  /hello(.:format) {:action=&gt;"greeting", :controller=&gt;"messages"}
 </code>
 <p>Now we could use <ic>greeting_path</ic> and <ic>greeting_url</ic> in our code. The next component in the output of
 <ic>rake routes</ic> is the URL path that will match the
@@ -234,7 +233,7 @@ customize our view to accept a parameter. In HTTP we can pass name-value pairs a
 <code language="session">
 Started GET "/hello?name=emma" for 127.0.0.1 at 2011-02-05 19:24:06 -0800
   Processing by MessagesController#greeting as HTML
-  Parameters: {"name"=>"emma"}
+  Parameters: {"name"=&gt;"emma"}
 Rendered messages/greeting.html.erb within layouts/application (2.9ms)
 Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms)
 </code>
@@ -242,10 +241,10 @@ Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms)
 pass <ic>name=emma</ic> as a query arg, we could change the view to include embedded Ruby that accesses the paramter:</p>
 <code file="code/message_app1/app/views/messages/greeting.html.erb" part="one"/>
 <figure id="fig.hello-emma">
-  <title>View with a Parameter from a Query Arg</title>
-  <imagedata fileref="images/controllers/hello-emma.png"  />
+  <title>Figure .5: Figure .5: View with a Parameter from a Query Arg</title>
+  <imagedata fileref="images/controllers/hello-emma.png"/>
 </figure>
-<p>When we go to <url>http://localhost:3000/hello?name=emma</url>, we can see in <ref linkend="fig.hello-emma" /> that
+<p>When we go to <url>http://localhost:3000/hello?name=emma</url>, we can see in <ref linkend="fig.hello-emma"/> that
 the view faithfully reproduced the name as written in the query arg with a lowercase “e”.</p>
 <p>We could fix this by writing a bunch of Ruby code in the view, but that would quickly lead to our stuffing most of
 our application code into the view, which is hard to work with after a while.</p>
@@ -281,15 +280,15 @@ something we can easily see:</p>
 <p>The Ruby method <method>puts</method> prints text to <emph>standard out</emph> which is the terminal window
 where we’re running the server. It does not affect the HTML that is rendered in the view.</p>
 <code language="session">
-=> Booting WEBrick
-=> Rails 3.0.1 application starting in development on http://0.0.0.0:3000
-=> Call with -d to detach
-=> Ctrl-C to shutdown server
+=&gt; Booting WEBrick
+=&gt; Rails 3.0.1 application starting in development on http://0.0.0.0:3000
+=&gt; Call with -d to detach
+=&gt; Ctrl-C to shutdown server
 [2011-02-06 10:08:04] INFO  WEBrick 1.3.1
 [2011-02-06 10:08:04] INFO  ruby 1.9.2 (2010-08-18) [x86_64-darwin10.4.0]
 [2011-02-06 10:08:04] INFO  WEBrick::HTTPServer#start: pid=21220 port=3000
-==================> greeting method
-------------------------> greeting view
+==================&gt; greeting method
+------------------------&gt; greeting view
 
 Started GET "/hello" for 127.0.0.1 at 2011-02-06 10:08:18 -0800
   Processing by MessagesController#greeting as HTML
@@ -310,18 +309,18 @@ method and the Rails logger are printing to the terminal window.</p>
 <code file="code/message_app2/app/views/messages/greeting.html.erb" part="two"/>
 <p>We can see that the <ed>I think you can start here without the "we can see that"</ed> output is printed in the sequence that we would expect:</p>
 <code language="session">
-=> Booting WEBrick
-=> Rails 3.0.1 application starting in development on http://0.0.0.0:3000
-=> Call with -d to detach
-=> Ctrl-C to shutdown server
+=&gt; Booting WEBrick
+=&gt; Rails 3.0.1 application starting in development on http://0.0.0.0:3000
+=&gt; Call with -d to detach
+=&gt; Ctrl-C to shutdown server
 [2011-02-06 10:24:00] INFO  WEBrick 1.3.1
 [2011-02-06 10:24:00] INFO  ruby 1.9.2 (2010-08-18) [x86_64-darwin10.4.0]
 [2011-02-06 10:24:00] INFO  WEBrick::HTTPServer#start: pid=21455 port=3000
 
 Started GET "/hello" for 127.0.0.1 at 2011-02-06 10:24:03 -0800
   Processing by MessagesController#greeting as HTML
-==================> greeting method!
-------------------------> greeting view!
+==================&gt; greeting method!
+------------------------&gt; greeting view!
 Rendered messages/greeting.html.erb within layouts/application (1.9ms)
 Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms)
 </code>
@@ -343,7 +342,7 @@ Controller class to render a view of the same name.  So, our previous version of
 method that had no content could also have been written like this to create the exact same behavior:</p>
 <code file="code/message_app2-1/app/controllers/messages_controller.rb"/>
 <p>By default Rails will assume the <ic>.html.erb</ic> extension, but we could have explicitly written <ic>render 'greeting.html.erb'</ic> and if we had wanted to be even more explicit we could write <ic>render
-:template => 'messages/greeting.html.erb'</ic></p>
+:template =&gt; 'messages/greeting.html.erb'</ic></p>
 
 <p><ed>This feels like you're throwing everything you know about controllers in here. "We can do this.. and we can do this..." but there's not any application. You need to explain the "why" and it can't just be "cos we can."</ed></p>
 
@@ -458,15 +457,15 @@ Failures:
   1) PeopleController GET index renders
      Failure/Error: get :index      
      ActionController::RoutingError:
-       No route matches {:controller=>"people"}
+       No route matches {:controller=&gt;"people"}
      # ./spec/controllers/people_controller_spec.rb:8:in `block (3 levels)
-     in <top (required)>'
+     in <top/>(required)&gt;'
 
 Finished in 0.10692 seconds
 1 example, 1 failure
 </code>
 <p>We’re seeing the same kinds of errors we saw interactively when we were experimenting with the web app, so we know we
-are on the right track.  This error is similar to the one we saw in <ref linkend="fig.routing-error" /> except we’re
+are on the right track.  This error is similar to the one we saw in <ref linkend="fig.routing-error"/> except we’re
 looking at it from the other direction. Instead of a URL that has no route connecting it to a controller action, we have
 a controller action with no route leading to it.</p>
 <p>Of course, to fix this we need to a add route. Looking in <filename>config/routes.rb</filename>, we see a lot of
@@ -486,7 +485,7 @@ Failures:
      AbstractController::ActionNotFound:
        The action 'index' could not be found for PeopleController
      # ./spec/controllers/people_controller_spec.rb:8:in `block (3 levels) 
-     in <top (required)>'
+     in <top/>(required)&gt;'
 
 Finished in 0.0427 seconds
 1 example, 1 failure
@@ -516,7 +515,7 @@ two angles. Here’s the declaration:</p>
 <p>The other way we can look at our routes is with <commandname>rake routes</commandname>:</p>
 <code language="session">
 $ rake routes
-people_index  /people/index(.:format) {:controller=>"people", :action=>"index"}
+people_index  /people/index(.:format) {:controller=&gt;"people", :action=&gt;"index"}
 </code>
 <p>Now there are are two things that aren’t lovely about this route. First we’re using a non-standard name for the
 route — usually we simply call the route the main people page <ic>people_path</ic> rather than
@@ -526,7 +525,7 @@ since that is the default page for any route:</p>
 <p>Now when we look at our routes, we see:</p>
 <code language="session">
 $ rake routes
-people  /people(.:format) {:action=>"index", :controller=>"people"}
+people  /people(.:format) {:action=&gt;"index", :controller=&gt;"people"}
 </code>
 <p>Ah. Lovely. Go grab yourself a beverage!</p>
 <sect2>
@@ -560,15 +559,14 @@ Failures:
 
   1) PeopleController GET index sets up the whole list of people
      Failure/Error: assigns[:people].should == [@emmy, @marie, @lise]
-       expected: [#<Person id: 1, first_name: "Emmy", last_name: "Noether", 
-       created_at: "2011-02-27 22:39:59", updated_at: "2011-02-27 22:39:59">, 
-       #<Person id: 2, first_name: "Marie", last_name: "Curie", created_at: 
-       "2011-02-27 22:39:59", updated_at: "2011-02-27 22:39:59">, #<Person 
-       id: 3, first_name: "Lise", last_name: "Meitner", created_at: 
-       "2011-02-27 22:39:59", updated_at: "2011-02-27 22:39:59">]
+       expected: [#<Person/>1, first_name: "Emmy", last_name: "Noether", 
+       created_at: "2011-02-27 22:39:59", updated_at: "2011-02-27 22:39:59"&gt;, 
+       #<Person/>2, first_name: "Marie", last_name: "Curie", created_at: 
+       "2011-02-27 22:39:59", updated_at: "2011-02-27 22:39:59"&gt;, #<Person/>3, first_name: "Lise", last_name: "Meitner", created_at: 
+       "2011-02-27 22:39:59", updated_at: "2011-02-27 22:39:59"&gt;]
             got: nil (using ==)
      # ./spec/controllers/people_controller_spec.rb:21:in `block (3 levels) 
-     in <top (required)>'
+     in <top/>(required)&gt;'
 
 Finished in 0.22362 seconds
 2 examples, 1 failure
@@ -619,13 +617,13 @@ $ rspec spec/controllers/people_controller_spec.rb
 Failures:
 
   1) PeopleController POST create redirects
-     Failure/Error: post :create, :person => {:first_name => "Barbara", 
-                                              :last_name => "Liskov"}
+     Failure/Error: post :create, :person =&gt; {:first_name =&gt; "Barbara", 
+                                              :last_name =&gt; "Liskov"}
      ActionController::RoutingError:
-       No route matches {:person=>{:first_name=>"Barbara", :last_name=>"Liskov"}, 
-       :controller=>"people", :action=>"create"}
+       No route matches {:person=&gt;{:first_name=&gt;"Barbara", :last_name=&gt;"Liskov"}, 
+       :controller=&gt;"people", :action=&gt;"create"}
      # ./spec/controllers/people_controller_spec.rb:27:in `block (3 levels) 
-     in <top (required)>'
+     in <top/>(required)&gt;'
 
 Finished in 0.21168 seconds
 3 examples, 1 failure
@@ -640,8 +638,8 @@ fit for what we want to do here.</p>
 <p>Now let’s check out our routes:</p>
 <code language="session">
 $ rake routes
-people GET  /people(.:format) {:action=>"index", :controller=>"people"}
-       POST /people(.:format) {:action=>"create", :controller=>"people"}
+people GET  /people(.:format) {:action=&gt;"index", :controller=&gt;"people"}
+       POST /people(.:format) {:action=&gt;"create", :controller=&gt;"people"}
 </code>
 <p>If we run our spec again, we see…</p>
 <code language="session">
@@ -651,19 +649,19 @@ $ rspec spec/controllers/people_controller_spec.rb
 Failures:
 
   1) PeopleController POST create redirects
-     Failure/Error: post :create, :person => {:first_name => "Barbara", 
-                                              :last_name => "Liskov"}
+     Failure/Error: post :create, :person =&gt; {:first_name =&gt; "Barbara", 
+                                              :last_name =&gt; "Liskov"}
      AbstractController::ActionNotFound:
        The action 'create' could not be found for PeopleController
      # ./spec/controllers/people_controller_spec.rb:27:in `block (3 levels) 
-     in <top (required)>'
+     in <top/>(required)&gt;'
 
 Finished in 0.22273 seconds
 3 examples, 1 failure
 </code>
 <p>Now our example is failing since we don’t yet have a <method>create</method> action in our
 <class>PeopleController</class>.  We’ll start by fixing just this error:</p>
-<code file="code/class_app/1d_controller/app/controllers/people_controller.rb" />
+<code file="code/class_app/1d_controller/app/controllers/people_controller.rb"/>
 <p>Then let’s run the spec again.  We still expect it to fail, but we want to make sure it fails the way we expect:</p>
 <code language="session">
 $ rspec spec/controllers/people_controller_spec.rb
@@ -672,15 +670,15 @@ $ rspec spec/controllers/people_controller_spec.rb
 Failures:
 
   1) PeopleController POST create redirects
-     Failure/Error: post :create, :person => {:first_name => "Barbara", 
-                                              :last_name => "Liskov"}
+     Failure/Error: post :create, :person =&gt; {:first_name =&gt; "Barbara", 
+                                              :last_name =&gt; "Liskov"}
      ActionView::MissingTemplate:
-       Missing template people/create with {:handlers=>[:erb, :rjs, :builder, 
-       :rhtml, :rxml], :formats=>[:html], :locale=>[:en, :en]} in view paths 
+       Missing template people/create with {:handlers=&gt;[:erb, :rjs, :builder, 
+       :rhtml, :rxml], :formats=&gt;[:html], :locale=&gt;[:en, :en]} in view paths 
        "#<RSpec::Rails::ViewRendering::PathSetDelegatorResolver:0x0000010111ae20>"
      # ./spec/controllers/people_controller_spec.rb:27:in `block (3 levels) 
-     in <top (required)>'
-</code>
+     in <top/>(required)&gt;'
+</RSpec::Rails::ViewRendering::PathSetDelegatorResolver:0x0000010111ae20>
 <p>Well, we’re not even getting to our check for redirect before the <ic>post</ic> to the <ic>create</ic> action fails.
 Our empty create method is doing a render by default and then finding that it has no template – to fix that, let’s add
 in the redirect: <ed>is this the first time we've seen redirect in a controller? Or is there a place you've explained this already?</ed></p>
@@ -704,18 +702,18 @@ $ rspec spec/controllers/people_controller_spec.rb
 Failures:
 
   1) PeopleController POST create creates a person record
-     Failure/Error: Person.where(:first_name => "Barbara", 
-                                  :last_name => "Liskov").should_not be_empty
+     Failure/Error: Person.where(:first_name =&gt; "Barbara", 
+                                  :last_name =&gt; "Liskov").should_not be_empty
        expected empty? to return false, got true
      # ./spec/controllers/people_controller_spec.rb:35:in `block (3 levels) 
-     in <top (required)>'
+     in <top/>(required)&gt;'
 
 Finished in 0.46923 seconds
 4 examples, 1 failure
 </code>
 <p>We need to actually create the <class>Person</class> object from the given attributes from the nested Hash
 that we called with the <ic>post</ic> action:</p>
-<code file="code/class_app/1f_controller/app/controllers/people_controller.rb" />
+<code file="code/class_app/1f_controller/app/controllers/people_controller.rb"/>
 <p>When we run the spec again, it passes:</p>
 <code language="session">
 $ rspec spec/controllers/people_controller_spec.rb
@@ -728,7 +726,7 @@ Finished in 0.22511 seconds
 are readable, but we’re not testing all of the cases we want the code to handle. In <ref linkend="ch.activerecord"/>
 we added validations, so we know that we could provide an empty first or last name and the record will fail to save, but
 what will happen with our code? Let’s write an example for that and find out.</p>
-<code file="code/class_app/1g_controller/spec/controllers/people_controller_spec.rb" part="post_create" />
+<code file="code/class_app/1g_controller/spec/controllers/people_controller_spec.rb" part="post_create"/>
 <p>We put the first set of examples into their own context for “valid data” and then put our new examples into a context
 for “invalid data.” Now when we run the specs:</p>
 <code language="session">
@@ -739,10 +737,10 @@ Failures:
 
   1) PeopleController with invalid data should render new template
      Failure/Error: response.should render_template(:new)
-       expecting <"new"> but rendering with <"">.
+       expecting "new"&gt; but rendering with ""&gt;.
        Expected block to return true value.
      # ./spec/controllers/people_controller_spec.rb:49:in `block (3 levels) 
-     in <top (required)>'
+     in <top/>(required)&gt;'
 
 Finished in 0.2994 seconds
 6 examples, 1 failure
@@ -750,7 +748,7 @@ Finished in 0.2994 seconds
 <p>Our invalid person object is not saved, because of the model validation, but it is still redirecting to the people
 index page instead of re-rendering the “new” form.  To fix that, we can use <ic>Person.new</ic> and the
 <method>save</method> method so that we can check if the save was successful or not:</p>
-<code file="code/class_app/1g_controller/app/controllers/people_controller.rb" part="create" />
+<code file="code/class_app/1g_controller/app/controllers/people_controller.rb" part="create"/>
 <p>Now when we run the spec:</p>
 <code language="session">
 $ rspec spec/controllers/people_controller_spec.rb
@@ -759,28 +757,28 @@ $ rspec spec/controllers/people_controller_spec.rb
 Failures:
 
   1) PeopleController with invalid data does not create a person
-     Failure/Error: post :create, :person => {:first_name => "Barbara"}
+     Failure/Error: post :create, :person =&gt; {:first_name =&gt; "Barbara"}
      ActionView::MissingTemplate:
-       Missing template people/new with {:handlers=>[:erb, :rjs, :builder, 
-       :rhtml, :rxml], :formats=>[:html], :locale=>[:en, :en]} in view paths 
+       Missing template people/new with {:handlers=&gt;[:erb, :rjs, :builder, 
+       :rhtml, :rxml], :formats=&gt;[:html], :locale=&gt;[:en, :en]} in view paths 
        "#<RSpec::Rails::ViewRendering::PathSetDelegatorResolver:0x000001013011a8>"
      # ./app/controllers/people_controller.rb:11:in `create'
      # ./spec/controllers/people_controller_spec.rb:43:in `block (3 levels) 
-     in <top (required)>'
+     in <top/>(required)&gt;'
 
   2) PeopleController with invalid data should render new template
-     Failure/Error: post :create, :person => {:first_name => "Barbara"}
+     Failure/Error: post :create, :person =&gt; {:first_name =&gt; "Barbara"}
      ActionView::MissingTemplate:
-       Missing template people/new with {:handlers=>[:erb, :rjs, :builder, 
-       :rhtml, :rxml], :formats=>[:html], :locale=>[:en, :en]} in view paths 
+       Missing template people/new with {:handlers=&gt;[:erb, :rjs, :builder, 
+       :rhtml, :rxml], :formats=&gt;[:html], :locale=&gt;[:en, :en]} in view paths 
        "#<RSpec::Rails::ViewRendering::PathSetDelegatorResolver:0x000001011faf98>"
      # ./app/controllers/people_controller.rb:11:in `create'
      # ./spec/controllers/people_controller_spec.rb:43:in `block (3 levels) 
-     in <top (required)>'
+     in <top/>(required)&gt;'
 
 Finished in 0.31349 seconds
 6 examples, 2 failures
-</code>
+</RSpec::Rails::ViewRendering::PathSetDelegatorResolver:0x000001011faf98>
 <p>We can see that both “invalid data” examples fail because we’re missing the new template. Let’s do the simplest thing
 that could possibly work: <ed>you used this phrase last time - how about just explain what you're doing?</ed></p>
 <code language="session">
@@ -808,8 +806,9 @@ as little as possible, so that all they are doing is directing traffic: fetching
 redirecting. When our controller actions are small, we can see the whole implementation of a controller on a page or two
 which helps us follow the interaction across multiple web requests in our heads as we read the code. It make debugging
 easier and makes it easier to work together on a team and modify each other’s code.<ed>good conclusion, but you need to transition us to the next chapter.</ed></p>
-</sect2>
-</sect1>
+</RSpec::Rails::ViewRendering::PathSetDelegatorResolver:0x000001013011a8>
+</code>
 
 
-</chapter>
+</code>
+</sect2></sect1></chapter>

@@ -2,20 +2,21 @@
 		<h2>Table Of Contents</h2>
 		<div>
 		<ol class="toc">
-			<li><a href="html/Preface.html">Preface</a></li>
-			<li><a href="html/Introduction.html">Why Test? And How We Test First</a></li>
-			<li><a href="html/Ruby .html">An Introduction To Ruby</a></li>
-			<li><a href="html/RSpec.html">Test First Ruby</a></li>
-			<li><a href="html/RailsIntro.html">Diving Into Rails</a></li>
-			<li><a href="html/ActiveRecordIntro.html">Exploring Active Record</a></li>
-			<li><a href="html/ActiveRecordRSpec.html">Test Driving Model Development</a></li>
-			<li><a href="html/Rake.html">Rake Helps Us Organize Our Ruby Scripts</a></li>
-			<li><a href="html/Migrations.html">Creating Our Database Schema wit Migrations</a></li>
-			<li><a href="html/Controllers.html">Exploring Routes and Controllers</a></li>
-			<li><a href="html/ControllersRSpec.html">Understanding Controllers through Testing</a></li>
+			<li><a href="#ch.preface">Preface</a></li>
+			<li><a href="#ch.intro">Why Test? And How We Test First</a></li>
+			<li><a href="#ch.ruby-intro">An Introduction To Ruby</a></li>
+			<li><a href="#ch.rspec-intro">Test First Ruby</a></li>
+			<li><a href="#ch.firstapp">Diving Into Rails</a></li>
+			<li><a href="#ch.activerecord">Exploring Active Record</a></li>
+			<li><a href="#ch.activerecord-rspec">Test Driving Model Development</a></li>
+			<li><a href="#ch.rake">Rake Helps Us Organize Our Ruby Scripts</a></li>
+			<li><a href="#ch.migrations">Creating Our Database Schema wit Migrations</a></li>
+			<li><a href="#ch.controllers">Exploring Routes and Controllers</a></li>
+			<li><a href="#ch.controllers-rspec">Understanding Controllers through Testing</a></li>
 		</ol>
 		</div>
 </html>
+<!-- -*- xml -*- -->
 <!DOCTYPE html>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
@@ -84,7 +85,7 @@ Rails 3.0.3
 <p>To get the most out of this book, we should all be using the same version of Rails. Any version that starts with 3.0
 is fine (like 3.0.1 or 3.0.3). If you don’t have the right
 version or got an error when you tried to run the <span class='commandname'>rails</span> command or for any of the commands in
-this section, check out <a class='ref' href='#sec.online-resources'>Online Resources</a> for online references to installation instructions.</p>
+this section, check out <a class='ref' href='#sec.online-resources'></a> for online references to installation instructions.</p>
 <p>To be able to run the <span class='commandname'>rails</span> command and build the most minimal application, you will need Ruby and the Ruby Gems packaging manager.</p>
 <sect2>
 <h3 class='title'>Ruby</h3>
@@ -196,30 +197,30 @@ data that we want to store in a database and later see it again. Sometimes we wa
 provide the user interface in HTML so anyone with a web browser connected to the Internet can access it. Whether it is
 the text of a writing assignment, the name and part number of a piece of equipment or items in a product catalog, these
 are all just data that we can keep in a database and display in HTML.</p>
-<p>In <a class='ref' href='#ch.intro'>Why Test? And How We Test First</a>, we’ll  talk about
+<p>In <a class='ref' href='#ch.intro'></a>, we’ll  talk about
 how testing is first and foremost about good design, how it helps the software development workflow and collaboration,
 how we can write more maintainable code and how the creation of tests is a nice artifact of the process, not the
 main point. We’ll also introduce how we test first with the Red-Green-Refactor pattern of test first development. We’ll
 also talk more about the app we will build in the book and we’ll work through all of the tools and components we need to develop a Rails application.</p>
-<p>In <a class='ref' href='#ch.ruby-intro'>An Introduction to Ruby</a>, we’ll learn just enough of the Ruby language to get started with Rails. We’ll
+<p>In <a class='ref' href='#ch.ruby-intro'></a>, we’ll learn just enough of the Ruby language to get started with Rails. We’ll
 start using <span class='commandname'>irb</span> and write our first class and a method that we’ll use later in our Rails
-application. Then in <a class='ref' href='#ch.rspec-intro'>Test First Ruby</a>, we’ll learn how to use RSpec, the automated test framework that
+application. Then in <a class='ref' href='#ch.rspec-intro'></a>, we’ll learn how to use RSpec, the automated test framework that
 we’ll use throughout the book. We’ll test drive the development of some Ruby as well as understanding how to test the
 code that we already wrote.</p>
-<p>In  <a class='ref' href='#ch.firstapp'>Diving Into Rails</a>, we’ll start our Rails application with command line generators that we’ll
+<p>In  <a class='ref' href='#ch.firstapp'></a>, we’ll start our Rails application with command line generators that we’ll
 explore in the browser. We’ll gain some experience with our first Rails pattern, most importantly the
 Model-View-Controller (MVC) pattern, which we will learn in more detail throughout the first half of the book. We’ll get
 a feel for how views work with ERB (Embedded RuBy) templates.</p>
-<p>We’ll learn about ActiveRecord, the <em class='emph'>model</em>, in the MVC pattern, interactively in <a class='ref' href='#ch.activerecord'>Exploring ActiveRecord</a> and with RSpec in <a class='ref' href='#ch.activerecord-rspec'>Test Driving Model Development</a>.</p>
-<p> In <a class='ref' href='#ch.rake'>Rake Helps us Organize Our Ruby Scripts</a> we’ll get deeper into Ruby code, which will give us a firm foundation for the rest of the book.
+<p>We’ll learn about ActiveRecord, the <em class='emph'>model</em>, in the MVC pattern, interactively in <a class='ref' href='#ch.activerecord'>Exploring ActiveRecord</a> and with RSpec in <a class='ref' href='#ch.activerecord-rspec'></a>.</p>
+<p> In <a class='ref' href='#ch.rake'></a> we’ll get deeper into Ruby code, which will give us a firm foundation for the rest of the book.
 We’ll also learn about the command line tool <span class='commandname'>rake</span>, which is like the Unix tool
 <span class='commandname'>make</span>, but for Ruby. With Rake, we’ll write a Ruby script that uses our ActiveRecord class
 that we created in the previous chapters.</p>
-<p>In <a class='ref' href='#ch.migrations'>Creating Our Database Schema with Migrations</a>, we’ll understand how our database schema is created and modified. We’ll learn the
+<p>In <a class='ref' href='#ch.migrations'></a>, we’ll understand how our database schema is created and modified. We’ll learn the
 mechanisms of how Rails can be database independent.</p>
-<p>In <a class='ref' href='#ch.controllers'>Routes and Controllers</a>, we’ll build a dynamic web page one step at a time, experimenting with how the browser
+<p>In <a class='ref' href='#ch.controllers'></a>, we’ll build a dynamic web page one step at a time, experimenting with how the browser
 responds with the default Rails behavior and with our code. We’ll get to know how Rails handles HTTP requests. Then
-we’ll continue the development of our controller by test-driving the rest of its behavior in <a class='ref' href='#ch.controllers-rspec'>Understanding Controllers through Testing</a>.</p>
+we’ll continue the development of our controller by test-driving the rest of its behavior in <a class='ref' href='#ch.controllers-rspec'></a>.</p>
 <p>In <a class='ref' href='#ch.integration'></a>, we’ll solidify our understand of the MVC pattern and how it is implemented in
 Rails core classes by test driving new behavior with the Capybara integration test framework. </p>
 <p>In <a class='ref' href='#ch.stubs'></a>, we’ll learn more about testing Ruby code, coping with uncertainty when the results of our code are
@@ -242,7 +243,7 @@ developed a thorough understanding of Rails. You will know
 enough to build an intranet application or kick-off the development of a small-scale web app, and you will have enough
 of a foundation to support further learning on your own to create highly-scalable consumer-facing web applications. </p>
 </div>
-<sect1 id="sec.online-resources" >
+<div class='sect1' id='sec.online-resources'>
 <h3 class='title'>Online Resources</h3>
 <p>
 This book has its own web page, <a class='url' href='http://pragprog.com/titles/satfr'>http://pragprog.com/titles/satfr</a>, where you can find more information about the book.
@@ -261,7 +262,7 @@ suggestions for improvement.</p></li>
 
 <sect1>
 <h3 class='title'>How to Read This Book</h3>
-<p>Except for  <a class='ref' href='#ch.intro'>Why Test? And How We Test First</a>, this book is not meant to be read on the bus or leaning back on the sofa. You should have hands on the keyboard and try out each experiment. For most of the code, you’ll be able to see the expected result, but now and then we’ll
+<p>Except for  <a class='ref' href='#ch.intro'></a>, this book is not meant to be read on the bus or leaning back on the sofa. You should have hands on the keyboard and try out each experiment. For most of the code, you’ll be able to see the expected result, but now and then we’ll
 challenge you to take what you’ve learned and write some of the application on your own.</p>
 <p>Let’s start by learning a bit more about why and how we write code test first.  </p>
 <p></p>
@@ -270,6 +271,7 @@ challenge you to take what you’ve learned and write some of the application on
 </div>
 </div>
 
+<!-- -*- xml -*- -->
 <!DOCTYPE html>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
@@ -290,11 +292,11 @@ challenge you to take what you’ve learned and write some of the application on
 can enjoy the flexibility of a language like Ruby with a safety net.
   </p>
   <div class='figure' id='fig.tdd-productivity'>
-  <h3 class='title'>Test Driven Development vs. Traditional Velocity by Alex Chaffee</h3>
+  <h3 class='title'>Figure 2.1: Figure 2.1: Test Driven Development vs. Traditional Velocity by Alex Chaffee</h3>
   <img class='imagedata' src='images/TDD-productivity-graph.png'></img>
 </div>
 <p>We can visualize how test-driven development increases our productivity by thinking about how much time it takes to develop
-each feature, as shown in <ref linkend="fig.tdd-productivity" />. 
+each feature, as shown in <a class='ref' href='#fig.tdd-productivity'>Figure 2.1</a>. 
 With the first few features, traditional development
 may be faster, because we aren’t typing test code in addition to implementing a feature. However, as features
 accumulate, the tests allow us to quickly see how the addition of a new feature impacts existing features. Refactoring,
@@ -375,7 +377,7 @@ our code solid.</p>
 <sect1>
 <h3 class='title'>Red, Green, Refactor</h3>
 <div class='figure' id='fig.tdd'>
-  <h3 class='title'>Test Driven Development Cycle</h3>
+  <h3 class='title'>Figure 2.2: Figure 2.2: Test Driven Development Cycle</h3>
   <img class='imagedata' src='images/tdd.svg'></img>
 </div>
 <p>Test first development is more than just writing the test first. The test first development cycle include series of
@@ -383,7 +385,7 @@ steps that are essential to capturing the benefits of a test first approach. We 
 <p>We learn to embrace failure. Every test we write starts with a failure and we check that it fails properly before we
 start writing our application code.  Why would we be such sticklers about failing?  Because sometimes the behavior of
 our application surprises us and it passes without any new code, or we discover that the test wasn’t written correctly
-and it passes or fails because of an error in the test. This test-driven development cycle is illustrated in <a class='ref' href='#fig.tdd'>Test Driven Development Cycle</a>. We always want to start by watching our test fail to ensure that it fails the way we expect it to fail.</p>
+and it passes or fails because of an error in the test. This test-driven development cycle is illustrated in <a class='ref' href='#fig.tdd'>Figure 2.2</a>. We always want to start by watching our test fail to ensure that it fails the way we expect it to fail.</p>
 <p>Next we write just enough code to satisfy the error that we saw. We try to write <em class='emph'>simplest code that could
 possibly work</em> even if it means hard-coding some value that we’ll flesh out later as we write further tests. This
 ensures that we don’t write extra code that we will have to maintain without test coverage and that might not even be
@@ -396,7 +398,7 @@ necessary for the current product requirements. </p>
 <sect1>
 <h3 class='title'>Defining Our Application</h3>
 <div class='figure' id='fig.mock_home_page'>
-  <h3 class='title'>Mock Home Page</h3>
+  <h3 class='title'>Figure 2.3: Figure 2.3: Mock Home Page</h3>
   <img class='imagedata' src='images/intro/mock_home_page.png'></img>
 </div>
 <p>Test first development dramatically changes how we define our application. Creating a specification using
@@ -417,17 +419,17 @@ write tests to specify new behavior and drive more development.
  </p>
 <p>We’ll be developing an application to manage a creative writing class. Each course has a set of assignments and students are expected to submit
 their writing assignments through the website. Each student has a page so that everyone in the class can read everyone
-else’s work to support class discussions and peer critiques. In <a class='ref' href='#fig.mock_student_page'>Mock Student Page</a>, we can see how
+else’s work to support class discussions and peer critiques. In <a class='ref' href='#fig.mock_student_page'>Figure 2.4</a>, we can see how
 it might look for each student to have a page, where students can see which assignments are
 completed, can review old assignments or complete a new one.</p>
 <div class='figure' id='fig.mock_student_page'>
-  <h3 class='title'>Mock Student Page</h3>
+  <h3 class='title'>Figure 2.4: Figure 2.4: Mock Student Page</h3>
   <img class='imagedata' src='images/intro/mock_student_page.png'></img>
 </div>
 <p>The application we’re building will have key elements which are part of almost every web application, so that you can take
 what you learn in this book and build your own app.</p>
 <p>Most web applications have a home page, we’ll make a simple one that links to the different parts of the application.
-A mockup of the one we’ll build  is shown in <a class='ref' href='#fig.mock_home_page'>Mock Home Page</a><div class='footnote'><p>Screens were sketched using
+A mockup of the one we’ll build  is shown in <a class='ref' href='#fig.mock_home_page'>Figure 2.3</a><div class='footnote'><p>Screens were sketched using
 Balsamiq Mockups: a great tool for getting a feel for the data you want to display and defining the initial interaction design.</p></div>. Most production web applications will
 have fancier home pages. By the end of the book, we’ll have learned how to put additional dynamic data on a page, but we
 won’t dive into additional HTML, CSS, and JavaScript that could be added to create a more effective user experience.</p> 
@@ -446,6 +448,7 @@ that are unique to what we want people to be able to do with our application.</p
 </div>
 </div>
 
+<!-- -*- xml -*- -->
 <!DOCTYPE html>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
@@ -496,18 +499,18 @@ do. As an object-oriented language, Ruby allows Rails to provide powerful classe
              Ruby comes equipped with <span class='commandname'>irb</span>, which stands for &ldquo;Interactive RuBy&rdquo;. It allows us to see how Ruby will interpret our code and is a valuable tool in our programmer toolbox.  We will be using <span class='commandname'>irb</span> throughout this chapter to see our code through Ruby's eyes. 
         </p>
         <p>  
-            To access <span class='commandname'>irb</span>, we type <span class='commandname'>irb</span> into the command line.  This command gives us a prompt with an angle bracket &ldquo;>&rdquo; where we can type in Ruby code.  Don’t worry if your command prompt looks a little different — it can be modified with configuration.
+            To access <span class='commandname'>irb</span>, we type <span class='commandname'>irb</span> into the command line.  This command gives us a prompt with an angle bracket &ldquo;&gt;&rdquo; where we can type in Ruby code.  Don’t worry if your command prompt looks a little different — it can be modified with configuration.
              Here’s an example of <span class='commandname'>irb</span> in action:
              </p>
              <pre class='code' language='session'>
                $ irb
-               > 1 + 1
+               &gt; 1 + 1
              </pre>
              <p>
                Now when we click enter, Ruby will evaluate 1 + 1 and <span class='commandname'>irb</span> will show us what it returns:
              </p>
              <pre class='code' language='session'>
-               => 2
+               =&gt; 2
              </pre>
              <p>
            Every time we ask <span class='commandname'>irb</span> to evaluate an expression, it will tell us the result of the evaluation.  
@@ -523,17 +526,17 @@ do. As an object-oriented language, Ruby allows Rails to provide powerful classe
           </p>
 
           <pre class='code' language='ruby'>
-            > def combo thing1, thing2
-            ?>   thing1 + " and " + thing2
-            ?>   end
-             => nil
+            &gt; def combo thing1, thing2
+            ?&gt;   thing1 + " and " + thing2
+            ?&gt;   end
+             =&gt; nil
           </pre>
 
           <pre class='code' language='irb'>
-            > combo "peanut butter", "jelly"
-            => "peanut butter and jelly" 
-            > combo("pork chops", "applesauce")
-            => "pork chops and applesauce"  
+            &gt; combo "peanut butter", "jelly"
+            =&gt; "peanut butter and jelly" 
+            &gt; combo("pork chops", "applesauce")
+            =&gt; "pork chops and applesauce"  
           </pre>
 
           <p>
@@ -556,7 +559,7 @@ do. As an object-oriented language, Ruby allows Rails to provide powerful classe
               all of the power and flexibility of Ruby itself.</p>
               <p>Ruby’s poetry syntax and a few other language tricks allow Rails, RSpec and other Ruby DSLs to do a lot with
               very little code.  Understanding the difference between Ruby and DSLs written in Ruby gives us the power
-              to quickly understand what code is doing. We will talk more about DSL's in our discussion of RSpec in <a class='ref' href='#ch.rspec-intro'>Test First Ruby</a> and Rake in <a class='ref' href='#ch.rake'>Rake Helps us Organize Our Ruby Scripts</a>.
+              to quickly understand what code is doing. We will talk more about DSL's in our discussion of RSpec in <a class='ref' href='#ch.rspec-intro'></a> and Rake in <a class='ref' href='#ch.rake'></a>.
             </p>
           </div>
     </div> 
@@ -568,8 +571,8 @@ do. As an object-oriented language, Ruby allows Rails to provide powerful classe
      </p>
 
      <pre class='code' language='irb'>
-     > "too big for my britches".upcase
-      => "TOO BIG FOR MY BRITCHES"
+     &gt; "too big for my britches".upcase
+      =&gt; "TOO BIG FOR MY BRITCHES"
      </pre>
 
      <p>
@@ -589,15 +592,15 @@ do. As an object-oriented language, Ruby allows Rails to provide powerful classe
       like how <span class='method'>upcase</span> is defined on the <span class='rubyclass'>String</span> class.  This works because methods are
       just messaged in Ruby, and operators work the same way.  Let's check it out in <span class='commandname'>irb</span>.</p>
       <pre class='code' language='session'>
-      > 1 + 1
-      => 2
+      &gt; 1 + 1
+      =&gt; 2
       </pre>
 
              <p>The plus sign looks like just any old operator we might see in another programming language, but in Ruby it is a method.  Try this:</p>
 
              <pre class='code' language='irb'>
-               > 1.+(1)
-               => 2
+               &gt; 1.+(1)
+               =&gt; 2
              </pre>
 
              <p>We can see that the plus symbol is actually a method called on a number object.  When we use the plus
@@ -606,10 +609,10 @@ do. As an object-oriented language, Ruby allows Rails to provide powerful classe
       			 <p>Other Ruby operators like <span class='ic'>-</span>, <span class='ic'>*</span>, and <span class='ic'>/</span> are also methods and work similarly:</p>
 
 <pre class='code' language='irb'>
-> 2.* 4
-=> 8 
-> 9./ 3
-=> 3 
+&gt; 2.* 4
+=&gt; 8 
+&gt; 9./ 3
+=&gt; 3 
 </pre>
              <p>Ruby operators work for other objects too.  For instance array and string objects can be added together. In our own classes, we can define methods to make operators work in any way that we want.</p>
 
@@ -654,7 +657,7 @@ do. As an object-oriented language, Ruby allows Rails to provide powerful classe
 
     <pre class='code' language='irb'>
     $ irb
-    > Person
+    &gt; Person
     NameError: uninitialized constant Object::Person
       from (irb):1
     </pre>
@@ -671,15 +674,15 @@ do. As an object-oriented language, Ruby allows Rails to provide powerful classe
       still empty. We will see what happens just when we load a file in <span class='commandname'>irb</span>:
     </p>
     <pre class='code' language='irb'>
-    > load 'person.rb'
-     => true 
+    &gt; load 'person.rb'
+     =&gt; true 
     </pre>
 
     <p>
       Loading <span class='filename'>person.rb</span> reports true since it was able to successfully load the file and evaluate
       the nonexistant contents of the file as Ruby code. However <span class='rubyclass'>Person</span> is still not defined:</p>
     <pre class='code' language='irb'>
-    > Person
+    &gt; Person
     NameError: uninitialized constant Person
       from (irb):2
     </pre>
@@ -699,16 +702,16 @@ do. As an object-oriented language, Ruby allows Rails to provide powerful classe
        a change, and we can see that the class <span class='rubyclass'>Person</span> is defined:  
     </p>
 <pre class='code' language='irb'>
-> load 'person.rb'
-=> true 
-> Person
-=> Person
+&gt; load 'person.rb'
+=&gt; true 
+&gt; Person
+=&gt; Person
 </pre>
 <p>Let's
        create an object from our class with the <span class='method'>new</span> method:</p>
     <pre class='code' language='irb'>      
       p = Person.new
-       => #&#060;Person:0x10044c6a8&#062;    </pre>
+       =&gt; #&#060;Person:0x10044c6a8&#062;    </Person:0x10044c6a8>
     
      <p>
        Our new Person object’s is returned and stored in the variable <span class='ic'>p</span>. The whole expression evaluates to the
@@ -716,8 +719,8 @@ do. As an object-oriented language, Ruby allows Rails to provide powerful classe
        which includes its class, <span class='rubyclass'>Person</span>, and an encoded version of the object’s id (0x10044c6a8).  If we make more objects of the <span class='rubyclass'>Person</span> class, each one will have a unique object id.  We haven’t defined any methods in our <span class='rubyclass'>Person</span> class, yet look at our output when we ask our <span class='rubyclass'>Person</span> object for its methods:
      </p>
 <pre class='code' language='irb'>
-> p.methods
- => [:nil?, :===, :=~, :!~, :eql?, :hash, :<=>, :class, :singleton_class,
+&gt; p.methods
+ =&gt; [:nil?, :===, :=~, :!~, :eql?, :hash, :=&gt;, :class, :singleton_class,
  :clone, :dup, :initialize_dup, :initialize_clone, :taint, :tainted?, 
  :untaint, :untrust, :untrusted?, :trust, :freeze, :frozen?, :to_s, :inspect,
  :methods, :singleton_methods, :protected_methods, :private_methods, … 
@@ -733,14 +736,14 @@ do. As an object-oriented language, Ruby allows Rails to provide powerful classe
     messages? Each time we evaluate a string, an new object is created — not so with symbols.  Watch this:</p> 
 		
 		<pre class='code' language='irb'>
-		> "thing".object_id
-		=> 2160189120 
-		> "thing".object_id
-		=> 2152614520 
-		> :thing.object_id
-		=> 370728 
-		> :thing.object_id
-		=> 370728
+		&gt; "thing".object_id
+		=&gt; 2160189120 
+		&gt; "thing".object_id
+		=&gt; 2152614520 
+		&gt; :thing.object_id
+		=&gt; 370728 
+		&gt; :thing.object_id
+		=&gt; 370728
 		</pre>
 		
 		<p>Our strings and our symbol are objects since everything in Ruby is an object.  When we ask each object for its
@@ -751,8 +754,8 @@ do. As an object-oriented language, Ruby allows Rails to provide powerful classe
     <p> Symbols can have numbers in them, but they need to start with a letter. Like everything else in Ruby, they are
     case-sensitive:</p>
 		<pre class='code' language='irb'>
-    > :a == :A
-    => false    
+    &gt; :a == :A
+    =&gt; false    
     </pre>	  
 		<p>
 		 We can think of symbols as being like labels for things.  They are kind of like a cross between strings and
@@ -764,7 +767,7 @@ do. As an object-oriented language, Ruby allows Rails to provide powerful classe
        will be unique. Right now each instance of the class will act exactly the same, we haven’t defined
        any methods in our <span class='rubyclass'>Person</span> class yet.
      </p>
-     </div>
+     </pre>
      
      <sect2>
      <h3 class='title'>Defining the <span class='method'>full_name</span> Method</h3>
@@ -775,9 +778,9 @@ do. As an object-oriented language, Ruby allows Rails to provide powerful classe
      </p>
 
      <pre class='code' language='irb'>
-     > p.full_name
+     &gt; p.full_name
      NoMethodError: undefined method `full_name` for #&#060;Person:0x10044c6a8&#062;       from (irb):19
-     </pre>
+     </Person:0x10045f0a0>
 
      <p>
        This time our error message is a <span class='constant'>NoMethodError</span>.  It tells us that currently the
@@ -796,8 +799,8 @@ do. As an object-oriented language, Ruby allows Rails to provide powerful classe
      </p>
      
      <pre class='code' language='irb'>
-     > p.full_name
-      => nil
+     &gt; p.full_name
+      =&gt; nil
      </pre>
      
      <p>Earlier we learned that everything in Ruby returns something.  Our <span class='method'>full_name</span> method
@@ -806,12 +809,12 @@ do. As an object-oriented language, Ruby allows Rails to provide powerful classe
      just like everything in Ruby. We can see in <span class='commandname'>irb</span> that <span class='ic'>nil</span> is an instance of <span class='rubyclass'>NilClass</span>
      and we can even call methods on it:</p>
 <pre class='code' language='irb'>
->> nil
-=> nil
->> nil.class
-=> NilClass
->> nil.nil?
-=> true
+&gt;&gt; nil
+=&gt; nil
+&gt;&gt; nil.class
+=&gt; NilClass
+&gt;&gt; nil.nil?
+=&gt; true
 </pre>     
      <p>If we want it to return a value other than nil, say the string &ldquo;Jane Smith&rdquo;, we can put our string inside of our method and Ruby will return the string when we call <span class='method'>full_name</span>.</p>
 
@@ -827,16 +830,16 @@ do. As an object-oriented language, Ruby allows Rails to provide powerful classe
      should return the string &ldquo;Jane Smith&rdquo; instead of <span class='ic'>nil</span>.  Let's try it out: </p>
 
      <pre class='code' language='irb'>
-      > load 'person.rb'
-      => true
-      > p = Person.new
-      => #&#060;Person:0x10044c6a8&#062;      > p.full_name
-       => "Jane Smith"
-     </pre>
+      &gt; load 'person.rb'
+      =&gt; true
+      &gt; p = Person.new
+      =&gt; #&#060;Person:0x10044c6a8&#062;      &gt; p.full_name
+       =&gt; "Jane Smith"
+     </Person:0xb77e5fd8>
      
      <p>We reloaded the file again so that <span class='commandname'>irb</span> knows about our changes.  We can see that our
      <span class='method'>full_name</span> method now returns our string as we had hoped.</p>
-     </div>
+     </pre>
 <sect2>
 <h3 class='title'>Object Construction</h3>
 <p>Our code would be working great if all of our users were named &ldquo;Jane Smith&rdquo;. Of course our users will have a variety of names, so we need a more intelligent solution.  We know that each person we create must have a name.  Given this knowledge, let's give each person a name when their <span class='rubyclass'>Person</span> object is first created.</p>
@@ -848,13 +851,13 @@ do. As an object-oriented language, Ruby allows Rails to provide powerful classe
 </pre>
 <p>Then let’s see it in action:</p>
 <pre class='code' language='irb'>
-> load 'person.rb'
-=> true
-> p = Person.new
-> p = Person.new
+&gt; load 'person.rb'
+=&gt; true
+&gt; p = Person.new
+&gt; p = Person.new
 Hello! I am being created at 2011-04-02 14:54:20 -0700.
-=> #&#060;Person:0x10044c6a8&#062;
-</pre>
+=&gt; #&#060;Person:0x10044c6a8&#062;
+</Person:0x00000100ac1e48>
 <p>We can see that when we call <span class='method'>new</span> on any class, Ruby will call the
 <span class='method'>initialize</span> method of the class, if there is one. The newly created object is always returned
 from <span class='method'>new</span> and the return value from <span class='method'>initialize</span> is ignored.</p>
@@ -867,9 +870,9 @@ starting with just one name as an argument in the initialize method. After all, 
 </pre>
 <p>and Ruby will then require an argument for new:</p>
 <pre class='code' language='irb'>
-> load 'person.rb'
-=> true
->> p = Person.new
+&gt; load 'person.rb'
+=&gt; true
+&gt;&gt; p = Person.new
 ArgumentError: wrong number of arguments (0 for 1)
 	from (irb):5:in `initialize'
 	from (irb):5:in `new'
@@ -877,13 +880,13 @@ ArgumentError: wrong number of arguments (0 for 1)
 </pre>
 <p>which we can provide just like any other method argument:</p>
 <pre class='code' language='irb'>
->> p1 = Person.new("Sacajawea")
+&gt;&gt; p1 = Person.new("Sacajawea")
 Sacajawea is being created.
-=> #&#060;Person:0x10044c6a8&#062;>> p2 = Person.new("Teller")
+=&gt; #&#060;Person:0x10044c6a8&#062;&gt;&gt; p2 = Person.new("Teller")
 Teller is being created.
-=> #&#060;Person:0x10044c6a8&#062;</pre>
+=&gt; #&#060;Person:0x10044c6a8&#062;</Person:0x1011c34f8>
 <p>We've made good progress, but our <span class='method'>full_name</span> will still report “Jane Smith” for every object. What we really want to do is to save that data inside each object to reference later.  Let's do that next.</p>
-</div>
+</Person:0x1011d6e18>
 <sect2>
 <h3 class='title'>Storing Data with Objects</h3>
 <p>A core concept of object-oriented programming is data encapsulation. We hide the details of the implementation of our
@@ -900,14 +903,14 @@ another method:</p>
 </pre>
 <p>and then call that method:</p>
 <pre class='code' language='irb'>
-> load 'person.rb'
-=> true
->> p1 = Person.new("Sacajawea")
+&gt; load 'person.rb'
+=&gt; true
+&gt;&gt; p1 = Person.new("Sacajawea")
 Sacajawea is being created.
-=> #&#060;Person:0x10044c6a8&#062;>> p1.full_name
+=&gt; #&#060;Person:0x10044c6a8&#062;&gt;&gt; p1.full_name
 NameError: undefined local variable or method `name' for #&#060;Person:0x10044c6a8&#062;	from ./person_instance_variable.rb:8:in `full_name'
 	from (irb):3
-</pre>
+</Person:0x101247730>
 <p>Ruby expects words that start with a lower case letter to be either a local variable or a
 method. We haven’t set a local variable called <span class='ic'>name</span> inside the <span class='method'>full_name</span> method, nor
 have we defined a different method called <span class='method'>name</span>, so Ruby raises a <span class='ic'>NameError</span>.</p>
@@ -927,32 +930,30 @@ another, like this:</p>
 </pre>
 <p>Now we can call <span class='method'>full_name</span> to get the appropriate name:</p>
 <pre class='code' language='irb'>
-> load 'person.rb'
-=> true
->> p1 = Person.new("Sacajawea")
+&gt; load 'person.rb'
+=&gt; true
+&gt;&gt; p1 = Person.new("Sacajawea")
 Sacajawea is being created.
-=> #&#060;Person:0x10044c6a8&#062;@name="Sacajawea">
->> p1.full_name
-=> "Sacajawea"
->> p2 = Person.new("Teller")
+=&gt; #&#060;Person:0x10044c6a8&#062;&gt;&gt; p1.full_name
+=&gt; "Sacajawea"
+&gt;&gt; p2 = Person.new("Teller")
 Teller is being created.
-=> #&#060;Person:0x10044c6a8&#062;@name="Teller">
->> p2.full_name
-=> "Teller"
+=&gt; #&#060;Person:0x10044c6a8&#062;&gt;&gt; p2.full_name
+=&gt; "Teller"
 </pre>
 <p>Instance variables are always private, which means that they are not available by default outside of our
 class:</p>
 <pre class='code' language='irb'>
-> p1.@name
+&gt; p1.@name
 SyntaxError: compile error
 (irb):11: syntax error, unexpected tIVAR
 	from (irb):11
-> p1.name
+&gt; p1.name
 NoMethodError: undefined method `name` for #&#060;Person:0x10044c6a8&#062;  from (irb):19
-</pre>
+</Person:0x10045f0a0>
 <p>In Ruby, we define methods to expose the data that we want to share with the rest of the world.</p>
-</div>
-</div>
+</pre>
+</Person:0x101247730>
 
 <sect1>
 	<h3 class='title'>Inheritance</h3>
@@ -964,17 +965,17 @@ NoMethodError: undefined method `name` for #&#060;Person:0x10044c6a8&#062;  from
   Check out some of the built-in behaviors that <span class='rubyclass'>Person</span> inherits from
   <span class='rubyclass'>Object</span>:</p>
 <pre class='code' language='irb'>
-     > p1.class
-      => Person
-     > p1.class.superclass
-      => Object 
+     &gt; p1.class
+      =&gt; Person
+     &gt; p1.class.superclass
+      =&gt; Object 
 </pre>  
    <p>
        The Ruby Object object provides many useful methods for free in any class we create, because every class in Ruby is a descendent of the <span class='rubyclass'>Object</span> class where all these methods are defined.  We can discover the methods of an object like this:
     </p>
 <pre class='code' language='irb'>
-> p1.methods
- => [:full_name, :nil?, :===, :=~, :!~, :eql?, :hash, :<=>, :class, 
+&gt; p1.methods
+ =&gt; [:full_name, :nil?, :===, :=~, :!~, :eql?, :hash, :=&gt;, :class, 
  :singleton_class, :clone, :dup, :initialize_dup, :initialize_clone, 
  …] 
 </pre>
@@ -982,8 +983,8 @@ NoMethodError: undefined method `name` for #&#060;Person:0x10044c6a8&#062;  from
 <p>We can get the same list by calling <span class='ic'>Person.instance_methods</span>. If we want to see just the instance methods of
 the <span class='rubyclass'>Person</span> class, we can subtract the <span class='rubyclass'>Object</span> instance methods:</p>
 <pre class='code' language='irb'>
-> Person.instance_methods - Object.instance_methods
- => [:full_name] 
+&gt; Person.instance_methods - Object.instance_methods
+ =&gt; [:full_name] 
 </pre>
 <p>Both <span class='ic'>Person.instance_methods</span> and <span class='ic'>Object.instance_methods</span> return arrays of their methods.  The Array class defines the minus operator to remove elements from a list. Ruby and <span class='commandname'>irb</span> makes this kind of experimentation easy.</p>
 <p>Now that we understand how our <span class='rubyclass'>Person</span> class inherits behavior from the
@@ -999,18 +1000,18 @@ the <span class='rubyclass'>Person</span> class, we can subtract the <span class
 </pre>
 	<p>Let's try out our new class in <span class='commandname'>irb</span>:</p>
 	<pre class='code'>
-	> load 'person_inheritance.rb'
-	=> true
-	> s = Student.new("Birtha")
-	=> #&#060;Person:0x10044c6a8&#062;	> s.full_name
-	=> "Birtha"
-	> s.occupation
-	=> "Student"
+	&gt; load 'person_inheritance.rb'
+	=&gt; true
+	&gt; s = Student.new("Birtha")
+	=&gt; #&#060;Person:0x10044c6a8&#062;	&gt; s.full_name
+	=&gt; "Birtha"
+	&gt; s.occupation
+	=&gt; "Student"
 
-	</pre>
+	</Student:0xb78247ec>
 	
 <p> We can see that even though the <span class='method'>full_name</span> method is not defined in the <span class='rubyclass'>Student</span> class, our instance of <span class='rubyclass'>Student</span> has inherited the <span class='method'>full_name</span> from it's <span class='rubyclass'>Person</span> parent.</p>
-</div>
+</pre>
 
 <sect1> 
 			<h3 class='title'>Rails Is Ruby</h3>
@@ -1020,7 +1021,7 @@ the <span class='rubyclass'>Person</span> class, we can subtract the <span class
       </p>
 		
       <pre class='code' language='ruby'>
-         class Person < ActiveRecord::Base
+         class Person  ActiveRecord::Base
          end
       </pre>
 	
@@ -1047,27 +1048,29 @@ We have learned the basics of Ruby that we will need to understand RSpec in the 
     
 </div>
 </div>
+</pre></div></pre></pre></div></pre></div></div></div></div>
+
 <!DOCTYPE html>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
 <div class='chapter' id='ch.rspec-intro' number='4'>
   <h2 class='chapter_title'>Test First Ruby</h2>
 <p>We've explored enough Ruby that we are ready to learn RSpec, our key to unlocking the power of testing our code. Of course, there is always more Ruby to learn and we will also learn some more advanced Ruby concepts including attr_accessor methods, hashes, and string interpolation.</p>
-<p>By the end of <a class='ref' href='#ch.ruby-intro'>An Introduction to Ruby</a> we had a simple <span class='rubyclass'>Person</span> class that could store a name.  We’ll continue to work on the <span class='rubyclass'>Person</span> class, but now we’ll be building it test first with RSpec.  We will use RSpec <span class='firstuse'>specs</span> (RSpec lingo for tests) to suss out what our API should look like, and how we want to use our code. Each spec will verify one example of how we expect our code to work. We will end up with a suite of specs that describe a well thought out and detailed technical design of our <span class='rubyclass'>Person</span> objects.</p>
+<p>By the end of <a class='ref' href='#ch.ruby-intro'></a> we had a simple <span class='rubyclass'>Person</span> class that could store a name.  We&#x2019;ll continue to work on the <span class='rubyclass'>Person</span> class, but now we&#x2019;ll be building it test first with RSpec.  We will use RSpec <span class='firstuse'>specs</span> (RSpec lingo for tests) to suss out what our API should look like, and how we want to use our code. Each spec will verify one example of how we expect our code to work. We will end up with a suite of specs that describe a well thought out and detailed technical design of our <span class='rubyclass'>Person</span> objects.</p>
 <sect1>
 <h3 class='title'>Writing an Executable Specification</h3>
      
      <p>Our <span class='rubyclass'>Person</span> class already has a <span class='method'>full_name</span> method.  Now we need a  <span class='method'>given_name</span> method and a <span class='method'>surname</span> method that we will concatenate together in our <span class='method'>full_name</span> method. We will design our <span class='rubyclass'>Person</span> class so that <span class='method'>given_name</span> and <span class='method'>surname</span> will be set when we create the object.  We will  also be able to change them or access them at any time. </p>
      <sect2> 
 <h3 class='title'>Creating an RSpec File</h3>
-<p>By convention, RSpec files are named with a suffix of _spec.rb. A single RSpec file doesn’t need to be named in any
-special way, but when we have developed a lot of specs in our Rails applications, we’ll be able to run a whole directory
-full of them if we follow this naming style. In Rails, RSpec will use this suffix to know which files to run. Besides it’s just a good idea to be able to look at a
-filename and know what’s in it.  So let’s make a spec to test the code we wrote in
+<p>By convention, RSpec files are named with a suffix of _spec.rb. A single RSpec file doesn&#x2019;t need to be named in any
+special way, but when we have developed a lot of specs in our Rails applications, we&#x2019;ll be able to run a whole directory
+full of them if we follow this naming style. In Rails, RSpec will use this suffix to know which files to run. Besides it&#x2019;s just a good idea to be able to look at a
+filename and know what&#x2019;s in it.  So let&#x2019;s make a spec to test the code we wrote in
 <span class='filename'>person.rb</span> by creating a file named <span class='filename'>person_spec.rb</span>.  
 </p>
 <p>Like Rails, RSpec is its own domain-specific language. We introduced
-the idea of a DSL in <a class='ref' href='#side.dsl'>Domain Specific Languages</a>. The RSpec files we write are Ruby code. RSpec defines a number of methods which when used together make it feel like its own language.  The way RSpec names methods is important.  Method names such as <span class='method'>describe</span>, <span class='method'>it</span> and <span class='method'>should</span> are designed to lead us toward thinking of our application as a set of behaviors rather than as chunks of code. </p>
+the idea of a DSL in <a class='ref' href='#side.dsl'></a>. The RSpec files we write are Ruby code. RSpec defines a number of methods which when used together make it feel like its own language.  The way RSpec names methods is important.  Method names such as <span class='method'>describe</span>, <span class='method'>it</span> and <span class='method'>should</span> are designed to lead us toward thinking of our application as a set of behaviors rather than as chunks of code. </p>
 </div>
 <sect2>
 <h3 class='title'>Describing our Person Class</h3> 
@@ -1075,7 +1078,7 @@ the idea of a DSL in <a class='ref' href='#side.dsl'>Domain Specific Languages</
   RSpec's <span class='method'>describe</span> method sets the stage for specifying part of our code.  We use it to separate
   different concepts and keep our specs organized. The <span class='method'>describe</span> method accepts either a class name or a
   string as a parameter.  Whatever parameter we pass in to the describe block is shown to us when a test fails, so it
-  pays off to be thoughtful about what we pass in.  We’ll start our spec, with a <span class='commandname'>describe</span>
+  pays off to be thoughtful about what we pass in.  We&#x2019;ll start our spec, with a <span class='commandname'>describe</span>
   block telling RSpec that this is a specification for a <span class='rubyclass'>Person</span> class. 
 </p>
      <pre class='external'>1   
@@ -1091,14 +1094,14 @@ the idea of a DSL in <a class='ref' href='#side.dsl'>Domain Specific Languages</
 
 </pre>
 <p>Nested inside of our first describe block are two describe blocks that specify different aspects of the
-<span class='rubyclass'>Person</span> class’s behavior. Even though we aren't testing anything yet, let’s run our spec to see how
+<span class='rubyclass'>Person</span> class&#x2019;s behavior. Even though we aren't testing anything yet, let&#x2019;s run our spec to see how
 <span class='method'>describe</span> works. We run specs using the rspec gem.  The rspec gem installs a command-line tool that has the same name as the gem. The <span class='commandname'>rspec</span> command will load our spec file and call
 the gem. Here's how we run it:</p>
      <pre class='code' language='session'>
 $ rspec person_spec.rb
 /lib/rspec/core/backward_compatibility.rb:20:in `const_missing': 
   uninitialized constant Object::Person (NameError)
-	from /code/person_spec/person_spec.rb:2:in `<top (required)>'
+	from /code/person_spec/person_spec.rb:2:in `<top/>(required)&gt;'
 	from /rspec-core-2.5.1/lib/rspec/core/configuration.rb:386:in `load'
 	from /rspec-core-2.5.1/lib/rspec/core/configuration.rb:386:in `block in 
   load_spec_files'
@@ -1110,8 +1113,8 @@ $ rspec person_spec.rb
 	from /rspec-core-2.5.1/lib/rspec/core/runner.rb:46:in `run'
 	from /rspec-core-2.5.1/lib/rspec/core/runner.rb:10:in `block in autorun'     
      </pre>
-     <p>What’s all this? Did we do something wrong? Nope. In test-driven development, we always start with a failing test since we haven't written any code yet. </p>
-     <p>This first failure is complaining about a <span class='ic'>NameError</span> for an “uninitialized constant”. We've seen a <span class='ic'>NameError</span> before, right? During our <span class='commandname'>irb</span> experimentation in the last chapter we got a <span class='ic'>NameError</span> because we hadn't yet defined our <span class='rubyclass'>Person</span> class (remember classes in Ruby are constants).  Our describe block is describing our <span class='rubyclass'>Person</span> class which causes RSpec to go look for that class. </p>
+     <p>What&#x2019;s all this? Did we do something wrong? Nope. In test-driven development, we always start with a failing test since we haven't written any code yet. </p>
+     <p>This first failure is complaining about a <span class='ic'>NameError</span> for an &#x201C;uninitialized constant&#x201D;. We've seen a <span class='ic'>NameError</span> before, right? During our <span class='commandname'>irb</span> experimentation in the last chapter we got a <span class='ic'>NameError</span> because we hadn't yet defined our <span class='rubyclass'>Person</span> class (remember classes in Ruby are constants).  Our describe block is describing our <span class='rubyclass'>Person</span> class which causes RSpec to go look for that class. </p>
      <p> Whenever we pass a class name to a describe block, the class must exist in order for our tests to pass. When we pass a string into a describe block as we did with <span class='ic'>describe "name"</span>, RSpec doesn't care what characters we put in the string. On the other hand, <em class='emph'>we do care</em> about the contents of the string since it serves as documentation for our code and it will be the output we see when we run our spec.
 
 </p>
@@ -1120,21 +1123,21 @@ $ rspec person_spec.rb
      <pre class='external'>1   require '.&#47;person'
 
 </pre>
-     <p>Ruby expects that the file extension is “.rb” so we can leave it off. As usual,
+     <p>Ruby expects that the file extension is &#x201C;.rb&#x201D; so we can leave it off. As usual,
      Ruby lets us type less and keep our code uncluttered with information that is almost always the same.
      When we write <span class='ic'>require './person'</span>, we are
      telling Ruby that we want to look for a file called <span class='filename'>person.rb</span> in the current directory.</p>
      <p>Now we can run the spec without an error:</p>
 <pre class='code' language='session'>
 $ rspec person_spec.rb
-No examples were matched. Perhaps {:if=>#&#060;Proc:0x00000100bb7e10&#062;/gems/rspec-core-2.5.1/lib/rspec/core/configuration.rb:50 (lambda)>, 
-:unless=>#&#060;Proc:0x00000100bb7e10&#062;core/configuration.rb:51 (lambda)>} is excluding everything?
+No examples were matched. Perhaps {:if=&gt;#&#060;Proc:0x00000100bb7e10/>@/&#x2026&#062;/gems/rspec-core-2.5.1/lib/rspec/core/configuration.rb:50 (lambda)&gt;, 
+:unless=&gt;#&#060;Proc:0x00000100bb7e10/>@/&#x2026&#062;core/configuration.rb:51 (lambda)&gt;} is excluding everything?
 
 Finished in 0.00003 seconds
 0 examples, 0 failures
 </pre>
 <p>RSpec tells us <span class='ic'>No examples were matched</span>, which means we haven't written any tests yet.  RSpec is also trying
-to be helpful by providing a solution message, but we can ignore it because it doesn’t apply to us. We haven’t written
+to be helpful by providing a solution message, but we can ignore it because it doesn&#x2019;t apply to us. We haven&#x2019;t written
 any examples yet, so we expect that RSpec won't find any.  The next thing to do is begin writing examples of how we
 expect our code to behave.</p>
      </div>
@@ -1148,7 +1151,7 @@ expect our code to behave.</p>
      raise an error. Ideally, each <span class='method'>it</span> block will verify just one aspect of our code.   
      </p>
      
-     <p>Let’s write our first example for our <span class='rubyclass'>Person</span> class as we defined it in <a class='ref' href='#ch.ruby-intro'>An Introduction to Ruby</a>: </p>
+     <p>Let&#x2019;s write our first example for our <span class='rubyclass'>Person</span> class as we defined it in <a class='ref' href='#ch.ruby-intro'></a>: </p>
      <pre class='external'>1     describe "name" do  
 2       it "must be set on creation" do  
 <a class='label' id='code.person.new'>3         p = Person.new("Hiawatha")   
@@ -1161,16 +1164,16 @@ expect our code to behave.</p>
        code. The syntax is designed to read a bit like English.</p>
 <p>Let's take a quick tour of this code.  On line <a class='cref' href='#code.person.new'>3</a> we made a new <span class='rubyclass'>Person</span> object with an argument of "Hiawatha". We know that this argument will be passed into the <span class='method'>initialize</span> method and that our <span class='ic'>@name</span> instance variable will be set to "Hiawatha".  With this knowledge, on line <a class='cref' href='#code.p.full_name.should'>4</a> we say that we expect the <span class='method'>full_name</span> method to return the same string that we passed to <span class='ic'>Person.new</span>. We are calling the <span class='method'>should</span> method on a <span class='rubyclass'>String</span> object returned by <span class='method'>full_name</span>, but RSpec is designed so that when we are in a spec file we can call the <span class='method'>should</span> method on any object.</p>
      <p>This is actually a <em class='emph'>test last</em> approach because we have already written the code for this example.
-     Testing our code last is okay on occasion when we’re exploring how our code will work, but we always want to see our test fail first.
+     Testing our code last is okay on occasion when we&#x2019;re exploring how our code will work, but we always want to see our test fail first.
      We can ensure that our test fails before it passes by commenting out the implementation of the full_name method like this: </p>
      <pre class='external'>1     def full_name
 2       # @name
 3     end
 
 </pre>
-     <p>In Ruby, a comment starts with a <span class='ic'>#&#060;Proc:0x00000100bb7e10&#062;which can start anywhere on a line. </p>
+     <p>In Ruby, a comment starts with a <span class='ic'>#&#060;Proc:0x00000100bb7e10/>@/&#x2026&#062;which can start anywhere on a line. </p>
 <p>Before we run the spec, we think about what will
-happen. Remember from <a class='ref' href='#ch.ruby-intro'>An Introduction to Ruby</a> what a method returns when it has no contents? Here's a refresher:</p>
+happen. Remember from <a class='ref' href='#ch.ruby-intro'></a> what a method returns when it has no contents? Here's a refresher:</p>
 <pre class='code' language='irb'>
 $ rspec person_spec.rb 
 F
@@ -1181,15 +1184,15 @@ Failures:
      Failure/Error: p.full_name.should == "Hiawatha" 
        expected: "Hiawatha"
             got: nil (using ==)
-     # ./person_spec.rb:11:in `block (3 levels) in <top (required)>'
+     # ./person_spec.rb:11:in `block (3 levels) in <top/>(required)&gt;'
 
 Finished in 0.00051 seconds
 1 example, 1 failure
 </pre>
   <p>Our answer is that an empty method returns <span class='ic'>nil</span>.  The spec fails as we expect; when we called <span class='ic'>p.full_name</span>, it returned <span class='ic'>nil</span> because we commented out
-    the implementation. Let’s look closer at the rest of what RSpec tells us. See the “F”
-  on the very first line of the output? RSpec outputs one “F” per failed example (and one “.” per passing example). In this case, “F” stands for failure. This
-  seems like a very small indicator now, but for a whole app concise feedback is really helpful. We’ll
+    the implementation. Let&#x2019;s look closer at the rest of what RSpec tells us. See the &#x201C;F&#x201D;
+  on the very first line of the output? RSpec outputs one &#x201C;F&#x201D; per failed example (and one &#x201C;.&#x201D; per passing example). In this case, &#x201C;F&#x201D; stands for failure. This
+  seems like a very small indicator now, but for a whole app concise feedback is really helpful. We&#x2019;ll
   have dozens and eventually hundreds of examples.  If one of our specs fails, RSpec will output more helpful feedback to help us correct the error.</p>
   <p>Now we can uncomment the code in our <span class='method'>full_name</span> method and watch it pass:</p>
 <pre class='code' language='session'>
@@ -1203,11 +1206,11 @@ Finished in 0.00051 seconds
 </div>
      <div class='sect1' id='getter_and_setter_methods'>
      <h3 class='title'>Creating Getter and Setter Methods</h3>
-     <p>We’ve developed a <span class='rubyclass'>Person</span> class that is given a name when it is created.  What
-     if we want to change the name after we have already instantiated a <span class='rubyclass'>person</span> object?  That is a job for a setter method.  If we simply want to get the value of the name, we can write a getter method.  We’ve already written a <span class='method'>full_name</span> getter method, but our plan for that method is to compose a full name out of a person's given name and surname. Let's make a method that can get just persons given name.</p>
+     <p>We&#x2019;ve developed a <span class='rubyclass'>Person</span> class that is given a name when it is created.  What
+     if we want to change the name after we have already instantiated a <span class='rubyclass'>person</span> object?  That is a job for a setter method.  If we simply want to get the value of the name, we can write a getter method.  We&#x2019;ve already written a <span class='method'>full_name</span> getter method, but our plan for that method is to compose a full name out of a person's given name and surname. Let's make a method that can get just persons given name.</p>
 <sect2>
 	<h3 class='title'>Test Driven Getter Method</h3>
-	    <p>We are about to write a method test first!  Let’s start by specifying that our class will have a <span class='method'>given_name</span> getter method:</p>
+	    <p>We are about to write a method test first!  Let&#x2019;s start by specifying that our class will have a <span class='method'>given_name</span> getter method:</p>
 	     <pre class='external'>1       it "can be accessed" do
 2         p = Person.new("Hiawatha")
 3         p.given_name.should == "Hiawatha"
@@ -1221,8 +1224,7 @@ Finished in 0.00051 seconds
 	  1) Person name can be accessed
 	     Failure/Error: p.given_name.should == "Hiawatha"
 	     NoMethodError:
-	       undefined method `given_name' for #&#060;Proc:0x00000100bb7e10&#062;@name="Hiawatha">
-	     # ./person_spec.rb:18:in `block (3 levels) in <top (required)>'
+	       undefined method `given_name' for #&#060;Proc:0x00000100bb7e10/>@/&#x2026&#062;	     # ./person_spec.rb:18:in `block (3 levels) in <top/>(required)&gt;'
 
 	Finished in 0.00051 seconds
 	2 examples, 1 failure
@@ -1240,7 +1242,7 @@ Finished in 0.00051 seconds
 	     Failure/Error: p.given_name.should == "Hiawatha"
 	       expected: "Hiawatha"
 	            got: nil (using ==)
-	     # ./person_spec.rb:18:in `block (3 levels) in <top (required)>'
+	     # ./person_spec.rb:18:in `block (3 levels) in <top/>(required)&gt;'
 
 	Finished in 0.00051 seconds
 	2 examples, 1 failure
@@ -1264,7 +1266,7 @@ Finished in 0.00051 seconds
 
 <sect2>
 <h3 class='title'>Red, Green, Refactor</h3>
-<p> Now that we have some passing tests, let's work on making them readable, concise and maintainable.   Refactoring is the word we use when we rewrite our code with readability and maintainability in mind, without changing what it actually does.  It is a kind thing to do for ourselves and our coworkers.  Refactoring is a key term in test-driven development (TDD): we often hear about the “red, green, refactor” workflow. In the first step, “red” describes our failing test. We write the test first and watch it fail. The second step, “green,” represents the stage when we’ve written our code and it works, so the test passes. But we don’t stop there. After the test passes, we have the opportunity to <em class='emph'>refactor</em> the code to make it more concise and maintainable. When we refactor we are changing the code, but not the behavior of the code. </p>
+<p> Now that we have some passing tests, let's work on making them readable, concise and maintainable.   Refactoring is the word we use when we rewrite our code with readability and maintainability in mind, without changing what it actually does.  It is a kind thing to do for ourselves and our coworkers.  Refactoring is a key term in test-driven development (TDD): we often hear about the &#x201C;red, green, refactor&#x201D; workflow. In the first step, &#x201C;red&#x201D; describes our failing test. We write the test first and watch it fail. The second step, &#x201C;green,&#x201D; represents the stage when we&#x2019;ve written our code and it works, so the test passes. But we don&#x2019;t stop there. After the test passes, we have the opportunity to <em class='emph'>refactor</em> the code to make it more concise and maintainable. When we refactor we are changing the code, but not the behavior of the code. </p>
 <p>Let's put what we just learned into practice and refactor our spec file.</p>
 </div>
 
@@ -1301,7 +1303,7 @@ examples.  Let's take a look:</p>
 
 <sect2>
 <h3 class='title'>Test Driven Setter Method</h3>
-    <p>We’ll put our setter example inside the <span class='ic'>describe "name"</span> so that we can use
+    <p>We&#x2019;ll put our setter example inside the <span class='ic'>describe "name"</span> so that we can use
     the same person object from the <span class='ic'>before</span> block.</p>
      <pre class='external'>1       it "can be set" do
 2         @person.given_name = "Jean"
@@ -1309,7 +1311,7 @@ examples.  Let's take a look:</p>
 4       end
 
 </pre>
-    <p>We’re setting <span class='ic'>given_name</span>, getting its value, and then verifying that it retains the value we set. Let’s run it:</p>
+    <p>We&#x2019;re setting <span class='ic'>given_name</span>, getting its value, and then verifying that it retains the value we set. Let&#x2019;s run it:</p>
 <pre class='code' language='session'>
 $ rspec person_spec.rb
 ..F
@@ -1319,16 +1321,16 @@ Failures:
   1) Person name can be set
      Failure/Error: @person.given_name = "Jean"
      NoMethodError:
-       undefined method `given_name=' for #&#060;Proc:0x00000100bb7e10&#062;     # ./person_spec.rb:18:in `block (3 levels) in <top (required)>'
+       undefined method `given_name=' for #&#060;Proc:0x00000100bb7e10/>@/&#x2026&#062;     # ./person_spec.rb:18:in `block (3 levels) in <top/>(required)&gt;'
 
 Finished in 0.00067 seconds
 3 examples, 1 failure
-</pre>
+</Person:0x000001008b9d30>
 <p>The spec failure tells us that when we write <span class='ic'>p.given_name = "Jean"</span>, Ruby expects that the object has a
 <span class='method'>given_name=</span> method. We often refer to this as a <span class='firstuse'>setter</span>, but its just a
 special case of operators as methods in Ruby. Writing <span class='ic'>p.given_name = "Jean"</span>, is just different syntax for
 calling the <span class='method'>given_name=</span> method in the usual way: <span class='ic'>p.given_name=("Jean")</span>. The Ruby
-language parser let’s us put space around the operator, but in other respects, it is just a plain old method call.</p>
+language parser let&#x2019;s us put space around the operator, but in other respects, it is just a plain old method call.</p>
 
 
     <p>To fix our <span class='ic'>NoMethodError</span>, we define the <span class='ic'>given_name=</span> method:</p>
@@ -1336,7 +1338,7 @@ language parser let’s us put space around the operator, but in other respects,
 2     end
 
 </pre>
-    <p>We still haven’t fully implemented the method, but we want to run the spec and see the new failure:</p>
+    <p>We still haven&#x2019;t fully implemented the method, but we want to run the spec and see the new failure:</p>
 <pre class='code' language='session'>
 $ rspec person_spec.rb
 .F
@@ -1348,13 +1350,13 @@ Failures:
      ArgumentError:
        wrong number of arguments (1 for 0)
      # ./person.rb:13:in `given_name='
-     # ./person_spec.rb:18:in `block (3 levels) in <top (required)>'
+     # ./person_spec.rb:18:in `block (3 levels) in <top/>(required)&gt;'
 
 Finished in 0.00056 seconds
 2 examples, 1 
 </pre>
 <p>Our example now fails because of an <span class='ic'>ArgumentError</span>. When we write <span class='ic'>p.given_name = "Jean"</span>, the string
-“Jean” is interpreted by Ruby as an argument to the <span class='ic'>given_name=</span> method. To fix this failure, we declare an
+&#x201C;Jean&#x201D; is interpreted by Ruby as an argument to the <span class='ic'>given_name=</span> method. To fix this failure, we declare an
 argument:</p>
      <pre class='external'>1     def given_name=(new_name)
 2     end
@@ -1371,16 +1373,16 @@ Failures:
      Failure/Error: p.given_name.should == "Jean"
        expected: "Jean"
             got: "Hiawatha" (using ==)
-     # ./person_spec.rb:19:in `block (3 levels) in <top (required)>'
+     # ./person_spec.rb:19:in `block (3 levels) in <top/>(required)&gt;'
 
 Finished in 0.00103 seconds
 2 examples, 1 failure
 </pre>
-<p>Whew, we’re onto the next line! Now we know our method is defined with the correct name and arguments, and we’re
-seeing our example fail because we’re missing internal logic.</p>		
+<p>Whew, we&#x2019;re onto the next line! Now we know our method is defined with the correct name and arguments, and we&#x2019;re
+seeing our example fail because we&#x2019;re missing internal logic.</p>		
       <p>Our setter method is working just fine except that it doesn't actually set a variable, which is the purpose of
       setter methods.  Setter methods don't set just any variable either.  They set a variable that has a scope of our
-      whole object.  As we learned in <a class='ref' href='#ch.ruby-intro'>An Introduction to Ruby</a>, variables within the scope of the object are
+      whole object.  As we learned in <a class='ref' href='#ch.ruby-intro'></a>, variables within the scope of the object are
       called <em class='emph'>instance variables</em> and start with an <span class='ic'>@</span> symbol. In order for the <span class='method'>given_name=</span> method to set an instance variable to a value, it will need to use the argument as the value we give to our instance variable. It will look something like this: </p>
 <pre class='external'>1     def given_name=
 2     end
@@ -1393,20 +1395,20 @@ seeing our example fail because we’re missing internal logic.</p>
     try out our getter and setter methods working together:</p>
 <pre class='code' language='irb'>
 $ irb
-ruby-1.9.2-p0 > load 'person.rb'
- => true 
-> p1 = Person.new("Spock")
- => #&#060;Proc:0x00000100bb7e10&#062;
-> p1.given_name
- => "Spock" 
-> p1.given_name = "Sarek"
- => "Sarek" 
-> p1.given_name
- => "Sarek" 
-</pre>
+ruby-1.9.2-p0 &gt; load 'person.rb'
+ =&gt; true 
+&gt; p1 = Person.new("Spock")
+ =&gt; #&#060;Proc:0x00000100bb7e10/>@/&#x2026&#062;
+&gt; p1.given_name
+ =&gt; "Spock" 
+&gt; p1.given_name = "Sarek"
+ =&gt; "Sarek" 
+&gt; p1.given_name
+ =&gt; "Sarek" 
+</Person:0x00000100a89ea8>
 		<p>Works like a charm! </p>
-</div>
-</div>
+</pre>
+</pre>
 
 <div class='sect1' id='attr_accessor'>
 		<h3 class='title'>Getting and Setting Instance Variables</h3>
@@ -1489,7 +1491,7 @@ Finished in 0.00055 seconds
 <a class='cref' href='#code.person.new.jean'>3</a> and then we tell RSpec on line <a class='cref' href='#code.p.surname'>4</a> that we
 expect <span class='ic'>surname</span> to be an empty string. We call this kind of example, the <em class='emph'>null test</em>.</p>
     
-    <p>Since we haven’t written any code in our class to support a <span class='ic'>surname</span> attribute, we expect it to fail:</p>
+    <p>Since we haven&#x2019;t written any code in our class to support a <span class='ic'>surname</span> attribute, we expect it to fail:</p>
 
 <pre class='code' language='session'>
 $ rspec person_spec.rb
@@ -1500,8 +1502,7 @@ Failures:
   1) Person surname is empty if it hasn't been set
      Failure/Error: p.surname.should == ""
      NoMethodError:
-       undefined method `surname' for #&#060;Proc:0x00000100bb7e10&#062;@name="">
-     # ./person_spec.rb:20:in `block (3 levels) in <top (required)>'
+       undefined method `surname' for #&#060;Proc:0x00000100bb7e10/>@/&#x2026&#062;     # ./person_spec.rb:20:in `block (3 levels) in <top/>(required)&gt;'
 
 Finished in 0.00079 seconds
 3 examples, 1 failures
@@ -1524,12 +1525,12 @@ Failures:
      Failure/Error: p.surname.should == ""
        expected: ""
             got: nil (using ==)
-     # ./person_spec.rb:20:in `block (3 levels) in <top (required)>'
+     # ./person_spec.rb:20:in `block (3 levels) in <top/>(required)&gt;'
 
 Finished in 0.00078 seconds
 3 examples, 1 failure
 </pre>
-<p>Just like an empty method, instance variables evaluate to <span class='ic'>nil</span>. We don’t get a <span class='ic'>NameError</span> like we do
+<p>Just like an empty method, instance variables evaluate to <span class='ic'>nil</span>. We don&#x2019;t get a <span class='ic'>NameError</span> like we do
 with local variables if we use them before they are set.</p>
 <p>We decided when we wrote the example in our spec that the initial value of <span class='ic'>surname</span> should be an empty string. Let's set <variable>@surname</variable> for every object that is created from our class. We can do that in the initialize method:</p>
 <pre class='external'>1     def initialize(given_name)
@@ -1556,7 +1557,7 @@ Failures:
   1) Person surname can be set
      Failure/Error: p.surname = "Bartik"
      NoMethodError:
-       undefined method `surname=' for #&#060;Proc:0x00000100bb7e10&#062;     # ./person_spec.rb:26:in `block (3 levels) in <top (required)>'
+       undefined method `surname=' for #&#060;Proc:0x00000100bb7e10/>@/&#x2026&#062;     # ./person_spec.rb:26:in `block (3 levels) in <top/>(required)&gt;'
 
 Finished in 0.0007 seconds
 4 examples, 1 failure
@@ -1575,12 +1576,12 @@ Finished in 0.0007 seconds
 			<p>We now have all the pieces we need to complete our <span class='method'>full_name</span> method.  Let's change it so it returns a string with <span class='method'>given_name</span> and <span class='method'>surname</span> separated by a space.  Both <span class='method'>given_name</span> and <span class='method'>surname</span> contain strings, which makes this task pretty easy.  In order to do this we will need to understand a little more about strings.  Just like integers, strings can be added together using the <span class='method'>+</span> method.  We can use <span class='commandname'>irb</span> to demonstrate this:</p>
       
 <pre class='code' language='irb'>
-> load 'person.rb'
-> p.given_name + " " + p.surname
-=> "Jean Bartik"
+&gt; load 'person.rb'
+&gt; p.given_name + " " + p.surname
+=&gt; "Jean Bartik"
 </pre>
 			
-		  <p>Let’s write a spec that tests <span class='method'>full_name</span>.</p>
+		  <p>Let&#x2019;s write a spec that tests <span class='method'>full_name</span>.</p>
 			<pre class='external'>1     describe "full_name" do
 2       it "it concatenates given_name and surname" do  
 3         p = Person.new("Jean")   
@@ -1590,8 +1591,8 @@ Finished in 0.0007 seconds
 7     end
 
 </pre>
-      <p>We wrote that example using our existing APIs, but it seems a little wordy. It’s awkward to set Jean’s
-      first name when calling <span class='method'>new</span> and then set her surname on the next line. Here’s one way to approach it:</p>      
+      <p>We wrote that example using our existing APIs, but it seems a little wordy. It&#x2019;s awkward to set Jean&#x2019;s
+      first name when calling <span class='method'>new</span> and then set her surname on the next line. Here&#x2019;s one way to approach it:</p>      
 			<pre class='external'>1       it "it concatenates given_name and surname" do  
 2         p = Person.new("Jean", "Bartik") 
 3         p.full_name.should == "Jean Bartik"  
@@ -1611,7 +1612,7 @@ Failures:
        wrong number of arguments (2 for 1)
      # ./person.rb:4:in `initialize'
      # ./person_spec.rb:6:in `new'
-     # ./person_spec.rb:6:in `block (3 levels) in <top (required)>'
+     # ./person_spec.rb:6:in `block (3 levels) in <top/>(required)&gt;'
 
 Finished in 0.00033 seconds
 4 examples, 1 failure        
@@ -1633,7 +1634,7 @@ $ rspec person_spec.rb
 Finished in 0.0003 seconds
 4 examples, 0 failure
 </pre>
-      <p> Our <span class='method'>full_name</span> method is looking great!  Of course, there is more than one way to write this code.  In our case, we might want to consider changing a few things.  For instance, when we call <span class='ic'>Person.new("Gregory", "Frank")</span>, it isn't clear whether the given_name is the first or second argument.  Then when we call our <span class='method'>full_name</span> method, we aren't sure whether this person is named "Gregory Frank" or "Frank Gregory." In this case we would need to look at the source or the docs to determine that his name is actually “Gregory Frank”. It is a good practice to design self-documenting APIs.  We can make this API more self documenting by using Ruby <span class='rubyclass'>Hash</span> syntax:</p>
+      <p> Our <span class='method'>full_name</span> method is looking great!  Of course, there is more than one way to write this code.  In our case, we might want to consider changing a few things.  For instance, when we call <span class='ic'>Person.new("Gregory", "Frank")</span>, it isn't clear whether the given_name is the first or second argument.  Then when we call our <span class='method'>full_name</span> method, we aren't sure whether this person is named "Gregory Frank" or "Frank Gregory." In this case we would need to look at the source or the docs to determine that his name is actually &#x201C;Gregory Frank&#x201D;. It is a good practice to design self-documenting APIs.  We can make this API more self documenting by using Ruby <span class='rubyclass'>Hash</span> syntax:</p>
 			<pre class='external'>1       it "it concatenates first_name and surname" do  
 2         p = Person.new(:given_name =&#62; "Gregory", :surname =&#62; "Frank") 
 3         p.full_name.should == "Gregory Frank"  
@@ -1643,18 +1644,18 @@ Finished in 0.0003 seconds
 <p>Now our API is clear and easy to understand. This type of argument list is often called an <em class='emph'>options
 Hash</em> and is used a lot in Rails.</p>
 <p>Writing code test first is part of our design process. We have the opportunity to get a feel for how our APIs behave
-before we implement them. Now that we are happy with our API, let’s move on to the implementation by running our spec and watching it fail:</p>
+before we implement them. Now that we are happy with our API, let&#x2019;s move on to the implementation by running our spec and watching it fail:</p>
 <pre class='code' language='session'>			
   1) Person full_name it concatenates given_name and surname
-     Failure/Error: p = Person.new(:given_name => "Gregory", :surname => "Frank")
+     Failure/Error: p = Person.new(:given_name =&gt; "Gregory", :surname =&gt; "Frank")
      ArgumentError:
        wrong number of arguments (1 for 2)
      # ./person.rb:7:in `initialize'
      # ./person_spec.rb:47:in `new'
-     # ./person_spec.rb:47:in `block (3 levels) in <top (required)>'
+     # ./person_spec.rb:47:in `block (3 levels) in <top/>(required)&gt;'
 </pre>   
-<p>The failure tells us <span class='ic'> wrong number of arguments (1 for 2)</span>, but we’re passing both a given name and a surname. Why does RSpec expect a single argument?</p>
-<p>RSpec is cluing us in to another bit of Ruby's syntactic sugar.  In fact, we are only passing in one argument, a hash.  Ruby allows us to drop the curly braces around a hash when we pass it into a method.  This special syntax allows us to write <span class='ic'>Person.new({:given_name => "Gregory", :surname => "Frank"})</span> as <span class='ic'>Person.new(:given_name => "Gregory", :surname => "Frank")</span>.  In this case, we’re using it for the initialize method, but this syntax would work for any method.</p>
+<p>The failure tells us <span class='ic'> wrong number of arguments (1 for 2)</span>, but we&#x2019;re passing both a given name and a surname. Why does RSpec expect a single argument?</p>
+<p>RSpec is cluing us in to another bit of Ruby's syntactic sugar.  In fact, we are only passing in one argument, a hash.  Ruby allows us to drop the curly braces around a hash when we pass it into a method.  This special syntax allows us to write <span class='ic'>Person.new({:given_name =&gt; "Gregory", :surname =&gt; "Frank"})</span> as <span class='ic'>Person.new(:given_name =&gt; "Gregory", :surname =&gt; "Frank")</span>.  In this case, we&#x2019;re using it for the initialize method, but this syntax would work for any method.</p>
 <pre class='external'>1     def initialize(name_attributes = {})
 2       @given_name = name_attributes[:given_name]
 3       @given_name = "" if @given_name.nil?
@@ -1664,7 +1665,7 @@ before we implement them. Now that we are happy with our API, let’s move on to
 7     end
 
 </pre>
-<p>When we accept the argument, we give it a default value by setting it in the argument list. Then we can set the given_name and surname to the values in the Hash. If a value isn’t given for one key or the other, the value will be nil and we can then provide the default value of an empty string.</p>
+<p>When we accept the argument, we give it a default value by setting it in the argument list. Then we can set the given_name and surname to the values in the Hash. If a value isn&#x2019;t given for one key or the other, the value will be nil and we can then provide the default value of an empty string.</p>
 <p>We can see that works for initialize when we run our spec:</p>
 <pre class='code' language='session'>			
 $ rspec person_spec.rb
@@ -1676,11 +1677,11 @@ Failures:
      Failure/Error: p.full_name.should == "Gregory Frank"
        expected: "Gregory Frank"
             got: "Gregory" (using ==)
-     # ./person_spec.rb:31:in `block (3 levels) in <top (required)>'
+     # ./person_spec.rb:31:in `block (3 levels) in <top/>(required)&gt;'
 
 Finished in 0.00089 sec
 </pre>   
-<p>but it still fails because we haven't finished implementing our <span class='method'>full_name</span> to use instance variables. Let’s fix that:</p>
+<p>but it still fails because we haven't finished implementing our <span class='method'>full_name</span> to use instance variables. Let&#x2019;s fix that:</p>
 <pre class='external'>1     def full_name
 2       @given_name + " " + @surname
 3     end
@@ -1702,32 +1703,32 @@ Finished in 0.00096 seconds
 <h3 class='title'>Variations on the Hash Argument</h3>
 <p>Let's dig a little deeper into hash arguments.  First off, here is something we can't do: </p>
 <pre class='code' language='irb'>
-> greg = Person.new {:given_name => "Gregory", :surname => "Frank"}
+&gt; greg = Person.new {:given_name =&gt; "Gregory", :surname =&gt; "Frank"}
 SyntaxError: (irb):4: syntax error, unexpected tASSOC, expecting '}'
-greg = Person.new {:given_name => "Gregory", :surname => "Frank"}
+greg = Person.new {:given_name =&gt; "Gregory", :surname =&gt; "Frank"}
                                   ^
 (irb):4: syntax error, unexpected ',', expecting '}'
-greg = Person.new {:given_name => "Gregory", :surname => "Frank"}
+greg = Person.new {:given_name =&gt; "Gregory", :surname =&gt; "Frank"}
 </pre>
 <p>Ruby gets confused about precedence when we omit the parentheses. However, we can just provide a list the hash key-value pairs without curly braces:</p>
 <pre class='code' language='irb'>			
-> greg = Person.new :given_name => "Gregory", :surname => "Frank"
- => #&#060;Proc:0x00000100bb7e10&#062;@name="Gregory", @surname="Frank"> 
+&gt; greg = Person.new :given_name =&gt; "Gregory", :surname =&gt; "Frank"
+ =&gt; #&#060;Proc:0x00000100bb7e10/>@/&#x2026&#062;@surname="Frank"&gt; 
 </pre>
 <p>We can only omit the curly braces when a method has a single Hash argument or the last argument is a Hash. Rails likes to use this kind of syntax a lot.</p>
 </div>
 </div>
 		<sect1>
 				<h3 class='title'>Using String Interpolation</h3>
-				<p>Our code is looking pretty good, but suppose we’re experimenting with it and we see a problem:</p>
+				<p>Our code is looking pretty good, but suppose we&#x2019;re experimenting with it and we see a problem:</p>
 <pre class='code' language='irb'>			
-> p = Person.new
-=> #&#060;Proc:0x00000100bb7e10&#062;> p.given_name = nil
-=> nil 
-> p.full_name
+&gt; p = Person.new
+=&gt; #&#060;Proc:0x00000100bb7e10/>@/&#x2026&#062;&gt; p.given_name = nil
+=&gt; nil 
+&gt; p.full_name
 NoMethodError: undefined method `+' for nil:NilClass
-</pre>
-<p>Suppose we want to make sure that full_name always returns a String no matter what we set for given_name and surname. What should we do? Should we look at the <span class='method'>full_name</span> implementation to see where the bug is? Not yet. Let’s first write a failing test. We use test-driven development for fixing bugs as well as when we develop new code.</p>
+</Person:0xb7786a38>
+<p>Suppose we want to make sure that full_name always returns a String no matter what we set for given_name and surname. What should we do? Should we look at the <span class='method'>full_name</span> implementation to see where the bug is? Not yet. Let&#x2019;s first write a failing test. We use test-driven development for fixing bugs as well as when we develop new code.</p>
 <pre class='external'>1       it "returns a string even if given_name is nil" do
 2         p = Person.new
 3         p.given_name = nil
@@ -1735,42 +1736,42 @@ NoMethodError: undefined method `+' for nil:NilClass
 5       end
 
 </pre>
-<p>We’ll see the same error when we run the spec.</p>
+<p>We&#x2019;ll see the same error when we run the spec.</p>
 				<p>Our <span class='method'>full_name</span> method doesn't work unless <span class='method'>given_name</span> and
         <span class='method'>surname</span> are set.  If they are not set, the <span class='method'>+</span> method throws
         an error because it is being called on nil instead of on a string.  For this reason, we usually use string interpolation instead of <span class='ic'>+</span> to concatenate strings.</p>
 <sect2>
 <h3 class='title'>String Interpolation</h3>
-<p>Ruby has concise syntax for evaluating some Ruby code and inserting the result into the string. Let’s see how it
+<p>Ruby has concise syntax for evaluating some Ruby code and inserting the result into the string. Let&#x2019;s see how it
 works in irb:</p>
 <pre class='code' language='irb'>				
-> name = "Gracie"
-=> "Gracie" 
-> "Goodnight #{name}"
-=> "Goodnight Gracie" 
-> name = nil
-=> nil 
-> "Goodnight #{name}"
-=> "Goodnight " 
+&gt; name = "Gracie"
+=&gt; "Gracie" 
+&gt; "Goodnight #{name}"
+=&gt; "Goodnight Gracie" 
+&gt; name = nil
+=&gt; nil 
+&gt; "Goodnight #{name}"
+=&gt; "Goodnight " 
 </pre>
 <p>Using this special syntax, Ruby will always call <span class='method'>to_s</span> after evaluating the expression before
 concatenating it with the rest of the string. <span class='ic'>nil.to_s</span> results in the empty string, so we never get
-<span class='ic'>undefined method `+' for nil:NilClass</span> when we’re using string interpolation. String interpolation only works for strings surrounded by double quotes. Single quotes will interpret the characters literally:</p>
+<span class='ic'>undefined method `+' for nil:NilClass</span> when we&#x2019;re using string interpolation. String interpolation only works for strings surrounded by double quotes. Single quotes will interpret the characters literally:</p>
 
 <pre class='code' language='irb'>				
- > name = "Gracie"
- => "Gracie" 
- > puts 'Goodnight #{name}'
+ &gt; name = "Gracie"
+ =&gt; "Gracie" 
+ &gt; puts 'Goodnight #{name}'
 Goodnight #{name}
- => nil 
- > puts "Goodnight #{name}"
+ =&gt; nil 
+ &gt; puts "Goodnight #{name}"
 Goodnight Gracie
- => nil 
+ =&gt; nil 
 </pre>
 <p>Most of the time single and double quotes act the same, but some characters have special meaning in a double-quoted
-string. In addition to string interpolation, the “\” character is used to indicate certain non-ascii characters like
-“\n” for newline and 
-“\t” for tab and “\u” followed by a hexadecimal number for a unicode character. </p>
+string. In addition to string interpolation, the &#x201C;\&#x201D; character is used to indicate certain non-ascii characters like
+&#x201C;\n&#x201D; for newline and 
+&#x201C;\t&#x201D; for tab and &#x201C;\u&#x201D; followed by a hexadecimal number for a unicode character. </p>
 </div>          
 
 <p>To make our example pass, we can use interpolation. We should also use the <span class='method'>strip</span> method to remove the extra space that will be left if either <span class='method'>given_name</span> or <span class='method'>surname</span> is nil or blank.</p>
@@ -1780,7 +1781,7 @@ string. In addition to string interpolation, the “\” character is used to in
 
 </pre>
 <p>By test-driving our bug fixes, we know that we will never have to fix a bug twice. Our specs also serve as documentation for our fellow developers about the expected behavior of our APIs and what kind of data is supported.</p>
-		</div>
+		</pre>
 
 		
 		<sect1>
@@ -1797,7 +1798,9 @@ string. In addition to string interpolation, the “\” character is used to in
 		</div>
 </div>
 
+</div></div></div>
 
+<!-- -*- xml -*- -->
 <!DOCTYPE html>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
@@ -1832,7 +1835,7 @@ $ rails new class_app –m http://jRuby.org
 new files and directories that combine to make a complete framework for our code.  A framework that we call
 &ldquo;opinionated&rdquo; because of its built in patterns.</p>
 
-<p>If you see errors at this step, check <a class='ref' href='#sec.online-resources'>Online Resources</a> for online references to installation instructions. Assuming Ruby, Rubygems and the Rails gem are installed properly, you’ll have a
+<p>If you see errors at this step, check <a class='ref' href='#sec.online-resources'></a> for online references to installation instructions. Assuming Ruby, Rubygems and the Rails gem are installed properly, you’ll have a
 <span class='dir'>class_app</span> directory with dozens of files in it and output on the command line that looks like this: </p>
 <pre class='code' language='session'>
       create  
@@ -1884,19 +1887,19 @@ $ cd class_app
 <p>We have a complete boilerplate web application that has everything it needs to run.  Let’s start up our server:</p>
 <pre class='code' language='session'>
 $ rails server
-=> Booting WEBrick
-=> Rails 3.0.1 application starting in development on http://0.0.0.0:3000
-=> Call with -d to detach
-=> Ctrl-C to shutdown server
+=&gt; Booting WEBrick
+=&gt; Rails 3.0.1 application starting in development on http://0.0.0.0:3000
+=&gt; Call with -d to detach
+=&gt; Ctrl-C to shutdown server
 [2010-11-28 09:52:39] INFO  WEBrick 1.3.1
 [2010-11-28 09:52:39] INFO  Ruby 1.8.7 (2010-08-16) [i686-darwin10.4.0]
 [2010-11-28 09:52:39] INFO  WEBrick::HTTPServer#start: pid=27080 port=3000
 </pre>
 
 <p> We'll need to point our browser at <a class='url' href='http://localhost:3000'>http://localhost:3000</a> to see our running webapp. We can admire our first Rails app in action!  The default home page of the generated Rails web
-app, as shown in <ref linkend="fig.welcome-aboard" />, contains information about the app’s configuration and links to documentation.</p>
+app, as shown in <a class='ref' href='#fig.welcome-aboard'>Figure 5.1</a>, contains information about the app’s configuration and links to documentation.</p>
 <div class='figure' id='fig.welcome-aboard'>
-  <h3 class='title'>Default Home Page</h3>
+  <h3 class='title'>Figure 5.1: Figure 5.1: Default Home Page</h3>
   <img class='imagedata' src='images/welcome-aboard.png'></img>
 </div>
 <p>Our app is all set up with required boilerplate and default configuration.  Let’s make it our own by modifying the home page of the app.</p>
@@ -1921,7 +1924,7 @@ editor to modify the web page title or some text.</p><p>For example, let’s cha
 </pre>
 <p>to:</p>
 <div class='figure' id='fig.home-page-change'>
-  <h3 class='title'>Home Page with Modified Title</h3>
+  <h3 class='title'>Figure 5.2: Figure 5.2: Home Page with Modified Title</h3>
   <img class='imagedata' src='images/home-page-change.png'></img>
 </div>
 <pre class='external'>1   &#60;html&#62;
@@ -1929,7 +1932,7 @@ editor to modify the web page title or some text.</p><p>For example, let’s cha
 3       &#60;title&#62;My Cool Web App&#60;&#47;title&#62;
 
 </pre>
-<p>Now we can just refresh the page at <a class='url' href='http://localhost:3000'>http://localhost:3000</a> to see that its title now reads “My Cool Web App.” <a class='ref' href='#fig.home-page-change'>Home Page with Modified Title</a> shows a screen shot of the app in the Chrome browser, so the web page title appears as the name of the tab, but it might appear in your browser in the window title bar.
+<p>Now we can just refresh the page at <a class='url' href='http://localhost:3000'>http://localhost:3000</a> to see that its title now reads “My Cool Web App.” <a class='ref' href='#fig.home-page-change'>Figure 5.2</a> shows a screen shot of the app in the Chrome browser, so the web page title appears as the name of the tab, but it might appear in your browser in the window title bar.
 </p>
 <p>Now that we know the basics of running our Rails app and understand how the <span class='dir'>public</span> directory
 stores static content,  let's set up our web app for development, configuring the test framework we want to use since it
@@ -2067,15 +2070,15 @@ We’ll start by using scaffold which creates a default representation in both H
  <li><p><em class='emph'>Controller</em> receives HTTP actions (GET, POST, PUT, DELETE) and then decides what to do, typically rendering a view</p>
  </li>
 </ul>
-<p> In <a class='ref' href='#fig.rails-mvc'>The MVC Request-Response Cycle</a> you can see the HTTP request-response cycle showing the
+<p> In <a class='ref' href='#fig.rails-mvc'>Figure 5.3</a> you can see the HTTP request-response cycle showing the
 flow-of-control through the controller, to the model, then to the view. 
 The visitor types a URL into the browser which generates an HTTP request to the Rails web app. That request is handled by a class
 called a <em class='emph'>controller</em>. The controller will typically use a <em class='emph'>model</em> to get data from the database which it then renders
 using a <em class='emph'>view</em>. Rendering the view creates HTML which is sent to the browser and displayed. Then the visitor
 may click a link, which generates a request, and the cycle begins again. </p>
 <div class='figure' id='fig.rails-mvc'>
-  <h3 class='title'>The MVC Request-Response Cycle</h3>
-  <img class='imagedata' src='images/rails-mvc.pdf'></img>
+  <h3 class='title'>Figure 5.3: Figure 5.3: The MVC Request-Response Cycle</h3>
+  <img class='imagedata' src='images/rails-mvc.png'></img>
 </div>
 <p>The easiest way to understand this is by example.  Before we create a web application of our own design, let’s use
 the Rails scaffold generator to get a feel for the Rails patterns that are easy to build in our own applications. The
@@ -2119,13 +2122,13 @@ $ rails generate scaffold person given_name:string surname:string
 <p>Since we’re using SQLite we don’t need to do anything special to create the database that our app will use. For any
 other kind of database, we would need to call <span class='ic'>rake db:create:all</span> which does nothing when we are using SQLite.</p>
 <p>With three environments, specified in <span class='filename'>database.yml</span>, our application will have three databases.
-When we experiment with our code interactively, we use the <em class='emph'>development</em> environment and the development database.  With Rails we create database tables and make schema changes using a <em class='emph'>migration</em>, which we'll learn more about in <a class='ref' href='#ch.migrations'>Creating Our Database Schema with Migrations</a>. Our person object will store its data in a table in the database. To create the table we call:</p>
+When we experiment with our code interactively, we use the <em class='emph'>development</em> environment and the development database.  With Rails we create database tables and make schema changes using a <em class='emph'>migration</em>, which we'll learn more about in <a class='ref' href='#ch.migrations'></a>. Our person object will store its data in a table in the database. To create the table we call:</p>
 <pre class='code' language='session'>
 $ rake db:migrate
 (in .../class_app)
 ==  CreatePeople: migrating ===================================================
 -- create_table(:people)
-   -> 0.0012s
+   -&gt; 0.0012s
 ==  CreatePeople: migrated (0.0013s) ==========================================
 </pre>
 <p>We can see by the output that we just created a <em class='emph'>people</em> table in the database.  </p>
@@ -2133,8 +2136,8 @@ $ rake db:migrate
 <sect2>
 <h3 class='title'>What’s up with these plural nouns?</h3>
 <div class='figure' id='fig.pluralization'>
-  <h3 class='title'>MVC Pattern with Pluralized Names</h3>
-  <img class='imagedata' src='images/pluralization.pdf'></img>
+  <h3 class='title'>Figure 5.4: Figure 5.4: MVC Pattern with Pluralized Names</h3>
+  <img class='imagedata' src='images/pluralization.png'></img>
 </div>
 <p>How did we get a list of <em class='emph'>people</em> when we specified that
 we wanted a <em class='emph'>person</em> object? Rails prides itself in letting
@@ -2151,8 +2154,8 @@ and how they work in a bit, but first let’s look at how they are named.</p>
 <p>Pluralization rules are controlled by the ActiveSupport::Inflector class in Rails. The <span class='commandname'>rails new</span> command generates a placeholder configuration file with comments that indicate exactly how to configure this.</p>
 <p>Using <span class='ic'>rails console</span> we can see that the irregular noun "foot" is not correctly pluralized in Rails.</p>
 <pre class='code' language='session'>
-> "foot".pluralize
- => "foots" 
+&gt; "foot".pluralize
+ =&gt; "foots" 
 </pre>
 <p>To fix this, let’s edit the file <span class='filename'>config/initializers/inflections.rb</span> changing the commented out person/people line to
 foot/feet:</p>
@@ -2167,8 +2170,8 @@ foot/feet:</p>
 <p>Now when we go back to the console (after exiting and  starting again, <span class='commandname'>reload!</span> is not sufficient in this
 case) we’ll  see the correct pluralization:</p>
 <pre class='code' language='session'>
-> "foot".pluralize
- => "feet" 
+&gt; "foot".pluralize
+ =&gt; "feet" 
 </pre>
 <p>Looking at <span class='filename'>inflections.rb</span>, we can see that Rails supports flexible rules for pluralization,
 which are well documented in the API
@@ -2204,7 +2207,7 @@ the code for the <span class='rubyclass'>Person</span> class in <span class='fil
 noun.  We keep data in a <span class='ic'>people</span> table.</p>
 <pre class='code' language='session'>
 rails dbconsole
->> select * from people;
+&gt;&gt; select * from people;
 </pre>
 <p>We'll learn more about interacting with the database console in <a class='ref' href='#ch.activerecord'>Exploring ActiveRecord</a>.</p>
 </div>
@@ -2218,7 +2221,7 @@ to a list of <em class='emph'>people</em>.</p>
 2   end
 
 </pre>
-<p>This code is explained in <a class='ref' href='#ch.controllers'>Routes and Controllers</a></p>
+<p>This code is explained in <a class='ref' href='#ch.controllers'></a></p>
 </div>
 </div>
 <sect2>
@@ -2231,14 +2234,14 @@ scaffold</span> command. We will focus on the core files that implement the MVC 
  <li><p>app/models/person.rb</p></li>
  <li><p>db/migrate/20090611073227_create_people.rb</p></li>
 </ul>
-<p>The <em class='emph'>controller</em>, which we’ll learn all about in <a class='ref' href='#ch.controllers'>Routes and Controllers</a> is implemented in the PeopleController class in people_controller.rb. It also has a line added to the routes configuration in config/routes.rb which affects how the URL requested from the browser triggers controller actions. </p>
+<p>The <em class='emph'>controller</em>, which we’ll learn all about in <a class='ref' href='#ch.controllers'></a> is implemented in the PeopleController class in people_controller.rb. It also has a line added to the routes configuration in config/routes.rb which affects how the URL requested from the browser triggers controller actions. </p>
 <ul>
  <li><p>app/controllers/people_controller.rb</p></li>
  <li><p>route map.resources :people</p></li>
 </ul>
 <p>The <em class='emph'>views</em> generated by scaffold are the four pages required for create, update, delete and viewing all
 of the data in a table and a the details of a single record. plus a fifth file (_form.html.erb) which
-contains snippet of code which is shared by two of the other views. We’ll learn a little about views in <a class='ref' href='#sec.intro-views'>Editing Views</a> and more
+contains snippet of code which is shared by two of the other views. We’ll learn a little about views in <a class='ref' href='#sec.intro-views'></a> and more
 in <a class='ref' href='#ch.integration'></a>.</p>
 <ul>
  <li><p>app/views/people/index.html.erb</p></li>
@@ -2254,18 +2257,18 @@ in <a class='ref' href='#ch.integration'></a>.</p>
 <a class='url' href='http://localhost:3000/people'>http://localhost:3000/people</a>.  Here we see a the listing of the <em class='emph'>people</em> in the database --
 a plural noun for the default URL because the page displays a collection.</p>
 
-<p>We have an empty list right now, as shown in <ref linkend="fig.people-listing-empty" />, but we can see that with
+<p>We have an empty list right now, as shown in <a class='ref' href='#fig.people-listing-empty'>Figure 5.5</a>, but we can see that with
 just one command we have a complete web interface for adding, editing and deleting records from our database. We'll
 explore it a bit to understand how different parts of Rails work together to create a compelling default implementation
 of REST using the MVC pattern.</p>
 <div class='figure' id='fig.people-listing-empty'>
-  <h3 class='title'>Index Page with No Data</h3>
+  <h3 class='title'>Figure 5.5: Figure 5.5: Index Page with No Data</h3>
   <img class='imagedata' src='images/people-listing-empty.png'></img>
 </div>
 <div class='sect3' id='sec.scaffold-rest-mvc'>
 <h3 class='title'>How Does Scaffold Implement REST and MVC?</h3>
 <p>The <span class='commandname'>generate scaffold</span> command adds just one line to <span class='filename'>config/routes.rb</span>, which implements all of the REST
-URLs: <span class='ic'>resources :people</span>. We'll explore more details about routes in <a class='ref' href='#ch.controllers'>Routes and Controllers</a>.  Using
+URLs: <span class='ic'>resources :people</span>. We'll explore more details about routes in <a class='ref' href='#ch.controllers'></a>.  Using
 the <span class='method'>resources</span> method for 
 a route allows us to specify a whole group of URLs. In just one line, we can express all of the URLs needed for the common database
 interactions.</p>
@@ -2274,19 +2277,19 @@ interactions.</p>
 the command-line using a useful rake task:</p>
 <pre class='code' language='session'>
 $ rake routes     
-people GET	/people(.:format)     	{:action=>"index", :controller=>"people"}
-people POST	/people(.:format)      	{:action=>"create", :controller=>"people"}
-new_person GET	/people/new(.:format)	{:action=>"new", :controller=>"people"}
-edit_person GET	/people/:id/edit(.:format) {:action=>"edit", :controller=>"people"}
-person GET	/people/:id(.:format)  	{:action=>"show", :controller=>"people"}
-person PUT	/people/:id(.:format)  	{:action=>"update", :controller=>"people"}
-person DELETE	/people/:id(.:format)  	{:action=>"destroy", :controller=>"people"}
+people GET	/people(.:format)     	{:action=&gt;"index", :controller=&gt;"people"}
+people POST	/people(.:format)      	{:action=&gt;"create", :controller=&gt;"people"}
+new_person GET	/people/new(.:format)	{:action=&gt;"new", :controller=&gt;"people"}
+edit_person GET	/people/:id/edit(.:format) {:action=&gt;"edit", :controller=&gt;"people"}
+person GET	/people/:id(.:format)  	{:action=&gt;"show", :controller=&gt;"people"}
+person PUT	/people/:id(.:format)  	{:action=&gt;"update", :controller=&gt;"people"}
+person DELETE	/people/:id(.:format)  	{:action=&gt;"destroy", :controller=&gt;"people"}
 </pre>
 <p>Looking at the first line, we can see that the <span class='ic'>/people</span> URL maps to the <span class='ic'>index</span> action when we type
 the URL into the browser or follow a link, which results in an HTTP GET request. However, when the same URL is sent an HTTP POST request, the <span class='method'>create</span> action is triggered.</p>
-<p> Let’s go back to our browser to see how this works.  When we click the <em class='emph'>New Person</em> link, we move to a page with a form where we can input data for a new Person record.  The <em class='emph'>new</em> page, as shown in <a class='ref' href='#fig.new-person'>The  “New” Page</a>, corresponds to the URL <span class='ic'>/people/new</span>.  </p>
+<p> Let’s go back to our browser to see how this works.  When we click the <em class='emph'>New Person</em> link, we move to a page with a form where we can input data for a new Person record.  The <em class='emph'>new</em> page, as shown in <a class='ref' href='#fig.new-person'>Figure 5.6</a>, corresponds to the URL <span class='ic'>/people/new</span>.  </p>
 <div class='figure' id='fig.new-person'>
-  <h3 class='title'>The  “New” Page</h3>
+  <h3 class='title'>Figure 5.6: Figure 5.6: The  “New” Page</h3>
   <img class='imagedata' src='images/new-person.png'></img>
 </div>
 
@@ -2295,9 +2298,9 @@ the URL into the browser or follow a link, which results in an HTTP GET request.
 action inserts a new record in the database and redirects to the <em class='emph'>show</em> page, which is <span class='ic'>/people/1</span> for
 our first record.</p>
 
-<p>We can then click the “Back” link and to see the the list of people which includes our new record, as shown in <a class='ref' href='#fig.people-listing-fred'>Index Page with One Record</a>.</p>
+<p>We can then click the “Back” link and to see the the list of people which includes our new record, as shown in <a class='ref' href='#fig.people-listing-fred'>Figure 5.7</a>.</p>
 <div class='figure' id='fig.people-listing-fred'>
-  <h3 class='title'>Index Page with One Record</h3>
+  <h3 class='title'>Figure 5.7: Figure 5.7: Index Page with One Record</h3>
   <img class='imagedata' src='images/people-listing-fred.png'></img>
 </div>
 
@@ -2310,8 +2313,8 @@ our first record.</p>
 <div class='sect1' id='sec.intro-views'>
 <h3 class='title'>Editing Views</h3>
 <p>View files, also known as <em class='emph'>templates</em>, ending in .erb are <em class='emph'>Embedded Ruby</em> files.  Similar to JSP, ASP and PHP, these are dynamic web pages that mix HTML and Ruby code.</p>
-<p><span class='ic'>&lt;%  ... %></span>	executes Ruby code	(e.g., setting up conditionals) </p>
-<p><span class='ic'>&lt;%= ... %></span>	evaluates Ruby code, inserting the result in HTML	
+<p><span class='ic'>&lt;%  ... %&gt;</span>	executes Ruby code	(e.g., setting up conditionals) </p>
+<p><span class='ic'>&lt;%= ... %&gt;</span>	evaluates Ruby code, inserting the result in HTML	
 (e.g., displaying value returned from a method) 
 </p>
 <p>Let’s look at part of the code in <span class='filename'>app/views/people/index.html.erb</span>:</p>
@@ -2364,7 +2367,7 @@ HTML. We can see “Listing people” in an <span class='ic'>&lt;h1&gt;</span> t
 List”. For the second challenge, we need to
 remove a visual column <span class='ic'>&lt;th&gt;Last Name&lt;/th&gt;</span> and combine the two table cells (<span class='ic'>&lt;td&gt;</span> tags) into one Ruby
 expression that concatenates the first letter of the first name with the last name. Below we use string interpolation to
-accomplish this the results can be seen in <ref linkend="fig.people-listing" />.</p>
+accomplish this the results can be seen in <a class='ref' href='#fig.people-listing'>Figure 5.8</a>.</p>
 <pre class='external'>1   &#60;% @people.each do |person| %&#62;
 2     &#60;tr&#62;
 3       &#60;td&#62;&#60;%= "#{person.given_name.first} #{person.surname}" %&#62;&#60;&#47;td&#62;
@@ -2375,7 +2378,7 @@ accomplish this the results can be seen in <ref linkend="fig.people-listing" />.
 </div>
 
 <div class='figure' id='fig.people-listing'>
-  <h3 class='title'>Modified People Index Page</h3>
+  <h3 class='title'>Figure 5.8: Figure 5.8: Modified People Index Page</h3>
   <img class='imagedata' src='images/people-listing.png'></img>
 </div>
 <p>We have created our first database-driven Rails application using the <span class='commandname'>rails new</span> and
@@ -2401,10 +2404,10 @@ Pending:
 Failures:
 
   1) people/index.html.erb renders a list of people
-     Failure/Error: assert_select "tr>td", :text => "Given Name".to_s,…
+     Failure/Error: assert_select "tr&gt;td", :text =&gt; "Given Name".to_s,…
      MiniTest::Assertion:
-       <"Given Name"> expected but was
-       <"G Surname">.
+       "Given Name"&gt; expected but was
+       "G Surname"&gt;.
      # (eval):2:in `assert'
      # ./spec/views/people/index.html.erb_spec.rb:20:in `block (2 lev…
 
@@ -2446,12 +2449,13 @@ models, controllers and views using interactive testing with the Rails console a
 </div> 
 </div>
 
+<!-- -*- xml -*- -->
 <!DOCTYPE html>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
 <div class='chapter' id='ch.activerecord' number='6'>
 <h2 class='chapter_title'>Exploring ActiveRecord</h2>
-<p>Remember how we created a <span class='ic'>person</span> object with the <span class='ic'>generate scaffold</span> command, in <a class='ref' href='#ch.firstapp'>Diving Into Rails</a>?  Our scaffold generated a <span class='rubyclass'>Person</span> class. The <span class='rubyclass'>Person</span> class and its
+<p>Remember how we created a <span class='ic'>person</span> object with the <span class='ic'>generate scaffold</span> command, in <a class='ref' href='#ch.firstapp'></a>?  Our scaffold generated a <span class='rubyclass'>Person</span> class. The <span class='rubyclass'>Person</span> class and its
 corresponding <span class='ic'>people</span> table is our model. The model represents a single row in the database table.</p>
 
 <p>ActiveRecord, the <em class='emph'>model</em> in the Rails Model-View-Controller pattern, lets us easily create, retrieve,
@@ -2520,19 +2524,19 @@ $ rails c
 <p>Our model class is available in the console without having to <span class='ic'>require</span> the file. Here we can see that Rails
 is Ruby and we can create a Person object, just like any Ruby class:</p>
 <pre class='code' language='irb'>
-> p = Person.new
-=> #&#060;Person&#062;id: nil, given_name: nil, surname: nil, created_at: nil,
-updated_at: nil> 
+&gt; p = Person.new
+=&gt; #&#060;Person/>nil&#062;given_name: nil, surname: nil, created_at: nil,
+updated_at: nil&gt; 
 </pre>
-<p>Let's take a look at the return value of <span class='ic'>Person.new</span>.  It displays the attributes of our newly created person (id, given_name, surname, created_at, updated_at).  If we think back to when we were making new <span class='rubyclass'>Person</span> objects in <a class='ref' href='#ch.ruby-intro'>An Introduction to Ruby</a>, We will remember that the return of <span class='ic'>Person.new</span> did not include the object's attributes. So what changed?  The answer is that the Rails ActiveRecord::Base class
+<p>Let's take a look at the return value of <span class='ic'>Person.new</span>.  It displays the attributes of our newly created person (id, given_name, surname, created_at, updated_at).  If we think back to when we were making new <span class='rubyclass'>Person</span> objects in <a class='ref' href='#ch.ruby-intro'></a>, We will remember that the return of <span class='ic'>Person.new</span> did not include the object's attributes. So what changed?  The answer is that the Rails ActiveRecord::Base class
 overrides the built-in <span class='method'>inspect</span> method to give us extra data about its attributes.</p>
 
 <p>Now that we have an instance of our <span class='rubyclass'>Person</span> class to play with, we can see how ActiveRecord provides methods that write directly to the database without our needing to write any SQL:</p>
 <pre class='code' language='irb'>
-ruby-1.9.2-p0 > p = Person.new(:given_name => "Adele", :surname => "Goldstein")
- => #&#060;Person&#062;id: nil, given_name: "Adele", surname: "Goldstein", created_at: 
- nil, updated_at: nil> 
-ruby-1.9.2-p0 > p.save
+ruby-1.9.2-p0 &gt; p = Person.new(:given_name =&gt; "Adele", :surname =&gt; "Goldstein")
+ =&gt; #&#060;Person/>nil&#062;given_name: "Adele", surname: "Goldstein", created_at: 
+ nil, updated_at: nil&gt; 
+ruby-1.9.2-p0 &gt; p.save
 </pre>
 <p>After calling <span class='method'>save</span> on our new <span class='rubyclass'>Person</span> object, we have
 actually written data to our SQL database. We can browse to <a class='url' href='http://localhost:3000/people'>http://localhost:3000/people</a> and see Adele Goldstein
@@ -2551,7 +2555,7 @@ ActiveRecord has already been accessed this won’t work. We must do this at the
 <pre class='code' language='session'>
 $ rails c
 Loading development environment (Rails 3.0.1)
->> ActiveRecord::Base.logger = Logger.new(STDOUT)
+&gt;&gt; ActiveRecord::Base.logger = Logger.new(STDOUT)
 </pre>
 <p>
 The ActiveRecord class <span class='ic'>logger</span> attribute references another class for logging debug
@@ -2563,46 +2567,46 @@ constant referencing an output stream for the console or terminal where we are r
 the log output right where we can see it.</p>
 <p>Let’s start by creating another instance of the <span class='rubyclass'>Person</span> class:</p>
 <pre class='code' language='irb'>
->> bret = Person.new
+&gt;&gt; bret = Person.new
 </pre>
 <p>This is just an in-memory representation of a <span class='rubyclass'>Person</span> object.
   All of the columns in the people database table are available as attributes of the instance, which is just shorthand
   for saying that there is a getter and a setter for each column in the database:</p>
 <pre class='code' language='irb'>
->> bret.given_name = "Bret"
->> bret.surname = "Smith"
->> bret
-=> #&#060;Person&#062;id: nil, given_name: "Bret", surname: "Smith", present: nil, 
-created_at: nil, updated_at: nil> 
+&gt;&gt; bret.given_name = "Bret"
+&gt;&gt; bret.surname = "Smith"
+&gt;&gt; bret
+=&gt; #&#060;Person/>nil&#062;given_name: "Bret", surname: "Smith", present: nil, 
+created_at: nil, updated_at: nil&gt; 
 </pre>
 <p>
 If we try to access an attribute that is not defined in the people table, Ruby will raise a NoMethodError:</p>
 <pre class='code' language='irb'>
->> bret.xxx
-NoMethodError: undefined method `xxx' for #&#060;Person&#062;	from .../attribute_methods.rb:364:in `method_missing'
-</pre>
-<p>We commonly use the Ruby hash syntax which we learned about in <a class='ref' href='#ch.rspec-intro'>Test First Ruby</a>. The
+&gt;&gt; bret.xxx
+NoMethodError: undefined method `xxx' for #&#060;Person/>nil&#062;	from .../attribute_methods.rb:364:in `method_missing'
+</Person:0x0000010290a5d0>
+<p>We commonly use the Ruby hash syntax which we learned about in <a class='ref' href='#ch.rspec-intro'></a>. The
 <span class='rubyclass'>ActiveRecord</span>
 constructor allows us to supplying a hash of name-value pairs for each attribute
 that we want to set:</p>
 <pre class='code' language='irb'>
->> may = Person.new(:given_name => "May", :surname => "Fong") 
- => #&#060;Person&#062;id: nil, given_name: "May", surname: "Fong", present: nil, 
-created_at: nil, updated_at: nil> 
+&gt;&gt; may = Person.new(:given_name =&gt; "May", :surname =&gt; "Fong") 
+ =&gt; #&#060;Person/>nil&#062;given_name: "May", surname: "Fong", present: nil, 
+created_at: nil, updated_at: nil&gt; 
 </pre>
-<p></p>
+<p/>
 <p> We can see that
 the id is <span class='ic'>nil</span>, indicating an unsaved record for the object that we created. Setting attributes on the Ruby object doesn’t commit them to the database. We have just created objects that exist only in-memory. We can also call:</p>
 <pre class='code' language='irb'>
->> may.new_record?
-=> true
+&gt;&gt; may.new_record?
+=&gt; true
 </pre>
 <p>
 <span class='rubyclass'>ActiveRecord</span> keeps track of whether a model just exists in memory or has been committed to the
 database. Let’s save the model now, but this time we are logging to <span class='ic'>STDOUT</span> so we will see the SQL commands too:
 </p>
 <pre class='code' language='irb'>
->> may.save
+&gt;&gt; may.save
   SQL (0.3ms)   SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
@@ -2610,7 +2614,7 @@ database. Let’s save the model now, but this time we are logging to <span clas
   SQL (11.9ms)  INSERT INTO "people" ("created_at", "given_name", "surname", 
   "present", "updated_at") VALUES ('2010-09-06 07:09:18.238744', 'May',
   'Fong', NULL, '2010-09-06 07:09:18.238744')
- => true 
+ =&gt; true 
 bret.save
 </pre>
 
@@ -2620,38 +2624,38 @@ if there is an error. Now we can see that <span class='method'>new_record?</span
   that our <span class='ic'>may</span> object now has values for id, created_at, and updated_at, which were automatically assigned when
   the record was saved.  Of course, the <span class='ic'>bret</span> record can also be saved.  Whether we create an instance of the <span class='rubyclass'>Person</span> class with attributes passed to the constructor or set them later, the instance will save the current value of that attribute.</p>
 <pre class='code' language='irb'>
->> may.new_record?
-=> false
->> may
-=> #&#060;Person&#062;id: 1, given_name: "May", surname: "Fong", present: nil, 
-created_at: "2010-09-06 07:09:18", updated_at: "2010-09-06 07:09:18"> 
+&gt;&gt; may.new_record?
+=&gt; false
+&gt;&gt; may
+=&gt; #&#060;Person/>nil&#062;given_name: "May", surname: "Fong", present: nil, 
+created_at: "2010-09-06 07:09:18", updated_at: "2010-09-06 07:09:18"&gt; 
 </pre>
 <p>
   ActiveRecord also tracks whether any attributes have been modified, so that if we call save again, it won’t actually
   call the database if we haven't modified anything. Since we’re logging to the console, we can see
   that nothing happens when we call save again without setting any attributes:</p>
 <pre class='code' language='irb'>
->> may.save
- => true 
+&gt;&gt; may.save
+ =&gt; true 
 </pre>
 
 <p>
   We can look at individual attributes to see which ones have changed:</p>
 <pre class='code' language='irb'>
->> may.surname 
- => "Fong" 
->> may.surname_changed?
- => false 
->> may.surname = "Woo"
- => "Woo" 
->> may.surname_changed?
- => true 
->> may.changed?
- => true 
->> may.save
+&gt;&gt; may.surname 
+ =&gt; "Fong" 
+&gt;&gt; may.surname_changed?
+ =&gt; false 
+&gt;&gt; may.surname = "Woo"
+ =&gt; "Woo" 
+&gt;&gt; may.surname_changed?
+ =&gt; true 
+&gt;&gt; may.changed?
+ =&gt; true 
+&gt;&gt; may.save
   SQL (40.4ms)  UPDATE "people" SET "surname" = 'Woo', 
   "updated_at" = '2010-09-06 07:14:08.497625' WHERE ("people"."id" = 1)
- => true 
+ =&gt; true 
 </pre>
 
 <p>
@@ -2659,12 +2663,12 @@ created_at: "2010-09-06 07:09:18", updated_at: "2010-09-06 07:09:18">
 <p>In Rails, there is a shortcut that does both new and save in a single operation:</p>
 
 <pre class='code' language='irb'>
->>john = Person.create(:given_name => "John", :surname => "Woo")
+&gt;&gt;john = Person.create(:given_name =&gt; "John", :surname =&gt; "Woo")
   SQL (0.4ms)  INSERT INTO "people" ("created_at", "given_name", "surname",
   "present", "updated_at") VALUES ('2010-09-06 20:46:13.660208', 'John', 
   'Woo', NULL, '2010-09-06 20:46:13.660208')
- => #&#060;Person&#062;id: 3, given_name: "John", surname: "Woo", present: nil,
- created_at: "2010-09-06 20:46:13", updated_at: "2010-09-06 20:46:13"> 
+ =&gt; #&#060;Person/>nil&#062;given_name: "John", surname: "Woo", present: nil,
+ created_at: "2010-09-06 20:46:13", updated_at: "2010-09-06 20:46:13"&gt; 
 </pre>
 <p>We can use the <span class='method'>create</span> method to set attributes and save the record in one step. Like
   <span class='method'>new</span>, it is a method on the class, rather than the instance.</p>
@@ -2685,13 +2689,11 @@ quickly find first, last or all records.  Each of these methods trigger a databa
 <p>To get an array of <span class='rubyclass'>Person</span> objects for all of the data in the database we can call
 <span class='ic'>Person.all</span>, but the output in the rails console is a little hard to read:</p>
 <pre class='code' language='session'>
->> Person.all
- => [#&#060;Person&#062;id: 1, given_name: "May", surname: "Woo", created_at: 
- "2011-01-18 05:25:15", updated_at: "2011-01-18 05:25:15">, #&#060;Person&#062;
- id: 2, given_name: "Bret", surname: "Smith", created_at: 
- "2011-01-18 05:25:29", updated_at: "2011-01-18 05:25:29">, #&#060;Person&#062;
- id: 3, given_name: "John", surname: "Woo", created_at: 
- "2011-01-18 05:25:39", updated_at: "2011-01-18 05:25:39">] 
+&gt;&gt; Person.all
+ =&gt; [#&#060;Person/>nil&#062;given_name: "May", surname: "Woo", created_at: 
+ "2011-01-18 05:25:15", updated_at: "2011-01-18 05:25:15"&gt;, #&#060;Person/>nil&#062;given_name: "Bret", surname: "Smith", created_at: 
+ "2011-01-18 05:25:29", updated_at: "2011-01-18 05:25:29"&gt;, #&#060;Person/>nil&#062;given_name: "John", surname: "Woo", created_at: 
+ "2011-01-18 05:25:39", updated_at: "2011-01-18 05:25:39"&gt;] 
 </pre>
 <p>To make the output easier to read, we can display it in YAML format by using the handy  <span class='ic'>y</span>
 command and passing it the array of <span class='rubyclass'>Person</span> objects resulting from the ActiveRecord call.  This not
@@ -2699,7 +2701,7 @@ only shows attributes that are generated from the database columns, but also oth
 of <span class='ic'>changed_attributes</span> and various flags for understanding the state of the object relative to the database:</p>
 
 <pre class='code' language='session'>
->> y Person.all
+&gt;&gt; y Person.all
 --- 
 - !ruby/object:Person 
   attributes: 
@@ -2730,22 +2732,22 @@ of <span class='ic'>changed_attributes</span> and various flags for understandin
 <p> The simplest way to find something specific in the database is to call <span class='ic'>where</span> with a hash of attributes to
 match:</p>
 <pre class='code' language='session'>
->> Person.where(:given_name => "Bret")
+&gt;&gt; Person.where(:given_name =&gt; "Bret")
   SQL (0.4ms)   SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
   Person Load (0.2ms)  SELECT "people".* FROM "people" 
   WHERE ("people"."given_name" = 'Bret')
- => [#&#060;Person&#062;id: 2, given_name: "Bret", surname: 
+ =&gt; [#&#060;Person/>nil&#062;given_name: "Bret", surname: 
  "Smith", created_at: "2011-01-18 05:25:29", updated_at: 
- "2011-01-18 05:25:29">] 
+ "2011-01-18 05:25:29"&gt;] 
 </pre>
 <p>Check out what happens when we look for something with a single quote in it:</p>
 <pre class='code' language='session'>
->> Person.where(:surname => "O'Henry")
+&gt;&gt; Person.where(:surname =&gt; "O'Henry")
   Person Load (0.2ms)  SELECT "people".* FROM "people" WHERE
   ("people"."surname" = 'O''Henry')
- => [] 
+ =&gt; [] 
 </pre>
 <p>Rails automatically applies the appropriate escape characters so that the single quote doesn't cause a SQL
 error.</p>
@@ -2755,20 +2757,20 @@ error.</p>
 commands. Here's an example that shows how the built-in escapting in Rails
 protects us:</p>
 <pre class='code' language='session'>
->> Person.where(:given_name => "Bret'; DROP TABLE PEOPLE; --")
+&gt;&gt; Person.where(:given_name =&gt; "Bret'; DROP TABLE PEOPLE; --")
   Person Load (0.2ms)  SELECT "people".* FROM "people" 
   WHERE ("people"."given_name" = 'Bret''; DROP TABLE PEOPLE; --')
- => []   
+ =&gt; []   
 </pre>
 <p>When we specify two name-value pairs in the hash, this is interpreted as an AND operation because that is the most
 common.</p>
 
 <pre class='code' language='session'>
->> Person.where(:given_name => 'May', :surname => 'Woo')
+&gt;&gt; Person.where(:given_name =&gt; 'May', :surname =&gt; 'Woo')
   Person Load (0.3ms)  SELECT "people".* FROM "people"
   WHERE ("people"."given_name" = 'May') AND ("people"."surname" = 'Woo')
- => [#&#060;Person&#062;id: 1, given_name: "May", surname: "Woo",
-created_at: "2011-01-18 05:25:15", updated_at: "2011-01-18 05:25:15">] 
+ =&gt; [#&#060;Person/>nil&#062;given_name: "May", surname: "Woo",
+created_at: "2011-01-18 05:25:15", updated_at: "2011-01-18 05:25:15"&gt;] 
 </pre>
 <p>If we need to do other kinds of operations we need to write a snippet of SQL that will be passed in as the
 <span class='ic'>WHERE</span> class of the <span class='ic'>SELECT</span> statements. When writing SQL in our code, it is just as important to escape text
@@ -2776,15 +2778,15 @@ that may have come from an end user. To make our
 code invulnerable from a SQL injection attack, we can include a &ldquo;?&rdquo; anywhere in the string, then pass the
 variables to escape and insert as additional parameters:</p>
 <pre class='code' language='irb'>
->> first = "May"
- => "May" 
->> last = "Woo"
- => "Woo" 
->> Person.where("given_name = ? AND surname = ?", first, last)
+&gt;&gt; first = "May"
+ =&gt; "May" 
+&gt;&gt; last = "Woo"
+ =&gt; "Woo" 
+&gt;&gt; Person.where("given_name = ? AND surname = ?", first, last)
   Person Load (0.2ms)  SELECT "people".* FROM "people" 
   WHERE (given_name = 'May' AND surname = 'Woo')
- => [#&#060;Person&#062;id: 1, given_name: "May", surname: "Woo", created_at: 
- "2011-01-18 05:25:15", updated_at: "2011-01-18 05:25:15">] 
+ =&gt; [#&#060;Person/>nil&#062;given_name: "May", surname: "Woo", created_at: 
+ "2011-01-18 05:25:15", updated_at: "2011-01-18 05:25:15"&gt;] 
 </pre>
 <p>Also, when writing raw SQL, we need to be careful to avoid
 database-specific SQL commands or be aware that we are introducing a dependency on our specific database. Most of the
@@ -2802,11 +2804,11 @@ such as <span class='method'>each</span> is called on the result or when looking
 <p>For example, we could find everyone with the surname “Woo” and sort the records by “given_name.” Even though these
 are two method calls, there will be only one SQL query:</p>
 <pre class='code' language='session'>
-  Person.where(:surname => "Woo").order(:given_name)
+  Person.where(:surname =&gt; "Woo").order(:given_name)
 </pre>
 <p>In the next example we select just one record. A single SQL query which returns a single record from the database: </p>
 <pre class='code' language='session'>
-  Person.where(:surname => "Woo").order(:given_name).limit(1)
+  Person.where(:surname =&gt; "Woo").order(:given_name).limit(1)
 </pre>
 <p>Order may be called with a string or a symbol for the same result:</p>
 <pre class='code' language='session'>
@@ -2818,7 +2820,7 @@ are two method calls, there will be only one SQL query:</p>
 </pre>
 <p>The ActiveRecord query methods may be called in any sequence:</p>
 <pre class='code' language='session'>
-  Person.order("given_name").where(:surname => "Woo")
+  Person.order("given_name").where(:surname =&gt; "Woo")
 </pre>
  
  <p>For more on detail on ActiveRecord queries, you should read the very good Rails
@@ -2830,23 +2832,23 @@ are two method calls, there will be only one SQL query:</p>
 The ActiveRecord query language returns an ActiveRecord::Relation object, but when we set the ActiveRecord
 logger to STDOUT we can see that the query is executed in irb.</p>
 <pre class='code' language='irb'>
->> result = Person.where(:given_name => "May")
+&gt;&gt; result = Person.where(:given_name =&gt; "May")
   Person Load (0.3ms)  SELECT "people".* FROM "people" 
   WHERE ("people"."given_name" = 'May')
- => [#&#060;Person&#062;id: 1, given_name: "May", surname: "Woo", present: nil, 
- created_at: "2010-09-06 07:09:18", updated_at: "2010-09-06 07:14:08">] 
+ =&gt; [#&#060;Person/>nil&#062;given_name: "May", surname: "Woo", present: nil, 
+ created_at: "2010-09-06 07:09:18", updated_at: "2010-09-06 07:14:08"&gt;] 
 </pre>
 <p>Irb always calls the <span class='method'>inspect</span> method on whatever is returned and then prints that to the console.  Inspect will trigger ActiveRelation to execute its SQL query so that it can report the results.  To see this, let’s try:</p>
 <pre class='code' language='irb'>
->> result = Person.where(:given_name => "May"); nil
- => nil 
->> result.class
- => ActiveRecord::Relation 
->> result.limit(1)
+&gt;&gt; result = Person.where(:given_name =&gt; "May"); nil
+ =&gt; nil 
+&gt;&gt; result.class
+ =&gt; ActiveRecord::Relation 
+&gt;&gt; result.limit(1)
   Person Load (0.3ms)  SELECT "people".* FROM "people" WHERE 
   ("people"."given_name" = 'May')
- => [#&#060;Person&#062;id: 1, given_name: "May", surname: "Woo", present: nil, 
- created_at: "2010-09-06 07:09:18", updated_at: "2010-09-06 07:14:08">] 
+ =&gt; [#&#060;Person/>nil&#062;given_name: "May", surname: "Woo", present: nil, 
+ created_at: "2010-09-06 07:09:18", updated_at: "2010-09-06 07:14:08"&gt;] 
 </pre>
 <p>By adding <span class='ic'>; nil</span> to the end of a line in irb, we avoid causing irb to call the <span class='ic'>inspect</span> method on the
 result. This keeps the <span class='rubyclass'>ActiveRecord::Relation</span> object from calling the database, and allows us to
@@ -2854,7 +2856,7 @@ call <span class='method'>limit</span> on the object before evaluating it, and t
 to the database.</p>
 </div>
 </div>
-</div>
+</pre>
 
 
 <sect1>
@@ -2864,10 +2866,10 @@ to the database.</p>
 <pre class='code' language='session'>
 $ rails server
 </pre>
-<p>When we browse to <a class='url' href='http://localhost:3000/people'>http://localhost:3000/people</a> we see a page like <ref linkend="fig.people_index_with_3_records" /></p>
+<p>When we browse to <a class='url' href='http://localhost:3000/people'>http://localhost:3000/people</a> we see a page like <a class='ref' href='#fig.people_index_with_3_records'>Figure 6.1</a></p>
 
 <div class='figure' id='fig.people_index_with_3_records'>
-  <h3 class='title'>People Index Page</h3>
+  <h3 class='title'>Figure 6.1: Figure 6.1: People Index Page</h3>
   <img class='imagedata' src='images/class_app/people_index_with_3_records.png'></img>
 </div>
 
@@ -2897,9 +2899,9 @@ be.</p>
 
 </pre>
 <p>With this change, if we attempt to save a blank record, it fails to save and the error will be reported in the web
-interface, with a page like <ref linkend="fig.given_name_cant_be_blank" />.</p>
+interface, with a page like <a class='ref' href='#fig.given_name_cant_be_blank'>Figure 6.2</a>.</p>
 <div class='figure' id='fig.given_name_cant_be_blank'>
-  <h3 class='title'>Validation Error</h3>
+  <h3 class='title'>Figure 6.2: Figure 6.2: Validation Error</h3>
   <img class='imagedata' src='images/class_app/given_name_cant_be_blank.png'></img>
 </div>
 
@@ -2909,22 +2911,22 @@ interface, with a page like <ref linkend="fig.given_name_cant_be_blank" />.</p>
   reload.  If you had left the console open in another window, you’ll need to restart the console or use the
   <span class='commandname'>reload!</span> command to reload the Rails app.</p>
 <pre class='code' language='irb'>
->> person = Person.new
- => #&#060;Person&#062;id: nil, given_name: nil, surname: nil, present: nil, 
- created_at: nil, updated_at: nil> 
->> person.save
- => false 
+&gt;&gt; person = Person.new
+ =&gt; #&#060;Person/>nil&#062;given_name: nil, surname: nil, present: nil, 
+ created_at: nil, updated_at: nil&gt; 
+&gt;&gt; person.save
+ =&gt; false 
 </pre>
 <p>
   The <span class='method'>save</span> method now returns false.  We can inspect what failed by looking at the errors on the person object. </p>
 <pre class='code' language='irb'>
->> person.errors
-=>{:given_name=>["can't be blank"]}
+&gt;&gt; person.errors
+=&gt;{:given_name=&gt;["can't be blank"]}
 </pre>
    <p>We can also test for validation errors without attempting to save.  Calling <span class='ic'>valid?</span> will also set errors if one or more validations fail.</p>
 <pre class='code' language='irb'>
->> person.valid?
-=> false 
+&gt;&gt; person.valid?
+=&gt; false 
 </pre>
  <p>
   If a validation fails, the <span class='method'>save</span> or <span class='method'>create</span> methods will return false.  To save the person object and throw an  exception if
@@ -2932,7 +2934,7 @@ interface, with a page like <ref linkend="fig.given_name_cant_be_blank" />.</p>
   <span class='method'>create!</span>. An exclamation point, which most people call “bang,” as the last character of a
   method name is a convention in Rails where the method will raise an exception if it fails.</p>
 <pre class='code' language='irb'>
-> person.save!
+&gt; person.save!
 ActiveRecord::RecordInvalid: Validation failed: given name can't be blank
 ...stack trace follows...
 </pre>
@@ -2945,7 +2947,9 @@ ActiveRecord::RecordInvalid: Validation failed: given name can't be blank
 <p>Now that we have a solid base of ActiveRecord skills, we are ready to begin creating ActiveRecord models test first.</p>
 </div>
 </div>
+</div>
 
+<!-- -*- xml -*- -->
 <!DOCTYPE html>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
@@ -2954,9 +2958,9 @@ ActiveRecord::RecordInvalid: Validation failed: given name can't be blank
 <p>With a basic understanding of ActiveRecord and validations, let’s use a test-driven approach to
 creating model behavior.  In test-driven development, we write the test first, detailing our requirements by example
 with an executable specification before we write the code that implements the feature.  We’ll use RSpec, which we
-learned about in <a class='ref' href='#ch.rspec-intro'>Test First Ruby</a> for test-driving Ruby code.  RSpec works well for testing Rails as well as Ruby. </p>
+learned about in <a class='ref' href='#ch.rspec-intro'></a> for test-driving Ruby code.  RSpec works well for testing Rails as well as Ruby. </p>
 <p>When we generated our <span class='rubyclass'>Person</span> scaffold, the <span class='ic'>rspec-rails</span> gem created a spec for each class that
-was generated. In <a class='ref' href='#sec.running-tests'>Running Our Tests</a> we used <span class='commandname'>rake spec</span> for the first time to
+was generated. In <a class='ref' href='#sec.running-tests'></a> we used <span class='commandname'>rake spec</span> for the first time to
 run the generate test files. We deleted the failing and pending specs, so we could learn about testing from a good
 starting point. If we run <span class='commandname'>rake spec</span> again, everything should pass:</p>
 <pre class='code' language='session'>
@@ -3047,7 +3051,7 @@ $ rake spec
 /rspec/core/backward_compatibility.rb:20:in `const_missing': uninitialized 
 constant Course (NameError)
 	from /Users/sarah/src/tfr/svn/Book/code/class_app_new_source/spec/models
-/course_spec.rb:3:in `<top (required)>'
+/course_spec.rb:3:in `<top/>(required)&gt;'
 	from /Users/sarah/.rvm/gems/ruby-1.9.2-p0@book/gems/rspec-core-2.5.1/lib
 /rspec/core/configuration.rb:386:in `load'
 	from /Users/sarah/.rvm/gems/ruby-1.9.2-p0@book/gems/rspec-core-2.5.1/lib
@@ -3060,7 +3064,7 @@ ruby -S bundle exec rspec ./spec/models/course_spec.rb failed
 
 </pre>
 <p>Amidst this crazy stack trace, we can see <span class='ic'> uninitialized constant Course (NameError)</span>.  We saw this same kind
-of error when we were testing our <span class='rubyclass'>Person</span> class in <a class='ref' href='#ch.rspec-intro'>Test First Ruby</a>. We know from our
+of error when we were testing our <span class='rubyclass'>Person</span> class in <a class='ref' href='#ch.rspec-intro'></a>. We know from our
 explorations of Ruby that classes are constants, so this error means we’re missing a
 <span class='rubyclass'>Course</span> class. This is exactly what we expect since we haven’t written it yet!</p>
 <p>We could just write the class from scratch in a new file, but we want to follow Rails conventions for creating not
@@ -3143,7 +3147,7 @@ $ rake db:migrate
 (in …/code/class_app_new_source)
 ==  CreateCourses: migrating ==================================================
 -- create_table(:courses)
-   -> 0.0010s
+   -&gt; 0.0010s
 ==  CreateCourses: migrated (0.0011s) =========================================
 
 $ rake spec
@@ -3161,9 +3165,9 @@ look interactively and double-check:</p>
 <pre class='code' language='session'>
 $ rails c
 Loading development environment (Rails 3.0.3)
-> c = Course.create!(:title => "Creative Writing",
->     :description => "Learn to write fiction!")
- => #&#060;Course&#062;id: 1, title: "Creative Writing", description: "Learn to write..."
+&gt; c = Course.create!(:title =&gt; "Creative Writing",
+&gt;     :description =&gt; "Learn to write fiction!")
+ =&gt; #&#060;Course/>1&#062;title: "Creative Writing", description: "Learn to write..."
 </pre>
 
 <p>Sometimes, when doing something particularly tricky or using an unfamiliar Ruby class or method, we still test
@@ -3205,7 +3209,7 @@ Failures:
   1) Course should not be valid if it has no title
      Failure/Error: c.should_not be_valid
        expected valid? to return false, got true
-     # ./spec/models/course_spec.rb:11:in `block (2 levels) in <top (required)>'
+     # ./spec/models/course_spec.rb:11:in `block (2 levels) in <top/>(required)&gt;'
 
 Finished in 0.41685 seconds
 28 examples, 1 failure
@@ -3279,7 +3283,7 @@ Failures:
   1) Person should not save a record without a name
      Failure/Error: p.should_not be_valid
        expected valid? to return false, got true
-     # ./spec/models/person_spec.rb:13:in `block (2 levels) in <top (required)>'
+     # ./spec/models/person_spec.rb:13:in `block (2 levels) in <top/>(required)&gt;'
 
 Finished in 0.04394 seconds
 2 examples, 1 failure
@@ -3317,9 +3321,9 @@ Suppose we commonly refer to people with their full name
 <pre class='code' language='session'>
 1)
 NoMethodError in 'Person should construct a full name'
-undefined method `full_name' for #&#060;Course&#062;.../lib/active_record/attribute_methods.rb:264:in `method_missing'
+undefined method `full_name' for #&#060;Course/>1&#062;.../lib/active_record/attribute_methods.rb:264:in `method_missing'
 ./spec/models/person_spec.rb:12:
-</pre>
+</Person:0x1036ff5f0>
 <p>You can see that Ruby reports a <span class='ic'>NoMethodError</span>, since we are sending a full_name message to
 the person object “p” where there is no method definition (or corresponding table column for ActiveRecord to dynamically evaluate).  To make this example pass, we can simply define a method:</p>
 <pre class='external'>1     def full_name
@@ -3337,9 +3341,11 @@ spec, we focus on what is special in our own app. As much as we can, we want to 
 easiest to isolate the model’s behavior and test it effectively, rather than testing that behavior as it ripple out to
 various parts of the application. Understanding
 the basics of models, the <em class='emph'>M</em> in the MVC pattern, gives us a firm foundation as we continue to explore Rails.</p>
+</pre>
 </div>
 </div>
 
+<!-- -*- xml -*- -->
 <!DOCTYPE html>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
@@ -3380,7 +3386,7 @@ the basics of models, the <em class='emph'>M</em> in the MVC pattern, gives us a
   <p>
     create a rake db:seed task (test first)
   getting rails environment to be loaded in the task
-  task :add_students => :environment do; #code; end
+  task :add_students =&gt; :environment do; #code; end
   also, if you want to specify the environment to run the code in, you can do rake add_students RAILS_ENV=production
   eager loading
 (http://stackoverflow.com/questions/4300240/rails-3-rake-task-cant-find-model-in-production) 
@@ -3429,6 +3435,7 @@ too(http://stackoverflow.com/questions/4017069/correct-rails-3-replacement-for-e
     
  </div>
 
+<!-- -*- xml -*- -->
 <!DOCTYPE html>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
@@ -3438,6 +3445,7 @@ too(http://stackoverflow.com/questions/4017069/correct-rails-3-replacement-for-e
   in our application came from and how a model is created and modified with a migration.</p>
 </div>
 
+<!-- -*- xml -*- -->
 <!DOCTYPE html>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
@@ -3446,8 +3454,8 @@ too(http://stackoverflow.com/questions/4017069/correct-rails-3-replacement-for-e
 
      <p>When we create a web application, we craft a unified experience from a series of web pages. 
   Sometimes a single interaction takes place across multiple HTTP requests. The Model-View-Controller pattern helps us wrangling these disjoint pages into manageable code.</p>
-  <p>In <a class='ref' href='#ch.firstapp'>Diving Into Rails</a>, we learned
-  about views, how Embedded Ruby templates let us declare the visual part of our web user interface. Then we learned about the model, in  <a class='ref' href='#ch.activerecord'>Exploring ActiveRecord</a> and <a class='ref' href='#ch.activerecord-rspec'>Test Driving Model Development</a>.  Now we’ll learn about how routes and
+  <p>In <a class='ref' href='#ch.firstapp'></a>, we learned
+  about views, how Embedded Ruby templates let us declare the visual part of our web user interface. Then we learned about the model, in  <a class='ref' href='#ch.activerecord'>Exploring ActiveRecord</a> and <a class='ref' href='#ch.activerecord-rspec'></a>.  Now we’ll learn about how routes and
   controllers string our views together, letting us specify the
   interactive part of our user interface.</p><p> As we did with ActiveRecord, we’ll start by exploring interactively,
   but now we can use the browser to see how our code responds. Let’s take another look at the pages
@@ -3481,7 +3489,7 @@ just one <span class='ic'>resources</span> declaration: </p>
 4   end
 
 </pre>
-<p>From that one line, we defined 7 routes which we explored interactively in <a class='ref' href='#sec.scaffold-rest-mvc'>How Does Scaffold Implement REST and MVC?</a>.
+<p>From that one line, we defined 7 routes which we explored interactively in <a class='ref' href='#sec.scaffold-rest-mvc'></a>.
 The <span class='ic'>resources</span> method provides a nice shortcut for defining all of the standard REST routes; however, to use Rails effectively we need to understand what’s really going on. We’ll build a similar set of routes and corresponding controller behavior for our
 <span class='rubyclass'>Course</span> model one step at a time.</p>
 <sect1>
@@ -3498,9 +3506,9 @@ through a route to learn about the code we need to write to make it work, starti
 <span class='rubyclass'>Course</span> model. Let’s start by browsing to the URL we haven’t
 built yet and see what happens. Let’s point our browser to a new, arbitrary url:
 <a class='url' href='http://localhost:3000/my_course'>http://localhost:3000/my_course</a>. We see the routing
-error shown in <ref linkend="fig.routing-error" />. Go ahead and try it. </p>
+error shown in <a class='ref' href='#fig.routing-error'>Figure .1</a>. Go ahead and try it. </p>
 <div class='figure' id='fig.routing-error'>
-  <h3 class='title'>We Have Not Yet Specified Where the URL Goes</h3>
+  <h3 class='title'>Figure 10.1: Figure 10.1: We Have Not Yet Specified Where the URL Goes</h3>
   <img class='imagedata' src='images/controllers/routing-error.png'></img>
 </div>
 <p>This error tells us that the URL <span class='ic'>/my_course</span> is not hooked up to anything. There is no <em class='emph'>route</em> into the app
@@ -3527,10 +3535,10 @@ route:</p>
 <p>Let’s learn a little more Ruby to understand how the match method works.</p>
 <pre class='code' language='irb'>
 $ rails c
-> result = "courses#show".split('#')                        
- => ["courses", "show"] 
-> controller_name = result[0].camelize + "Controller"
- => "CoursesController" 
+&gt; result = "courses#show".split('#')                        
+ =&gt; ["courses", "show"] 
+&gt; controller_name = result[0].camelize + "Controller"
+ =&gt; "CoursesController" 
 </pre>
 <p>First we call <span class='method'>split</span>, which is a Ruby <span class='rubyclass'>String</span> method, to get the two components. Then
 we took the first component and call <span class='method'>camelize</span> which is a <em class='emph'>Rails</em> <span class='rubyclass'>String</span> method. Rails
@@ -3552,7 +3560,7 @@ that we’ll be creating a <span class='rubyclass'>CoursesController</span> with
 controller or views based on the names in the path. Let’s run <span class='commandname'>rake routes</span> to interactively inspect how our route is set up:</p>
 <pre class='code' language='session'>
 $ rake routes
-my_course  /my_course(.:format) {:action=>"show", :controller=>"courses"}
+my_course  /my_course(.:format) {:action=&gt;"show", :controller=&gt;"courses"}
 </pre>
 <p>This little diagnostic script<div class='footnote'><p><span class='commandname'>rake routes</span> was added to Rails in 2007 by Josh Susser, inspired by Rick
 Olson’s routing navigator plugin which was turned in a rake task by Chris Wanstrath, founder of github.com.
@@ -3570,10 +3578,10 @@ and check that out:</p>
 <pre class='code' language='irb'>
 $ rails c
 Loading development environment (Rails 3.0.1)
->> app.my_course_path
- => "/my_course" 
->> app.my_course_url
- => "http://www.example.com/my_course" 
+&gt;&gt; app.my_course_path
+ =&gt; "/my_course" 
+&gt;&gt; app.my_course_url
+ =&gt; "http://www.example.com/my_course" 
 </pre>
 <p> In <span class='commandname'>rails console</span> we use the <span class='ic'>app</span> object to call these helper methods
 interactively, but we can call them directly in our views and controllers.</p>
@@ -3590,7 +3598,7 @@ route to our show page, so let’s annotate it with the standard path “course�
 <p>We can see the change when we call <span class='commandname'>rake routes</span>:</p>
 <pre class='code' language='session'>
 $ rake routes
-course  /my_course(.:format) {:action=>"show", :controller=>"courses"}
+course  /my_course(.:format) {:action=&gt;"show", :controller=&gt;"courses"}
 </pre>
 <p>By using a standard name, we can now use another Rails URL helper that is built to help us
 manage a <em class='emph'>resource</em>, which just means that we can think about and interact with a model rather than
@@ -3598,10 +3606,10 @@ remembering the specific URLs that we’ve set up for it.  Check this out:</p>
 <pre class='code' language='irb'>
 $ rails c
 Loading development environment (Rails 3.0.3)
->> c = Course.first
- => #&#060;Course&#062;id: 1, title: "Creative Writing", description: "Learn to write…
->> app.url_for(c)
- => "http://www.example.com/my_course.1" 
+&gt;&gt; c = Course.first
+ =&gt; #&#060;Course/>1&#062;title: "Creative Writing", description: "Learn to write…
+&gt;&gt; app.url_for(c)
+ =&gt; "http://www.example.com/my_course.1" 
 </pre>
 <p>We can call <span class='ic'>app.url_for</span> with a model and it automatically plucks the id from the model and creates a path
 from the route that maps to the name of the model. We haven’t yet told it how we want to accept the id as a parameter,
@@ -3609,12 +3617,12 @@ so it just tacks it on the end. When we learn more about where routes lead to an
 we’ll come back and fix up our route.</p>
 
 <div class='figure' id='fig.missing-courses-controller'>
-  <h3 class='title'>We Have a Route but no Controller</h3>
+  <h3 class='title'>Figure 10.2: Figure 10.2: We Have a Route but no Controller</h3>
   <img class='imagedata' src='images/controllers/missing-courses-controller.png'></img>
 </div>
 
 <p>When we refresh our browser, we see the error shown
-in <a class='ref' href='#fig.missing-courses-controller'>We Have a Route but no Controller</a>: <span class='ic'>uninitialized constant CoursesController</span>. We know that
+in <a class='ref' href='#fig.missing-courses-controller'>Figure 10.2</a>: <span class='ic'>uninitialized constant CoursesController</span>. We know that
 classes are constants in Ruby, so when the <span class='rubyclass'>CoursesController</span> can’t be found, we
 get a general error that the <em class='emph'>constant</em> is not initialized. Ruby is actually telling us that we have not yet defined
 a <span class='rubyclass'>CoursesController</span> class.</p>
@@ -3658,10 +3666,10 @@ for our views and a helper module where we keep code shared by our controller an
   defining the controller class in <span class='filename'>app/controllers/courses_controller.rb</span>, we have addressed the
   error.</p>
   <p>When we refresh the browser at
-<a class='url' href='http://localhost:3000/my_course'>http://localhost:3000/my_course</a>, we see an “Unknown Action” error shown in <ref linkend="fig.unknown-action" />.
+<a class='url' href='http://localhost:3000/my_course'>http://localhost:3000/my_course</a>, we see an “Unknown Action” error shown in <a class='ref' href='#fig.unknown-action'>Figure .3</a>.
 The error reports that “the action ‘show’ could not be found.”</p>
 <div class='figure' id='fig.unknown-action'>
-  <h3 class='title'>We need to define a Controller action</h3>
+  <h3 class='title'>Figure 10.3: Figure 10.3: We need to define a Controller action</h3>
   <img class='imagedata' src='images/controllers/unknown-action.png'></img>
 </div>
 
@@ -3691,10 +3699,10 @@ for a file with name of the action and “.html.erb” appended.  For the route 
 <pre class='external'>1   &#60;h1&#62;Here I am&#60;&#47;h1&#62;
 
 </pre>
-<p>Now when we point our browser to: <a class='url' href='http://localhost:3000/my_course'>http://localhost:3000/my_course</a> we see &ldquo;Here I am!&rdquo; in large text as shown in <ref linkend="fig.here-i-am" />. 
+<p>Now when we point our browser to: <a class='url' href='http://localhost:3000/my_course'>http://localhost:3000/my_course</a> we see &ldquo;Here I am!&rdquo; in large text as shown in <a class='ref' href='#fig.here-i-am'>Figure .4</a>. 
 </p>
 <div class='figure' id='fig.here-i-am'>
-  <h3 class='title'>A simple view</h3>
+  <h3 class='title'>Figure 10.4: Figure 10.4: A simple view</h3>
   <img class='imagedata' src='images/controllers/here-i-am.png'></img>
 </div>
 <p>Let’s take another look at the Rails log, which is output in the terminal window where we are running <span class='ic'>rails
@@ -3730,27 +3738,27 @@ the <span class='ic'>params Hash</span> and display each key-value pair:</p>
 5   &#60;% end %&#62;
 6   &#60;&#47;ul&#62;
 </pre>
-<p>We can see in <ref linkend="fig.params" /> that the controller and action names are passed as parameters. URL query
+<p>We can see in <a class='ref' href='#fig.params'>Figure 10.5</a> that the controller and action names are passed as parameters. URL query
 arguments are passed the same way. In HTTP we can pass name-value pairs as part of the URL like
 <url>http://localhost:3000/my_course.html?id=4</url>. These are parsed by Rails and turned into a
 <span class='rubyclass'>Hash</span>, which we can see in the log:</p>
 <pre class='code' language='session'>
 Started GET "/my_course.html?id=4" for 127.0.0.1 at 2011-05-01 17:52:43 -0700
   Processing by CoursesController#show as HTML
-  Parameters: {"id"=>"4"}
+  Parameters: {"id"=&gt;"4"}
 Rendered courses/show.html.erb within layouts/application (1.7ms)
 Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.0ms)
 </pre>
 <p>The log only shows the parameters that come from the browser. Any query argument we add to the URL will be added to
 the <span class='ic'>params Hash</span> along with the internal parameters of controller and action name. Try
-it. <ref linkend="fig.params-query" /> shows an example with the query arguments <span class='ic'>foo=bar&amp;num=1</span> but they
+it. <a class='ref' href='#fig.params-query'>Figure 10.6</a> shows an example with the query arguments <span class='ic'>foo=barnum=1</span> but they
 could, of course, be anything.</p>
 <div class='figure' id='fig.params'>
-  <h3 class='title'>Default parameters</h3>
+  <h3 class='title'>Figure 10.5: Figure 10.5: Default parameters</h3>
   <img class='imagedata' src='images/controllers/params.png'></img>
 </div>
 <div class='figure' id='fig.params-query'>
-  <h3 class='title'>Query arguments foo=bar&amp;num=1</h3>
+  <h3 class='title'>Figure 10.6: Figure 10.6: Query arguments foo=barnum=1</h3>
   <img class='imagedata' src='images/controllers/params-query.png'></img>
 </div>
 
@@ -3761,9 +3769,9 @@ could, of course, be anything.</p>
 everything after the <span class='ic'>?</span> in a URL and only index a single page, but also because plain URLs are easier to read
 when people bookmark them. Rails gives us tremendous flexibility with how we define URLs and map them to our code. This is easy to do in Rails. We just specify
 a symbol as part of the URL pattern in our routes and that is automatically parsed and assigned a value in the <span class='ic'>params
-Hash</span>. In fact we’ve already seen this with the format extension, as shown in <ref linkend="fig.params-with-format" /></p>
+Hash</span>. In fact we’ve already seen this with the format extension, as shown in <a class='ref' href='#fig.params-with-format'>Figure 10.7</a></p>
 <div class='figure' id='fig.params-with-format'>
-  <h3 class='title'>Default parameters with format in URL</h3>
+  <h3 class='title'>Figure 10.7: Figure 10.7: Default parameters with format in URL</h3>
   <img class='imagedata' src='images/controllers/params-with-format.png'></img>
 </div>
 <p>Now that we understand how URL parameters work, as well as custom routes, let’s change our route to use the standard
@@ -3782,16 +3790,16 @@ Rails the naming convention.</p>
 we specify other params in the URL:</p>
 <pre class='code' language='session'>
 $ rake routes
-course  /courses/:id(.:format) {:controller=>"courses", :action=>"show"}
+course  /courses/:id(.:format) {:controller=&gt;"courses", :action=&gt;"show"}
 </pre>
 <p>We can look in <span class='commandname'>rails console</span> to see that <span class='ic'>url_for</span> will now return a standard URL:</p>
 <pre class='code' language='irb'>
 $ rails c
 Loading development environment (Rails 3.0.3)
->> c = Course.first
- => #&#060;Course&#062;id: 1, title: "Creative Writing", description: "Learn to write…
->> app.url_for(c)
- => "http://www.example.com/courses/1" 
+&gt;&gt; c = Course.first
+ =&gt; #&#060;Course/>1&#062;title: "Creative Writing", description: "Learn to write…
+&gt;&gt; app.url_for(c)
+ =&gt; "http://www.example.com/courses/1" 
 </pre>
 <p>Later we’ll use <span class='ic'>url_for</span> in our views to link to pages without embedding literal strings which makes our code
 harder to maintain.</p>
@@ -3831,13 +3839,13 @@ our terminal window. <span class='ic'>Rails.logger</span> does not affect the HT
 <p>When we first experimented with Ruby code, we sometimes used <span class='method'>puts</span> to see what was going on outside
 our program. Let’s see what happens to the output if we use <span class='method'>puts</span> instead of <span class='ic'>Rails.logger</span>:</p>
 <pre class='code' language='session'>
-==================> show method
-------------------------> show view
+==================&gt; show method
+------------------------&gt; show view
 
 
 Started GET "/courses/4" for 127.0.0.1 at 2011-05-01 19:15:42 -0700
   Processing by CoursesController#show as HTML
-  Parameters: {"id"=>"4"}
+  Parameters: {"id"=&gt;"4"}
 Rendered courses/show.html.erb within layouts/application (1.8ms)
 Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.0ms)
 </pre>
@@ -3859,9 +3867,9 @@ which we occasionally turn on in the rare case that we need to debug an issue in
 <pre class='code' language='session'>
 Started GET "/courses/4" for 127.0.0.1 at 2011-05-01 19:20:56 -0700
   Processing by CoursesController#show as HTML
-  Parameters: {"id"=>"4"}
-==================> show method!
-------------------------> show view!
+  Parameters: {"id"=&gt;"4"}
+==================&gt; show method!
+------------------------&gt; show view!
 Rendered courses/show.html.erb within layouts/application (1.6ms)
 Completed 200 OK in 5ms (Views: 5.1ms | ActiveRecord: 0.0ms)
 </pre>
@@ -3883,8 +3891,8 @@ with id 1:</p>
 <pre class='code' language='irb'>
 $ rails c
 Loading development environment (Rails 3.0.1)
->> Course.find(1)
- => #&#060;Course&#062;id: 1, title: "Creative Writing", description: "Learn to write…
+&gt;&gt; Course.find(1)
+ =&gt; #&#060;Course/>1&#062;title: "Creative Writing", description: "Learn to write…
 </pre>
 <p>The id arrives inside our controller as <span class='ic'>params</span>. We saw before that <span class='ic'>params</span> is a <span class='rubyclass'>Hash</span>.
 Is is actually a special subclass of <span class='rubyclass'>Hash</span>, called <span class='rubyclass'>HashWithIndifferentAccess</span> that allows us
@@ -3894,24 +3902,24 @@ see this in action:</p>
 <pre class='code' language='irb'>
 $ rails c
 Loading development environment (Rails 3.0.1)
->> params = {}
- => {} 
->> params["id"] = "4"
- => "4" 
->> params[:id]
- => nil 
->> params = HashWithIndifferentAccess.new
- => {} 
->> params["id"] = "4"
- => "4"  
->> params[:id]
- => "4" 
+&gt;&gt; params = {}
+ =&gt; {} 
+&gt;&gt; params["id"] = "4"
+ =&gt; "4" 
+&gt;&gt; params[:id]
+ =&gt; nil 
+&gt;&gt; params = HashWithIndifferentAccess.new
+ =&gt; {} 
+&gt;&gt; params["id"] = "4"
+ =&gt; "4"  
+&gt;&gt; params[:id]
+ =&gt; "4" 
 </pre>
 <p>Now we know that we’ll be able to find the data we want using the <span class='rubyclass'>ActiveRecord</span> method
 <span class='method'>find</span> and pass it the id from the query args:</p>
 <pre class='code' language='irb'>
->> Course.find(params[:id])
- => #&#060;Course&#062;id: 1, title: "Creative Writing", description: "Learn to write…
+&gt;&gt; Course.find(params[:id])
+ =&gt; #&#060;Course/>1&#062;title: "Creative Writing", description: "Learn to write…
 </pre>
 <p>To allow us to pass data to the view, Rails sets up another shortcut: whatever instance variables we set in the
 controller are then available to us in the view.</p>
@@ -3946,18 +3954,18 @@ instance variables. Whew, isn’t that a relief?  </p>
 However, in Ruby we can get a list of our instance variables and see what they are. Check this out inside of irb:</p>
 <pre class='code' language='irb'>
 $ irb
->> instance_variables
- => [:@prompt] 
->> old = instance_variables
- => [:@prompt] 
->> @foo = 1
- => 1 
->> @bar = "something"
- => "something" 
->> instance_variables
- => [:@prompt, :@foo, :@bar] 
->> new = instance_variables - old
- => [:@foo, :@bar] 
+&gt;&gt; instance_variables
+ =&gt; [:@prompt] 
+&gt;&gt; old = instance_variables
+ =&gt; [:@prompt] 
+&gt;&gt; @foo = 1
+ =&gt; 1 
+&gt;&gt; @bar = "something"
+ =&gt; "something" 
+&gt;&gt; instance_variables
+ =&gt; [:@prompt, :@foo, :@bar] 
+&gt;&gt; new = instance_variables - old
+ =&gt; [:@foo, :@bar] 
 </pre>
 <p>With the model and view, Rails appears to mix together two separate
 concern, but it is merely an unusual message passing convention.</p>
@@ -3976,6 +3984,7 @@ conventions.</p>
 
 </div>
 
+<!-- -*- xml -*- -->
 <!DOCTYPE html>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
@@ -4072,15 +4081,15 @@ Failures:
   1) PeopleController GET index renders
      Failure/Error: get :index      
      ActionController::RoutingError:
-       No route matches {:controller=>"people"}
+       No route matches {:controller=&gt;"people"}
      # ./spec/controllers/people_controller_spec.rb:8:in `block (3 levels)
-     in <top (required)>'
+     in <top/>(required)&gt;'
 
 Finished in 0.10692 seconds
 1 example, 1 failure
 </pre>
 <p>We’re seeing the same kinds of errors we saw interactively when we were experimenting with the web app, so we know we
-are on the right track.  This error is similar to the one we saw in <ref linkend="fig.routing-error" /> except we’re
+are on the right track.  This error is similar to the one we saw in <a class='ref' href='#fig.routing-error'>Figure .1</a> except we’re
 looking at it from the other direction. Instead of a URL that has no route connecting it to a controller action, we have
 a controller action with no route leading to it.</p>
 <p>Of course, to fix this we need to a add route. Looking in <span class='filename'>config/routes.rb</span>, we see a lot of
@@ -4105,7 +4114,7 @@ Failures:
      AbstractController::ActionNotFound:
        The action 'index' could not be found for PeopleController
      # ./spec/controllers/people_controller_spec.rb:8:in `block (3 levels) 
-     in <top (required)>'
+     in <top/>(required)&gt;'
 
 Finished in 0.0427 seconds
 1 example, 1 failure
@@ -4139,7 +4148,7 @@ two angles. Here’s the declaration:</p>
 <p>The other way we can look at our routes is with <span class='commandname'>rake routes</span>:</p>
 <pre class='code' language='session'>
 $ rake routes
-people_index  /people/index(.:format) {:controller=>"people", :action=>"index"}
+people_index  /people/index(.:format) {:controller=&gt;"people", :action=&gt;"index"}
 </pre>
 <p>Now there are are two things that aren’t lovely about this route. First we’re using a non-standard name for the
 route — usually we simply call the route the main people page <span class='ic'>people_path</span> rather than
@@ -4153,7 +4162,7 @@ since that is the default page for any route:</p>
 <p>Now when we look at our routes, we see:</p>
 <pre class='code' language='session'>
 $ rake routes
-people  /people(.:format) {:action=>"index", :controller=>"people"}
+people  /people(.:format) {:action=&gt;"index", :controller=&gt;"people"}
 </pre>
 <p>Ah. Lovely. Go grab yourself a beverage!</p>
 
@@ -4201,15 +4210,14 @@ Failures:
 
   1) PeopleController GET index sets up the whole list of people
      Failure/Error: assigns[:people].should == [@emmy, @marie, @lise]
-       expected: [#&#060;Person&#062;id: 1, first_name: "Emmy", last_name: "Noether", 
-       created_at: "2011-02-27 22:39:59", updated_at: "2011-02-27 22:39:59">, 
-       #&#060;Person&#062;id: 2, first_name: "Marie", last_name: "Curie", created_at: 
-       "2011-02-27 22:39:59", updated_at: "2011-02-27 22:39:59">, #&#060;Person&#062;
-       id: 3, first_name: "Lise", last_name: "Meitner", created_at: 
-       "2011-02-27 22:39:59", updated_at: "2011-02-27 22:39:59">]
+       expected: [#&#060;Person/>1&#062;first_name: "Emmy", last_name: "Noether", 
+       created_at: "2011-02-27 22:39:59", updated_at: "2011-02-27 22:39:59"&gt;, 
+       #&#060;Person/>1&#062;first_name: "Marie", last_name: "Curie", created_at: 
+       "2011-02-27 22:39:59", updated_at: "2011-02-27 22:39:59"&gt;, #&#060;Person/>1&#062;first_name: "Lise", last_name: "Meitner", created_at: 
+       "2011-02-27 22:39:59", updated_at: "2011-02-27 22:39:59"&gt;]
             got: nil (using ==)
      # ./spec/controllers/people_controller_spec.rb:21:in `block (3 levels) 
-     in <top (required)>'
+     in <top/>(required)&gt;'
 
 Finished in 0.22362 seconds
 2 examples, 1 failure
@@ -4294,13 +4302,13 @@ $ rspec spec/controllers/people_controller_spec.rb
 Failures:
 
   1) PeopleController POST create redirects
-     Failure/Error: post :create, :person => {:first_name => "Barbara", 
-                                              :last_name => "Liskov"}
+     Failure/Error: post :create, :person =&gt; {:first_name =&gt; "Barbara", 
+                                              :last_name =&gt; "Liskov"}
      ActionController::RoutingError:
-       No route matches {:person=>{:first_name=>"Barbara", :last_name=>"Liskov"}, 
-       :controller=>"people", :action=>"create"}
+       No route matches {:person=&gt;{:first_name=&gt;"Barbara", :last_name=&gt;"Liskov"}, 
+       :controller=&gt;"people", :action=&gt;"create"}
      # ./spec/controllers/people_controller_spec.rb:27:in `block (3 levels) 
-     in <top (required)>'
+     in <top/>(required)&gt;'
 
 Finished in 0.21168 seconds
 3 examples, 1 failure
@@ -4321,8 +4329,8 @@ fit for what we want to do here.</p>
 
 <pre class='code' language='session'>
 $ rake routes
-people GET  /people(.:format) {:action=>"index", :controller=>"people"}
-       POST /people(.:format) {:action=>"create", :controller=>"people"}
+people GET  /people(.:format) {:action=&gt;"index", :controller=&gt;"people"}
+       POST /people(.:format) {:action=&gt;"create", :controller=&gt;"people"}
 </pre>
 <p>If we run our spec again, we see…</p>
 <pre class='code' language='session'>
@@ -4332,12 +4340,12 @@ $ rspec spec/controllers/people_controller_spec.rb
 Failures:
 
   1) PeopleController POST create redirects
-     Failure/Error: post :create, :person => {:first_name => "Barbara", 
-                                              :last_name => "Liskov"}
+     Failure/Error: post :create, :person =&gt; {:first_name =&gt; "Barbara", 
+                                              :last_name =&gt; "Liskov"}
      AbstractController::ActionNotFound:
        The action 'create' could not be found for PeopleController
      # ./spec/controllers/people_controller_spec.rb:27:in `block (3 levels) 
-     in <top (required)>'
+     in <top/>(required)&gt;'
 
 Finished in 0.22273 seconds
 3 examples, 1 failure
@@ -4364,15 +4372,14 @@ $ rspec spec/controllers/people_controller_spec.rb
 Failures:
 
   1) PeopleController POST create redirects
-     Failure/Error: post :create, :person => {:first_name => "Barbara", 
-                                              :last_name => "Liskov"}
+     Failure/Error: post :create, :person =&gt; {:first_name =&gt; "Barbara", 
+                                              :last_name =&gt; "Liskov"}
      ActionView::MissingTemplate:
-       Missing template people/create with {:handlers=>[:erb, :rjs, :builder, 
-       :rhtml, :rxml], :formats=>[:html], :locale=>[:en, :en]} in view paths 
-       "#&#060;Person&#062;::ViewRendering::PathSetDelegatorResolver:0x0000010111ae20>"
-     # ./spec/controllers/people_controller_spec.rb:27:in `block (3 levels) 
-     in <top (required)>'
-</pre>
+       Missing template people/create with {:handlers=&gt;[:erb, :rjs, :builder, 
+       :rhtml, :rxml], :formats=&gt;[:html], :locale=&gt;[:en, :en]} in view paths 
+       "#&#060;Person/>1&#062;     # ./spec/controllers/people_controller_spec.rb:27:in `block (3 levels) 
+     in <top/>(required)&gt;'
+</RSpec::Rails>
 <p>Well, we’re not even getting to our check for redirect before the <span class='ic'>post</span> to the <span class='ic'>create</span> action fails.
 Our empty create method is doing a render by default and then finding that it has no template – to fix that, let’s add
 in the redirect: </p>
@@ -4408,11 +4415,11 @@ $ rspec spec/controllers/people_controller_spec.rb
 Failures:
 
   1) PeopleController POST create creates a person record
-     Failure/Error: Person.where(:first_name => "Barbara", 
-                                  :last_name => "Liskov").should_not be_empty
+     Failure/Error: Person.where(:first_name =&gt; "Barbara", 
+                                  :last_name =&gt; "Liskov").should_not be_empty
        expected empty? to return false, got true
      # ./spec/controllers/people_controller_spec.rb:35:in `block (3 levels) 
-     in <top (required)>'
+     in <top/>(required)&gt;'
 
 Finished in 0.46923 seconds
 4 examples, 1 failure
@@ -4456,10 +4463,10 @@ Failures:
 
   1) PeopleController with invalid data should render new template
      Failure/Error: response.should render_template(:new)
-       expecting <"new"> but rendering with <"">.
+       expecting "new"&gt; but rendering with ""&gt;.
        Expected block to return true value.
      # ./spec/controllers/people_controller_spec.rb:49:in `block (3 levels) 
-     in <top (required)>'
+     in <top/>(required)&gt;'
 
 Finished in 0.2994 seconds
 6 examples, 1 failure
@@ -4479,26 +4486,26 @@ $ rspec spec/controllers/people_controller_spec.rb
 Failures:
 
   1) PeopleController with invalid data does not create a person
-     Failure/Error: post :create, :person => {:first_name => "Barbara"}
+     Failure/Error: post :create, :person =&gt; {:first_name =&gt; "Barbara"}
      ActionView::MissingTemplate:
-       Missing template people/new with {:handlers=>[:erb, :rjs, :builder, 
-       :rhtml, :rxml], :formats=>[:html], :locale=>[:en, :en]} in view paths 
-       "#&#060;Person&#062;     # ./app/controllers/people_controller.rb:11:in `create'
+       Missing template people/new with {:handlers=&gt;[:erb, :rjs, :builder, 
+       :rhtml, :rxml], :formats=&gt;[:html], :locale=&gt;[:en, :en]} in view paths 
+       "#&#060;Person/>1&#062;     # ./app/controllers/people_controller.rb:11:in `create'
      # ./spec/controllers/people_controller_spec.rb:43:in `block (3 levels) 
-     in <top (required)>'
+     in <top/>(required)&gt;'
 
   2) PeopleController with invalid data should render new template
-     Failure/Error: post :create, :person => {:first_name => "Barbara"}
+     Failure/Error: post :create, :person =&gt; {:first_name =&gt; "Barbara"}
      ActionView::MissingTemplate:
-       Missing template people/new with {:handlers=>[:erb, :rjs, :builder, 
-       :rhtml, :rxml], :formats=>[:html], :locale=>[:en, :en]} in view paths 
-       "#&#060;Person&#062;     # ./app/controllers/people_controller.rb:11:in `create'
+       Missing template people/new with {:handlers=&gt;[:erb, :rjs, :builder, 
+       :rhtml, :rxml], :formats=&gt;[:html], :locale=&gt;[:en, :en]} in view paths 
+       "#&#060;Person/>1&#062;     # ./app/controllers/people_controller.rb:11:in `create'
      # ./spec/controllers/people_controller_spec.rb:43:in `block (3 levels) 
-     in <top (required)>'
+     in <top/>(required)&gt;'
 
 Finished in 0.31349 seconds
 6 examples, 2 failures
-</pre>
+</RSpec::Rails::ViewRendering::PathSetDelegatorResolver:0x000001011faf98>
 <p>We can see that both “invalid data” examples fail because we’re missing the new template. Let’s do the simplest thing
 that could possibly work: </p>
 <pre class='code' language='session'>
@@ -4526,6 +4533,7 @@ as little as possible, so that all they are doing is directing traffic: fetching
 redirecting. When our controller actions are small, we can see the whole implementation of a controller on a page or two
 which helps us follow the interaction across multiple web requests in our heads as we read the code. It make debugging
 easier and makes it easier to work together on a team and modify each other’s code.</p>
-</div>
-</div>
-</div>
+</RSpec::Rails::ViewRendering::PathSetDelegatorResolver:0x000001013011a8>
+</pre>
+</pre>
+</div></div></div>

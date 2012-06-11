@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
 <chapter id="ch.intro" number="2">
 <title>Why Test? And How We Test First</title>
@@ -25,11 +26,11 @@ of place in this paragraph. It might be better off as it's own and slightly expa
 better?</author>
   </p>
   <figure id="fig.tdd-productivity">
-  <title>Test Driven Development vs. Traditional Velocity by Alex Chaffee</title>
-  <imagedata fileref="images/TDD-productivity-graph.png" align="center" />
+  <title>Figure 2.1: Figure 2.1: Test Driven Development vs. Traditional Velocity by Alex Chaffee</title>
+  <imagedata fileref="images/TDD-productivity-graph.png" align="center"/>
 </figure>
 <p>We can visualize how test-driven development increases our productivity by thinking about how much time it takes to develop
-each feature, as shown in <ref linkend="fig.tdd-productivity" />. <ed>do you have permission to use this? do you need a
+each feature, as shown in <ref linkend="fig.tdd-productivity"/>. <ed>do you have permission to use this? do you need a
 signed release to reproduce this? You do unless it's public domain.</ed><author>I will get a signed release.</author>
 With the first few features, traditional development
 may be faster, because we aren’t typing test code in addition to implementing a feature. However, as features
@@ -111,16 +112,15 @@ our code solid.</p>
 <sect1>
 <title>Red, Green, Refactor</title>
 <figure id="fig.tdd">
-  <title>Test Driven Development Cycle</title>
-  <imagedata fileref="images/tdd.svg" align="center" />
+  <title>Figure 2.2: Figure 2.2: Test Driven Development Cycle</title>
+  <imagedata fileref="images/tdd.svg" align="center"/>
 </figure>
 <p>Test first development is more than just writing the test first. The test first development cycle include series of
 steps that are essential to capturing the benefits of a test first approach. We call the cycle "Red, Green, Refactor" because when we first write our test, it fails and the output is colored red.  Then once our code passes, the output is green.  Finally, we go back and <firstuse>refactor</firstuse> our code, meaning that we make it more readable and maintainable without changing its behavior.</p>
 <p>We learn to embrace failure. Every test we write starts with a failure and we check that it fails properly before we
 start writing our application code.  Why would we be such sticklers about failing?  Because sometimes the behavior of
 our application surprises us and it passes without any new code, or we discover that the test wasn’t written correctly
-and it passes or fails because of an error in the test. This test-driven development cycle is illustrated in <ref
-linkend="fig.tdd" />. We always want to start by watching our test fail to ensure that it fails the way we expect it to fail.</p>
+and it passes or fails because of an error in the test. This test-driven development cycle is illustrated in <ref linkend="fig.tdd"/>. We always want to start by watching our test fail to ensure that it fails the way we expect it to fail.</p>
 <p>Next we write just enough code to satisfy the error that we saw. We try to write <emph>simplest code that could
 possibly work</emph> even if it means hard-coding some value that we’ll flesh out later as we write further tests. This
 ensures that we don’t write extra code that we will have to maintain without test coverage and that might not even be
@@ -133,8 +133,8 @@ necessary for the current product requirements. </p>
 <sect1>
 <title>Defining Our Application</title>
 <figure id="fig.mock_home_page">
-  <title>Mock Home Page</title>
-  <imagedata fileref="images/intro/mock_home_page.png" />
+  <title>Figure 2.3: Figure 2.3: Mock Home Page</title>
+  <imagedata fileref="images/intro/mock_home_page.png"/>
 </figure>
 <p>Test first development dramatically changes how we define our application. Creating a specification using
 tests rather than with words lets us put a stake in the ground early with the flexibility to shift our implementation as
@@ -161,8 +161,8 @@ else’s work to support class discussions and peer critiques. In <ref linkend="
 it might look for each student to have a page, where students can see which assignments are
 completed, can review old assignments or complete a new one.</p>
 <figure id="fig.mock_student_page">
-  <title>Mock Student Page</title>
-  <imagedata fileref="images/intro/mock_student_page.png" />
+  <title>Figure 2.4: Figure 2.4: Mock Student Page</title>
+  <imagedata fileref="images/intro/mock_student_page.png"/>
 </figure>
 <p>The application we’re building will have key elements which are part of almost every web application, so that you can take
 what you learn in this book and build your own app.</p>

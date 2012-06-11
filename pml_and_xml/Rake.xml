@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
 <chapter id="ch.rake" number="8">
   <title>Rake Helps us Organize Our Ruby Scripts</title>
@@ -37,7 +38,7 @@
   <p>
     create a rake db:seed task (test first)
   getting rails environment to be loaded in the task
-  task :add_students => :environment do; #code; end
+  task :add_students =&gt; :environment do; #code; end
   also, if you want to specify the environment to run the code in, you can do rake add_students RAILS_ENV=production
   eager loading
 (http://stackoverflow.com/questions/4300240/rails-3-rake-task-cant-find-model-in-production) 

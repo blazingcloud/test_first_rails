@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
 <chapter id="ch.activerecord" number="6">
 <title>Exploring ActiveRecord</title>
-<p>Remember how we created a <ic>person</ic> object with the <ic>generate scaffold</ic> command, in <ref
-linkend="ch.firstapp"/>?  Our scaffold generated a <class>Person</class> class. The <class>Person</class> class and its
+<p>Remember how we created a <ic>person</ic> object with the <ic>generate scaffold</ic> command, in <ref linkend="ch.firstapp"/>?  Our scaffold generated a <class>Person</class> class. The <class>Person</class> class and its
 corresponding <ic>people</ic> table is our model. The model represents a single row in the database table.</p>
 
 <p>ActiveRecord, the <emph>model</emph> in the Rails Model-View-Controller pattern, lets us easily create, retrieve,
@@ -69,19 +69,19 @@ $ rails c
 <p>Our model class is available in the console without having to <ic>require</ic> the file. Here we can see that Rails
 is Ruby and we can create a Person object, just like any Ruby class:</p>
 <code language="irb">
-> p = Person.new
-=> #<Person id: nil, given_name: nil, surname: nil, created_at: nil,
-updated_at: nil> 
+&gt; p = Person.new
+=&gt; #<Person/>nil, given_name: nil, surname: nil, created_at: nil,
+updated_at: nil&gt; 
 </code>
 <p>Let's take a look at the return value of <ic>Person.new</ic>.  It displays the attributes of our newly created person (id, given_name, surname, created_at, updated_at).  If we think back to when we were making new <class>Person</class> objects in <ref linkend="ch.ruby-intro"/>, We will remember that the return of <ic>Person.new</ic> did not include the object's attributes. So what changed?  The answer is that the Rails ActiveRecord::Base class
 overrides the built-in <method>inspect</method> method to give us extra data about its attributes.</p>
 
 <p>Now that we have an instance of our <class>Person</class> class to play with, we can see how ActiveRecord provides methods that write directly to the database without our needing to write any SQL:</p>
 <code language="irb">
-ruby-1.9.2-p0 > p = Person.new(:given_name => "Adele", :surname => "Goldstein")
- => #<Person id: nil, given_name: "Adele", surname: "Goldstein", created_at: 
- nil, updated_at: nil> 
-ruby-1.9.2-p0 > p.save
+ruby-1.9.2-p0 &gt; p = Person.new(:given_name =&gt; "Adele", :surname =&gt; "Goldstein")
+ =&gt; #<Person/>nil, given_name: "Adele", surname: "Goldstein", created_at: 
+ nil, updated_at: nil&gt; 
+ruby-1.9.2-p0 &gt; p.save
 </code>
 <p>After calling <method>save</method> on our new <class>Person</class> object, we have
 actually written data to our SQL database. We can browse to <url>http://localhost:3000/people</url> and see Adele Goldstein
@@ -100,7 +100,7 @@ ActiveRecord has already been accessed this won’t work. We must do this at the
 <code language="session">
 $ rails c
 Loading development environment (Rails 3.0.1)
->> ActiveRecord::Base.logger = Logger.new(STDOUT)
+&gt;&gt; ActiveRecord::Base.logger = Logger.new(STDOUT)
 </code>
 <p>
 The ActiveRecord class <ic>logger</ic> attribute references another class for logging debug
@@ -112,47 +112,47 @@ constant referencing an output stream for the console or terminal where we are r
 the log output right where we can see it.</p>
 <p>Let’s start by creating another instance of the <class>Person</class> class:</p>
 <code language="irb">
->> bret = Person.new
+&gt;&gt; bret = Person.new
 </code>
 <p>This is just an in-memory representation of a <class>Person</class> object.
   All of the columns in the people database table are available as attributes of the instance, which is just shorthand
   for saying that there is a getter and a setter for each column in the database:</p>
 <code language="irb">
->> bret.given_name = "Bret"
->> bret.surname = "Smith"
->> bret
-=> #<Person id: nil, given_name: "Bret", surname: "Smith", present: nil, 
-created_at: nil, updated_at: nil> 
+&gt;&gt; bret.given_name = "Bret"
+&gt;&gt; bret.surname = "Smith"
+&gt;&gt; bret
+=&gt; #<Person/>nil, given_name: "Bret", surname: "Smith", present: nil, 
+created_at: nil, updated_at: nil&gt; 
 </code>
 <p>
 If we try to access an attribute that is not defined in the people table, Ruby will raise a NoMethodError:</p>
 <code language="irb">
->> bret.xxx
+&gt;&gt; bret.xxx
 NoMethodError: undefined method `xxx' for #<Person:0x0000010290a5d0>
 	from .../attribute_methods.rb:364:in `method_missing'
-</code>
+</Person:0x0000010290a5d0>
 <p>We commonly use the Ruby hash syntax which we learned about in <ref linkend="ch.rspec-intro"/>. The
 <class>ActiveRecord</class>
 constructor allows us to supplying a hash of name-value pairs for each attribute
 that we want to set:</p>
 <code language="irb">
->> may = Person.new(:given_name => "May", :surname => "Fong") 
- => #<Person id: nil, given_name: "May", surname: "Fong", present: nil, 
-created_at: nil, updated_at: nil> 
+&gt;&gt; may = Person.new(:given_name =&gt; "May", :surname =&gt; "Fong") 
+ =&gt; #<Person/>nil, given_name: "May", surname: "Fong", present: nil, 
+created_at: nil, updated_at: nil&gt; 
 </code>
-<p></p>
+<p/>
 <p> We can see that
 the id is <ic>nil</ic>, indicating an unsaved record for the object that we created. Setting attributes on the Ruby object doesn’t commit them to the database. We have just created objects that exist only in-memory. We can also call:</p>
 <code language="irb">
->> may.new_record?
-=> true
+&gt;&gt; may.new_record?
+=&gt; true
 </code>
 <p>
 <class>ActiveRecord</class> keeps track of whether a model just exists in memory or has been committed to the
 database. Let’s save the model now, but this time we are logging to <ic>STDOUT</ic> so we will see the SQL commands too:
 </p>
 <code language="irb">
->> may.save
+&gt;&gt; may.save
   SQL (0.3ms)   SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
@@ -160,7 +160,7 @@ database. Let’s save the model now, but this time we are logging to <ic>STDOUT
   SQL (11.9ms)  INSERT INTO "people" ("created_at", "given_name", "surname", 
   "present", "updated_at") VALUES ('2010-09-06 07:09:18.238744', 'May',
   'Fong', NULL, '2010-09-06 07:09:18.238744')
- => true 
+ =&gt; true 
 bret.save
 </code>
 
@@ -170,38 +170,38 @@ if there is an error. Now we can see that <method>new_record?</method>  will ret
   that our <ic>may</ic> object now has values for id, created_at, and updated_at, which were automatically assigned when
   the record was saved.  Of course, the <ic>bret</ic> record can also be saved.  Whether we create an instance of the <class>Person</class> class with attributes passed to the constructor or set them later, the instance will save the current value of that attribute.</p>
 <code language="irb">
->> may.new_record?
-=> false
->> may
-=> #<Person id: 1, given_name: "May", surname: "Fong", present: nil, 
-created_at: "2010-09-06 07:09:18", updated_at: "2010-09-06 07:09:18"> 
+&gt;&gt; may.new_record?
+=&gt; false
+&gt;&gt; may
+=&gt; #<Person/>1, given_name: "May", surname: "Fong", present: nil, 
+created_at: "2010-09-06 07:09:18", updated_at: "2010-09-06 07:09:18"&gt; 
 </code>
 <p>
   ActiveRecord also tracks whether any attributes have been modified, so that if we call save again, it won’t actually
   call the database if we haven't modified anything. Since we’re logging to the console, we can see
   that nothing happens when we call save again without setting any attributes:</p>
 <code language="irb">
->> may.save
- => true 
+&gt;&gt; may.save
+ =&gt; true 
 </code>
 
 <p>
   We can look at individual attributes to see which ones have changed:</p>
 <code language="irb">
->> may.surname 
- => "Fong" 
->> may.surname_changed?
- => false 
->> may.surname = "Woo"
- => "Woo" 
->> may.surname_changed?
- => true 
->> may.changed?
- => true 
->> may.save
+&gt;&gt; may.surname 
+ =&gt; "Fong" 
+&gt;&gt; may.surname_changed?
+ =&gt; false 
+&gt;&gt; may.surname = "Woo"
+ =&gt; "Woo" 
+&gt;&gt; may.surname_changed?
+ =&gt; true 
+&gt;&gt; may.changed?
+ =&gt; true 
+&gt;&gt; may.save
   SQL (40.4ms)  UPDATE "people" SET "surname" = 'Woo', 
   "updated_at" = '2010-09-06 07:14:08.497625' WHERE ("people"."id" = 1)
- => true 
+ =&gt; true 
 </code>
 
 <p>
@@ -209,12 +209,12 @@ created_at: "2010-09-06 07:09:18", updated_at: "2010-09-06 07:09:18">
 <p>In Rails, there is a shortcut that does both new and save in a single operation:</p>
 
 <code language="irb">
->>john = Person.create(:given_name => "John", :surname => "Woo")
+&gt;&gt;john = Person.create(:given_name =&gt; "John", :surname =&gt; "Woo")
   SQL (0.4ms)  INSERT INTO "people" ("created_at", "given_name", "surname",
   "present", "updated_at") VALUES ('2010-09-06 20:46:13.660208', 'John', 
   'Woo', NULL, '2010-09-06 20:46:13.660208')
- => #<Person id: 3, given_name: "John", surname: "Woo", present: nil,
- created_at: "2010-09-06 20:46:13", updated_at: "2010-09-06 20:46:13"> 
+ =&gt; #<Person/>3, given_name: "John", surname: "Woo", present: nil,
+ created_at: "2010-09-06 20:46:13", updated_at: "2010-09-06 20:46:13"&gt; 
 </code>
 <p>We can use the <method>create</method> method to set attributes and save the record in one step. Like
   <method>new</method>, it is a method on the class, rather than the instance.</p>
@@ -235,13 +235,11 @@ quickly find first, last or all records.  Each of these methods trigger a databa
 <p>To get an array of <class>Person</class> objects for all of the data in the database we can call
 <ic>Person.all</ic>, but the output in the rails console is a little hard to read:</p>
 <code language="session">
->> Person.all
- => [#<Person id: 1, given_name: "May", surname: "Woo", created_at: 
- "2011-01-18 05:25:15", updated_at: "2011-01-18 05:25:15">, #<Person 
- id: 2, given_name: "Bret", surname: "Smith", created_at: 
- "2011-01-18 05:25:29", updated_at: "2011-01-18 05:25:29">, #<Person 
- id: 3, given_name: "John", surname: "Woo", created_at: 
- "2011-01-18 05:25:39", updated_at: "2011-01-18 05:25:39">] 
+&gt;&gt; Person.all
+ =&gt; [#<Person/>1, given_name: "May", surname: "Woo", created_at: 
+ "2011-01-18 05:25:15", updated_at: "2011-01-18 05:25:15"&gt;, #<Person/>2, given_name: "Bret", surname: "Smith", created_at: 
+ "2011-01-18 05:25:29", updated_at: "2011-01-18 05:25:29"&gt;, #<Person/>3, given_name: "John", surname: "Woo", created_at: 
+ "2011-01-18 05:25:39", updated_at: "2011-01-18 05:25:39"&gt;] 
 </code>
 <p>To make the output easier to read, we can display it in YAML format by using the handy  <ic>y</ic>
 command and passing it the array of <class>Person</class> objects resulting from the ActiveRecord call.  This not
@@ -249,7 +247,7 @@ only shows attributes that are generated from the database columns, but also oth
 of <ic>changed_attributes</ic> and various flags for understanding the state of the object relative to the database:</p>
 
 <code language="session">
->> y Person.all
+&gt;&gt; y Person.all
 --- 
 - !ruby/object:Person 
   attributes: 
@@ -280,22 +278,22 @@ of <ic>changed_attributes</ic> and various flags for understanding the state of 
 <p> The simplest way to find something specific in the database is to call <ic>where</ic> with a hash of attributes to
 match:</p>
 <code language="session">
->> Person.where(:given_name => "Bret")
+&gt;&gt; Person.where(:given_name =&gt; "Bret")
   SQL (0.4ms)   SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
   Person Load (0.2ms)  SELECT "people".* FROM "people" 
   WHERE ("people"."given_name" = 'Bret')
- => [#<Person id: 2, given_name: "Bret", surname: 
+ =&gt; [#<Person/>2, given_name: "Bret", surname: 
  "Smith", created_at: "2011-01-18 05:25:29", updated_at: 
- "2011-01-18 05:25:29">] 
+ "2011-01-18 05:25:29"&gt;] 
 </code>
 <p>Check out what happens when we look for something with a single quote in it:</p>
 <code language="session">
->> Person.where(:surname => "O'Henry")
+&gt;&gt; Person.where(:surname =&gt; "O'Henry")
   Person Load (0.2ms)  SELECT "people".* FROM "people" WHERE
   ("people"."surname" = 'O''Henry')
- => [] 
+ =&gt; [] 
 </code>
 <p>Rails automatically applies the appropriate escape characters so that the single quote doesn't cause a SQL
 error.</p>
@@ -305,20 +303,20 @@ error.</p>
 commands. Here's an example that shows how the built-in escapting in Rails
 protects us:</p>
 <code language="session">
->> Person.where(:given_name => "Bret'; DROP TABLE PEOPLE; --")
+&gt;&gt; Person.where(:given_name =&gt; "Bret'; DROP TABLE PEOPLE; --")
   Person Load (0.2ms)  SELECT "people".* FROM "people" 
   WHERE ("people"."given_name" = 'Bret''; DROP TABLE PEOPLE; --')
- => []   
+ =&gt; []   
 </code>
 <p>When we specify two name-value pairs in the hash, this is interpreted as an AND operation because that is the most
 common.</p>
 
 <code language="session">
->> Person.where(:given_name => 'May', :surname => 'Woo')
+&gt;&gt; Person.where(:given_name =&gt; 'May', :surname =&gt; 'Woo')
   Person Load (0.3ms)  SELECT "people".* FROM "people"
   WHERE ("people"."given_name" = 'May') AND ("people"."surname" = 'Woo')
- => [#<Person id: 1, given_name: "May", surname: "Woo",
-created_at: "2011-01-18 05:25:15", updated_at: "2011-01-18 05:25:15">] 
+ =&gt; [#<Person/>1, given_name: "May", surname: "Woo",
+created_at: "2011-01-18 05:25:15", updated_at: "2011-01-18 05:25:15"&gt;] 
 </code>
 <p>If we need to do other kinds of operations we need to write a snippet of SQL that will be passed in as the
 <ic>WHERE</ic> class of the <ic>SELECT</ic> statements. When writing SQL in our code, it is just as important to escape text
@@ -326,15 +324,15 @@ that may have come from an end user. To make our
 code invulnerable from a SQL injection attack, we can include a &lquot;?&rquot; anywhere in the string, then pass the
 variables to escape and insert as additional parameters:</p>
 <code language="irb">
->> first = "May"
- => "May" 
->> last = "Woo"
- => "Woo" 
->> Person.where("given_name = ? AND surname = ?", first, last)
+&gt;&gt; first = "May"
+ =&gt; "May" 
+&gt;&gt; last = "Woo"
+ =&gt; "Woo" 
+&gt;&gt; Person.where("given_name = ? AND surname = ?", first, last)
   Person Load (0.2ms)  SELECT "people".* FROM "people" 
   WHERE (given_name = 'May' AND surname = 'Woo')
- => [#<Person id: 1, given_name: "May", surname: "Woo", created_at: 
- "2011-01-18 05:25:15", updated_at: "2011-01-18 05:25:15">] 
+ =&gt; [#<Person/>1, given_name: "May", surname: "Woo", created_at: 
+ "2011-01-18 05:25:15", updated_at: "2011-01-18 05:25:15"&gt;] 
 </code>
 <p>Also, when writing raw SQL, we need to be careful to avoid
 database-specific SQL commands or be aware that we are introducing a dependency on our specific database. Most of the
@@ -352,11 +350,11 @@ such as <method>each</method> is called on the result or when looking as a speci
 <p>For example, we could find everyone with the surname “Woo” and sort the records by “given_name.” Even though these
 are two method calls, there will be only one SQL query:</p>
 <code language="session">
-  Person.where(:surname => "Woo").order(:given_name)
+  Person.where(:surname =&gt; "Woo").order(:given_name)
 </code>
 <p>In the next example we select just one record. A single SQL query which returns a single record from the database: </p>
 <code language="session">
-  Person.where(:surname => "Woo").order(:given_name).limit(1)
+  Person.where(:surname =&gt; "Woo").order(:given_name).limit(1)
 </code>
 <p>Order may be called with a string or a symbol for the same result:</p>
 <code language="session">
@@ -368,7 +366,7 @@ are two method calls, there will be only one SQL query:</p>
 </code>
 <p>The ActiveRecord query methods may be called in any sequence:</p>
 <code language="session">
-  Person.order("given_name").where(:surname => "Woo")
+  Person.order("given_name").where(:surname =&gt; "Woo")
 </code>
  
  <p>For more on detail on ActiveRecord queries, you should read the very good Rails
@@ -380,23 +378,23 @@ are two method calls, there will be only one SQL query:</p>
 The ActiveRecord query language returns an ActiveRecord::Relation object, but when we set the ActiveRecord
 logger to STDOUT we can see that the query is executed in irb.</p>
 <code language="irb">
->> result = Person.where(:given_name => "May")
+&gt;&gt; result = Person.where(:given_name =&gt; "May")
   Person Load (0.3ms)  SELECT "people".* FROM "people" 
   WHERE ("people"."given_name" = 'May')
- => [#<Person id: 1, given_name: "May", surname: "Woo", present: nil, 
- created_at: "2010-09-06 07:09:18", updated_at: "2010-09-06 07:14:08">] 
+ =&gt; [#<Person/>1, given_name: "May", surname: "Woo", present: nil, 
+ created_at: "2010-09-06 07:09:18", updated_at: "2010-09-06 07:14:08"&gt;] 
 </code>
 <p>Irb always calls the <method>inspect</method> method on whatever is returned and then prints that to the console.  Inspect will trigger ActiveRelation to execute its SQL query so that it can report the results.  To see this, let’s try:</p>
 <code language="irb">
->> result = Person.where(:given_name => "May"); nil
- => nil 
->> result.class
- => ActiveRecord::Relation 
->> result.limit(1)
+&gt;&gt; result = Person.where(:given_name =&gt; "May"); nil
+ =&gt; nil 
+&gt;&gt; result.class
+ =&gt; ActiveRecord::Relation 
+&gt;&gt; result.limit(1)
   Person Load (0.3ms)  SELECT "people".* FROM "people" WHERE 
   ("people"."given_name" = 'May')
- => [#<Person id: 1, given_name: "May", surname: "Woo", present: nil, 
- created_at: "2010-09-06 07:09:18", updated_at: "2010-09-06 07:14:08">] 
+ =&gt; [#<Person/>1, given_name: "May", surname: "Woo", present: nil, 
+ created_at: "2010-09-06 07:09:18", updated_at: "2010-09-06 07:14:08"&gt;] 
 </code>
 <p>By adding <ic>; nil</ic> to the end of a line in irb, we avoid causing irb to call the <ic>inspect</ic> method on the
 result. This keeps the <class>ActiveRecord::Relation</class> object from calling the database, and allows us to
@@ -404,7 +402,7 @@ call <method>limit</method> on the object before evaluating it, and therefore, c
 to the database.</p>
 </joeasks>
 </sect2>
-</sect1>
+</code>
 
 
 <sect1>
@@ -414,11 +412,11 @@ to the database.</p>
 <code language="session">
 $ rails server
 </code>
-<p>When we browse to <url>http://localhost:3000/people</url> we see a page like <ref linkend="fig.people_index_with_3_records" /></p>
+<p>When we browse to <url>http://localhost:3000/people</url> we see a page like <ref linkend="fig.people_index_with_3_records"/></p>
 
 <figure id="fig.people_index_with_3_records">
-  <title>People Index Page</title>
-  <imagedata fileref="images/class_app/people_index_with_3_records.png" />
+  <title>Figure 6.1: Figure 6.1: People Index Page</title>
+  <imagedata fileref="images/class_app/people_index_with_3_records.png"/>
 </figure>
 
 
@@ -443,10 +441,10 @@ be.</p>
   saving, we add a validation to the model:</p>
 <code file="code/class_app_new/01a_active_record/app/models/person.rb"/>
 <p>With this change, if we attempt to save a blank record, it fails to save and the error will be reported in the web
-interface, with a page like <ref linkend="fig.given_name_cant_be_blank" />.</p>
+interface, with a page like <ref linkend="fig.given_name_cant_be_blank"/>.</p>
 <figure id="fig.given_name_cant_be_blank">
-  <title>Validation Error</title>
-  <imagedata fileref="images/class_app/given_name_cant_be_blank.png"  />
+  <title>Figure 6.2: Figure 6.2: Validation Error</title>
+  <imagedata fileref="images/class_app/given_name_cant_be_blank.png"/>
 </figure>
 
 <p>
@@ -455,22 +453,22 @@ interface, with a page like <ref linkend="fig.given_name_cant_be_blank" />.</p>
   reload.  If you had left the console open in another window, you’ll need to restart the console or use the
   <commandname>reload!</commandname> command to reload the Rails app.</p>
 <code language="irb">
->> person = Person.new
- => #<Person id: nil, given_name: nil, surname: nil, present: nil, 
- created_at: nil, updated_at: nil> 
->> person.save
- => false 
+&gt;&gt; person = Person.new
+ =&gt; #<Person/>nil, given_name: nil, surname: nil, present: nil, 
+ created_at: nil, updated_at: nil&gt; 
+&gt;&gt; person.save
+ =&gt; false 
 </code>
 <p>
   The <method>save</method> method now returns false.  We can inspect what failed by looking at the errors on the person object. </p>
 <code language="irb">
->> person.errors
-=>{:given_name=>["can't be blank"]}
+&gt;&gt; person.errors
+=&gt;{:given_name=&gt;["can't be blank"]}
 </code>
    <p>We can also test for validation errors without attempting to save.  Calling <ic>valid?</ic> will also set errors if one or more validations fail.</p>
 <code language="irb">
->> person.valid?
-=> false 
+&gt;&gt; person.valid?
+=&gt; false 
 </code>
  <p>
   If a validation fails, the <method>save</method> or <method>create</method> methods will return false.  To save the person object and throw an  exception if
@@ -478,7 +476,7 @@ interface, with a page like <ref linkend="fig.given_name_cant_be_blank" />.</p>
   <method>create!</method>. An exclamation point, which most people call “bang,” as the last character of a
   method name is a convention in Rails where the method will raise an exception if it fails.</p>
 <code language="irb">
-> person.save!
+&gt; person.save!
 ActiveRecord::RecordInvalid: Validation failed: given name can't be blank
 ...stack trace follows...
 </code>
@@ -489,5 +487,6 @@ ActiveRecord::RecordInvalid: Validation failed: given name can't be blank
 <p>We just learned how to create data, give it a home, and find it when we need it.  We now know about SQL injection and how to keep our data safe.  Validations have given us the tools we need to ensure that we are saving well formed data.</p> 
 
 <p>Now that we have a solid base of ActiveRecord skills, we are ready to begin creating ActiveRecord models test first.</p>
+</sect1>
 </sect1>
 </chapter>
