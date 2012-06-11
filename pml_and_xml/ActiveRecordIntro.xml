@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
-<chapter id="ch.activerecord" number="5">
+<chapter id="ch.activerecord" number="6">
 <title>Exploring ActiveRecord</title>
 <p>Remember how we created a <ic>person</ic> object with the <ic>generate scaffold</ic> command, in <ref
 linkend="ch.firstapp"/>?  Our scaffold generated a <class>Person</class> class. The <class>Person</class> class and its

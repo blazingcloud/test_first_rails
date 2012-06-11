@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
+<?xml version="1.0" encoding="ISO-8859-1"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
 <chapter id="ch.ruby-intro" number="1">  
   <title>An Introduction to Ruby</title>
@@ -25,9 +25,11 @@ lights or doing the dishes. When we define these actions in a class, we call the
 functionality.  Most of the time we need to create our own classes so that our applications can do what we need them to
 do. As an object-oriented language, Ruby allows Rails to provide powerful classes that encapsulate common patterns of
   web application development. We often create our own classes or <firstuse>sublcass</firstuse> core Rails classes,
-  extending them with custom behavior.<ed>THis section feels like it belongs in the "before you start" chapter. It
-  doesn't fit with "who should read this book"</ed><author>Sarah: After trying it everywhere else, I think it belongs
-  back here. Also re-wrote it some, so hoping it works better now.</author></p>
+  extending them with custom behavior.<ed>THis section feels like it belongs in the "before you start" chapter. In other words, one class can provide a structure we use over and over again to make many objects. We make
+  objects from a class like we make a house from a blueprint. Each house we make has a color, a neighborhood, lights that
+  turn on and dishes to be cleaned.  Some houses that we make might be red, others brown, but we still need only that one
+  blueprint to It
+  doesn't fit with "who should read this book"</ed></p>
   <ref linkend="ch.ruby-intro"/>
 
     </joeasks>
@@ -670,12 +672,13 @@ storage is called <ic>assigns</ic>, which we’ll use when we’re testing.</p>
 
 <chapter id="ch.start">
   <title>Before You Start</title>
-  
+  <code file="code/class_app_new/01a_active_record/spec/models/course_spec.rb"/> 
   <p>On line <cref linkend="code.spec_helper"/>, the spec requires <filename>spec_helper</filename> which was created with
 the <commandname>rspec:install</commandname> generator and provides Rails-specific configuration for RSpec and our Rails
 testing. We can see, on line <cref linkend="code.course_describe"/>, that this spec will test our
 <class>Course</class> class, using the same syntax we are familiar with from testing our
 <class>Person</class> class in Ruby.</p>
+  <author>Sarah: the a was out of place, moved to more *general* english-y term “information”</author>
   
   <p>Before we start coding we want to be sure we have our development set up with all of the tools that we need.  This
   chapter explains what we need on our system to build applications in Ruby on Rails. If
@@ -688,6 +691,7 @@ testing. We can see, on line <cref linkend="code.course_describe"/>, that this s
 $ rails -v
 Rails 3.0.3
 </code>
+<ed>I bet we're not!?</ed>
 <p><ed>here too, you've got a mix of we and you. It's probably ok to stick with "you" here. </ed>To get the most out of this book, we should all be using the same version of Rails. Any version that starts with 3.0
 is fine (like 3.0.1 or 3.0.3). If you don’t have the right
 version or got an error when you tried to run the <commandname>rails</commandname> command, keep reading and we’ll help you
@@ -846,7 +850,8 @@ moving and copying files as we use on Mac and Linux.</p>
 </dl>
 </sect2>
 </sect1>
-
+<author>Sarah: After trying it everywhere else, I think it belongs
+back here. Also re-wrote it some, so hoping it works better now.</author>
 <p>On line <cref linkend="code.spec_helper"/>, the spec requires <filename>spec_helper</filename> which was created with
 the <commandname>rspec:install</commandname> generator and provides Rails-specific configuration for RSpec and our Rails
 testing. We can see, on line <cref linkend="code.course_describe"/>, that this spec will test our

@@ -1,11 +1,11 @@
 class RubyStringifier
+  
   def stringify(file, part=nil) 
-    @string_code = ''
-
     @start = false
     @end = false
     @extract = false
-    @labels = []
+    @string_code = ''
+    @labels = {}
 
     if part != nil
       line_number = 1
@@ -47,7 +47,7 @@ class RubyStringifier
   end
    
   def comment?(line)
-    line.include?("# ") || line.include?("#START") || line.include?("#END") || line.include?("<!--")
+    line.include?("START") || line.include?("END") || line.include?("<!--")
   end  
     
   def escape_symbols(line)
@@ -65,10 +65,10 @@ class RubyStringifier
   
   def find_labels(line, number)
   	id = ''
-  	if line.include?("#<label id")
-      id = line.slice!(/#<label\sid=".*"\s?\/>/).slice(/".*"/).slice(/[^"]+/)
+  	if line.slice(/#\s?<label id/)
+      id = line.slice!(/#\s?<label\sid=".*"\s?\/>/).slice(/".*"/).slice(/[^"]+/)
   		line = "<a class='label' id='#{id}'>" + line + "</a>"
-      @labels << {'id' => id, 'line_number' => number}
+      @labels[id] = number
     end
   	line
   end
@@ -77,10 +77,5 @@ class RubyStringifier
   	@labels
   end
 end
-
-
-
-
-
 
 

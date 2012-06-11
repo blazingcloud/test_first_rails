@@ -1,6 +1,8 @@
+# encoding: ISO-8859-1
 require 'rubygems'
 require 'nokogiri'
 
+# DIR = File.dirname(__FILE__)
 require "#{DIR}/ruby_stringifier.rb"
 
 class Parser
@@ -107,11 +109,11 @@ class Parser
       attribute_2 = tag.attributes['part'] 
       if attribute_1 && attribute_2
         @string_code = @stringifier.stringify("#{attribute_1}", "#{attribute_2}")
-    	replace_cref(@stringifier.get_labels) if @stringifier.get_labels != nil
+    	  replace_cref(@stringifier.get_labels) if !@stringifier.get_labels.empty?
         @string_document.gsub!(/<code\sfile="(#{attribute_1})"\s+part="(#{attribute_2})"\s*\/>/, "<pre class='external'>#{@string_code}\n</pre>")
       elsif attribute_1 != nil
         @string_code = @stringifier.stringify("#{attribute_1}")
-		replace_cref(@stringifier.get_labels) if @stringifier.get_labels != nil
+		    replace_cref(@stringifier.get_labels) if !@stringifier.get_labels.empty?
         @string_document.gsub!(/<code\sfile="(#{attribute_1})"\s*\/>/, "<pre class='external'>#{@string_code}\n</pre>")
       end
       @stringifier.dump
@@ -121,8 +123,9 @@ class Parser
   end
     
   def remove_tag(xml_tag)
-  	while @string_document.slice(/<#{xml_tag}>.*\n*.*<\/#{xml_tag}>/) != nil
-  		@string_document.slice!(/<#{xml_tag}>.*\n*.*<\/#{xml_tag}>/)
+    @string_document.force_encoding('ISO-8859-1') 
+  	while @string_document.slice(/<#{xml_tag}>[a-zA-Z\s\.\n\"\'\,\?\d\)\(\’\—\:\-“”\*\!]*<\/#{xml_tag}>/) != nil
+      @string_document.slice!(/<#{xml_tag}>[a-zA-Z\s\.\n\"\'\,\?\d\)\(\’\—\:\-“”\*\!]*<\/#{xml_tag}>/)
   	end
   	@string_document
   end
@@ -134,7 +137,7 @@ class Parser
   end
   
   def add_css
-    @string_document.gsub!(/<!DOCTYPE\s+html>/, "<!DOCTYPE html>\n<head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>")
+    @string_document.gsub!(/<!DOCTYPE\s+html>/, "<!DOCTYPE html>\n<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>\n<head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>")
     @string_document
   end
     
@@ -200,17 +203,11 @@ class Parser
   def replace_cref(labels)
   	line_number = ''
   	@document.css('cref').each do |tag|
-      attribute = tag.attributes['linkend']
-      if @string_document.slice(/<cref\n(.*)linkend="(#{attribute})"\s*\/>/)
-      	labels.each do |label|
-      		line_number = label['line_number'] if label['id'] == "#{attribute}"
-      	end
-        @string_document.gsub!(/<cref\n(.*)linkend="(#{attribute})"\s*\/>/, "<a class='cref' href='##{attribute}'>#{line_number}</a>")
-      elsif @string_document.slice(/<cref\slinkend="(#{attribute})"\s*\/>/)
-		    labels.each do |label|
-      		line_number = label['line_number'] if label['id'] == "#{attribute}"
-      	end
-        @string_document.gsub!(/<cref\slinkend="(#{attribute})"\/>/, "<a class='cref' href='##{attribute}'>#{line_number}</a>")
+      attribute = tag.attributes['linkend'].to_s
+      labels.each do |id, line_number|
+        if id == attribute
+          @string_document.gsub!(/<cref\slinkend="(#{attribute})"\/>/, "<a class='cref' href='##{attribute}'>#{line_number}</a>")
+        end
       end
     end
     @string_document
@@ -353,3 +350,8 @@ class Parser
   end
     
 end
+
+# 
+# parser = Parser.new
+# parser.load('chapter.xml')
+# parser.remove_author

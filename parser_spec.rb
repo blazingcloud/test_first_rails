@@ -1,3 +1,4 @@
+# encoding: ISO-8859-1
 require 'rubygems'
 require 'rspec'
 require 'nokogiri'

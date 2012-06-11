@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>  <!-- -*- xml -*- -->
 <!DOCTYPE chapter SYSTEM "local/xml/markup.dtd">
-<chapter id="ch.preface">
+<chapter id="ch.preface" number="1">
 <title>Come On In</title>
 <p>We’re diving into Ruby on Rails test first. We’ll be using techniques designed to create robust production code that
 can be delivered quickly and adapt nimbly to new business requirements. We’ll experience testing as a software

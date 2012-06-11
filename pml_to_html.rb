@@ -58,10 +58,9 @@ else
       end
     end
   end
-  kit = PDFKit.new(whole_html, :page_size => 'Letter')
+  kit = PDFKit.new(whole_html, {:disable_smart_shrinking => true, :margin_right => '0.5in'})
   kit.to_file("./Test_First_With_Rails.pdf")
   puts " Done! "
-  puts "Find your HTML and PDF file in pml_to_html"
   
 end
 
