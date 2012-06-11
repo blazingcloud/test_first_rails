@@ -1,13 +1,4 @@
 <html>
-	<head>
-	<style text="type/css">
-	a{
-		text-decoration:none;
-	}
-	</style>
-	</head>
-	
-	<body>
 		<h2>Table Of Contents</h2>
 		<div>
 		<ol class="toc">
@@ -24,9 +15,9 @@
 			<li><a href="html/ControllersRSpec.html">Understanding Controllers through Testing</a></li>
 		</ol>
 		</div>
-	</body>
 </html>
 <!DOCTYPE html>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
 <div class='chapter' id='ch.preface' number='1'>
 <h2 class='chapter_title'>Come On In</h2>
@@ -186,18 +177,7 @@ capybara (0.4.1.2)
 </pre>
 <p>Now you have everything you need to build Ruby on Rails web applications test first.</p>
 
-<p><ed>This is a little strange.... this whole section seemed full of tagents. The "do I have to use a db" part, the
-diversion into the various types of databases and the consoles... one of that seems like it belongs in a "how to get set
-up" section, which is what this started out as. I know you think this info is important, but does your reader need to
-know this stuff right now? Can you get them set up with Rails, SQlite, and then get us on our way? The background info
-on RSpec is good, but seems out of place with the installation instructions, especially since we probably shouldn't be
-installing the gems this way now that we have Bundler. Another thing i didn't really see is enough of a justification
-for using rspec. I could just as easily meet the same requirements with test:unit which is the default. Personally, I
-  favor Rspec, but my reasons are completely arbitrary -- I like it cos I like it.  Why are you using it? Does it belong
-  in the installation section, or should it go in another section in the preface, where you talk about Ruby and Rails? I
-  feel like it belongs there, with the IDE stuff too.</ed><author>Sarah:moved from intro to preface, some stuff in
-  appendix, installation stuff
-  will go online. This is much more concise and I think it works better.</author></p>
+<p></p>
 
 </div>
 
@@ -256,7 +236,8 @@ by understanding how to define associations with RSpec.</p>
 down controller actions, securing the entry points to our app with “before” filters. </p>
 <p>At the end of the book, inn <a class='ref' href='#ch.dunno'></a>, we’ll highlight the parts of Rails that you’ll want to learn
 next.</p> 
-<p> Through testing and experimentation, we’ll have
+<p>
+  Through testing and experimentation, we’ll have
 developed a thorough understanding of Rails. You will know
 enough to build an intranet application or kick-off the development of a small-scale web app, and you will have enough
 of a foundation to support further learning on your own to create highly-scalable consumer-facing web applications. </p>
@@ -290,6 +271,7 @@ challenge you to take what you’ve learned and write some of the application on
 </div>
 
 <!DOCTYPE html>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
 <div class='chapter' id='ch.intro' number='2'>
 <h2 class='chapter_title'>Why Test? And How We Test First</h2>
@@ -299,10 +281,7 @@ challenge you to take what you’ve learned and write some of the application on
   
   Tests give us the confidence to reinvent our code to our heart's content.  Where our human brains fail at remembering
   all the details of our code's behavior, tests succeed. We can ship sooner and more often, giving us huge competitive
-  advantage.<ed>Can you shorten this? There are a lot of adverbs (-ly) here that make
-   this a little hard to read. I'd lose "in the world of web apps" and just say "This special power leads to better
-   applications that ship sooner and have more frequent updates, giving us a huge competitive
-   advantage"</ed></p>
+  advantage.</p>
   <p>In a language, like Ruby, without a compiler, changing code can be particularly dangerous. If we change a method or class name,
   and we don’t modify every piece of code that calls it, there’s no compiler to catch the error. This can lead to a
   deceptive feeling of safety with languages like Java or C++.
@@ -433,9 +412,7 @@ on a specific business need.</p>
 opportunities to explore how Rails works. As we gain experience with each feature of Rails, we’ll use our knowledge to
 write tests to specify new behavior and drive more development.
 
-<ed>The first paragraph in this section isn't working for me at all. It follows "defining the application" section heading with "it doesn't". It just doesn't feel like it belongs here. The second paragraph doesn't really add much either because it somewhat undermines the process a bit - you're saying that what you're going to show us isn't how we will do things 
-on a real project. I don't know if you need to say that. You have two goals here. First, you want
- to get people to know enough about Rails to build something, but you want them to learn Rails through exploration and testing, rather than simply following along and banging out some code. So you may want to just come out and say that. "Throughout this book, we'll be working on a simple application that will give us many opportunities to explore how Rails works. As we gain more experience with Rails, we'll use our knowledge to write tests which we then use to drive more development." or something. </ed>
+
  
  </p>
 <p>We’ll be developing an application to manage a creative writing class. Each course has a set of assignments and students are expected to submit
@@ -470,6 +447,7 @@ that are unique to what we want people to be able to do with our application.</p
 </div>
 
 <!DOCTYPE html>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
 <div class='chapter' id='ch.ruby-intro' number='3'>  
   <h2 class='chapter_title'>An Introduction to Ruby</h2>
@@ -918,7 +896,6 @@ another method:</p>
      <pre class='external'>1     def full_name
 2       name
 3     end
-4   end	
 
 </pre>
 <p>and then call that method:</p>
@@ -1071,6 +1048,7 @@ We have learned the basics of Ruby that we will need to understand RSpec in the 
 </div>
 </div>
 <!DOCTYPE html>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
 <div class='chapter' id='ch.rspec-intro' number='4'>
   <h2 class='chapter_title'>Test First Ruby</h2>
@@ -1181,12 +1159,13 @@ expect our code to behave.</p>
 </pre>
      <p>We are using the RSpec <span class='method'>should</span> method to assert what we expect to happen in our
        code. The syntax is designed to read a bit like English.</p>
-<p>Let's take a quick tour of this code.  On line <a class='cref' href='#code.person.new'></a> we made a new <span class='rubyclass'>Person</span> object with an argument of "Hiawatha". We know that this argument will be passed into the <span class='method'>initialize</span> method and that our <span class='ic'>@name</span> instance variable will be set to "Hiawatha".  With this knowledge, on line <a class='cref' href='#code.p.full_name.should'></a> we say that we expect the <span class='method'>full_name</span> method to return the same string that we passed to <span class='ic'>Person.new</span>. We are calling the <span class='method'>should</span> method on a <span class='rubyclass'>String</span> object returned by <span class='method'>full_name</span>, but RSpec is designed so that when we are in a spec file we can call the <span class='method'>should</span> method on any object.</p>
+<p>Let's take a quick tour of this code.  On line <a class='cref' href='#code.person.new'>3</a> we made a new <span class='rubyclass'>Person</span> object with an argument of "Hiawatha". We know that this argument will be passed into the <span class='method'>initialize</span> method and that our <span class='ic'>@name</span> instance variable will be set to "Hiawatha".  With this knowledge, on line <a class='cref' href='#code.p.full_name.should'>4</a> we say that we expect the <span class='method'>full_name</span> method to return the same string that we passed to <span class='ic'>Person.new</span>. We are calling the <span class='method'>should</span> method on a <span class='rubyclass'>String</span> object returned by <span class='method'>full_name</span>, but RSpec is designed so that when we are in a spec file we can call the <span class='method'>should</span> method on any object.</p>
      <p>This is actually a <em class='emph'>test last</em> approach because we have already written the code for this example.
      Testing our code last is okay on occasion when we’re exploring how our code will work, but we always want to see our test fail first.
      We can ensure that our test fails before it passes by commenting out the implementation of the full_name method like this: </p>
      <pre class='external'>1     def full_name
-2     end
+2       # @name
+3     end
 
 </pre>
      <p>In Ruby, a comment starts with a <span class='ic'>#&#060;Proc:0x00000100bb7e10&#062;which can start anywhere on a line. </p>
@@ -1500,12 +1479,14 @@ Finished in 0.00055 seconds
     <p>So far our <span class='method'>full_name</span> method returns the same thing as our <span class='method'>given_name</span> getter method.  Our goal is for <span class='method'>full_name</span> to return the person's given name and surname together, assuming they have a surname.  If they don't have a surname, then <span class='method'>full_name</span> should just return the given name.  Let's test drive implementing the <span class='method'>surname</span> method. Our first test will be an example of what happens if the person doesn't have a surname:</p>
 			<pre class='external'>1     describe "surname" do 
 2       it "is empty if it hasn't been set" do  
-3       end
-4     end
+<a class='label' id='code.person.new.jean'>3         p = Person.new("Jean")    
+</a><a class='label' id='code.p.surname'>4         p.surname.should == ""   
+</a>5       end
+6     end
 
 </pre>
 <p>We make a new object on line
-<a class='cref' href='#code.person.new.jean'></a> and then we tell RSpec on line <a class='cref' href='#code.p.surname'></a> that we
+<a class='cref' href='#code.person.new.jean'>3</a> and then we tell RSpec on line <a class='cref' href='#code.p.surname'>4</a> that we
 expect <span class='ic'>surname</span> to be an empty string. We call this kind of example, the <em class='emph'>null test</em>.</p>
     
     <p>Since we haven’t written any code in our class to support a <span class='ic'>surname</span> attribute, we expect it to fail:</p>
@@ -1818,6 +1799,7 @@ string. In addition to string interpolation, the “\” character is used to in
 
 
 <!DOCTYPE html>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
 <div class='chapter' id='ch.firstapp' number='5'>
   <h2 class='chapter_title'>Diving Into Rails</h2>
@@ -2175,8 +2157,11 @@ and how they work in a bit, but first let’s look at how they are named.</p>
 <p>To fix this, let’s edit the file <span class='filename'>config/initializers/inflections.rb</span> changing the commented out person/people line to
 foot/feet:</p>
 <pre class='external'>1   ActiveSupport::Inflector.inflections do |inflect|
-2      inflect.irregular 'foot', 'feet'
-3   end
+2   #   inflect.plural &#47;^(ox)$&#47;i, 'code/class_app_new/00c_add_rspec/config/initializers/inflections.rben'
+3   #   inflect.singular &#47;^(ox)en&#47;i, 'code/class_app_new/00c_add_rspec/config/initializers/inflections.rb'
+4      inflect.irregular 'foot', 'feet'
+5   #   inflect.uncountable %w( fish sheep )
+6   end
 
 </pre>
 <p>Now when we go back to the console (after exiting and  starting again, <span class='commandname'>reload!</span> is not sufficient in this
@@ -2337,10 +2322,10 @@ our first record.</p>
 
 </pre>
 
-<p>On line <a class='cref' href='#code.people-index.each'></a>, in between &lt;% and %&gt; is Ruby code, where <span class='ic'>@people</span> is an instance variable containing an array of
+<p>On line <cref linkend="code.people-index.each"/>, in between &lt;% and %&gt; is Ruby code, where <span class='ic'>@people</span> is an instance variable containing an array of
 person objects which have a given_name and surname attribute. Calling <span class='method'>each</span> on the array
 iterates over the list, each time assigning the next object to the variable <span class='ic'>person</span> which is available to the
-following block of code. Notice that the loop ends on line <a class='cref' href='#code.people-index.end'></a> – you can continue a multiline
+following block of code. Notice that the loop ends on line <cref linkend="code.people-index.end"/> – you can continue a multiline
 Ruby expression with HTML interspersed. For every iteration, the inner lines HTML will be output as part of the response, so we will see a table row for each person in the collection.</p>
 <p>Inside the loop, the Ruby code is evaluated as part of the output stream. <span class='ic'>&lt;%= person.first_name
 %&gt;</span> will evaluate <span class='ic'>(person.first_name).to_s</span> and insert the result into the given HTML. If we had Fred Flintstone and Barney Rubble in our list, we would see the following HTML response:</p>
@@ -2462,6 +2447,7 @@ models, controllers and views using interactive testing with the Rails console a
 </div>
 
 <!DOCTYPE html>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
 <div class='chapter' id='ch.activerecord' number='6'>
 <h2 class='chapter_title'>Exploring ActiveRecord</h2>
@@ -2961,6 +2947,7 @@ ActiveRecord::RecordInvalid: Validation failed: given name can't be blank
 </div>
 
 <!DOCTYPE html>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
 <div class='chapter' id='ch.activerecord-rspec' number='7'>
 <h2 class='chapter_title'>Test Driving Model Development</h2>
@@ -3354,6 +3341,7 @@ the basics of models, the <em class='emph'>M</em> in the MVC pattern, gives us a
 </div>
 
 <!DOCTYPE html>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
 <div class='chapter' id='ch.rake' number='8'>
   <h2 class='chapter_title'>Rake Helps us Organize Our Ruby Scripts</h2>
@@ -3442,6 +3430,7 @@ too(http://stackoverflow.com/questions/4017069/correct-rails-3-replacement-for-e
  </div>
 
 <!DOCTYPE html>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
 <div class='chapter' id='ch.migrations' number='9'>
   <h2 class='chapter_title'>Creating Our Database Schema with Migrations</h2>
@@ -3450,6 +3439,7 @@ too(http://stackoverflow.com/questions/4017069/correct-rails-3-replacement-for-e
 </div>
 
 <!DOCTYPE html>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
 <div class='chapter' id='ch.controllers' number='10'>
   <h2 class='chapter_title'>Exploring Routes and Controllers</h2>
@@ -3987,6 +3977,7 @@ conventions.</p>
 </div>
 
 <!DOCTYPE html>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <head><link href='rubyBook.css' rel='stylesheet' type='text/css'></head>
 <div class='chapter' id='ch.controllers-rspec' number='11'>
 <h2 class='chapter_title'>Understanding Controllers through Testing</h2>
@@ -4125,7 +4116,8 @@ do the simplest thing:</p>
 <pre class='code' language='session'>
 $ touch app/views/people/index.html.erb
 </pre>
-<p>Um… huh?  In our controller spec, we’re verifying that the response is set up to render a specific template, but
+<p>Um… huh?  We just used the Unix command <span class='commandname'>touch</span> which will create an empty file if it doesn’t
+already exist  In our controller spec, we’re verifying that the response is set up to render a specific template, but
 we’re not yet checking to see if the view has anything interesting in it. We’re just making sure it is all hooked up. Let’s run the spec and see how that works:
 </p>
 <pre class='code' language='session'>
